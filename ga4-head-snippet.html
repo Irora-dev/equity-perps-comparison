@@ -1,0 +1,255 @@
+<!--
+  GA4 Setup - Add this to your <head> tag
+  Replace G-XXXXXXXXXX with your actual Measurement ID
+  
+  Option 1: Use this snippet directly (simple sites)
+  Option 2: Use the analytics.js module (recommended for SPAs/React)
+-->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Basic configuration
+  gtag('config', 'G-XXXXXXXXXX', {
+    // Enable debug mode during development (remove in production)
+    // debug_mode: true,
+    
+    // Extend cookie lifetime
+    cookie_expires: 63072000, // 2 years in seconds
+    
+    // Enable enhanced measurement (scrolls, outbound clicks, etc.)
+    // These are enabled by default in GA4, but explicit here for reference
+  });
+</script>
+
+<!--
+  INLINE EVENT TRACKING EXAMPLES
+  Use these patterns if not using the analytics.js module
+-->
+
+<script>
+// ===========================================
+// AFFILIATE CLICK TRACKING
+// ===========================================
+
+// Option 1: Data attribute based (recommended)
+// Add this to your link: <a href="..." data-affiliate="drift" data-location="comparison_table">
+document.addEventListener('click', function(e) {
+  var link = e.target.closest('[data-affiliate]');
+  if (!link) return;
+  
+  gtag('event', 'affiliate_click', {
+    platform_name: link.dataset.affiliate,
+    link_location: link.dataset.location || 'unknown',
+    button_text: link.textContent.trim(),
+    position: link.dataset.position ? parseInt(link.dataset.position) : null,
+    page_type: getPageType()
+  });
+});
+
+// Option 2: Inline onclick (simpler but less maintainable)
+// <a href="..." onclick="trackAffiliateClick('drift', 'comparison_table', 1)">
+
+function trackAffiliateClick(platform, location, position) {
+  gtag('event', 'affiliate_click', {
+    platform_name: platform,
+    link_location: location,
+    position: position,
+    page_type: getPageType()
+  });
+}
+
+// ===========================================
+// HELPER FUNCTION
+// ===========================================
+
+function getPageType() {
+  var path = window.location.pathname;
+  if (path === '/') return 'homepage';
+  if (path.indexOf('/platforms/') === 0 && path.split('/').length > 3) return 'platform_review';
+  if (path.indexOf('/platforms') === 0) return 'platforms_index';
+  if (path.indexOf('/compare/') === 0 && path.indexOf('-vs-') > -1) return 'comparison';
+  if (path.indexOf('/compare') === 0) return 'compare_index';
+  if (path.indexOf('/guides/') === 0) return 'guide';
+  return 'other';
+}
+
+// ===========================================
+// SCROLL DEPTH TRACKING
+// ===========================================
+
+(function() {
+  var milestones = [25, 50, 75, 100];
+  var tracked = {};
+
+  window.addEventListener('scroll', function() {
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var percentage = Math.round((scrollTop / docHeight) * 100);
+
+    milestones.forEach(function(milestone) {
+      if (percentage >= milestone && !tracked[milestone]) {
+        tracked[milestone] = true;
+        gtag('event', 'scroll_depth', {
+          page_type: getPageType(),
+          depth_percentage: milestone,
+          depth_pixels: Math.round(scrollTop)
+        });
+      }
+    });
+  }, { passive: true });
+})();
+
+// ===========================================
+// TIME ON PAGE TRACKING
+// ===========================================
+
+(function() {
+  var intervals = [30, 60, 120, 300];
+  var tracked = {};
+  var startTime = Date.now();
+
+  setInterval(function() {
+    var elapsed = Math.floor((Date.now() - startTime) / 1000);
+    
+    intervals.forEach(function(interval) {
+      if (elapsed >= interval && !tracked[interval]) {
+        tracked[interval] = true;
+        gtag('event', 'time_engaged', {
+          page_type: getPageType(),
+          engaged_seconds: interval
+        });
+      }
+    });
+  }, 5000);
+})();
+
+// ===========================================
+// TABLE SORT TRACKING
+// ===========================================
+
+function trackTableSort(column, direction) {
+  gtag('event', 'table_sort', {
+    sort_column: column,
+    sort_direction: direction,
+    page_type: getPageType()
+  });
+}
+
+// ===========================================
+// FILTER TRACKING
+// ===========================================
+
+function trackFilter(filterType, filterValue, resultsCount) {
+  gtag('event', 'filter_applied', {
+    filter_type: filterType,
+    filter_value: filterValue,
+    results_count: resultsCount,
+    page_type: getPageType()
+  });
+}
+
+// ===========================================
+// CALCULATOR TRACKING
+// ===========================================
+
+function trackCalculatorUse(calculatorType, tradeSizeUsd, platforms, winner) {
+  var sizeBucket = tradeSizeUsd < 100 ? '0-100'
+                 : tradeSizeUsd < 1000 ? '100-1000'
+                 : tradeSizeUsd < 5000 ? '1000-5000'
+                 : tradeSizeUsd < 10000 ? '5000-10000'
+                 : '10000+';
+
+  gtag('event', 'calculator_used', {
+    calculator_type: calculatorType,
+    trade_size_bucket: sizeBucket,
+    platforms_calculated: platforms.join(','),
+    result_winner: winner || null
+  });
+}
+
+// ===========================================
+// SEARCH TRACKING
+// ===========================================
+
+function trackSearch(term, resultsCount) {
+  gtag('event', 'search', {
+    search_term: term,
+    results_count: resultsCount
+  });
+}
+
+function trackSearchClick(term, position, resultType) {
+  gtag('event', 'search_result_click', {
+    search_term: term,
+    result_position: position,
+    result_type: resultType
+  });
+}
+
+// ===========================================
+// FAQ TRACKING
+// ===========================================
+
+function trackFaqExpand(questionTopic) {
+  gtag('event', 'faq_expanded', {
+    question_topic: questionTopic,
+    page_type: getPageType()
+  });
+}
+</script>
+
+<!--
+  EXAMPLE HTML USAGE
+  
+  Affiliate Link:
+  <a 
+    href="https://drift.trade/?ref=yourcode" 
+    data-affiliate="drift" 
+    data-location="comparison_table"
+    data-position="1"
+    target="_blank"
+    rel="noopener sponsored"
+  >
+    Visit Drift →
+  </a>
+  
+  Table Sort Button:
+  <button onclick="trackTableSort('trading_fees', 'asc')">
+    Sort by Fees ↑
+  </button>
+  
+  Filter Dropdown:
+  <select onchange="trackFilter('asset_type', this.value, document.querySelectorAll('.platform-card').length)">
+    <option value="all">All Assets</option>
+    <option value="stocks">Stocks Only</option>
+    <option value="crypto">Crypto Only</option>
+  </select>
+  
+  FAQ Accordion:
+  <details>
+    <summary onclick="trackFaqExpand('funding_rates')">
+      How do funding rates work?
+    </summary>
+    <p>Funding rates are periodic payments...</p>
+  </details>
+  
+  Search Form:
+  <form onsubmit="event.preventDefault(); doSearch()">
+    <input type="search" id="search-input" placeholder="Search platforms...">
+    <button type="submit">Search</button>
+  </form>
+  
+  <script>
+  function doSearch() {
+    var term = document.getElementById('search-input').value;
+    var results = performSearch(term); // Your search function
+    trackSearch(term, results.length);
+    displayResults(results);
+  }
+  </script>
+-->
