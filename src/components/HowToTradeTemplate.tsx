@@ -120,22 +120,73 @@ export default function HowToTradeTemplate({ stock }: HowToTradeTemplateProps) {
           </p>
         </header>
 
-        {/* Quick Summary Box */}
-        <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-6 mb-8">
-          <p className="text-lg text-gray-200">
-            <strong className="text-white">Quick Summary:</strong> You can trade {stock.name} around the clock using perpetual futures on decentralized exchanges. No brokerage account, no market hours, no trading halts. Just connect a wallet and go.
+        {/* Hero Section - Live Data */}
+        <div className="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 border border-gray-700 rounded-2xl p-6 sm:p-8 mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+            Trade {stock.name} ({stock.ticker}) Perpetuals
+          </h2>
+          <p className="text-gray-400 mb-6">
+            {stock.description}
           </p>
-          <div className="mt-4">
-            <Link
-              href={`/stocks/${stock.ticker.toLowerCase()}`}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500 text-gray-900 rounded-lg font-medium hover:bg-cyan-400 transition-colors"
+
+          {/* Best Venue and Live Price */}
+          <div className="grid md:grid-cols-2 gap-4 mb-6">
+            <div className="bg-gray-800/50 rounded-xl p-5 border border-gray-700">
+              <p className="text-gray-400 text-sm mb-2">Current Best Venue</p>
+              {loading ? (
+                <div className="h-8 w-32 bg-gray-700 rounded animate-pulse"></div>
+              ) : bestPlatform ? (
+                <p className="text-2xl font-bold" style={{ color: platformColors[bestPlatform.id] || '#fff' }}>
+                  {bestPlatform.name}
+                </p>
+              ) : (
+                <p className="text-xl text-gray-300">Hyperliquid</p>
+              )}
+              {bestVenue?.rate !== null && bestVenue?.rate !== undefined && (
+                <p className="text-gray-400 text-sm mt-1">
+                  Funding Rate: <span className={bestVenue.rate < 0 ? 'text-green-400' : 'text-yellow-400'}>
+                    {formatFundingRate(bestVenue.rate)}
+                  </span>
+                </p>
+              )}
+            </div>
+
+            <div className="bg-gray-800/50 rounded-xl p-5 border border-gray-700">
+              <p className="text-gray-400 text-sm mb-2">Live Price</p>
+              {loading ? (
+                <div className="h-8 w-32 bg-gray-700 rounded animate-pulse"></div>
+              ) : (
+                <>
+                  <p className="text-2xl font-bold text-white font-mono">
+                    {marketData?.ostium?.price || marketData?.lighter?.price || marketData?.hyperliquid?.price
+                      ? formatCurrency(marketData?.ostium?.price ?? marketData?.lighter?.price ?? marketData?.hyperliquid?.price ?? 0)
+                      : '—'}
+                  </p>
+                  {(marketData?.ostium?.change24h ?? marketData?.lighter?.change24h ?? marketData?.hyperliquid?.change24h) !== null && (
+                    <p className={`text-sm font-mono mt-1 ${(marketData?.ostium?.change24h ?? marketData?.lighter?.change24h ?? marketData?.hyperliquid?.change24h ?? 0) >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                      {formatPriceChange(marketData?.ostium?.change24h ?? marketData?.lighter?.change24h ?? marketData?.hyperliquid?.change24h ?? 0)} (24h)
+                    </p>
+                  )}
+                </>
+              )}
+            </div>
+          </div>
+
+          {/* Primary CTA */}
+          {bestPlatform && (
+            <a
+              href={bestPlatform.referralUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-xl font-semibold text-white text-lg transition-all hover:scale-105"
+              style={{ backgroundColor: platformColors[bestPlatform.id] || '#3EEFC1' }}
             >
-              Compare {stock.ticker} Trading Venues
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              Trade {stock.ticker} on {bestPlatform.name}
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
-            </Link>
-          </div>
+            </a>
+          )}
         </div>
 
         {/* Article Content */}
