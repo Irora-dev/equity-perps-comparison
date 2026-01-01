@@ -32,14 +32,22 @@ async function fetchOstiumData(): Promise<Map<string, PlatformData>> {
   const results = new Map<string, PlatformData>();
 
   try {
-    // Fetch prices
+    // Fetch prices with timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+
     const pricesRes = await fetch('https://metadata-backend.ostium.io/PricePublish/latest-prices', {
       cache: 'no-store',
-      headers: { 'Accept': 'application/json' },
+      headers: {
+        'Accept': 'application/json',
+        'User-Agent': 'EquityPerps/1.0',
+      },
+      signal: controller.signal,
     });
+    clearTimeout(timeoutId);
 
     if (!pricesRes.ok) {
-      console.error('Ostium prices fetch failed:', pricesRes.status, await pricesRes.text());
+      console.error('Ostium prices fetch failed:', pricesRes.status);
       return results;
     }
 
@@ -98,8 +106,10 @@ async function fetchOstiumData(): Promise<Map<string, PlatformData>> {
     }
 
     console.log('Ostium processed:', results.size, 'equities');
-  } catch (error) {
-    console.error('Ostium fetch error:', error);
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.error('Ostium fetch error:', err.name, err.message);
+    if (err.cause) console.error('Cause:', err.cause);
   }
 
   return results;
