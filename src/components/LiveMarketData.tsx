@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { platforms } from '@/data/platforms';
 import {
   fetchEquityMarketData,
   formatCurrency,
@@ -14,6 +15,47 @@ import {
 interface LiveMarketDataProps {
   ticker: string;
   showDetailed?: boolean;
+}
+
+// Platform info for trade buttons
+const platformInfo: Record<string, { name: string; color: string; referralUrl: string }> = {
+  ostium: {
+    name: 'Ostium',
+    color: '#10B981',
+    referralUrl: platforms.find(p => p.id === 'ostium')?.referralUrl || 'https://ostium.com',
+  },
+  lighter: {
+    name: 'Lighter',
+    color: '#6366F1',
+    referralUrl: platforms.find(p => p.id === 'lighter')?.referralUrl || 'https://lighter.xyz',
+  },
+  hyperliquid: {
+    name: 'Hyperliquid',
+    color: '#3EEFC1',
+    referralUrl: platforms.find(p => p.id === 'hyperliquid')?.referralUrl || 'https://hyperliquid.xyz',
+  },
+};
+
+// Get lowest funding rate platform from market data
+function getLowestFundingPlatform(data: EquityMarketData | null): { platform: string; rate: number } | null {
+  if (!data) return null;
+
+  const rates: { platform: string; rate: number }[] = [];
+
+  if (data.lighter?.fundingRate !== null && data.lighter?.fundingRate !== undefined) {
+    rates.push({ platform: 'lighter', rate: data.lighter.fundingRate });
+  }
+  if (data.hyperliquid?.fundingRate !== null && data.hyperliquid?.fundingRate !== undefined) {
+    rates.push({ platform: 'hyperliquid', rate: data.hyperliquid.fundingRate });
+  }
+  // Note: Ostium doesn't provide public funding rate data
+
+  if (rates.length === 0) return null;
+
+  // Find lowest absolute funding rate
+  return rates.reduce((min, curr) =>
+    Math.abs(curr.rate) < Math.abs(min.rate) ? curr : min
+  );
 }
 
 interface PlatformDataRowProps {
@@ -190,6 +232,42 @@ export default function LiveMarketData({ ticker, showDetailed = false }: LiveMar
           loading={loading}
         />
       </div>
+
+      {/* Trade Button based on best funding rate */}
+      {data && (() => {
+        const bestFunding = getLowestFundingPlatform(data);
+        if (!bestFunding) return null;
+        const info = platformInfo[bestFunding.platform];
+        if (!info) return null;
+
+        return (
+          <div className="px-4 pb-4 border-t border-gray-800 pt-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-gray-400 text-sm">Best Funding Rate</p>
+                <p className="text-white font-medium">
+                  <span style={{ color: info.color }}>{info.name}</span>
+                  <span className="text-gray-500 ml-2">
+                    ({formatFundingRate(bestFunding.rate)})
+                  </span>
+                </p>
+              </div>
+              <a
+                href={info.referralUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-white transition-all hover:scale-105"
+                style={{ backgroundColor: info.color }}
+              >
+                Trade on {info.name}
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        );
+      })()}
 
       {data && (data.ostium || data.lighter || data.hyperliquid) && (
         <div className="px-4 pb-4">

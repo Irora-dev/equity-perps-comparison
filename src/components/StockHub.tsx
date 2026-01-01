@@ -377,14 +377,14 @@ export default function StockHub() {
                     >
                       <td className="py-3 px-3">
                         <Link
-                          href={`/blog/${stock.slug}`}
+                          href={`/stocks/${stock.ticker.toLowerCase()}`}
                           className="font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
                         >
                           {stock.ticker}
                         </Link>
                       </td>
                       <td className="py-3 px-3 text-white hidden sm:table-cell">
-                        <Link href={`/blog/${stock.slug}`} className="hover:text-cyan-400 transition-colors">
+                        <Link href={`/stocks/${stock.ticker.toLowerCase()}`} className="hover:text-cyan-400 transition-colors">
                           {stock.name}
                         </Link>
                       </td>
@@ -449,7 +449,7 @@ export default function StockHub() {
                           </a>
                         ) : hasPrice ? (
                           <Link
-                            href={`/blog/${stock.slug}`}
+                            href={`/stocks/${stock.ticker.toLowerCase()}`}
                             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-400 hover:bg-gray-700 transition-colors"
                           >
                             View Details
