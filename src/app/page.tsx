@@ -23,12 +23,12 @@ export default function Home() {
             "@type": "WebSite",
             name: "Compare Equity Perps",
             description: "Compare equity perpetual trading platforms",
-            url: "https://equityperps.com",
+            url: "https://compareequityperps.com",
             potentialAction: {
               "@type": "SearchAction",
               target: {
                 "@type": "EntryPoint",
-                urlTemplate: "https://equityperps.com/?q={search_term_string}",
+                urlTemplate: "https://compareequityperps.com/?q={search_term_string}",
               },
               "query-input": "required name=search_term_string",
             },
@@ -49,7 +49,7 @@ export default function Home() {
               position: index + 1,
               name: platform.name,
               description: platform.description,
-              url: `https://equityperps.com/blog/${platform.slug}`,
+              url: `https://compareequityperps.com/blog/${platform.slug}`,
             })),
           }),
         }}

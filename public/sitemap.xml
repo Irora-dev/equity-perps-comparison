@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://equityperps.com/</loc>
+    <loc>https://compareequityperps.com/</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -10,7 +10,7 @@
 
   <!-- Blog Index -->
   <url>
-    <loc>https://equityperps.com/blog</loc>
+    <loc>https://compareequityperps.com/blog</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -18,43 +18,43 @@
 
   <!-- Platform Review Pages -->
   <url>
-    <loc>https://equityperps.com/blog/hyperliquid</loc>
+    <loc>https://compareequityperps.com/blog/hyperliquid</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/lighter</loc>
+    <loc>https://compareequityperps.com/blog/lighter</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/ostium</loc>
+    <loc>https://compareequityperps.com/blog/ostium</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/variational</loc>
+    <loc>https://compareequityperps.com/blog/variational</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/tradexyz</loc>
+    <loc>https://compareequityperps.com/blog/tradexyz</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/avantis</loc>
+    <loc>https://compareequityperps.com/blog/avantis</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/trove</loc>
+    <loc>https://compareequityperps.com/blog/trove</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -62,43 +62,43 @@
 
   <!-- Guide Posts -->
   <url>
-    <loc>https://equityperps.com/blog/best-equity-perps-platforms-2025</loc>
+    <loc>https://compareequityperps.com/blog/best-equity-perps-platforms-2025</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/cheapest-equity-perps-fees</loc>
+    <loc>https://compareequityperps.com/blog/cheapest-equity-perps-fees</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/lowest-funding-rates-equity-perps</loc>
+    <loc>https://compareequityperps.com/blog/lowest-funding-rates-equity-perps</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/what-are-equity-perpetuals</loc>
+    <loc>https://compareequityperps.com/blog/what-are-equity-perpetuals</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/how-funding-rates-work</loc>
+    <loc>https://compareequityperps.com/blog/how-funding-rates-work</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/equity-perps-vs-cfds</loc>
+    <loc>https://compareequityperps.com/blog/equity-perps-vs-cfds</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/equity-perps-tax-guide</loc>
+    <loc>https://compareequityperps.com/blog/equity-perps-tax-guide</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -106,19 +106,19 @@
 
   <!-- Comparison Posts -->
   <url>
-    <loc>https://equityperps.com/blog/hyperliquid-vs-lighter</loc>
+    <loc>https://compareequityperps.com/blog/hyperliquid-vs-lighter</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/hyperliquid-vs-ostium</loc>
+    <loc>https://compareequityperps.com/blog/hyperliquid-vs-ostium</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/avantis-vs-ostium</loc>
+    <loc>https://compareequityperps.com/blog/avantis-vs-ostium</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -126,19 +126,19 @@
 
   <!-- Tools -->
   <url>
-    <loc>https://equityperps.com/blog/funding-rate-tracker</loc>
+    <loc>https://compareequityperps.com/blog/funding-rate-tracker</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/fee-calculator</loc>
+    <loc>https://compareequityperps.com/blog/fee-calculator</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://equityperps.com/blog/liquidation-calculator</loc>
+    <loc>https://compareequityperps.com/blog/liquidation-calculator</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

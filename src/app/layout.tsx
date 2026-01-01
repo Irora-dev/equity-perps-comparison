@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://equityperps.com'), // Update with your domain
+  metadataBase: new URL('https://compareequityperps.com'), // Update with your domain
   title: {
     default: "Compare Equity Perps | Best Equity Perpetual Trading Platforms",
     template: "%s | Compare Equity Perps",
