@@ -8,6 +8,14 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- Stock Hub -->
+  <url>
+    <loc>https://compareequityperps.com/stocks</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <!-- Blog Index -->
   <url>
     <loc>https://compareequityperps.com/blog</loc>

@@ -10,6 +10,7 @@ export default function Header() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const isHome = pathname === '/';
+  const isStocks = pathname === '/stocks';
   const isBlog = pathname === '/blog' || pathname.startsWith('/blog/');
   const isTools = pathname.includes('calculator') || pathname.includes('tracker') || pathname.includes('cheapest');
 
@@ -44,6 +45,16 @@ export default function Header() {
               }`}
             >
               Compare
+            </Link>
+            <Link
+              href="/stocks"
+              className={`transition-colors text-sm font-medium ${
+                isStocks
+                  ? 'text-cyan-400'
+                  : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              Stocks
             </Link>
             <Link
               href="/blog"
