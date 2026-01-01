@@ -20,8 +20,7 @@ export default function BestPlatforms2025() {
     { platform: platforms.find(p => p.id === 'avantis')!, rank: 4, verdict: 'Best zero fee option on Base' },
     { platform: platforms.find(p => p.id === 'variational')!, rank: 5, verdict: 'Best for RFQ based pricing' },
     { platform: platforms.find(p => p.id === 'tradexyz')!, rank: 6, verdict: 'Best for index products' },
-    { platform: platforms.find(p => p.id === 'treadfi')!, rank: 7, verdict: 'Best for algorithmic traders' },
-    { platform: platforms.find(p => p.id === 'trove')!, rank: 8, verdict: 'Best for exotic markets' },
+    { platform: platforms.find(p => p.id === 'trove')!, rank: 7, verdict: 'Best for exotic markets' },
   ];
 
   return (
@@ -149,7 +148,7 @@ export default function BestPlatforms2025() {
               <li><strong className="text-white">For cost sensitive traders:</strong> Avantis offers zero fees and loss rebates.</li>
               <li><strong className="text-white">For security focused traders:</strong> Lighter gives you ZK proofs on every trade.</li>
               <li><strong className="text-white">For RWA specialists:</strong> Ostium has 95% of its volume in real world assets.</li>
-              <li><strong className="text-white">For algo traders:</strong> Tread.fi aggregates multiple venues with advanced execution.</li>
+              <li><strong className="text-white">For exotic markets:</strong> Trove lets you trade collectibles and unique assets.</li>
             </ul>
           </div>
 
