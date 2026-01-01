@@ -159,67 +159,102 @@ async function fetchLighterData(): Promise<Map<string, PlatformData>> {
 async function fetchHyperliquidData(): Promise<Map<string, PlatformData>> {
   const results = new Map<string, PlatformData>();
 
-  // Known HIP-3 equity markets (pair name -> ticker)
-  const HIP3_MARKETS: Record<string, string> = {
-    '@264': 'TSLA',
-    '@189': 'SPY',
-  };
+  // XYZ equity markets to fetch (from perpDexLimits)
+  const XYZ_EQUITIES = [
+    'AAPL', 'AMD', 'AMZN', 'BABA', 'COIN', 'COST', 'CRCL', 'GOOGL', 'HOOD',
+    'INTC', 'LLY', 'META', 'MSFT', 'MSTR', 'MU', 'NFLX', 'NVDA', 'ORCL',
+    'PLTR', 'RIVN', 'TSLA', 'TSM', 'XYZ100'
+  ];
 
   try {
-    const response = await fetch('https://api.hyperliquid.xyz/info', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify({ type: 'spotMetaAndAssetCtxs' }),
-      cache: 'no-store',
+    // Fetch l2Book for each equity to get current price
+    const bookPromises = XYZ_EQUITIES.map(async (ticker) => {
+      try {
+        const response = await fetch('https://api.hyperliquid.xyz/info', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({ type: 'l2Book', coin: `xyz:${ticker}` }),
+          cache: 'no-store',
+        });
+
+        if (!response.ok) return null;
+        const book = await response.json();
+
+        // Get best bid/ask from order book
+        const levels = book?.levels || [];
+        const bids = levels[0] || [];
+        const asks = levels[1] || [];
+
+        const bestBid = bids[0]?.px ? parseFloat(bids[0].px) : null;
+        const bestAsk = asks[0]?.px ? parseFloat(asks[0].px) : null;
+        const midPrice = bestBid && bestAsk ? (bestBid + bestAsk) / 2 : bestBid || bestAsk;
+
+        return { ticker, price: midPrice };
+      } catch {
+        return null;
+      }
     });
 
-    if (!response.ok) {
-      console.error('Hyperliquid fetch failed:', response.status, await response.text());
-      return results;
-    }
+    // Fetch funding rates for each equity
+    const fundingPromises = XYZ_EQUITIES.map(async (ticker) => {
+      try {
+        const response = await fetch('https://api.hyperliquid.xyz/info', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            type: 'fundingHistory',
+            coin: `xyz:${ticker}`,
+            startTime: Date.now() - 3600000 // Last hour
+          }),
+          cache: 'no-store',
+        });
 
-    const data = await response.json();
-    console.log('Hyperliquid response type:', Array.isArray(data) ? 'array' : typeof data);
+        if (!response.ok) return null;
+        const history = await response.json();
 
-    if (!Array.isArray(data) || data.length < 2) {
-      console.error('Hyperliquid unexpected response format');
-      return results;
-    }
-
-    const meta = data[0];
-    const ctxs = data[1];
-    const universe = meta?.universe || [];
-    console.log('Hyperliquid universe size:', universe.length);
-
-    for (const pair of universe) {
-      const pairName = pair?.name as string;
-      const pairIdx = pair?.index as number;
-
-      if (HIP3_MARKETS[pairName]) {
-        const ticker = HIP3_MARKETS[pairName];
-        const ctx = ctxs[pairIdx];
-
-        if (ctx) {
-          const markPx = parseFloat(ctx.markPx || '0');
-          const dayVol = parseFloat(ctx.dayNtlVlm || '0');
-          const prevDayPx = parseFloat(ctx.prevDayPx || '0');
-          const change24h = prevDayPx > 0 ? ((markPx - prevDayPx) / prevDayPx) * 100 : null;
-
-          results.set(ticker, {
-            price: markPx || null,
-            change24h,
-            fundingRate: null,
-            volume24h: dayVol || null,
-          });
-          console.log(`Hyperliquid ${ticker}: $${markPx}`);
+        // Get most recent funding rate
+        if (Array.isArray(history) && history.length > 0) {
+          const latest = history[history.length - 1];
+          const rate = parseFloat(latest.fundingRate || '0');
+          // Convert hourly rate to annual percentage (rate * 24 * 365 * 100)
+          const annualRate = rate * 24 * 365 * 100;
+          return { ticker, fundingRate: annualRate };
         }
+        return null;
+      } catch {
+        return null;
+      }
+    });
+
+    const [bookResults, fundingResults] = await Promise.all([
+      Promise.all(bookPromises),
+      Promise.all(fundingPromises),
+    ]);
+
+    // Combine results
+    const fundingMap = new Map<string, number>();
+    for (const fr of fundingResults) {
+      if (fr) fundingMap.set(fr.ticker, fr.fundingRate);
+    }
+
+    for (const br of bookResults) {
+      if (br && br.price) {
+        results.set(br.ticker, {
+          price: br.price,
+          change24h: null, // Not available from l2Book
+          fundingRate: fundingMap.get(br.ticker) ?? null,
+          volume24h: null, // Would need separate API call
+        });
       }
     }
 
-    console.log('Hyperliquid processed:', results.size, 'equities');
+    console.log('Hyperliquid XYZ processed:', results.size, 'equities');
   } catch (error) {
     console.error('Hyperliquid fetch error:', error);
   }
