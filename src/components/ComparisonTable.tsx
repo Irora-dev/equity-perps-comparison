@@ -1,15 +1,10 @@
-'use client';
-
 import { platforms, featureLabels, featureDescriptions, type Platform } from '@/data/platforms';
-import { useState } from 'react';
 
 interface ComparisonTableProps {
   filteredPlatforms?: Platform[] | null;
 }
 
 export default function ComparisonTable({ filteredPlatforms }: ComparisonTableProps) {
-  const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
-
   const displayPlatforms = filteredPlatforms ?? platforms;
   const features = Object.keys(featureLabels) as Array<keyof Platform['features']>;
 
@@ -57,19 +52,15 @@ export default function ComparisonTable({ filteredPlatforms }: ComparisonTablePr
               className={`border-b border-gray-800/50 hover:bg-gray-900/50 transition-colors ${
                 index % 2 === 0 ? 'bg-gray-900/20' : ''
               }`}
-              onMouseEnter={() => setHoveredFeature(feature)}
-              onMouseLeave={() => setHoveredFeature(null)}
             >
               <td className="py-4 px-4 sticky left-0 bg-gray-950 z-10">
-                <div className="flex items-center gap-2">
+                <div className="flex flex-col">
                   <span className="text-gray-300 font-medium text-sm">
                     {featureLabels[feature]}
                   </span>
-                  {hoveredFeature === feature && (
-                    <span className="text-xs text-gray-500 hidden sm:inline">
-                      — {featureDescriptions[feature]}
-                    </span>
-                  )}
+                  <span className="text-xs text-gray-500 mt-0.5">
+                    {featureDescriptions[feature]}
+                  </span>
                 </div>
               </td>
               {displayPlatforms.map((platform) => (
