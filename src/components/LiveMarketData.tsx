@@ -52,9 +52,9 @@ function getLowestFundingPlatform(data: EquityMarketData | null): { platform: st
 
   if (rates.length === 0) return null;
 
-  // Find lowest absolute funding rate
-  return rates.reduce((min, curr) =>
-    Math.abs(curr.rate) < Math.abs(min.rate) ? curr : min
+  // Find lowest funding rate (most negative = best for longs, you earn funding)
+  return rates.reduce((best, curr) =>
+    curr.rate < best.rate ? curr : best
   );
 }
 

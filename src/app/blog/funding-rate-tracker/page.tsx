@@ -24,7 +24,8 @@ export default function FundingRateTracker() {
   const sortedData = [...mockFundingData].sort((a, b) => {
     let comparison = 0;
     if (sortBy === 'rate') {
-      comparison = Math.abs(a.rate) - Math.abs(b.rate);
+      // Sort by actual rate value (most negative = best for longs)
+      comparison = a.rate - b.rate;
     } else if (sortBy === 'platform') {
       comparison = a.platform.localeCompare(b.platform);
     } else {

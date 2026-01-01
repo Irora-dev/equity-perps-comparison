@@ -53,9 +53,9 @@ function getBestVenue(data: EquityMarketData | null): { platform: string; rate: 
     return null;
   }
 
-  // Return lowest absolute funding rate
-  return rates.reduce((min, curr) =>
-    Math.abs(curr.rate) < Math.abs(min.rate) ? curr : min
+  // Return lowest funding rate (most negative = best for longs, you earn funding)
+  return rates.reduce((best, curr) =>
+    curr.rate < best.rate ? curr : best
   );
 }
 

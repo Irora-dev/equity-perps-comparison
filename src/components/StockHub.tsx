@@ -111,9 +111,9 @@ export default function StockHub() {
 
     if (rates.length === 0) return { rate: null, platform: null };
 
-    // Find the lowest (or least negative) funding rate
-    const lowest = rates.reduce((min, curr) =>
-      Math.abs(curr.rate) < Math.abs(min.rate) ? curr : min
+    // Find the lowest funding rate (most negative = best for longs, you earn funding)
+    const lowest = rates.reduce((best, curr) =>
+      curr.rate < best.rate ? curr : best
     );
 
     return { rate: lowest.rate, platform: lowest.platform };

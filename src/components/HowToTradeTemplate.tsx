@@ -47,7 +47,8 @@ function getBestVenue(data: EquityMarketData | null): { platform: string; rate: 
     if (data.ostium?.price) return { platform: 'ostium', rate: null };
     return null;
   }
-  return rates.reduce((min, curr) => Math.abs(curr.rate) < Math.abs(min.rate) ? curr : min);
+  // Return lowest funding rate (most negative = best for longs, you earn funding)
+  return rates.reduce((best, curr) => curr.rate < best.rate ? curr : best);
 }
 
 export default function HowToTradeTemplate({ stock }: HowToTradeTemplateProps) {
