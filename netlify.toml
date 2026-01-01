@@ -4,3 +4,22 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Force HTTPS
+[[redirects]]
+  from = "http://compareequityperps.com/*"
+  to = "https://compareequityperps.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.compareequityperps.com/*"
+  to = "https://compareequityperps.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.compareequityperps.com/*"
+  to = "https://compareequityperps.com/:splat"
+  status = 301
+  force = true
