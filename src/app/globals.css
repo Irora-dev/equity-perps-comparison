@@ -72,10 +72,11 @@ body {
   color: #d1d5db;
 }
 
-.prose-invert a {
+/* Only style text links, not buttons */
+.prose-invert a:not([class*="bg-"]):not([class*="rounded-lg"]) {
   color: #06b6d4;
 }
 
-.prose-invert a:hover {
+.prose-invert a:not([class*="bg-"]):not([class*="rounded-lg"]):hover {
   color: #22d3ee;
 }
