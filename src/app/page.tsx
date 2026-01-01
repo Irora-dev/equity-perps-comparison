@@ -158,40 +158,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEO Content Section */}
-      <section className="py-16 px-4 bg-gray-900/30">
-        <div className="max-w-4xl mx-auto prose prose-invert">
-          <h2 className="text-2xl font-bold text-white mb-6">
-            What are Equity Perpetual Futures?
-          </h2>
-          <div className="text-gray-300 space-y-4">
-            <p>
-              Equity perpetual futures (equity perps) are derivative contracts that allow you to trade
-              stocks like TSLA, NVDA, AAPL, and more with leverage—without an expiry date. Unlike
-              traditional futures that expire quarterly, perpetual futures can be held indefinitely.
-            </p>
-            <p>
-              These instruments have exploded in popularity in 2025, with platforms like Hyperliquid
-              processing over $300 billion in monthly volume. Key benefits include:
-            </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-400">
-              <li><strong className="text-white">24/7 Trading:</strong> Trade equity exposure around the clock, even on weekends</li>
-              <li><strong className="text-white">High Leverage:</strong> Access up to 200x leverage on some platforms</li>
-              <li><strong className="text-white">Self-Custody:</strong> Keep control of your funds in your own wallet</li>
-              <li><strong className="text-white">Low/Zero Fees:</strong> Many platforms offer zero trading fees</li>
-              <li><strong className="text-white">No KYC:</strong> Trade without identity verification on decentralized platforms</li>
-            </ul>
-            <p>
-              Popular platforms include Hyperliquid (largest by volume), Lighter (ZK-powered),
-              Ostium (0DTE perpetuals), and Avantis (zero-fee on Base). Each platform has unique
-              features—use our comparison table above to find the best fit for your trading style.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Platform Screenshots Section */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-gray-900/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-2 text-center">
             See the Platforms in Action
@@ -240,6 +208,38 @@ export default function Home() {
                 </div>
               </div>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Content Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto prose prose-invert">
+          <h2 className="text-2xl font-bold text-white mb-6">
+            What are Equity Perpetual Futures?
+          </h2>
+          <div className="text-gray-300 space-y-4">
+            <p>
+              Equity perpetual futures (equity perps) are derivative contracts that allow you to trade
+              stocks like TSLA, NVDA, AAPL, and more with leverage—without an expiry date. Unlike
+              traditional futures that expire quarterly, perpetual futures can be held indefinitely.
+            </p>
+            <p>
+              These instruments have exploded in popularity in 2025, with platforms like Hyperliquid
+              processing over $300 billion in monthly volume. Key benefits include:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-gray-400">
+              <li><strong className="text-white">24/7 Trading:</strong> Trade equity exposure around the clock, even on weekends</li>
+              <li><strong className="text-white">High Leverage:</strong> Access up to 200x leverage on some platforms</li>
+              <li><strong className="text-white">Self-Custody:</strong> Keep control of your funds in your own wallet</li>
+              <li><strong className="text-white">Low/Zero Fees:</strong> Many platforms offer zero trading fees</li>
+              <li><strong className="text-white">No KYC:</strong> Trade without identity verification on decentralized platforms</li>
+            </ul>
+            <p>
+              Popular platforms include Hyperliquid (largest by volume), Lighter (ZK-powered),
+              Ostium (0DTE perpetuals), and Avantis (zero-fee on Base). Each platform has unique
+              features—use our comparison table above to find the best fit for your trading style.
+            </p>
           </div>
         </div>
       </section>
