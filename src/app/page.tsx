@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import SearchBar from '@/components/SearchBar';
 import ComparisonTable from '@/components/ComparisonTable';
 import PlatformCard from '@/components/PlatformCard';
@@ -145,8 +146,62 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Platform Reviews Section */}
+      {/* Platform Screenshots Section */}
       <section className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl font-bold text-white mb-2 text-center">
+            See the Platforms in Action
+          </h2>
+          <p className="text-gray-400 text-center mb-10">
+            Trading interfaces from the top equity perps exchanges
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <Link href="/blog/hyperliquid" className="group">
+              <div className="bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-colors">
+                <div className="relative aspect-video">
+                  <Image
+                    src="/images/platforms/hyperliquid.jpg"
+                    alt="Hyperliquid trading interface showing NVDA perpetual futures"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors">
+                    Hyperliquid
+                  </h3>
+                  <p className="text-gray-400 text-sm mt-1">
+                    The largest on-chain perpetuals exchange with $319B+ monthly volume
+                  </p>
+                </div>
+              </div>
+            </Link>
+            <Link href="/blog/lighter" className="group">
+              <div className="bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden hover:border-purple-500/50 transition-colors">
+                <div className="relative aspect-video">
+                  <Image
+                    src="/images/platforms/lighter.jpg"
+                    alt="Lighter trading interface showing NVDA perpetual futures"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-white group-hover:text-purple-400 transition-colors">
+                    Lighter
+                  </h3>
+                  <p className="text-gray-400 text-sm mt-1">
+                    ZK-powered perpetuals on Ethereum with zero fees for retail traders
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Reviews Section */}
+      <section className="py-16 px-4 bg-gray-900/30">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-2 text-center">
             Platform Reviews

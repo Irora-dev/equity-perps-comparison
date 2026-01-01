@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { platforms } from '@/data/platforms';
 import ReferralButton from '@/components/ReferralButton';
 import type { Metadata } from 'next';
@@ -85,6 +86,37 @@ export default function HyperliquidVsLighter() {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          <h2 className="text-2xl font-bold text-white mt-12 mb-6">Platform Interfaces</h2>
+
+          <p className="text-gray-300 mb-6">
+            Both platforms offer professional trading interfaces. Here is how they look when trading NVDA perpetuals:
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+            <div>
+              <div className="relative aspect-video rounded-xl overflow-hidden border border-gray-800 mb-3">
+                <Image
+                  src="/images/platforms/hyperliquid.jpg"
+                  alt="Hyperliquid trading interface"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-center text-sm text-gray-400">Hyperliquid Interface</p>
+            </div>
+            <div>
+              <div className="relative aspect-video rounded-xl overflow-hidden border border-gray-800 mb-3">
+                <Image
+                  src="/images/platforms/lighter.jpg"
+                  alt="Lighter trading interface"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <p className="text-center text-sm text-gray-400">Lighter Interface</p>
+            </div>
           </div>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">The Case for Hyperliquid</h2>

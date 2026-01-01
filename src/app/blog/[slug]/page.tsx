@@ -1,8 +1,14 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { platforms, getPlatformBySlug, featureLabels } from '@/data/platforms';
 import ReferralButton from '@/components/ReferralButton';
 import type { Metadata } from 'next';
+
+const platformScreenshots: Record<string, string> = {
+  hyperliquid: '/images/platforms/hyperliquid.jpg',
+  lighter: '/images/platforms/lighter.jpg',
+};
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -138,6 +144,24 @@ export default async function PlatformReviewPage({ params }: Props) {
             </p>
           )}
         </section>
+
+        {/* Platform Screenshot */}
+        {platformScreenshots[platform.slug] && (
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-white mb-4">Trading Interface</h2>
+            <div className="relative aspect-video rounded-xl overflow-hidden border border-gray-800">
+              <Image
+                src={platformScreenshots[platform.slug]}
+                alt={`${platform.name} trading interface showing equity perpetual futures`}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <p className="text-gray-500 text-sm mt-3 text-center">
+              {platform.name} trading interface showing NVDA perpetual futures
+            </p>
+          </section>
+        )}
 
         {/* Features */}
         <section className="mb-12">
