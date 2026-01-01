@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 
-export const revalidate = 30; // Cache for 30 seconds
+// Disable caching for debugging
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 interface PlatformData {
   price: number | null;
@@ -30,43 +32,55 @@ async function fetchOstiumData(): Promise<Map<string, PlatformData>> {
   const results = new Map<string, PlatformData>();
 
   try {
-    // Fetch prices and performances in parallel
-    const [pricesRes, performancesRes] = await Promise.all([
-      fetch('https://metadata-backend.ostium.io/PricePublish/latest-prices', {
-        next: { revalidate: 30 },
-      }),
-      fetch('https://metadata-backend.ostium.io/performances/getPerformances', {
-        next: { revalidate: 30 },
-      }),
-    ]);
+    // Fetch prices
+    const pricesRes = await fetch('https://metadata-backend.ostium.io/PricePublish/latest-prices', {
+      cache: 'no-store',
+      headers: { 'Accept': 'application/json' },
+    });
 
     if (!pricesRes.ok) {
-      console.error('Ostium prices fetch failed:', pricesRes.status);
+      console.error('Ostium prices fetch failed:', pricesRes.status, await pricesRes.text());
       return results;
     }
 
     const prices = await pricesRes.json();
-    const performances = performancesRes.ok ? await performancesRes.json() : [];
+    console.log('Ostium prices fetched:', prices.length, 'items');
 
-    // Build performance map (from+to -> change data)
-    const perfMap = new Map<string, number>();
-    for (const perf of performances) {
-      if (perf.from && perf.to && perf.price24hAgo) {
-        const key = `${perf.from}${perf.to}`;
-        const currentPrice = perf.historical?.[perf.historical.length - 1]?.close;
-        if (currentPrice && perf.price24hAgo > 0) {
-          const change = ((currentPrice - perf.price24hAgo) / perf.price24hAgo) * 100;
-          perfMap.set(key, change);
+    // Fetch performances for 24h change
+    let perfMap = new Map<string, number>();
+    try {
+      const performancesRes = await fetch('https://metadata-backend.ostium.io/performances/getPerformances', {
+        cache: 'no-store',
+        headers: { 'Accept': 'application/json' },
+      });
+
+      if (performancesRes.ok) {
+        const performances = await performancesRes.json();
+        for (const perf of performances) {
+          if (perf.from && perf.to && perf.price24hAgo) {
+            const key = `${perf.from}${perf.to}`;
+            const currentPrice = perf.historical?.[perf.historical.length - 1]?.close;
+            if (currentPrice && perf.price24hAgo > 0) {
+              const change = ((currentPrice - perf.price24hAgo) / perf.price24hAgo) * 100;
+              perfMap.set(key, change);
+            }
+          }
         }
       }
+    } catch (e) {
+      console.error('Ostium performances fetch error:', e);
     }
 
-    // Process prices
+    // Process prices - filter for USD pairs that are equities
+    const skipSymbols = new Set(['EUR', 'GBP', 'JPY', 'MXN', 'CAD', 'AUD', 'NZD', 'CHF', 'USD',
+      'XAG', 'XAU', 'XPT', 'XPD', 'HG', 'CL', 'NG', 'BTC', 'ETH', 'SOL', 'BNB', 'XRP', 'TRX',
+      'ADA', 'HYPE', 'LINK', 'HSI', 'NIK', 'DAX', 'FTSE', 'DJI', 'SPX', 'NDX', 'DXY']);
+
     for (const item of prices) {
       const from = item.from as string;
       const to = item.to as string;
 
-      if (to === 'USD' && from) {
+      if (to === 'USD' && from && !skipSymbols.has(from)) {
         const midPrice = item.mid ?? item.bid ?? null;
         const key = `${from}${to}`;
         const change24h = perfMap.get(key) ?? null;
@@ -82,6 +96,8 @@ async function fetchOstiumData(): Promise<Map<string, PlatformData>> {
         });
       }
     }
+
+    console.log('Ostium processed:', results.size, 'equities');
   } catch (error) {
     console.error('Ostium fetch error:', error);
   }
@@ -99,16 +115,18 @@ async function fetchLighterData(): Promise<Map<string, PlatformData>> {
 
   try {
     const response = await fetch('https://mainnet.zklighter.elliot.ai/api/v1/funding-rates', {
-      next: { revalidate: 30 },
+      cache: 'no-store',
+      headers: { 'Accept': 'application/json' },
     });
 
     if (!response.ok) {
-      console.error('Lighter fetch failed:', response.status);
+      console.error('Lighter fetch failed:', response.status, await response.text());
       return results;
     }
 
     const data = await response.json();
     const fundingRates = data.funding_rates || [];
+    console.log('Lighter funding rates fetched:', fundingRates.length, 'items');
 
     for (const fr of fundingRates) {
       const symbol = fr.symbol as string;
@@ -129,6 +147,8 @@ async function fetchLighterData(): Promise<Map<string, PlatformData>> {
         }
       }
     }
+
+    console.log('Lighter processed:', results.size, 'equities');
   } catch (error) {
     console.error('Lighter fetch error:', error);
   }
@@ -148,22 +168,31 @@ async function fetchHyperliquidData(): Promise<Map<string, PlatformData>> {
   try {
     const response = await fetch('https://api.hyperliquid.xyz/info', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
       body: JSON.stringify({ type: 'spotMetaAndAssetCtxs' }),
-      next: { revalidate: 30 },
+      cache: 'no-store',
     });
 
     if (!response.ok) {
-      console.error('Hyperliquid fetch failed:', response.status);
+      console.error('Hyperliquid fetch failed:', response.status, await response.text());
       return results;
     }
 
     const data = await response.json();
-    if (!Array.isArray(data) || data.length < 2) return results;
+    console.log('Hyperliquid response type:', Array.isArray(data) ? 'array' : typeof data);
+
+    if (!Array.isArray(data) || data.length < 2) {
+      console.error('Hyperliquid unexpected response format');
+      return results;
+    }
 
     const meta = data[0];
     const ctxs = data[1];
     const universe = meta?.universe || [];
+    console.log('Hyperliquid universe size:', universe.length);
 
     for (const pair of universe) {
       const pairName = pair?.name as string;
@@ -185,9 +214,12 @@ async function fetchHyperliquidData(): Promise<Map<string, PlatformData>> {
             fundingRate: null,
             volume24h: dayVol || null,
           });
+          console.log(`Hyperliquid ${ticker}: $${markPx}`);
         }
       }
     }
+
+    console.log('Hyperliquid processed:', results.size, 'equities');
   } catch (error) {
     console.error('Hyperliquid fetch error:', error);
   }
