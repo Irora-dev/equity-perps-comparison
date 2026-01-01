@@ -8,6 +8,8 @@ import type { Metadata } from 'next';
 const platformScreenshots: Record<string, string> = {
   hyperliquid: '/images/platforms/hyperliquid.jpg',
   lighter: '/images/platforms/lighter.jpg',
+  ostium: '/images/platforms/ostium.jpg',
+  trove: '/images/platforms/trove.jpg',
 };
 
 interface Props {

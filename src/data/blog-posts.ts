@@ -8,6 +8,15 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  // Featured 2026 post
+  {
+    slug: 'top-equity-perps-platform-2026',
+    title: 'The Top Equity Perps Platform for 2026',
+    description: 'Our pick for the best equity perpetuals trading platform heading into 2026.',
+    category: 'guide',
+    publishedAt: '2026-01-01',
+    updatedAt: '2026-01-01',
+  },
   // High-intent monetization posts
   {
     slug: 'best-equity-perps-platforms-2025',

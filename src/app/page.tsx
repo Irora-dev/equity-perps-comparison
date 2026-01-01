@@ -166,7 +166,7 @@ export default function Home() {
           <p className="text-gray-400 text-center mb-10">
             Trading interfaces from the top equity perps exchanges
           </p>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Link href="/blog/hyperliquid" className="group">
               <div className="bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-colors">
                 <div className="relative aspect-video">
@@ -192,7 +192,7 @@ export default function Home() {
                 <div className="relative aspect-video">
                   <Image
                     src="/images/platforms/lighter.jpg"
-                    alt="Lighter trading interface showing NVDA perpetual futures"
+                    alt="Lighter trading interface showing perpetual futures"
                     fill
                     className="object-cover"
                   />
@@ -202,7 +202,27 @@ export default function Home() {
                     Lighter
                   </h3>
                   <p className="text-gray-400 text-sm mt-1">
-                    ZK-powered perpetuals on Ethereum with zero fees for retail traders
+                    ZK-powered perpetuals on Ethereum with zero fees for retail
+                  </p>
+                </div>
+              </div>
+            </Link>
+            <Link href="/blog/ostium" className="group">
+              <div className="bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden hover:border-orange-500/50 transition-colors">
+                <div className="relative aspect-video">
+                  <Image
+                    src="/images/platforms/ostium.jpg"
+                    alt="Ostium trading interface showing equity perpetual futures"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-white group-hover:text-orange-400 transition-colors">
+                    Ostium
+                  </h3>
+                  <p className="text-gray-400 text-sm mt-1">
+                    RWA perpetuals with 0DTE innovation and up to 200x leverage
                   </p>
                 </div>
               </div>
