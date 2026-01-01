@@ -934,5 +934,6 @@ export function getStockBySlug(slug: string): StockData | undefined {
 }
 
 export function getStockByTicker(ticker: string): StockData | undefined {
+  if (!ticker) return undefined;
   return stocks.find(s => s.ticker.toLowerCase() === ticker.toLowerCase());
 }

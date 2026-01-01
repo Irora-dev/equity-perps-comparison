@@ -266,6 +266,27 @@ export default function StockHub() {
           </div>
         </div>
 
+        {/* Featured Stock Guides */}
+        <div className="mb-8">
+          <h2 className="text-lg font-semibold text-white mb-4">Popular Trading Guides</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+            {['NVDA', 'TSLA', 'AAPL', 'AMZN', 'META'].map((ticker) => {
+              const stock = stocks.find(s => s.ticker === ticker);
+              if (!stock) return null;
+              return (
+                <Link
+                  key={ticker}
+                  href={`/blog/trade-24-7/${ticker.toLowerCase()}`}
+                  className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 hover:border-cyan-500/50 transition-all hover:bg-gray-800/50 group"
+                >
+                  <p className="text-white font-bold text-lg group-hover:text-cyan-400 transition-colors">{ticker}</p>
+                  <p className="text-gray-500 text-xs mt-1">Trade 24/7 Guide</p>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Filters */}
         <div className="flex flex-wrap gap-4 mb-6">
           {/* Search */}

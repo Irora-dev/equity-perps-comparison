@@ -12,12 +12,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Individual stock pages - high priority SEO pages
+  // Individual stock comparison pages
   const stockPages = stocks.map((stock) => ({
     url: `${baseUrl}/stocks/${stock.ticker.toLowerCase()}`,
     lastModified: new Date(),
-    changeFrequency: 'hourly' as const, // Funding rates update frequently
+    changeFrequency: 'hourly' as const,
     priority: 0.9,
+  }));
+
+  // How to trade guides for available stocks
+  const availableStocks = stocks.filter(s => s.platforms.some(p => p.available));
+  const tradingGuidePages = availableStocks.map((stock) => ({
+    url: `${baseUrl}/blog/trade-24-7/${stock.ticker.toLowerCase()}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.85,
   }));
 
   return [
@@ -40,6 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     ...stockPages,
+    ...tradingGuidePages,
     ...platformPages,
   ];
 }
