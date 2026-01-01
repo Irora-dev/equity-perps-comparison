@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { platforms, getPlatformBySlug, featureLabels } from '@/data/platforms';
 import ReferralButton from '@/components/ReferralButton';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import type { Metadata } from 'next';
 
 const platformScreenshots: Record<string, string> = {
@@ -78,24 +79,11 @@ export default async function PlatformReviewPage({ params }: Props) {
       />
 
       <article className="max-w-4xl mx-auto">
-        {/* Breadcrumb */}
-        <nav className="mb-8">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li>
-              <Link href="/" className="hover:text-white">
-                Home
-              </Link>
-            </li>
-            <li>/</li>
-            <li>
-              <Link href="/blog" className="hover:text-white">
-                Blog
-              </Link>
-            </li>
-            <li>/</li>
-            <li className="text-gray-300">{platform.name}</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={[
+          { label: 'Home', href: '/' },
+          { label: 'Learn', href: '/blog' },
+          { label: platform.name }
+        ]} />
 
         {/* Header */}
         <header className="mb-12">

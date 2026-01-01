@@ -130,10 +130,18 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Glossary -->
+  <url>
+    <loc>https://compareequityperps.com/blog/glossary</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Tools -->
   <url>
     <loc>https://compareequityperps.com/blog/funding-rate-tracker</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

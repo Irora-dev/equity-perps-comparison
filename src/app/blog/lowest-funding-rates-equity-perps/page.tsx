@@ -1,7 +1,32 @@
 import Link from 'next/link';
 import { platforms } from '@/data/platforms';
 import ReferralButton from '@/components/ReferralButton';
+import FAQSection from '@/components/FAQSection';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import type { Metadata } from 'next';
+
+const faqs = [
+  {
+    question: "How much do funding rates actually cost?",
+    answer: "Typical funding is 0.01% per 8 hours, which is about 10% annually. During high volatility, rates can spike to 0.1% or more per interval, which would be 100%+ annually if sustained."
+  },
+  {
+    question: "Can I make money from funding rates?",
+    answer: "Yes. If you take the unpopular side of the market, you receive funding. When everyone is long, shorts get paid. Some traders specifically target high funding rate opportunities."
+  },
+  {
+    question: "Which platform has the lowest funding rates?",
+    answer: "Funding rates change constantly and depend on market conditions. Hyperliquid tends to have stable rates due to liquidity. Ostium's 0DTE products avoid overnight funding entirely."
+  },
+  {
+    question: "Do equity perps have higher funding than crypto perps?",
+    answer: "Generally, equity perps have lower and more stable funding rates than crypto perps. The natural arbitrage with traditional markets helps keep rates anchored."
+  },
+  {
+    question: "When do funding rates reset?",
+    answer: "It varies by platform: Hyperliquid settles every 8 hours, Lighter settles hourly, and some platforms have continuous funding. Check each platform's documentation for exact schedules."
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Equity Perps with the Lowest Funding Rates',
@@ -16,15 +41,11 @@ export default function LowestFundingRates() {
   return (
     <main className="min-h-screen py-16 px-4">
       <article className="max-w-4xl mx-auto">
-        <nav className="mb-8">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-white">Home</Link></li>
-            <li>/</li>
-            <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-            <li>/</li>
-            <li className="text-gray-300">Lowest Funding Rates</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={[
+          { label: 'Home', href: '/' },
+          { label: 'Learn', href: '/blog' },
+          { label: 'Lowest Funding Rates' }
+        ]} />
 
         <header className="mb-12">
           <span className="text-cyan-400 text-sm font-medium">Cost Analysis</span>
@@ -184,6 +205,8 @@ export default function LowestFundingRates() {
             ))}
           </div>
         </div>
+
+        <FAQSection faqs={faqs} />
 
         <div className="mt-12 text-center">
           <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-white">

@@ -1,5 +1,30 @@
 import Link from 'next/link';
+import FAQSection from '@/components/FAQSection';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import type { Metadata } from 'next';
+
+const faqs = [
+  {
+    question: "Do I have to pay taxes on equity perps profits?",
+    answer: "In most jurisdictions, yes. Trading profits are generally taxable regardless of the instrument. The specific rate depends on your country and whether gains are classified as capital gains or income."
+  },
+  {
+    question: "How are funding rate payments taxed?",
+    answer: "Tax treatment varies by jurisdiction. Funding could be classified as interest, part of trading P&L, or ordinary income. Keep separate records of funding payments for your tax advisor."
+  },
+  {
+    question: "Do I need to report trades even if I had losses?",
+    answer: "Yes, you should report all trades. Losses can often be used to offset gains or carried forward to future years. Accurate reporting protects you and may reduce your tax liability."
+  },
+  {
+    question: "What records should I keep for equity perps trading?",
+    answer: "Keep records of every trade including date, entry/exit prices, position size, fees, and funding payments. Export data from platforms regularly and store it securely."
+  },
+  {
+    question: "Can I use crypto tax software for equity perps?",
+    answer: "Some crypto tax software supports perpetuals. Check if your platform integrates or exports in a compatible format. You may need to manually categorize equity perp trades."
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Tax Treatment of Equity Perpetuals: What You Need to Know',
@@ -14,15 +39,11 @@ export default function EquityPerpsTaxGuide() {
   return (
     <main className="min-h-screen py-16 px-4">
       <article className="max-w-4xl mx-auto">
-        <nav className="mb-8">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-white">Home</Link></li>
-            <li>/</li>
-            <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-            <li>/</li>
-            <li className="text-gray-300">Tax Guide</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={[
+          { label: 'Home', href: '/' },
+          { label: 'Learn', href: '/blog' },
+          { label: 'Tax Guide' }
+        ]} />
 
         <header className="mb-12">
           <span className="text-cyan-400 text-sm font-medium">Tax Information</span>
@@ -174,6 +195,8 @@ export default function EquityPerpsTaxGuide() {
             Crypto transactions are increasingly traceable. Tax authorities worldwide are investing in blockchain analytics.
           </p>
         </div>
+
+        <FAQSection faqs={faqs} />
 
         <div className="mt-12 text-center">
           <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-white">

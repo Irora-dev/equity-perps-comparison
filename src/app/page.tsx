@@ -82,6 +82,57 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Platforms Section */}
+      {(() => {
+        const featuredPlatforms = [
+          { id: 'hyperliquid', label: '#1 Equity Perps Platform', sublabel: 'Largest Volume' },
+          { id: 'ostium', label: 'Highest Leverage', sublabel: 'Up to 200x' },
+          { id: 'trove', label: 'Most Exotic Markets', sublabel: 'Collectibles & More' },
+          { id: 'lighter', label: 'Backed by Robinhood', sublabel: '$1.5B Valuation' },
+        ];
+
+        const visibleFeatured = featuredPlatforms.filter(fp => {
+          if (!searchResults) return true;
+          return searchResults.some(p => p.id === fp.id);
+        });
+
+        if (visibleFeatured.length === 0) return null;
+
+        return (
+          <section className="py-6 px-4">
+            <div className="max-w-5xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {visibleFeatured.map((featured) => {
+                  const platform = platforms.find(p => p.id === featured.id);
+                  if (!platform) return null;
+                  return (
+                    <Link
+                      key={featured.id}
+                      href={`/blog/${platform.slug}`}
+                      className="group bg-gray-900/50 border border-gray-800 rounded-lg p-3 hover:border-gray-600 transition-all hover:bg-gray-900/70"
+                    >
+                      <div className="flex items-center gap-2 mb-1">
+                        <div
+                          className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-gray-900"
+                          style={{ backgroundColor: platform.color }}
+                        >
+                          {platform.name[0]}
+                        </div>
+                        <span className="text-white text-sm font-semibold group-hover:text-cyan-400 transition-colors">
+                          {platform.name}
+                        </span>
+                      </div>
+                      <p className="text-xs text-cyan-400 font-medium">{featured.label}</p>
+                      <p className="text-xs text-gray-500">{featured.sublabel}</p>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
+
       {/* Comparison Table Section */}
       <section className="py-12 px-4 bg-gray-900/30">
         <div className="max-w-7xl mx-auto">

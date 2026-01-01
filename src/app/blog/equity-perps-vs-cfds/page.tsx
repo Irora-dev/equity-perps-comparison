@@ -1,5 +1,30 @@
 import Link from 'next/link';
+import FAQSection from '@/components/FAQSection';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import type { Metadata } from 'next';
+
+const faqs = [
+  {
+    question: "Are equity perps safer than CFDs?",
+    answer: "Neither is inherently safer. Perps have smart contract risk but self-custody. CFDs have broker counterparty risk but regulatory protection. The risk profile is different, not better or worse."
+  },
+  {
+    question: "Which has lower fees, perps or CFDs?",
+    answer: "For short-term trades, equity perps are typically cheaper with zero or low trading fees. For longer holds, it depends on funding rates vs overnight fees. Compare total cost for your trading style."
+  },
+  {
+    question: "Can I trade the same stocks on both?",
+    answer: "CFDs offer more stock coverage since they've been around longer. Equity perps focus on popular stocks like NVDA, TSLA, AAPL. The selection is growing but CFDs still have more variety."
+  },
+  {
+    question: "Do I need crypto to trade equity perps?",
+    answer: "Yes, you'll need stablecoins (usually USDC) to deposit on equity perps platforms. You'll also need a crypto wallet. CFDs let you stay entirely in fiat currency."
+  },
+  {
+    question: "Can US residents trade equity perps?",
+    answer: "Most decentralized perps platforms don't require KYC and are technically accessible. However, they operate outside US regulatory frameworks. US residents should understand the legal implications."
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Equity Perps vs CFDs: Key Differences Explained',
@@ -26,15 +51,11 @@ export default function EquityPerpsVsCFDs() {
   return (
     <main className="min-h-screen py-16 px-4">
       <article className="max-w-4xl mx-auto">
-        <nav className="mb-8">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-white">Home</Link></li>
-            <li>/</li>
-            <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-            <li>/</li>
-            <li className="text-gray-300">Equity Perps vs CFDs</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={[
+          { label: 'Home', href: '/' },
+          { label: 'Learn', href: '/blog' },
+          { label: 'Equity Perps vs CFDs' }
+        ]} />
 
         <header className="mb-12">
           <span className="text-cyan-400 text-sm font-medium">Comparison Guide</span>
@@ -183,6 +204,8 @@ export default function EquityPerpsVsCFDs() {
             </p>
           </div>
         </div>
+
+        <FAQSection faqs={faqs} />
 
         <div className="mt-12 text-center">
           <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-white">

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { platforms } from '@/data/platforms';
 import ReferralButton from '@/components/ReferralButton';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -29,15 +30,11 @@ export default function HyperliquidVsOstium() {
   return (
     <main className="min-h-screen py-16 px-4">
       <article className="max-w-4xl mx-auto">
-        <nav className="mb-8">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-white">Home</Link></li>
-            <li>/</li>
-            <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-            <li>/</li>
-            <li className="text-gray-300">Hyperliquid vs Ostium</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={[
+          { label: 'Home', href: '/' },
+          { label: 'Learn', href: '/blog' },
+          { label: 'Hyperliquid vs Ostium' }
+        ]} />
 
         <header className="mb-12">
           <span className="text-cyan-400 text-sm font-medium">Platform Comparison</span>

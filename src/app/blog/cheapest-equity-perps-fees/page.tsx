@@ -1,7 +1,32 @@
 import Link from 'next/link';
 import { platforms } from '@/data/platforms';
 import ReferralButton from '@/components/ReferralButton';
+import FAQSection from '@/components/FAQSection';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import type { Metadata } from 'next';
+
+const faqs = [
+  {
+    question: "What is a good fee rate for equity perps?",
+    answer: "Taker fees below 0.05% are considered competitive. Several platforms offer 0% maker fees. The best deal is Avantis where you only pay fees on profitable trades."
+  },
+  {
+    question: "Are zero fee platforms really free?",
+    answer: "Zero trading fees are real, but you still pay funding rates, spreads, and potentially slippage. The spread (bid-ask difference) and funding are your main costs on zero-fee platforms."
+  },
+  {
+    question: "Which fees matter more: maker or taker?",
+    answer: "Depends on your trading style. If you use limit orders, maker fees matter more. If you need instant execution with market orders, focus on taker fees. Most retail traders are takers."
+  },
+  {
+    question: "Do gas fees matter for equity perps?",
+    answer: "Yes, especially for frequent traders. Hyperliquid has zero gas fees. L2s like Arbitrum and Base have low gas. Ethereum L1 platforms have higher gas costs per transaction."
+  },
+  {
+    question: "Should I choose a platform based on fees alone?",
+    answer: "No. Liquidity and slippage matter more for larger trades. A platform with higher fees but deeper liquidity might save you money overall compared to a low-fee platform with thin order books."
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Cheapest Equity Perps Fees: Complete Platform Breakdown',
@@ -28,15 +53,11 @@ export default function CheapestFees() {
   return (
     <main className="min-h-screen py-16 px-4">
       <article className="max-w-4xl mx-auto">
-        <nav className="mb-8">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-white">Home</Link></li>
-            <li>/</li>
-            <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-            <li>/</li>
-            <li className="text-gray-300">Cheapest Fees</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={[
+          { label: 'Home', href: '/' },
+          { label: 'Learn', href: '/blog' },
+          { label: 'Cheapest Fees' }
+        ]} />
 
         <header className="mb-12">
           <span className="text-cyan-400 text-sm font-medium">Fee Comparison</span>
@@ -167,6 +188,8 @@ export default function CheapestFees() {
             ))}
           </div>
         </div>
+
+        <FAQSection faqs={faqs} />
 
         <div className="mt-12 text-center">
           <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-white">

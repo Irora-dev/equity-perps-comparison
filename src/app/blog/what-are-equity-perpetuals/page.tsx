@@ -1,6 +1,35 @@
 import Link from 'next/link';
 import { platforms } from '@/data/platforms';
+import FAQSection from '@/components/FAQSection';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import type { Metadata } from 'next';
+
+const faqs = [
+  {
+    question: "What is the difference between equity perps and regular stock trading?",
+    answer: "Equity perps let you trade with leverage (up to 200x), 24/7, without owning actual shares. Regular stocks require full capital, trade only during market hours, and give you ownership rights like dividends and voting."
+  },
+  {
+    question: "How much money do I need to start trading equity perps?",
+    answer: "You can start with as little as $10-50 on most platforms. However, we recommend starting with at least $100-500 to have adequate margin and avoid immediate liquidation on small price moves."
+  },
+  {
+    question: "Are equity perps legal?",
+    answer: "Equity perps exist in a regulatory gray area. Most platforms are decentralized and don't require KYC. Legality varies by jurisdiction. US residents should be aware these platforms typically operate outside US regulatory frameworks."
+  },
+  {
+    question: "What happens if my position gets liquidated?",
+    answer: "When your position is liquidated, your margin is used to close the position and cover losses. You lose your deposited margin but won't owe additional money. Some platforms have insurance funds to prevent socialized losses."
+  },
+  {
+    question: "Can I trade equity perps on weekends?",
+    answer: "Yes, most platforms like Hyperliquid and Lighter offer 24/7 trading. However, prices may be less volatile on weekends since traditional stock markets are closed and oracles use the last closing price."
+  },
+  {
+    question: "What are funding rates and why do they matter?",
+    answer: "Funding rates are periodic payments between long and short traders that keep perp prices aligned with spot prices. If you hold a position, you either pay or receive funding every 1-8 hours depending on the platform."
+  },
+];
 
 export const metadata: Metadata = {
   title: 'What Are Equity Perpetuals? Complete Beginner Guide',
@@ -15,15 +44,11 @@ export default function WhatAreEquityPerpetuals() {
   return (
     <main className="min-h-screen py-16 px-4">
       <article className="max-w-4xl mx-auto">
-        <nav className="mb-8">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-white">Home</Link></li>
-            <li>/</li>
-            <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-            <li>/</li>
-            <li className="text-gray-300">What Are Equity Perpetuals</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={[
+          { label: 'Home', href: '/' },
+          { label: 'Learn', href: '/blog' },
+          { label: 'What Are Equity Perpetuals' }
+        ]} />
 
         <header className="mb-12">
           <span className="text-cyan-400 text-sm font-medium">Beginner Guide</span>
@@ -174,6 +199,8 @@ export default function WhatAreEquityPerpetuals() {
             </p>
           </div>
         </div>
+
+        <FAQSection faqs={faqs} />
 
         <div className="mt-12 text-center">
           <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-white">

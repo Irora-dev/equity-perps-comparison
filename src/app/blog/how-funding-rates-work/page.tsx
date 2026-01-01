@@ -1,5 +1,30 @@
 import Link from 'next/link';
+import FAQSection from '@/components/FAQSection';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import type { Metadata } from 'next';
+
+const faqs = [
+  {
+    question: "What is a good funding rate for equity perps?",
+    answer: "A neutral funding rate is around 0.01% per 8 hours (about 10% annualized). Rates below this favor longs, above this favor shorts. Rates above 0.1% per 8 hours are considered high and signal crowded positioning."
+  },
+  {
+    question: "Do I pay funding if I close my position before settlement?",
+    answer: "Yes, most platforms calculate funding continuously. You pay or receive funding proportional to how long you held the position, even if you close before the scheduled settlement time."
+  },
+  {
+    question: "Can funding rates be negative?",
+    answer: "Yes. Negative funding means shorts pay longs. This happens when there's more short interest than long interest, pushing the perp price below spot. It's common during market downturns."
+  },
+  {
+    question: "How often do equity perps funding rates change?",
+    answer: "Funding rates are recalculated every funding interval (1-8 hours depending on platform). They can change significantly between periods based on market conditions and positioning."
+  },
+  {
+    question: "Why are funding rates different across platforms?",
+    answer: "Each platform has different traders and liquidity. A platform with more retail longs will have higher funding rates. Arbitrageurs help equalize rates but differences persist due to friction and capital constraints."
+  },
+];
 
 export const metadata: Metadata = {
   title: 'How Equity Perps Funding Rates Work | Complete Guide',
@@ -14,15 +39,11 @@ export default function HowFundingRatesWork() {
   return (
     <main className="min-h-screen py-16 px-4">
       <article className="max-w-4xl mx-auto">
-        <nav className="mb-8">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-white">Home</Link></li>
-            <li>/</li>
-            <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-            <li>/</li>
-            <li className="text-gray-300">How Funding Rates Work</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={[
+          { label: 'Home', href: '/' },
+          { label: 'Learn', href: '/blog' },
+          { label: 'How Funding Rates Work' }
+        ]} />
 
         <header className="mb-12">
           <span className="text-cyan-400 text-sm font-medium">Educational Guide</span>
@@ -173,6 +194,8 @@ export default function HowFundingRatesWork() {
             </p>
           </div>
         </div>
+
+        <FAQSection faqs={faqs} />
 
         <div className="mt-12 text-center">
           <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-white">

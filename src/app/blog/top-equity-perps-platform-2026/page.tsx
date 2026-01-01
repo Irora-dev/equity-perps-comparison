@@ -2,7 +2,32 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { platforms } from '@/data/platforms';
 import ReferralButton from '@/components/ReferralButton';
+import FAQSection from '@/components/FAQSection';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import type { Metadata } from 'next';
+
+const faqs = [
+  {
+    question: "Why is Hyperliquid the best equity perps platform?",
+    answer: "Hyperliquid leads in trading volume ($319B+ peak monthly), has the most equity perps (12+ stocks), offers zero gas fees, and provides sub-second finality. The combination of liquidity and features makes it the clear market leader."
+  },
+  {
+    question: "Is Hyperliquid safe to use?",
+    answer: "Hyperliquid runs on its own L1 blockchain with a battle-tested HIP-3 protocol. While all DeFi carries risk, Hyperliquid has processed hundreds of billions in volume without major security incidents."
+  },
+  {
+    question: "What equities can I trade on Hyperliquid?",
+    answer: "Hyperliquid offers perps on major stocks including NVDA, TSLA, AAPL, MSFT, PLTR, HOOD, META, AMZN, GOOGL, AMD, COIN, and NFLX. New listings are added regularly."
+  },
+  {
+    question: "How does Hyperliquid compare to centralized exchanges?",
+    answer: "Hyperliquid offers similar liquidity to major centralized exchanges but with self-custody of funds. You maintain control of your assets while accessing deep order books and fast execution."
+  },
+  {
+    question: "What will change for equity perps in 2026?",
+    answer: "We expect increased institutional adoption, more equity perp listings, tighter spreads from competition, and new product innovations like index perpetuals and options on perps."
+  },
+];
 
 export const metadata: Metadata = {
   title: 'The Top Equity Perps Platform for 2026 | Compare Equity Perps',
@@ -21,16 +46,11 @@ export default function TopEquityPerpsPlatform2026() {
   return (
     <main className="min-h-screen py-16 px-4">
       <article className="max-w-4xl mx-auto">
-        {/* Breadcrumb */}
-        <nav className="mb-8">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-white">Home</Link></li>
-            <li>/</li>
-            <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-            <li>/</li>
-            <li className="text-gray-300">Top Platform 2026</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={[
+          { label: 'Home', href: '/' },
+          { label: 'Learn', href: '/blog' },
+          { label: 'Top Platform 2026' }
+        ]} />
 
         {/* Header */}
         <header className="mb-10">
@@ -262,6 +282,8 @@ export default function TopEquityPerpsPlatform2026() {
             />
           </div>
         </div>
+
+        <FAQSection faqs={faqs} />
 
         {/* Back link */}
         <div className="mt-12 text-center">

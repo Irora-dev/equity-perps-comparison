@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Suspense } from "react";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { AnalyticsProvider } from "@/lib/analytics";
 
 const inter = Inter({
@@ -12,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://compareequityperps.com'), // Update with your domain
+  metadataBase: new URL('https://compareequityperps.com'),
   title: {
     default: "Compare Equity Perps | Best Equity Perpetual Trading Platforms",
     template: "%s | Compare Equity Perps",
@@ -44,11 +45,20 @@ export const metadata: Metadata = {
     title: "Compare Equity Perps | Best Equity Perpetual Trading Platforms",
     description:
       "Compare the best equity perpetual trading platforms. Find zero-fee perps, high leverage options, and 24/7 stock trading.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Compare Equity Perps - Best Equity Perpetual Trading Platforms",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Compare Equity Perps",
     description: "Compare the best equity perpetual trading platforms",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -61,6 +71,17 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -89,17 +110,7 @@ export default function RootLayout({
           <AnalyticsProvider>
             <Header />
             {children}
-            <footer className="border-t border-gray-800 py-8 mt-16">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <p className="text-center text-gray-500 text-sm">
-                  Compare Equity Perps - Find the best equity perpetual trading platforms.
-                  <br />
-                  <span className="text-xs">
-                    Disclaimer: This site contains affiliate links. Trading perpetual futures involves significant risk.
-                  </span>
-                </p>
-              </div>
-            </footer>
+            <Footer />
           </AnalyticsProvider>
         </Suspense>
       </body>

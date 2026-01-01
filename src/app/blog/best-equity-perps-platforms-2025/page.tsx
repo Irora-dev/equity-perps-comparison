@@ -1,7 +1,32 @@
 import Link from 'next/link';
 import { platforms } from '@/data/platforms';
 import ReferralButton from '@/components/ReferralButton';
+import FAQSection from '@/components/FAQSection';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import type { Metadata } from 'next';
+
+const faqs = [
+  {
+    question: "What is the most trusted equity perps platform?",
+    answer: "Hyperliquid has the highest volume and longest track record among decentralized equity perps platforms. Lighter offers ZK-proof security. Both have strong trust profiles."
+  },
+  {
+    question: "Which platform is best for beginners?",
+    answer: "Hyperliquid or Avantis are good starting points. Hyperliquid has deep liquidity preventing bad fills. Avantis has zero fees so mistakes cost less while learning."
+  },
+  {
+    question: "Can I trade equity perps from the US?",
+    answer: "Most decentralized platforms don't require KYC and are technically accessible. However, they operate outside US regulatory frameworks. Understand the legal implications before trading."
+  },
+  {
+    question: "How much money do I need to start?",
+    answer: "Most platforms let you start with as little as $10-50. However, $100-500 is recommended to avoid immediate liquidation on small price moves when using leverage."
+  },
+  {
+    question: "Are equity perps safe?",
+    answer: "All trading involves risk. Equity perps add leverage risk and smart contract risk. Only trade with funds you can afford to lose. Start with low leverage until you understand the mechanics."
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Best Equity Perps Platforms in 2025 | Complete Rankings',
@@ -26,15 +51,11 @@ export default function BestPlatforms2025() {
   return (
     <main className="min-h-screen py-16 px-4">
       <article className="max-w-4xl mx-auto">
-        <nav className="mb-8">
-          <ol className="flex items-center gap-2 text-sm text-gray-500">
-            <li><Link href="/" className="hover:text-white">Home</Link></li>
-            <li>/</li>
-            <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-            <li>/</li>
-            <li className="text-gray-300">Best Platforms 2025</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={[
+          { label: 'Home', href: '/' },
+          { label: 'Learn', href: '/blog' },
+          { label: 'Best Platforms 2025' }
+        ]} />
 
         <header className="mb-12">
           <span className="text-cyan-400 text-sm font-medium">Updated January 2025</span>
@@ -157,6 +178,8 @@ export default function BestPlatforms2025() {
             and always start with smaller position sizes while you learn how a new platform works.
           </p>
         </div>
+
+        <FAQSection faqs={faqs} />
 
         <div className="mt-12 text-center">
           <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-white">
