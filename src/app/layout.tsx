@@ -11,8 +11,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://equityperps.com'), // Update with your domain
   title: {
-    default: "Equity Perps Comparisonator | Compare Equity Perpetual Trading Platforms",
-    template: "%s | Equity Perps Comparisonator",
+    default: "Compare Equity Perps | Best Equity Perpetual Trading Platforms",
+    template: "%s | Compare Equity Perps",
   },
   description:
     "Compare the best equity perpetual trading platforms. Find zero-fee perps, high leverage options, and 24/7 stock trading on Hyperliquid, Lighter, Ostium, Avantis, and more.",
@@ -33,19 +33,19 @@ export const metadata: Metadata = {
     "leveraged trading",
     "crypto derivatives",
   ],
-  authors: [{ name: "Equity Perps Comparisonator" }],
-  creator: "Equity Perps Comparisonator",
+  authors: [{ name: "Compare Equity Perps" }],
+  creator: "Compare Equity Perps",
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Equity Perps Comparisonator",
-    title: "Equity Perps Comparisonator | Compare Equity Perpetual Trading Platforms",
+    siteName: "Compare Equity Perps",
+    title: "Compare Equity Perps | Best Equity Perpetual Trading Platforms",
     description:
       "Compare the best equity perpetual trading platforms. Find zero-fee perps, high leverage options, and 24/7 stock trading.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Equity Perps Comparisonator",
+    title: "Compare Equity Perps",
     description: "Compare the best equity perpetual trading platforms",
   },
   robots: {
@@ -74,7 +74,7 @@ export default function RootLayout({
         <footer className="border-t border-gray-800 py-8 mt-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p className="text-center text-gray-500 text-sm">
-              Equity Perps Comparisonator - Compare equity perpetual trading platforms.
+              Compare Equity Perps - Find the best equity perpetual trading platforms.
               <br />
               <span className="text-xs">
                 Disclaimer: This site contains affiliate links. Trading perpetual futures involves significant risk.

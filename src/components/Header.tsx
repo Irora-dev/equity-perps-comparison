@@ -7,7 +7,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-xl font-bold text-white">
-              Equity Perps <span className="text-cyan-400">Comparisonator</span>
+              Compare <span className="text-cyan-400">Equity Perps</span>
             </span>
           </Link>
 

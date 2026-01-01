@@ -21,7 +21,7 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            name: "Equity Perps Comparisonator",
+            name: "Compare Equity Perps",
             description: "Compare equity perpetual trading platforms",
             url: "https://equityperps.com",
             potentialAction: {
@@ -59,8 +59,8 @@ export default function Home() {
       <section className="py-16 sm:py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-white">Equity Perps</span>{' '}
-            <span className="text-cyan-400">Comparisonator</span>
+            <span className="text-white">Compare</span>{' '}
+            <span className="text-cyan-400">Equity Perps</span>
           </h1>
           <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
             Compare the best platforms for trading equity perpetual futures.

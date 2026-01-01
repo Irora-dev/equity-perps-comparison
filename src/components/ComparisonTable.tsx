@@ -40,6 +40,15 @@ export default function ComparisonTable({ filteredPlatforms }: ComparisonTablePr
                   <span className="text-xs text-gray-500">
                     {platform.maxLeverage}
                   </span>
+                  <a
+                    href={platform.referralUrl}
+                    target="_blank"
+                    rel="noopener sponsored"
+                    className="mt-1 px-2 py-1 text-xs font-medium text-white rounded transition-opacity hover:opacity-80"
+                    style={{ backgroundColor: platform.color }}
+                  >
+                    Trade
+                  </a>
                 </div>
               </th>
             ))}
