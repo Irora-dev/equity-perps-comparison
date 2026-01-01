@@ -176,12 +176,16 @@ export default function HyperliquidVsLighter() {
               href={hyperliquid.referralUrl}
               platformName="Hyperliquid"
               color={hyperliquid.color}
+              location="comparison_page"
+              comparisonPair="hyperliquid_vs_lighter"
               className="flex-1"
             />
             <ReferralButton
               href={lighter.referralUrl}
               platformName="Lighter"
               color={lighter.color}
+              location="comparison_page"
+              comparisonPair="hyperliquid_vs_lighter"
               className="flex-1"
             />
           </div>

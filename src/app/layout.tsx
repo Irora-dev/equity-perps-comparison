@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
+import { Suspense } from "react";
 import "./globals.css";
 import Header from "@/components/Header";
+import { AnalyticsProvider } from "@/lib/analytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -83,19 +85,23 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`${inter.className} bg-gray-950 text-white antialiased min-h-screen`}>
-        <Header />
-        {children}
-        <footer className="border-t border-gray-800 py-8 mt-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-center text-gray-500 text-sm">
-              Compare Equity Perps - Find the best equity perpetual trading platforms.
-              <br />
-              <span className="text-xs">
-                Disclaimer: This site contains affiliate links. Trading perpetual futures involves significant risk.
-              </span>
-            </p>
-          </div>
-        </footer>
+        <Suspense fallback={null}>
+          <AnalyticsProvider>
+            <Header />
+            {children}
+            <footer className="border-t border-gray-800 py-8 mt-16">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p className="text-center text-gray-500 text-sm">
+                  Compare Equity Perps - Find the best equity perpetual trading platforms.
+                  <br />
+                  <span className="text-xs">
+                    Disclaimer: This site contains affiliate links. Trading perpetual futures involves significant risk.
+                  </span>
+                </p>
+              </div>
+            </footer>
+          </AnalyticsProvider>
+        </Suspense>
       </body>
     </html>
   );

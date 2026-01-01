@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { platforms, featureLabels, type Platform } from '@/data/platforms';
+import { useAnalytics } from '@/lib/analytics';
 
 interface SearchBarProps {
   onSearchResults: (results: Platform[] | null) => void;
@@ -9,6 +10,8 @@ interface SearchBarProps {
 
 export default function SearchBar({ onSearchResults }: SearchBarProps) {
   const [query, setQuery] = useState('');
+  const { trackSearch } = useAnalytics();
+  const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
   const searchSuggestions = useMemo(() => [
     'zero fees',
@@ -102,6 +105,17 @@ export default function SearchBar({ onSearchResults }: SearchBarProps) {
     });
 
     onSearchResults(results.length > 0 ? results : []);
+
+    // Track search with debounce to avoid tracking every keystroke
+    if (debounceRef.current) {
+      clearTimeout(debounceRef.current);
+    }
+    debounceRef.current = setTimeout(() => {
+      trackSearch({
+        term: searchQuery,
+        resultsCount: results.length,
+      });
+    }, 1000);
   };
 
   return (

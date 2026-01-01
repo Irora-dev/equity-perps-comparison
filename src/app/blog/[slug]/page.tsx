@@ -125,6 +125,7 @@ export default async function PlatformReviewPage({ params }: Props) {
               href={platform.referralUrl}
               platformName={platform.name}
               color={platform.color}
+              location="platform_review_top"
             />
           </div>
         </div>
@@ -288,6 +289,7 @@ export default async function PlatformReviewPage({ params }: Props) {
             href={platform.referralUrl}
             platformName={platform.name}
             color={platform.color}
+            location="platform_review_bottom"
           />
         </section>
 

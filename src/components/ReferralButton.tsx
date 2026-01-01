@@ -1,8 +1,16 @@
+'use client';
+
+import { useAnalytics } from '@/lib/analytics';
+
 interface ReferralButtonProps {
   href: string;
   platformName: string;
   color: string;
   className?: string;
+  compact?: boolean;
+  location?: string;
+  position?: number;
+  comparisonPair?: string;
 }
 
 export default function ReferralButton({
@@ -10,19 +18,38 @@ export default function ReferralButton({
   platformName,
   color,
   className = '',
+  compact = false,
+  location = 'unknown',
+  position,
+  comparisonPair,
 }: ReferralButtonProps) {
+  const { trackAffiliateClick } = useAnalytics();
+
+  const buttonText = compact ? 'Start Trading' : `Start Trading on ${platformName}`;
+
+  const handleClick = () => {
+    trackAffiliateClick({
+      platform: platformName,
+      location,
+      buttonText,
+      position,
+      comparisonPair,
+    });
+  };
+
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener sponsored"
-      className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium text-white transition-all hover:scale-105 hover:shadow-lg ${className}`}
+      onClick={handleClick}
+      className={`inline-flex items-center justify-center gap-2 ${compact ? 'px-4 py-2' : 'px-6 py-3'} rounded-lg font-medium text-white transition-all hover:scale-105 hover:shadow-lg ${className}`}
       style={{
         backgroundColor: color,
         boxShadow: `0 4px 14px 0 ${color}40`,
       }}
     >
-      Start Trading on {platformName}
+      {buttonText}
       <svg
         className="w-4 h-4"
         fill="none"

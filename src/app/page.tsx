@@ -68,7 +68,7 @@ export default function Home() {
             Find zero-fee trading, high leverage, and 24/7 access to stock markets.
           </p>
           <p className="text-sm text-gray-500 mb-8">
-            Updated as of: January 2025
+            Updated as of: January 2026
           </p>
 
           {/* Search Bar */}
@@ -82,50 +82,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tools Row */}
-      <section className="py-6 px-4">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link
-              href="/blog/funding-rate-tracker"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-lg text-sm text-gray-300 hover:border-gray-600 hover:text-white transition-colors"
-            >
-              <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
-              Funding Rates
-            </Link>
-            <Link
-              href="/blog/fee-calculator"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-lg text-sm text-gray-300 hover:border-gray-600 hover:text-white transition-colors"
-            >
-              <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-              </svg>
-              Fee Calculator
-            </Link>
-            <Link
-              href="/blog/liquidation-calculator"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-lg text-sm text-gray-300 hover:border-gray-600 hover:text-white transition-colors"
-            >
-              <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
-              Liquidation Calculator
-            </Link>
-            <Link
-              href="/blog/cheapest-equity-perps-fees"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-lg text-sm text-gray-300 hover:border-gray-600 hover:text-white transition-colors"
-            >
-              <svg className="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              Fee Comparison
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Comparison Table Section */}
       <section className="py-12 px-4 bg-gray-900/30">
         <div className="max-w-7xl mx-auto">
@@ -136,6 +92,49 @@ export default function Home() {
             See which platforms offer the features you need
           </p>
           <ComparisonTable filteredPlatforms={searchResults} />
+
+          {/* Tools Row */}
+          <div className="mt-10 pt-8 border-t border-gray-800">
+            <p className="text-center text-gray-400 text-sm mb-4">Trading Tools</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link
+                href="/blog/funding-rate-tracker"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-lg text-sm text-gray-300 hover:border-gray-600 hover:text-white transition-colors"
+              >
+                <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+                Funding Rates
+              </Link>
+              <Link
+                href="/blog/fee-calculator"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-lg text-sm text-gray-300 hover:border-gray-600 hover:text-white transition-colors"
+              >
+                <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                Fee Calculator
+              </Link>
+              <Link
+                href="/blog/liquidation-calculator"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-lg text-sm text-gray-300 hover:border-gray-600 hover:text-white transition-colors"
+              >
+                <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                Liquidation Calculator
+              </Link>
+              <Link
+                href="/blog/cheapest-equity-perps-fees"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-lg text-sm text-gray-300 hover:border-gray-600 hover:text-white transition-colors"
+              >
+                <svg className="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Fee Comparison
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
