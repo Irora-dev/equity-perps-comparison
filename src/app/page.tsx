@@ -1,65 +1,143 @@
-import Image from "next/image";
+'use client';
+
+import { useState } from 'react';
+import SearchBar from '@/components/SearchBar';
+import ComparisonTable from '@/components/ComparisonTable';
+import PlatformCard from '@/components/PlatformCard';
+import { platforms, type Platform } from '@/data/platforms';
 
 export default function Home() {
+  const [searchResults, setSearchResults] = useState<Platform[] | null>(null);
+
+  const displayPlatforms = searchResults ?? platforms;
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Equity Perps Comparisonator",
+            description: "Compare equity perpetual trading platforms",
+            url: "https://equityperps.com",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate: "https://equityperps.com/?q={search_term_string}",
+              },
+              "query-input": "required name=search_term_string",
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Equity Perpetual Trading Platforms",
+            description: "Top equity perps platforms compared",
+            numberOfItems: platforms.length,
+            itemListElement: platforms.map((platform, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: platform.name,
+              description: platform.description,
+              url: `https://equityperps.com/blog/${platform.slug}`,
+            })),
+          }),
+        }}
+      />
+
+      {/* Hero Section */}
+      <section className="py-16 sm:py-24 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+            <span className="text-white">Equity Perps</span>{' '}
+            <span className="text-cyan-400">Comparisonator</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            Compare the best platforms for trading equity perpetual futures.
+            Find zero-fee trading, high leverage, and 24/7 access to stock markets.
           </p>
+
+          {/* Search Bar */}
+          <SearchBar onSearchResults={setSearchResults} />
+
+          {searchResults && (
+            <p className="mt-4 text-gray-500">
+              Showing {searchResults.length} platform{searchResults.length !== 1 ? 's' : ''} matching your search
+            </p>
+          )}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Comparison Table Section */}
+      <section className="py-12 px-4 bg-gray-900/30">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold text-white mb-2 text-center">
+            Feature Comparison
+          </h2>
+          <p className="text-gray-400 text-center mb-8">
+            See which platforms offer the features you need
+          </p>
+          <ComparisonTable filteredPlatforms={searchResults} />
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Platform Cards Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-bold text-white mb-2 text-center">
+            Platform Overview
+          </h2>
+          <p className="text-gray-400 text-center mb-8">
+            Detailed look at each equity perps platform
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {displayPlatforms.map((platform) => (
+              <PlatformCard key={platform.id} platform={platform} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Content Section */}
+      <section className="py-16 px-4 bg-gray-900/30">
+        <div className="max-w-4xl mx-auto prose prose-invert">
+          <h2 className="text-2xl font-bold text-white mb-6">
+            What are Equity Perpetual Futures?
+          </h2>
+          <div className="text-gray-300 space-y-4">
+            <p>
+              Equity perpetual futures (equity perps) are derivative contracts that allow you to trade
+              stocks like TSLA, NVDA, AAPL, and more with leverage—without an expiry date. Unlike
+              traditional futures that expire quarterly, perpetual futures can be held indefinitely.
+            </p>
+            <p>
+              These instruments have exploded in popularity in 2025, with platforms like Hyperliquid
+              processing over $300 billion in monthly volume. Key benefits include:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-gray-400">
+              <li><strong className="text-white">24/7 Trading:</strong> Trade equity exposure around the clock, even on weekends</li>
+              <li><strong className="text-white">High Leverage:</strong> Access up to 200x leverage on some platforms</li>
+              <li><strong className="text-white">Self-Custody:</strong> Keep control of your funds in your own wallet</li>
+              <li><strong className="text-white">Low/Zero Fees:</strong> Many platforms offer zero trading fees</li>
+              <li><strong className="text-white">No KYC:</strong> Trade without identity verification on decentralized platforms</li>
+            </ul>
+            <p>
+              Popular platforms include Hyperliquid (largest by volume), Lighter (ZK-powered),
+              Ostium (0DTE perpetuals), and Avantis (zero-fee on Base). Each platform has unique
+              features—use our comparison table above to find the best fit for your trading style.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
