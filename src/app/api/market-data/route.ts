@@ -124,35 +124,51 @@ async function fetchLighterData(): Promise<Map<string, PlatformData>> {
   ]);
 
   try {
-    const response = await fetch('https://mainnet.zklighter.elliot.ai/api/v1/funding-rates', {
-      cache: 'no-store',
-      headers: { 'Accept': 'application/json' },
-    });
+    // Fetch both funding rates and orderbook details in parallel
+    const [fundingRes, orderbookRes] = await Promise.all([
+      fetch('https://mainnet.zklighter.elliot.ai/api/v1/funding-rates', {
+        cache: 'no-store',
+        headers: { 'Accept': 'application/json' },
+      }),
+      fetch('https://mainnet.zklighter.elliot.ai/api/v1/orderBookDetails', {
+        cache: 'no-store',
+        headers: { 'Accept': 'application/json' },
+      }),
+    ]);
 
-    if (!response.ok) {
-      console.error('Lighter fetch failed:', response.status, await response.text());
-      return results;
+    // Process funding rates
+    const fundingMap = new Map<string, number>();
+    if (fundingRes.ok) {
+      const fundingData = await fundingRes.json();
+      const fundingRates = fundingData.funding_rates || [];
+      for (const fr of fundingRates) {
+        const symbol = fr.symbol as string;
+        if (LIGHTER_EQUITIES.has(symbol) && fr.exchange === 'lighter') {
+          const rate = fr.rate || 0;
+          // Convert 8-hour rate to annual percentage
+          const annualRate = rate * 3 * 365 * 100;
+          fundingMap.set(symbol, annualRate);
+        }
+      }
     }
 
-    const data = await response.json();
-    const fundingRates = data.funding_rates || [];
-    console.log('Lighter funding rates fetched:', fundingRates.length, 'items');
+    // Process orderbook details for prices
+    if (orderbookRes.ok) {
+      const orderbookData = await orderbookRes.json();
+      const orderBooks = orderbookData.order_book_details || [];
 
-    for (const fr of fundingRates) {
-      const symbol = fr.symbol as string;
+      for (const ob of orderBooks) {
+        const symbol = ob.symbol as string;
+        if (LIGHTER_EQUITIES.has(symbol)) {
+          const price = ob.last_trade_price || null;
+          const change24h = ob.daily_price_change || null;
+          const volume = ob.daily_quote_token_volume || null;
 
-      if (LIGHTER_EQUITIES.has(symbol)) {
-        const rate = fr.rate || 0;
-        // Convert 8-hour rate to annual percentage
-        const annualRate = rate * 3 * 365 * 100;
-
-        // Only set if not already set (avoid duplicates from different exchanges)
-        if (!results.has(symbol)) {
           results.set(symbol, {
-            price: null,
-            change24h: null,
-            fundingRate: annualRate,
-            volume24h: null,
+            price,
+            change24h,
+            fundingRate: fundingMap.get(symbol) ?? null,
+            volume24h: volume,
           });
         }
       }

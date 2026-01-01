@@ -118,7 +118,18 @@ export default function StockPageTemplate({ stock }: StockPageTemplateProps) {
           { label: `${stock.ticker} Perpetuals` }
         ]} />
 
-        <header className="mb-12">
+        {/* Back to Stock Hub */}
+        <Link
+          href="/stocks"
+          className="inline-flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors mb-6"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to Stock Hub
+        </Link>
+
+        <header className="mb-8">
           <div className="flex flex-wrap items-center gap-3 mb-3">
             <span className={`inline-flex items-center gap-2 ${volatilityColors[stock.volatility]} text-sm font-medium`}>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,6 +146,11 @@ export default function StockPageTemplate({ stock }: StockPageTemplateProps) {
             {stock.description}
           </p>
         </header>
+
+        {/* Live Market Data - Above TOC */}
+        <div className="mb-8">
+          <LiveMarketData ticker={stock.ticker} showDetailed={true} />
+        </div>
 
         <TableOfContents items={tocItems} />
 
@@ -159,11 +175,6 @@ export default function StockPageTemplate({ stock }: StockPageTemplateProps) {
               <p className="text-gray-500 text-xs mb-1">Market Cap</p>
               <p className="text-white font-bold text-xl">{stock.marketCap}</p>
             </div>
-          </div>
-
-          {/* Live Market Data */}
-          <div className="my-8">
-            <LiveMarketData ticker={stock.ticker} showDetailed={true} />
           </div>
 
           <h2 id="overview" className="text-2xl font-bold text-white mt-12 mb-4">
@@ -341,11 +352,11 @@ export default function StockPageTemplate({ stock }: StockPageTemplateProps) {
         <RelatedArticles articles={relatedArticles} />
 
         <div className="mt-12 text-center">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-gray-400 hover:text-white">
+          <Link href="/stocks" className="inline-flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Back to all guides
+            Back to Stock Hub
           </Link>
         </div>
       </article>

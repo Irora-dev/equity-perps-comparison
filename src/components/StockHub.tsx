@@ -77,12 +77,23 @@ export default function StockHub() {
 
   const getStockChange = (ticker: string) => {
     const data = marketData.get(ticker);
-    return data?.ostium?.change24h ?? data?.hyperliquid?.change24h ?? null;
+    return data?.ostium?.change24h ?? data?.lighter?.change24h ?? data?.hyperliquid?.change24h ?? null;
+  };
+
+  // Check if stock has price on all platforms
+  const hasAllPlatformPrices = (ticker: string) => {
+    const data = marketData.get(ticker);
+    if (!data) return false;
+    const ostiumPrice = data.ostium?.price;
+    const lighterPrice = data.lighter?.price;
+    const hyperliquidPrice = data.hyperliquid?.price;
+    return ostiumPrice !== null && lighterPrice !== null && hyperliquidPrice !== null;
   };
 
   // Filter and sort stocks
   const filteredStocks = useMemo(() => {
-    let result = [...stocks];
+    // While loading, show all stocks; once loaded, filter to only stocks with prices on all 3 platforms
+    let result = loading ? [...stocks] : stocks.filter(s => hasAllPlatformPrices(s.ticker));
 
     // Filter by search
     if (searchQuery) {
@@ -133,7 +144,8 @@ export default function StockHub() {
     });
 
     return result;
-  }, [stocks, searchQuery, selectedSector, sortField, sortDirection, marketData]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stocks, searchQuery, selectedSector, sortField, sortDirection, marketData, loading]);
 
   // Handle sort click
   const handleSort = (field: SortField) => {
@@ -169,7 +181,7 @@ export default function StockHub() {
             Stock <span className="text-cyan-400">Hub</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Real-time prices and market data for 50+ equity perpetuals across decentralized platforms
+            Real-time prices and market data for equity perpetuals available on all three platforms
           </p>
         </div>
 
