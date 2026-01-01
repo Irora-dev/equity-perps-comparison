@@ -3,28 +3,42 @@
 import { useEffect, useState, useMemo } from 'react';
 import Link from 'next/link';
 import { stocks, type StockData } from '@/data/stocks';
+import { platforms } from '@/data/platforms';
 import {
   fetchAllEquitiesData,
   formatCurrency,
   formatPriceChange,
+  formatFundingRate,
   type EquityMarketData,
 } from '@/lib/api';
 
-type SortField = 'ticker' | 'name' | 'price' | 'change' | 'volatility' | 'sector';
+type SortField = 'ticker' | 'name' | 'price' | 'change' | 'funding' | 'sector';
 type SortDirection = 'asc' | 'desc';
 
-const volatilityOrder = { 'low': 1, 'medium': 2, 'high': 3, 'very-high': 4 };
 const volatilityColors = {
   'low': 'text-green-400',
   'medium': 'text-yellow-400',
   'high': 'text-orange-400',
   'very-high': 'text-red-400',
 };
-const volatilityLabels = {
-  'low': 'Low',
-  'medium': 'Medium',
-  'high': 'High',
-  'very-high': 'Very High',
+
+// Platform colors and referral URLs
+const platformInfo: Record<string, { name: string; color: string; referralUrl: string }> = {
+  ostium: {
+    name: 'Ostium',
+    color: '#06b6d4', // cyan
+    referralUrl: platforms.find(p => p.id === 'ostium')?.referralUrl || 'https://ostium.com',
+  },
+  lighter: {
+    name: 'Lighter',
+    color: '#818cf8', // indigo
+    referralUrl: platforms.find(p => p.id === 'lighter')?.referralUrl || 'https://lighter.xyz',
+  },
+  hyperliquid: {
+    name: 'Hyperliquid',
+    color: '#34d399', // emerald
+    referralUrl: platforms.find(p => p.id === 'hyperliquid')?.referralUrl || 'https://hyperliquid.xyz',
+  },
 };
 
 export default function StockHub() {
@@ -80,6 +94,31 @@ export default function StockHub() {
     return data?.ostium?.change24h ?? data?.lighter?.change24h ?? data?.hyperliquid?.change24h ?? null;
   };
 
+  // Get lowest funding rate and platform for a stock
+  const getLowestFundingRate = (ticker: string): { rate: number | null; platform: string | null } => {
+    const data = marketData.get(ticker);
+    if (!data) return { rate: null, platform: null };
+
+    const rates: { platform: string; rate: number }[] = [];
+
+    if (data.lighter?.fundingRate !== null && data.lighter?.fundingRate !== undefined) {
+      rates.push({ platform: 'lighter', rate: data.lighter.fundingRate });
+    }
+    if (data.hyperliquid?.fundingRate !== null && data.hyperliquid?.fundingRate !== undefined) {
+      rates.push({ platform: 'hyperliquid', rate: data.hyperliquid.fundingRate });
+    }
+    // Ostium uses rollover fees instead of funding - not available via API
+
+    if (rates.length === 0) return { rate: null, platform: null };
+
+    // Find the lowest (or least negative) funding rate
+    const lowest = rates.reduce((min, curr) =>
+      Math.abs(curr.rate) < Math.abs(min.rate) ? curr : min
+    );
+
+    return { rate: lowest.rate, platform: lowest.platform };
+  };
+
   // Check if stock has price on all platforms
   const hasAllPlatformPrices = (ticker: string) => {
     const data = marketData.get(ticker);
@@ -90,10 +129,16 @@ export default function StockHub() {
     return ostiumPrice !== null && lighterPrice !== null && hyperliquidPrice !== null;
   };
 
+  // Check if stock has any price data
+  const hasAnyPrice = (ticker: string) => {
+    const data = marketData.get(ticker);
+    if (!data) return false;
+    return data.ostium?.price !== null || data.lighter?.price !== null || data.hyperliquid?.price !== null;
+  };
+
   // Filter and sort stocks
   const filteredStocks = useMemo(() => {
-    // While loading, show all stocks; once loaded, filter to only stocks with prices on all 3 platforms
-    let result = loading ? [...stocks] : stocks.filter(s => hasAllPlatformPrices(s.ticker));
+    let result = [...stocks];
 
     // Filter by search
     if (searchQuery) {
@@ -111,37 +156,51 @@ export default function StockHub() {
       result = result.filter(s => s.sector === selectedSector);
     }
 
-    // Sort
-    result.sort((a, b) => {
-      let comparison = 0;
+    // Sort with priority: stocks with all platform prices first, then partial, then unavailable
+    if (!loading) {
+      result.sort((a, b) => {
+        const aHasAll = hasAllPlatformPrices(a.ticker);
+        const bHasAll = hasAllPlatformPrices(b.ticker);
+        const aHasAny = hasAnyPrice(a.ticker);
+        const bHasAny = hasAnyPrice(b.ticker);
 
-      switch (sortField) {
-        case 'ticker':
-          comparison = a.ticker.localeCompare(b.ticker);
-          break;
-        case 'name':
-          comparison = a.name.localeCompare(b.name);
-          break;
-        case 'price':
-          const priceA = getStockPrice(a.ticker) ?? 0;
-          const priceB = getStockPrice(b.ticker) ?? 0;
-          comparison = priceA - priceB;
-          break;
-        case 'change':
-          const changeA = getStockChange(a.ticker) ?? 0;
-          const changeB = getStockChange(b.ticker) ?? 0;
-          comparison = changeA - changeB;
-          break;
-        case 'volatility':
-          comparison = volatilityOrder[a.volatility] - volatilityOrder[b.volatility];
-          break;
-        case 'sector':
-          comparison = a.sector.localeCompare(b.sector);
-          break;
-      }
+        // Priority: all prices > some prices > no prices
+        if (aHasAll && !bHasAll) return -1;
+        if (!aHasAll && bHasAll) return 1;
+        if (aHasAny && !bHasAny) return -1;
+        if (!aHasAny && bHasAny) return 1;
 
-      return sortDirection === 'asc' ? comparison : -comparison;
-    });
+        // Within same category, sort by selected field
+        let comparison = 0;
+        switch (sortField) {
+          case 'ticker':
+            comparison = a.ticker.localeCompare(b.ticker);
+            break;
+          case 'name':
+            comparison = a.name.localeCompare(b.name);
+            break;
+          case 'price':
+            const priceA = getStockPrice(a.ticker) ?? 0;
+            const priceB = getStockPrice(b.ticker) ?? 0;
+            comparison = priceA - priceB;
+            break;
+          case 'change':
+            const changeA = getStockChange(a.ticker) ?? 0;
+            const changeB = getStockChange(b.ticker) ?? 0;
+            comparison = changeA - changeB;
+            break;
+          case 'funding':
+            const fundingA = getLowestFundingRate(a.ticker).rate ?? 999;
+            const fundingB = getLowestFundingRate(b.ticker).rate ?? 999;
+            comparison = Math.abs(fundingA) - Math.abs(fundingB);
+            break;
+          case 'sector':
+            comparison = a.sector.localeCompare(b.sector);
+            break;
+        }
+        return sortDirection === 'asc' ? comparison : -comparison;
+      });
+    }
 
     return result;
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -181,7 +240,7 @@ export default function StockHub() {
             Stock <span className="text-cyan-400">Hub</span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Real-time prices and market data for equity perpetuals available on all three platforms
+            Real-time prices and funding rates for equity perpetuals - trade on the platform with the lowest fees
           </p>
         </div>
 
@@ -262,42 +321,42 @@ export default function StockHub() {
                 <tr className="border-b border-gray-800 bg-gray-900/50">
                   <th
                     onClick={() => handleSort('ticker')}
-                    className="text-left py-4 px-4 text-gray-400 font-medium cursor-pointer hover:text-white transition-colors"
+                    className="text-left py-4 px-3 text-gray-400 font-medium cursor-pointer hover:text-white transition-colors"
                   >
                     Ticker <SortIcon field="ticker" />
                   </th>
                   <th
                     onClick={() => handleSort('name')}
-                    className="text-left py-4 px-4 text-gray-400 font-medium cursor-pointer hover:text-white transition-colors hidden sm:table-cell"
+                    className="text-left py-4 px-3 text-gray-400 font-medium cursor-pointer hover:text-white transition-colors hidden sm:table-cell"
                   >
                     Name <SortIcon field="name" />
                   </th>
                   <th
                     onClick={() => handleSort('price')}
-                    className="text-right py-4 px-4 text-gray-400 font-medium cursor-pointer hover:text-white transition-colors"
+                    className="text-right py-4 px-3 text-gray-400 font-medium cursor-pointer hover:text-white transition-colors"
                   >
                     Price <SortIcon field="price" />
                   </th>
                   <th
                     onClick={() => handleSort('change')}
-                    className="text-right py-4 px-4 text-gray-400 font-medium cursor-pointer hover:text-white transition-colors"
+                    className="text-right py-4 px-3 text-gray-400 font-medium cursor-pointer hover:text-white transition-colors hidden md:table-cell"
                   >
                     24h <SortIcon field="change" />
                   </th>
                   <th
-                    onClick={() => handleSort('volatility')}
-                    className="text-center py-4 px-4 text-gray-400 font-medium cursor-pointer hover:text-white transition-colors hidden md:table-cell"
+                    onClick={() => handleSort('funding')}
+                    className="text-right py-4 px-3 text-gray-400 font-medium cursor-pointer hover:text-white transition-colors"
                   >
-                    Volatility <SortIcon field="volatility" />
+                    Best Funding <SortIcon field="funding" />
                   </th>
                   <th
                     onClick={() => handleSort('sector')}
-                    className="text-left py-4 px-4 text-gray-400 font-medium cursor-pointer hover:text-white transition-colors hidden lg:table-cell"
+                    className="text-left py-4 px-3 text-gray-400 font-medium cursor-pointer hover:text-white transition-colors hidden lg:table-cell"
                   >
                     Sector <SortIcon field="sector" />
                   </th>
-                  <th className="text-center py-4 px-4 text-gray-400 font-medium">
-                    Platforms
+                  <th className="text-right py-4 px-3 text-gray-400 font-medium">
+                    Trade
                   </th>
                 </tr>
               </thead>
@@ -305,16 +364,18 @@ export default function StockHub() {
                 {filteredStocks.map((stock, index) => {
                   const price = getStockPrice(stock.ticker);
                   const change = getStockChange(stock.ticker);
-                  const availablePlatforms = stock.platforms.filter(p => p.available).length;
+                  const { rate: fundingRate, platform: bestPlatform } = getLowestFundingRate(stock.ticker);
+                  const hasPrice = hasAnyPrice(stock.ticker);
+                  const hasAllPrices = hasAllPlatformPrices(stock.ticker);
 
                   return (
                     <tr
                       key={stock.ticker}
                       className={`border-b border-gray-800/50 hover:bg-gray-800/30 transition-colors ${
                         index % 2 === 0 ? 'bg-gray-900/20' : ''
-                      }`}
+                      } ${!hasPrice ? 'opacity-50' : ''}`}
                     >
-                      <td className="py-4 px-4">
+                      <td className="py-3 px-3">
                         <Link
                           href={`/blog/${stock.slug}`}
                           className="font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
@@ -322,12 +383,12 @@ export default function StockHub() {
                           {stock.ticker}
                         </Link>
                       </td>
-                      <td className="py-4 px-4 text-white hidden sm:table-cell">
+                      <td className="py-3 px-3 text-white hidden sm:table-cell">
                         <Link href={`/blog/${stock.slug}`} className="hover:text-cyan-400 transition-colors">
                           {stock.name}
                         </Link>
                       </td>
-                      <td className="py-4 px-4 text-right">
+                      <td className="py-3 px-3 text-right">
                         {loading ? (
                           <div className="h-5 w-20 bg-gray-700 rounded animate-pulse ml-auto"></div>
                         ) : (
@@ -336,7 +397,7 @@ export default function StockHub() {
                           </span>
                         )}
                       </td>
-                      <td className="py-4 px-4 text-right">
+                      <td className="py-3 px-3 text-right hidden md:table-cell">
                         {loading ? (
                           <div className="h-5 w-16 bg-gray-700 rounded animate-pulse ml-auto"></div>
                         ) : (
@@ -353,18 +414,49 @@ export default function StockHub() {
                           </span>
                         )}
                       </td>
-                      <td className="py-4 px-4 text-center hidden md:table-cell">
-                        <span className={`text-sm ${volatilityColors[stock.volatility]}`}>
-                          {volatilityLabels[stock.volatility]}
-                        </span>
+                      <td className="py-3 px-3 text-right">
+                        {loading ? (
+                          <div className="h-5 w-20 bg-gray-700 rounded animate-pulse ml-auto"></div>
+                        ) : fundingRate !== null && bestPlatform ? (
+                          <span className="font-mono text-sm" style={{ color: platformInfo[bestPlatform]?.color }}>
+                            {formatFundingRate(fundingRate)}
+                          </span>
+                        ) : (
+                          <span className="text-gray-500">—</span>
+                        )}
                       </td>
-                      <td className="py-4 px-4 text-gray-400 text-sm hidden lg:table-cell">
+                      <td className="py-3 px-3 text-gray-400 text-sm hidden lg:table-cell">
                         {stock.sector}
                       </td>
-                      <td className="py-4 px-4 text-center">
-                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-medium">
-                          {availablePlatforms}
-                        </span>
+                      <td className="py-3 px-3 text-right">
+                        {bestPlatform && hasAllPrices ? (
+                          <a
+                            href={platformInfo[bestPlatform]?.referralUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all hover:scale-105"
+                            style={{
+                              backgroundColor: `${platformInfo[bestPlatform]?.color}20`,
+                              color: platformInfo[bestPlatform]?.color,
+                              borderColor: platformInfo[bestPlatform]?.color,
+                              borderWidth: '1px',
+                            }}
+                          >
+                            Trade on {platformInfo[bestPlatform]?.name}
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </a>
+                        ) : hasPrice ? (
+                          <Link
+                            href={`/blog/${stock.slug}`}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-800 text-gray-400 hover:bg-gray-700 transition-colors"
+                          >
+                            View Details
+                          </Link>
+                        ) : (
+                          <span className="text-gray-600 text-xs">Coming Soon</span>
+                        )}
                       </td>
                     </tr>
                   );
@@ -381,44 +473,41 @@ export default function StockHub() {
             <p className="text-white font-bold text-2xl">{stocks.length}</p>
           </div>
           <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 text-center">
+            <p className="text-gray-500 text-xs mb-1">With Live Data</p>
+            <p className="text-green-400 font-bold text-2xl">
+              {!loading ? filteredStocks.filter(s => hasAllPlatformPrices(s.ticker)).length : '—'}
+            </p>
+          </div>
+          <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 text-center">
             <p className="text-gray-500 text-xs mb-1">Sectors</p>
             <p className="text-white font-bold text-2xl">{sectors.length - 1}</p>
           </div>
           <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 text-center">
-            <p className="text-gray-500 text-xs mb-1">High Volatility</p>
-            <p className="text-orange-400 font-bold text-2xl">
-              {stocks.filter(s => s.volatility === 'high' || s.volatility === 'very-high').length}
-            </p>
-          </div>
-          <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 text-center">
-            <p className="text-gray-500 text-xs mb-1">Multi-Platform</p>
-            <p className="text-cyan-400 font-bold text-2xl">
-              {stocks.filter(s => s.platforms.filter(p => p.available).length > 1).length}
-            </p>
+            <p className="text-gray-500 text-xs mb-1">Platforms</p>
+            <p className="text-cyan-400 font-bold text-2xl">3</p>
           </div>
         </div>
 
         {/* Legend */}
         <div className="mt-8 p-4 bg-gray-900/30 border border-gray-800 rounded-xl">
-          <h3 className="text-white font-semibold mb-3">Volatility Guide</h3>
-          <div className="flex flex-wrap gap-4 text-sm">
+          <h3 className="text-white font-semibold mb-3">Platform Guide</h3>
+          <div className="flex flex-wrap gap-6 text-sm">
             <span className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-green-400"></span>
-              <span className="text-gray-400">Low (&lt;2% daily)</span>
+              <span className="w-3 h-3 rounded-full" style={{ backgroundColor: platformInfo.ostium.color }}></span>
+              <span className="text-gray-400">Ostium</span>
             </span>
             <span className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-yellow-400"></span>
-              <span className="text-gray-400">Medium (2-3% daily)</span>
+              <span className="w-3 h-3 rounded-full" style={{ backgroundColor: platformInfo.lighter.color }}></span>
+              <span className="text-gray-400">Lighter</span>
             </span>
             <span className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-orange-400"></span>
-              <span className="text-gray-400">High (3-5% daily)</span>
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-red-400"></span>
-              <span className="text-gray-400">Very High (&gt;5% daily)</span>
+              <span className="w-3 h-3 rounded-full" style={{ backgroundColor: platformInfo.hyperliquid.color }}></span>
+              <span className="text-gray-400">Hyperliquid</span>
             </span>
           </div>
+          <p className="text-gray-500 text-xs mt-3">
+            Funding rates shown are annualized. The &quot;Trade&quot; button links to the platform with the lowest funding rate for each stock.
+          </p>
         </div>
 
         {/* CTA */}
