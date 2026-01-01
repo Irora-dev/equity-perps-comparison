@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import SearchBar from '@/components/SearchBar';
 import ComparisonTable from '@/components/ComparisonTable';
 import PlatformCard from '@/components/PlatformCard';
@@ -135,6 +136,46 @@ export default function Home() {
               Ostium (0DTE perpetuals), and Avantis (zero-fee on Base). Each platform has unique
               features—use our comparison table above to find the best fit for your trading style.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Reviews Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-white mb-2 text-center">
+            Platform Reviews
+          </h2>
+          <p className="text-gray-400 text-center mb-8">
+            Read our in-depth reviews for each platform
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {platforms.map((platform) => (
+              <Link
+                key={platform.id}
+                href={`/blog/${platform.slug}`}
+                className="flex items-center gap-3 p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-gray-600 transition-colors group"
+              >
+                <div
+                  className="w-3 h-3 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: platform.color }}
+                />
+                <span className="text-gray-300 group-hover:text-white transition-colors text-sm font-medium">
+                  {platform.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-6 text-center">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+            >
+              View all reviews
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
