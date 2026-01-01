@@ -2,7 +2,46 @@ import Link from 'next/link';
 import { platforms } from '@/data/platforms';
 import FAQSection from '@/components/FAQSection';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import TableOfContents from '@/components/TableOfContents';
+import RelatedArticles from '@/components/RelatedArticles';
 import type { Metadata } from 'next';
+
+const tocItems = [
+  { id: 'basics', title: 'The Basics' },
+  { id: 'differences', title: 'How They Differ from Regular Stock Trading' },
+  { id: 'why-traders-use', title: 'Why Traders Use Equity Perps' },
+  { id: 'risks', title: 'The Risks' },
+  { id: 'pricing', title: 'How Pricing Works' },
+  { id: 'getting-started', title: 'Getting Started' },
+  { id: 'which-platform', title: 'Which Platform Should You Use?' },
+];
+
+const relatedArticles = [
+  {
+    title: 'How Funding Rates Work',
+    href: '/blog/how-funding-rates-work',
+    description: 'Understanding the funding mechanism that keeps perp prices aligned with spot.',
+    category: 'guide' as const,
+  },
+  {
+    title: 'Equity Perps vs CFDs',
+    href: '/blog/equity-perps-vs-cfds',
+    description: 'Key differences between equity perps and contracts for difference.',
+    category: 'comparison' as const,
+  },
+  {
+    title: 'Best Equity Perps Platforms 2025',
+    href: '/blog/best-equity-perps-platforms-2025',
+    description: 'Complete ranking of platforms by volume, features, and fees.',
+    category: 'guide' as const,
+  },
+  {
+    title: 'Liquidation Calculator',
+    href: '/blog/liquidation-calculator',
+    description: 'Calculate your liquidation price before opening a position.',
+    category: 'tool' as const,
+  },
+];
 
 const faqs = [
   {
@@ -43,6 +82,34 @@ export const metadata: Metadata = {
 export default function WhatAreEquityPerpetuals() {
   return (
     <main className="min-h-screen py-16 px-4">
+      {/* JSON-LD Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "What Are Equity Perpetuals? Complete Beginner Guide",
+            description: "Learn what equity perpetuals are, how they work, and why traders use them. A complete guide for beginners.",
+            author: {
+              "@type": "Organization",
+              name: "Compare Equity Perps",
+              url: "https://compareequityperps.com",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Compare Equity Perps",
+              url: "https://compareequityperps.com",
+            },
+            datePublished: "2025-01-01",
+            dateModified: "2026-01-01",
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": "https://compareequityperps.com/blog/what-are-equity-perpetuals",
+            },
+          }),
+        }}
+      />
       <article className="max-w-4xl mx-auto">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
@@ -60,13 +127,15 @@ export default function WhatAreEquityPerpetuals() {
           </p>
         </header>
 
+        <TableOfContents items={tocItems} />
+
         <div className="prose prose-invert max-w-none">
           <p className="text-gray-300 text-lg">
             Equity perpetuals let you trade stock exposure with leverage, 24/7, without actually owning shares.
             They combine the simplicity of perpetual futures with the price action of traditional equities.
           </p>
 
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">The Basics</h2>
+          <h2 id="basics" className="text-2xl font-bold text-white mt-12 mb-4">The Basics</h2>
 
           <p className="text-gray-300">
             A perpetual future is a derivative contract that tracks an underlying asset price. Unlike traditional futures,
@@ -79,7 +148,7 @@ export default function WhatAreEquityPerpetuals() {
             The mechanics are similar to spot trading except you can use leverage and go short.
           </p>
 
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">How They Differ from Regular Stock Trading</h2>
+          <h2 id="differences" className="text-2xl font-bold text-white mt-12 mb-4">How They Differ from Regular Stock Trading</h2>
 
           <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -108,7 +177,7 @@ export default function WhatAreEquityPerpetuals() {
             </div>
           </div>
 
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">Why Traders Use Equity Perps</h2>
+          <h2 id="why-traders-use" className="text-2xl font-bold text-white mt-12 mb-4">Why Traders Use Equity Perps</h2>
 
           <h3 className="text-xl font-bold text-white mt-8 mb-3">Leverage</h3>
           <p className="text-gray-300">
@@ -134,7 +203,7 @@ export default function WhatAreEquityPerpetuals() {
             Connect a wallet, deposit stablecoins, and start trading. Privacy and accessibility in one package.
           </p>
 
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">The Risks</h2>
+          <h2 id="risks" className="text-2xl font-bold text-white mt-12 mb-4">The Risks</h2>
 
           <p className="text-gray-300">
             Leverage cuts both ways. The same 10x that amplifies gains also amplifies losses.
@@ -151,7 +220,7 @@ export default function WhatAreEquityPerpetuals() {
             especially on popular trades where funding rates spike.
           </p>
 
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">How Pricing Works</h2>
+          <h2 id="pricing" className="text-2xl font-bold text-white mt-12 mb-4">How Pricing Works</h2>
 
           <p className="text-gray-300">
             Equity perps use oracle systems to track spot stock prices. Providers like Pyth aggregate price data
@@ -164,7 +233,7 @@ export default function WhatAreEquityPerpetuals() {
             the last closing price or limited extended hours data. This creates unique dynamics for overnight and weekend trading.
           </p>
 
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">Getting Started</h2>
+          <h2 id="getting-started" className="text-2xl font-bold text-white mt-12 mb-4">Getting Started</h2>
 
           <p className="text-gray-300">
             To trade equity perps you need:
@@ -181,7 +250,7 @@ export default function WhatAreEquityPerpetuals() {
             Begin with 2x to 5x until you understand how the platform handles volatility and liquidations.
           </p>
 
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">Which Platform Should You Use?</h2>
+          <h2 id="which-platform" className="text-2xl font-bold text-white mt-12 mb-4">Which Platform Should You Use?</h2>
 
           <p className="text-gray-300">
             The best platform depends on your priorities. For beginners, we recommend starting with Hyperliquid
@@ -201,6 +270,8 @@ export default function WhatAreEquityPerpetuals() {
         </div>
 
         <FAQSection faqs={faqs} />
+
+        <RelatedArticles articles={relatedArticles} />
 
         <div className="mt-12 text-center">
           <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-white">

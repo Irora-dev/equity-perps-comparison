@@ -29,6 +29,23 @@ export default function HyperliquidVsOstium() {
 
   return (
     <main className="min-h-screen py-16 px-4">
+      {/* JSON-LD Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "Hyperliquid vs Ostium: Volume Leader vs RWA Specialist",
+            description: "Compare Hyperliquid and Ostium for equity perps trading. See which platform suits your trading style.",
+            author: { "@type": "Organization", name: "Compare Equity Perps", url: "https://compareequityperps.com" },
+            publisher: { "@type": "Organization", name: "Compare Equity Perps", url: "https://compareequityperps.com" },
+            datePublished: "2025-01-01",
+            dateModified: "2026-01-01",
+            mainEntityOfPage: { "@type": "WebPage", "@id": "https://compareequityperps.com/blog/hyperliquid-vs-ostium" },
+          }),
+        }}
+      />
       <article className="max-w-4xl mx-auto">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },

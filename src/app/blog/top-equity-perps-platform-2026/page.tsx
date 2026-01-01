@@ -4,7 +4,47 @@ import { platforms } from '@/data/platforms';
 import ReferralButton from '@/components/ReferralButton';
 import FAQSection from '@/components/FAQSection';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import TableOfContents from '@/components/TableOfContents';
+import RelatedArticles from '@/components/RelatedArticles';
 import type { Metadata } from 'next';
+
+const tocItems = [
+  { id: 'state-of-equity-perps', title: 'The State of Equity Perps in 2026' },
+  { id: 'what-matters', title: 'What Matters When Choosing a Platform' },
+  { id: 'how-space-evolving', title: 'How the Space is Evolving' },
+  { id: 'our-pick', title: 'Our Pick: Hyperliquid' },
+  { id: 'competition', title: 'The Competition' },
+  { id: 'metrics-comparison', title: 'Key Metrics Comparison' },
+  { id: 'what-to-expect', title: 'What to Expect in 2026' },
+  { id: 'final-verdict', title: 'Final Verdict' },
+];
+
+const relatedArticles = [
+  {
+    title: 'Best Equity Perps Platforms 2025',
+    href: '/blog/best-equity-perps-platforms-2025',
+    description: 'Complete ranking of all equity perpetual platforms by volume, features, and fees.',
+    category: 'guide' as const,
+  },
+  {
+    title: 'Hyperliquid Review',
+    href: '/blog/hyperliquid',
+    description: 'In-depth review of Hyperliquid including features, fees, and how to get started.',
+    category: 'review' as const,
+  },
+  {
+    title: 'Hyperliquid vs Lighter',
+    href: '/blog/hyperliquid-vs-lighter',
+    description: 'Head-to-head comparison of the two largest equity perps platforms.',
+    category: 'comparison' as const,
+  },
+  {
+    title: 'Cheapest Equity Perps Fees',
+    href: '/blog/cheapest-equity-perps-fees',
+    description: 'Find the platform with the lowest trading fees for your strategy.',
+    category: 'guide' as const,
+  },
+];
 
 const faqs = [
   {
@@ -45,6 +85,23 @@ export default function TopEquityPerpsPlatform2026() {
 
   return (
     <main className="min-h-screen py-16 px-4">
+      {/* JSON-LD Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "The Top Equity Perps Platform for 2026",
+            description: "Our pick for the best equity perpetuals trading platform heading into 2026. Analysis of volume, features, fees, and user experience.",
+            author: { "@type": "Organization", name: "Compare Equity Perps", url: "https://compareequityperps.com" },
+            publisher: { "@type": "Organization", name: "Compare Equity Perps", url: "https://compareequityperps.com" },
+            datePublished: "2026-01-01",
+            dateModified: "2026-01-01",
+            mainEntityOfPage: { "@type": "WebPage", "@id": "https://compareequityperps.com/blog/top-equity-perps-platform-2026" },
+          }),
+        }}
+      />
       <article className="max-w-4xl mx-auto">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
@@ -80,6 +137,9 @@ export default function TopEquityPerpsPlatform2026() {
           />
         </div>
 
+        {/* Table of Contents */}
+        <TableOfContents items={tocItems} />
+
         {/* Content */}
         <div className="prose prose-invert max-w-none">
 
@@ -92,7 +152,7 @@ export default function TopEquityPerpsPlatform2026() {
           </p>
 
           {/* The State of Equity Perps */}
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">The State of Equity Perps in 2026</h2>
+          <h2 id="state-of-equity-perps" className="text-2xl font-bold text-white mt-12 mb-4">The State of Equity Perps in 2026</h2>
 
           <p className="text-gray-300 mb-6">
             Equity perpetuals have transformed from a niche product into a mainstream trading instrument.
@@ -139,7 +199,7 @@ export default function TopEquityPerpsPlatform2026() {
           </p>
 
           {/* What Matters When Choosing a Platform */}
-          <h2 className="text-2xl font-bold text-white mt-12 mb-6">What Matters When Choosing a Platform</h2>
+          <h2 id="what-matters" className="text-2xl font-bold text-white mt-12 mb-6">What Matters When Choosing a Platform</h2>
 
           <p className="text-gray-300 mb-6">
             Not all equity perps platforms are created equal. After testing every major platform extensively,
@@ -234,7 +294,7 @@ export default function TopEquityPerpsPlatform2026() {
           </div>
 
           {/* How the Space is Evolving */}
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">How the Space is Evolving</h2>
+          <h2 id="how-space-evolving" className="text-2xl font-bold text-white mt-12 mb-4">How the Space is Evolving</h2>
 
           <p className="text-gray-300 mb-6">
             The equity perps landscape is shifting rapidly. Several key trends are reshaping how we think about
@@ -316,7 +376,7 @@ export default function TopEquityPerpsPlatform2026() {
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
           </div>
 
-          <h2 className="text-2xl font-bold text-white mb-4">Our Pick: Hyperliquid</h2>
+          <h2 id="our-pick" className="text-2xl font-bold text-white mb-4">Our Pick: Hyperliquid</h2>
 
           <p className="text-gray-300 text-lg mb-6">
             After extensive analysis, <strong className="text-cyan-400">Hyperliquid</strong> stands out as
@@ -363,7 +423,7 @@ export default function TopEquityPerpsPlatform2026() {
             location="top_platform_2026_article"
           />
 
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">The Competition</h2>
+          <h2 id="competition" className="text-2xl font-bold text-white mt-12 mb-4">The Competition</h2>
 
           <p className="text-gray-300 mb-6">
             While Hyperliquid takes the top spot, several other platforms deserve recognition
@@ -406,7 +466,7 @@ export default function TopEquityPerpsPlatform2026() {
             </div>
           </div>
 
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">Key Metrics Comparison</h2>
+          <h2 id="metrics-comparison" className="text-2xl font-bold text-white mt-12 mb-4">Key Metrics Comparison</h2>
 
           <div className="overflow-x-auto my-8">
             <table className="w-full border-collapse">
@@ -453,7 +513,7 @@ export default function TopEquityPerpsPlatform2026() {
             </table>
           </div>
 
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">What to Expect in 2026</h2>
+          <h2 id="what-to-expect" className="text-2xl font-bold text-white mt-12 mb-4">What to Expect in 2026</h2>
 
           <p className="text-gray-300 mb-4">
             The equity perps market is evolving rapidly. Here's what we anticipate for 2026:
@@ -486,7 +546,7 @@ export default function TopEquityPerpsPlatform2026() {
             </li>
           </ul>
 
-          <h2 className="text-2xl font-bold text-white mt-12 mb-4">Final Verdict</h2>
+          <h2 id="final-verdict" className="text-2xl font-bold text-white mt-12 mb-4">Final Verdict</h2>
 
           <p className="text-gray-300 mb-6">
             For traders looking to access equity perpetuals in 2026, <strong className="text-cyan-400">Hyperliquid</strong> offers
@@ -518,6 +578,8 @@ export default function TopEquityPerpsPlatform2026() {
         </div>
 
         <FAQSection faqs={faqs} />
+
+        <RelatedArticles articles={relatedArticles} />
 
         {/* Back link */}
         <div className="mt-12 text-center">

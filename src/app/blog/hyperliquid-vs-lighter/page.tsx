@@ -31,6 +31,23 @@ export default function HyperliquidVsLighter() {
 
   return (
     <main className="min-h-screen py-16 px-4">
+      {/* JSON-LD Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "Hyperliquid vs Lighter: Complete Comparison",
+            description: "Detailed comparison of Hyperliquid and Lighter for equity perpetuals trading. Compare fees, leverage, security, and features.",
+            author: { "@type": "Organization", name: "Compare Equity Perps", url: "https://compareequityperps.com" },
+            publisher: { "@type": "Organization", name: "Compare Equity Perps", url: "https://compareequityperps.com" },
+            datePublished: "2025-01-01",
+            dateModified: "2026-01-01",
+            mainEntityOfPage: { "@type": "WebPage", "@id": "https://compareequityperps.com/blog/hyperliquid-vs-lighter" },
+          }),
+        }}
+      />
       <article className="max-w-4xl mx-auto">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },

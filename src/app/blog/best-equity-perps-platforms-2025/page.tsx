@@ -50,6 +50,23 @@ export default function BestPlatforms2025() {
 
   return (
     <main className="min-h-screen py-16 px-4">
+      {/* JSON-LD Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "Best Equity Perps Platforms in 2025",
+            description: "Ranked list of the top equity perpetual futures platforms in 2025. Compare Hyperliquid, Lighter, Ostium, Avantis and more.",
+            author: { "@type": "Organization", name: "Compare Equity Perps", url: "https://compareequityperps.com" },
+            publisher: { "@type": "Organization", name: "Compare Equity Perps", url: "https://compareequityperps.com" },
+            datePublished: "2025-01-01",
+            dateModified: "2025-01-01",
+            mainEntityOfPage: { "@type": "WebPage", "@id": "https://compareequityperps.com/blog/best-equity-perps-platforms-2025" },
+          }),
+        }}
+      />
       <article className="max-w-4xl mx-auto">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },

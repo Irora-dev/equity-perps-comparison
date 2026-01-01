@@ -52,6 +52,23 @@ export default function CheapestFees() {
 
   return (
     <main className="min-h-screen py-16 px-4">
+      {/* JSON-LD Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "Cheapest Equity Perps Fees: Complete Platform Breakdown",
+            description: "Find the lowest fee equity perps platforms. Compare trading fees, funding rates, and total costs across all major exchanges.",
+            author: { "@type": "Organization", name: "Compare Equity Perps", url: "https://compareequityperps.com" },
+            publisher: { "@type": "Organization", name: "Compare Equity Perps", url: "https://compareequityperps.com" },
+            datePublished: "2025-01-01",
+            dateModified: "2025-01-01",
+            mainEntityOfPage: { "@type": "WebPage", "@id": "https://compareequityperps.com/blog/cheapest-equity-perps-fees" },
+          }),
+        }}
+      />
       <article className="max-w-4xl mx-auto">
         <Breadcrumbs items={[
           { label: 'Home', href: '/' },
