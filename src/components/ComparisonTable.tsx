@@ -31,24 +31,38 @@ export default function ComparisonTable({ filteredPlatforms }: ComparisonTablePr
                 className="py-4 px-3 text-center min-w-[100px]"
               >
                 <div className="flex flex-col items-center gap-1">
-                  <span
-                    className="font-semibold text-white text-sm"
-                    style={{ color: platform.color }}
-                  >
-                    {platform.name}
-                  </span>
+                  <div className="flex items-center gap-1">
+                    <a
+                      href={platform.referralUrl}
+                      target="_blank"
+                      rel="noopener sponsored"
+                      className="inline-flex items-center gap-1 font-semibold text-sm hover:opacity-80 transition-opacity"
+                      style={{ color: platform.color }}
+                    >
+                      {platform.name}
+                      <svg
+                        className="w-3 h-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </a>
+                    {platform.beta && (
+                      <span className="px-1 py-0.5 bg-yellow-500/20 text-yellow-400 rounded text-[10px] font-medium">
+                        BETA
+                      </span>
+                    )}
+                  </div>
                   <span className="text-xs text-gray-500">
                     {platform.maxLeverage}
                   </span>
-                  <a
-                    href={platform.referralUrl}
-                    target="_blank"
-                    rel="noopener sponsored"
-                    className="mt-1 px-2 py-1 text-xs font-medium text-white rounded transition-opacity hover:opacity-80"
-                    style={{ backgroundColor: platform.color }}
-                  >
-                    Trade
-                  </a>
                 </div>
               </th>
             ))}

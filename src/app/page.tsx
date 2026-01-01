@@ -62,9 +62,12 @@ export default function Home() {
             <span className="text-white">Compare</span>{' '}
             <span className="text-cyan-400">Equity Perps</span>
           </h1>
-          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 mb-4 max-w-2xl mx-auto">
             Compare the best platforms for trading equity perpetual futures.
             Find zero-fee trading, high leverage, and 24/7 access to stock markets.
+          </p>
+          <p className="text-sm text-gray-500 mb-8">
+            Updated as of: January 2025
           </p>
 
           {/* Search Bar */}
@@ -100,9 +103,11 @@ export default function Home() {
           <p className="text-gray-400 text-center mb-8">
             Detailed look at each equity perps platform
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
             {displayPlatforms.map((platform) => (
-              <PlatformCard key={platform.id} platform={platform} />
+              <div key={platform.id} className="flex">
+                <PlatformCard platform={platform} />
+              </div>
             ))}
           </div>
         </div>

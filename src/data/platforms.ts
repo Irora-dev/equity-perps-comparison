@@ -10,6 +10,7 @@ export interface Platform {
   maxLeverage: string;
   volume: string;
   backing: string;
+  beta?: boolean;
   features: {
     equityPerps: boolean;
     zeroFees: boolean;
@@ -61,7 +62,7 @@ export const platforms: Platform[] = [
     slug: 'hyperliquid',
     tagline: 'The largest on-chain perpetuals exchange',
     description: 'Hyperliquid is a high-performance L1 blockchain optimized for perpetual futures trading. With the HIP-3 protocol, it offers equity perps on major US stocks including NVDA, TSLA, AAPL, and more. Known for instant finality and zero gas fees.',
-    referralUrl: 'https://app.hyperliquid.xyz/', // Add your referral link
+    referralUrl: 'https://app.hyperliquid.xyz/join/COMPAREPERPS',
     website: 'https://hyperliquid.xyz',
     chain: 'Hyperliquid L1',
     maxLeverage: '50x',
@@ -76,7 +77,7 @@ export const platforms: Platform[] = [
       usStockPerps: true,
       indexProducts: false,
       exoticMarkets: false,
-      mobileApp: true,
+      mobileApp: false,
       apiAccess: true,
     },
     supportedAssets: ['NVDA', 'TSLA', 'AAPL', 'MSFT', 'PLTR', 'HOOD', 'META', 'AMZN', 'GOOGL', 'AMD', 'COIN', 'NFLX'],
@@ -98,7 +99,7 @@ export const platforms: Platform[] = [
     slug: 'lighter',
     tagline: 'ZK-powered perpetuals on Ethereum',
     description: 'Lighter is a fully verifiable DEX built with custom ZK infrastructure on Ethereum. It uses zero-knowledge proofs for all operations including order matching and liquidations, offering institutional-grade security with retail-friendly zero fees.',
-    referralUrl: 'https://lighter.xyz/', // Add your referral link
+    referralUrl: 'https://app.lighter.xyz/?referral=COMPAREPERPS',
     website: 'https://lighter.xyz',
     chain: 'Ethereum L2 (ZK-rollup)',
     maxLeverage: '100x',
@@ -209,7 +210,7 @@ export const platforms: Platform[] = [
     slug: 'ostium',
     tagline: 'RWA perpetuals with 0DTE innovation',
     description: 'Ostium brings traditional markets on-chain with a unique 0DTE (zero days to expiry) perpetuals product. Trade stocks, commodities, indices, and FX with up to 200x leverage. Over 95% of open interest is in real-world assets.',
-    referralUrl: 'https://www.ostium.com/', // Add your referral link
+    referralUrl: 'https://app.ostium.com/trade?from=SPX&to=USD&ref=OB6TR',
     website: 'https://ostium.com',
     chain: 'Arbitrum',
     maxLeverage: '200x',
@@ -239,44 +240,6 @@ export const platforms: Platform[] = [
       'Has trading fees',
     ],
     color: '#10B981',
-  },
-  {
-    id: 'treadfi',
-    name: 'Tread.fi',
-    slug: 'treadfi',
-    tagline: 'Algorithmic trading terminal for perps',
-    description: 'Tread.fi is an institutional-grade trading terminal and DEX aggregator. Execute algorithmic strategies across multiple perpetual exchanges including Hyperliquid, Binance, and OKX with advanced execution algorithms and portfolio management.',
-    referralUrl: 'https://www.tread.fi/', // Add your referral link
-    website: 'https://tread.fi',
-    chain: 'Multi-chain aggregator',
-    maxLeverage: 'Varies by exchange',
-    volume: '~1% of Hyperliquid volume',
-    backing: '$3.5M Pre-seed',
-    features: {
-      equityPerps: true,
-      zeroFees: false,
-      selfCustody: true,
-      trading24_7: true,
-      highLeverage: false,
-      usStockPerps: true,
-      indexProducts: false,
-      exoticMarkets: false,
-      mobileApp: false,
-      apiAccess: true,
-    },
-    supportedAssets: ['Via connected exchanges'],
-    pros: [
-      'DEX aggregator across exchanges',
-      'Advanced algorithmic trading',
-      'Portfolio management tools',
-      'Fixed annual fee (no volume-based)',
-    ],
-    cons: [
-      'Not a direct exchange',
-      'Requires subscription',
-      'More complex for beginners',
-    ],
-    color: '#EC4899',
   },
   {
     id: 'avantis',
@@ -319,14 +282,15 @@ export const platforms: Platform[] = [
     id: 'trove',
     name: 'Trove Markets',
     slug: 'trove',
-    tagline: 'Trade perps on collectibles and exotics',
+    tagline: 'Exotics',
     description: 'Trove Markets is a unique platform for trading perpetuals on collectibles, exotic assets, and RWAs. Trade Pokemon cards, luxury watches, Birkin bags, and gaming assets with up to 5x leverage on Hyperliquid.',
-    referralUrl: 'https://trovemarkets.com/', // Add your referral link
+    referralUrl: 'https://trovemarkets.com?referral=YE7BXYS',
     website: 'https://trovemarkets.com',
     chain: 'Hyperliquid',
     maxLeverage: '5x',
     volume: 'Public beta',
     backing: '$20M for HYPE tokens',
+    beta: true,
     features: {
       equityPerps: true,
       zeroFees: false,
