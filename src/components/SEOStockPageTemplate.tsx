@@ -107,6 +107,17 @@ export default function SEOStockPageTemplate({ stock }: SEOStockPageTemplateProp
   return (
     <main className="min-h-screen py-16 px-4">
       <article className="max-w-4xl mx-auto">
+        {/* Back to Stocks */}
+        <Link
+          href="/stocks"
+          className="inline-flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors mb-4"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to Stocks
+        </Link>
+
         {/* Breadcrumbs */}
         <nav className="mb-6 text-sm" aria-label="Breadcrumb">
           <ol className="flex items-center gap-2 text-gray-400">
@@ -520,7 +531,7 @@ export default function SEOStockPageTemplate({ stock }: SEOStockPageTemplateProp
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Back to Stock Hub
+            Back to Stocks
           </Link>
         </div>
       </article>
