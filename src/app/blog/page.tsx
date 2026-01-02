@@ -28,43 +28,85 @@ export default function BlogPage() {
           In-depth reviews, guides, and tools for equity perpetual trading
         </p>
 
-        {/* Featured Article with Screenshot */}
+        {/* Featured Articles */}
         <section className="mb-12">
-          <Link href="/blog/top-equity-perps-platform-2026" className="group block">
-            <div className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-                <div className="relative aspect-video md:aspect-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Top Platform 2026 */}
+            <Link href="/blog/top-equity-perps-platform-2026" className="group block">
+              <div className="bg-gradient-to-br from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all h-full">
+                <div className="relative aspect-video">
                   <Image
                     src="/images/platforms/hyperliquid.jpg"
                     alt="Hyperliquid trading interface"
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-950/80 hidden md:block" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <span className="inline-flex items-center gap-2 text-cyan-400 text-xs font-medium mb-2">
+                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      Featured for 2026
+                    </span>
+                    <h2 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                      The Top Equity Perps Platform for 2026
+                    </h2>
+                  </div>
                 </div>
-                <div className="p-6 md:p-8 flex flex-col justify-center">
-                  <span className="inline-flex items-center gap-2 text-cyan-400 text-sm font-medium mb-2">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    Featured for 2026
-                  </span>
-                  <h2 className="text-2xl md:text-3xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                    The Top Equity Perps Platform for 2026
-                  </h2>
-                  <p className="text-gray-400 mt-3">
-                    Our pick for the best equity perpetuals trading platform heading into 2026, based on volume, features, and user experience.
+                <div className="p-5 pt-0">
+                  <p className="text-gray-400 text-sm">
+                    Our pick for the best platform based on volume, features, and user experience.
                   </p>
-                  <div className="mt-4 inline-flex items-center gap-2 text-cyan-400 text-sm font-medium">
-                    Read the full analysis
+                  <div className="mt-3 inline-flex items-center gap-2 text-cyan-400 text-sm font-medium">
+                    Read analysis
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
                 </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+
+            {/* Wallet Setup Guide */}
+            <Link href="/blog/wallet-setup-guide" className="group block">
+              <div className="bg-gradient-to-br from-green-500/10 to-cyan-500/10 border border-green-500/30 rounded-xl overflow-hidden hover:border-green-500/50 transition-all h-full">
+                <div className="relative aspect-video bg-gradient-to-br from-green-600/20 to-cyan-600/20 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-16 h-16 mx-auto bg-green-500/20 rounded-2xl flex items-center justify-center mb-3">
+                      <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                      </svg>
+                    </div>
+                    <span className="text-green-400 text-xs font-medium">Essential Guide</span>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <span className="inline-flex items-center gap-2 text-green-400 text-xs font-medium mb-2">
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Start Here
+                    </span>
+                    <h2 className="text-xl font-bold text-white group-hover:text-green-400 transition-colors">
+                      How to Setup a Wallet
+                    </h2>
+                  </div>
+                </div>
+                <div className="p-5 pt-0">
+                  <p className="text-gray-400 text-sm">
+                    Step-by-step guide to Rabby Wallet setup and funding from Coinbase, Kraken & Binance.
+                  </p>
+                  <div className="mt-3 inline-flex items-center gap-2 text-green-400 text-sm font-medium">
+                    Get started
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
         </section>
 
         {/* Tools */}
@@ -139,7 +181,7 @@ export default function BlogPage() {
         </section>
 
         {/* Platform Reviews */}
-        <section>
+        <section className="mb-12">
           <div className="flex items-center gap-2 mb-4">
             <svg className="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
@@ -168,6 +210,49 @@ export default function BlogPage() {
                 </article>
               </Link>
             ))}
+          </div>
+        </section>
+
+        {/* All Blog Posts */}
+        <section>
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+              <h2 className="text-xl font-bold text-white">All Posts</h2>
+            </div>
+            <span className="text-gray-500 text-sm">{blogPosts.length} articles</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {blogPosts.map((post) => {
+              const categoryColors: Record<string, string> = {
+                guide: 'text-green-400 border-green-500/30 hover:border-green-500/50',
+                comparison: 'text-purple-400 border-purple-500/30 hover:border-purple-500/50',
+                review: 'text-yellow-400 border-yellow-500/30 hover:border-yellow-500/50',
+                tools: 'text-cyan-400 border-cyan-500/30 hover:border-cyan-500/50',
+              };
+              const categoryLabels: Record<string, string> = {
+                guide: 'Guide',
+                comparison: 'Comparison',
+                review: 'Review',
+                tools: 'Tool',
+              };
+              const colorClass = categoryColors[post.category] || 'text-gray-400 border-gray-700 hover:border-gray-600';
+              const labelColor = categoryColors[post.category]?.split(' ')[0] || 'text-gray-400';
+
+              return (
+                <Link key={post.slug} href={`/blog/${post.slug}`}>
+                  <div className={`bg-gray-900/50 border rounded-xl p-4 transition-all h-full ${colorClass}`}>
+                    <span className={`text-xs font-medium uppercase ${labelColor}`}>
+                      {categoryLabels[post.category] || post.category}
+                    </span>
+                    <h3 className="text-white font-medium mt-1 line-clamp-2">{post.title}</h3>
+                    <p className="text-gray-500 text-sm mt-1 line-clamp-2">{post.description}</p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
       </div>
