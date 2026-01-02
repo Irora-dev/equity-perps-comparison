@@ -5,6 +5,7 @@ import FAQSection from '@/components/FAQSection';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import TableOfContents from '@/components/TableOfContents';
 import RelatedArticles from '@/components/RelatedArticles';
+import WalletGuideCTA from '@/components/WalletGuideCTA';
 import type { Metadata } from 'next';
 
 const tocItems = [
@@ -21,15 +22,21 @@ const tocItems = [
 
 const relatedArticles = [
   {
+    title: 'Wallet Setup Guide',
+    href: '/blog/wallet-setup-guide',
+    description: 'Step-by-step guide to creating and funding your wallet.',
+    category: 'essential' as const,
+  },
+  {
     title: 'What Are Equity Perpetuals',
     href: '/blog/what-are-equity-perpetuals',
     description: 'Complete beginner guide to equity perps.',
     category: 'guide' as const,
   },
   {
-    title: 'How Funding Rates Work',
-    href: '/blog/how-funding-rates-work',
-    description: 'Understanding the funding mechanism.',
+    title: 'Equity Perps Risks',
+    href: '/blog/equity-perps-risks',
+    description: 'Understand the risks before trading.',
     category: 'guide' as const,
   },
   {
@@ -37,12 +44,6 @@ const relatedArticles = [
     href: '/blog/liquidation-calculator',
     description: 'Calculate your liquidation price.',
     category: 'tool' as const,
-  },
-  {
-    title: 'Best Equity Perps Platforms 2025',
-    href: '/blog/best-equity-perps-platforms-2025',
-    description: 'Find the right platform for you.',
-    category: 'guide' as const,
   },
 ];
 
@@ -201,41 +202,17 @@ export default function HowToTradeEquityPerps() {
 
           <h2 id="setup-wallet" className="text-2xl font-bold text-white mt-12 mb-4">Step 2: Set Up Your Wallet</h2>
 
-          <p className="text-gray-300">
+          <p className="text-gray-300 mb-4">
             You need a crypto wallet to interact with decentralized platforms. We recommend
-            <strong className="text-white"> MetaMask</strong> or <strong className="text-white">Rabby</strong>.
+            <strong className="text-white"> Rabby Wallet</strong> for its security features and ease of use.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
-            <div className="bg-gray-900/30 border border-gray-800 rounded-xl p-4">
-              <h4 className="text-white font-semibold mb-2">MetaMask Setup</h4>
-              <ol className="text-gray-400 text-sm space-y-1 list-decimal list-inside">
-                <li>Go to metamask.io</li>
-                <li>Download browser extension</li>
-                <li>Create new wallet</li>
-                <li>Save your seed phrase securely</li>
-                <li>Set a strong password</li>
-              </ol>
-            </div>
-            <div className="bg-gray-900/30 border border-gray-800 rounded-xl p-4">
-              <h4 className="text-white font-semibold mb-2">Rabby Setup</h4>
-              <ol className="text-gray-400 text-sm space-y-1 list-decimal list-inside">
-                <li>Go to rabby.io</li>
-                <li>Download browser extension</li>
-                <li>Create or import wallet</li>
-                <li>Enable multi-chain support</li>
-                <li>Review security settings</li>
-              </ol>
-            </div>
-          </div>
+          <WalletGuideCTA />
 
-          <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 my-6">
-            <p className="text-red-400 font-medium mb-2">Never Share Your Seed Phrase</p>
-            <p className="text-gray-300 text-sm">
-              Your seed phrase is like the password to your bank account. Anyone with your seed phrase
-              can steal all your funds. Write it down on paper and store it securely offline.
-            </p>
-          </div>
+          <p className="text-gray-400 text-sm">
+            Our complete <Link href="/blog/wallet-setup-guide" className="text-cyan-400 hover:text-cyan-300">wallet setup guide</Link> covers
+            everything from installation to funding your wallet with USDC.
+          </p>
 
           <h2 id="fund-account" className="text-2xl font-bold text-white mt-12 mb-4">Step 3: Fund Your Account</h2>
 

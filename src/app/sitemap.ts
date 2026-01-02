@@ -1,5 +1,6 @@
 import { platforms } from '@/data/platforms';
 import { stocks } from '@/data/stocks';
+import { blogPosts } from '@/data/blog-posts';
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -29,6 +30,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
+  // Blog posts (guides, comparisons, tools)
+  const blogPostPages = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: post.category === 'tools' ? 0.85 : 0.8,
+  }));
+
   return [
     {
       url: baseUrl,
@@ -51,5 +60,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...stockPages,
     ...tradingGuidePages,
     ...platformPages,
+    ...blogPostPages,
   ];
 }

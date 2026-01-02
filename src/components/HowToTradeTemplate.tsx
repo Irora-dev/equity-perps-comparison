@@ -398,7 +398,7 @@ export default function HowToTradeTemplate({ stock }: HowToTradeTemplateProps) {
                 <span className="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-500 text-gray-900 font-bold flex items-center justify-center">1</span>
                 <div>
                   <h4 className="text-white font-semibold mb-2">Set up a wallet</h4>
-                  <p className="text-gray-400 text-sm">Download <a href="https://rabby.io" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">Rabby</a> or <a href="https://metamask.io" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">MetaMask</a>. Create a new wallet and <strong>save your seed phrase securely</strong>. Your wallet is your account — no email or password needed.</p>
+                  <p className="text-gray-400 text-sm">Download <a href="https://rabby.io" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">Rabby Wallet</a>. Create a new wallet and <strong>save your seed phrase securely</strong>. Your wallet is your account — no email or password needed. <a href="/blog/wallet-setup-guide" className="text-cyan-400 hover:underline">Full setup guide →</a></p>
                 </div>
               </div>
             </div>

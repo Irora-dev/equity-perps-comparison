@@ -96,7 +96,7 @@ export default async function HowToTradePage({ params }: PageProps) {
         "@type": "HowToStep",
         "position": 1,
         "name": "Set up a wallet",
-        "text": "Download Rabby or MetaMask and create a new wallet. Save your seed phrase securely."
+        "text": "Download Rabby Wallet from rabby.io and create a new wallet. Save your seed phrase securely."
       },
       {
         "@type": "HowToStep",
@@ -126,7 +126,7 @@ export default async function HowToTradePage({ params }: PageProps) {
     "tool": [
       {
         "@type": "HowToTool",
-        "name": "Crypto wallet (Rabby or MetaMask)"
+        "name": "Rabby Wallet browser extension"
       },
       {
         "@type": "HowToTool",

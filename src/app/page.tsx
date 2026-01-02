@@ -199,13 +199,13 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-3">Get a Wallet</h3>
                 <p className="text-gray-400 mb-4">
-                  Download Rabby or MetaMask. Create a new wallet and save your seed phrase securely.
+                  Download <a href="https://rabby.io" target="_blank" rel="noopener" className="text-cyan-400 hover:text-cyan-300">Rabby Wallet</a>. Create a new wallet and save your seed phrase securely.
                 </p>
                 <Link
-                  href="/blog/how-to-trade-equity-perps"
+                  href="/blog/wallet-setup-guide"
                   className="text-cyan-400 hover:text-cyan-300 text-sm font-medium inline-flex items-center gap-1"
                 >
-                  Wallet Setup Guide
+                  How to Setup a Wallet
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -417,7 +417,7 @@ export default function Home() {
               },
               {
                 q: 'Do I need a brokerage account?',
-                a: 'No. You just need a crypto wallet (like Rabby or MetaMask) and USDC stablecoin. There\'s no account application, no identity verification, and no waiting period. You can start trading within minutes.',
+                a: 'No. You just need a crypto wallet (we recommend Rabby Wallet) and USDC stablecoin. There\'s no account application, no identity verification, and no waiting period. You can start trading within minutes.',
               },
               {
                 q: 'Is this legal?',

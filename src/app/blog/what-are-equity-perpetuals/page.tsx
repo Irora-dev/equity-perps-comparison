@@ -240,8 +240,8 @@ export default function WhatAreEquityPerpetuals() {
           </p>
 
           <ol className="text-gray-300 space-y-2 my-4 list-decimal list-inside">
-            <li>A crypto wallet (MetaMask, Rabby, or similar)</li>
-            <li>USDC stablecoins on the platform's blockchain</li>
+            <li>A <a href="https://rabby.io" target="_blank" rel="noopener" className="text-cyan-400 hover:text-cyan-300">Rabby Wallet</a> (<a href="/blog/wallet-setup-guide" className="text-cyan-400 hover:text-cyan-300">setup guide</a>)</li>
+            <li>USDC stablecoins on the platform&apos;s blockchain</li>
             <li>An account on an equity perps platform</li>
           </ol>
 
