@@ -445,6 +445,57 @@ export default function SEOStockPageTemplate({ stock }: SEOStockPageTemplateProp
           </ul>
         </section>
 
+        {/* How to Get Started Section */}
+        <section className="mb-12">
+          <div className="bg-gradient-to-br from-green-500/10 to-cyan-500/10 border border-green-500/30 rounded-2xl p-8">
+            <h2 className="text-2xl font-bold text-white mb-4">How to Get Started</h2>
+            <p className="text-gray-300 mb-6">
+              New to equity perps? Follow these simple steps to start trading {stock.ticker}:
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-gray-900/50 rounded-xl p-5">
+                <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-gray-900 font-bold mb-3">1</div>
+                <h3 className="text-white font-semibold mb-2">Set Up Your Wallet</h3>
+                <p className="text-gray-400 text-sm">Download Rabby Wallet and create your self-custody wallet in 2 minutes. No email or ID required.</p>
+              </div>
+
+              <div className="bg-gray-900/50 rounded-xl p-5">
+                <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-gray-900 font-bold mb-3">2</div>
+                <h3 className="text-white font-semibold mb-2">Fund with USDC</h3>
+                <p className="text-gray-400 text-sm">Transfer USDC from Coinbase, Kraken, or Binance to your wallet. Start with $50-100.</p>
+              </div>
+
+              <div className="bg-gray-900/50 rounded-xl p-5">
+                <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-gray-900 font-bold mb-3">3</div>
+                <h3 className="text-white font-semibold mb-2">Connect & Trade</h3>
+                <p className="text-gray-400 text-sm">Connect to {bestPlatform?.name || 'Hyperliquid'}, deposit USDC, and open your first {stock.ticker} position.</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <Link
+                href="/blog/wallet-setup-guide"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 text-gray-900 rounded-xl font-semibold hover:bg-green-400 transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+                Complete Wallet Setup Guide
+              </Link>
+              <Link
+                href="/blog/how-to-trade-equity-perps"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gray-700 text-white rounded-xl font-semibold hover:bg-gray-600 transition-colors"
+              >
+                Full Trading Tutorial
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="bg-gradient-to-r from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-8 text-center mb-12">
           <h3 className="text-2xl font-bold text-white mb-2">
