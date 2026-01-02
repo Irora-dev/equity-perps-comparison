@@ -143,7 +143,7 @@ export default function TradeStocksWithoutBroker() {
                   </svg>
                 </a>
                 <a
-                  href="#how-it-works"
+                  href="#wait-you-can"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-800/50 border border-gray-700 text-white rounded-2xl font-semibold hover:bg-gray-800 transition-all"
                 >
                   See How It Works
@@ -156,14 +156,9 @@ export default function TradeStocksWithoutBroker() {
           </div>
         </section>
 
-        {/* MIND-BLOWN SECTION */}
-        <section className="py-20 px-4 bg-gray-950 border-y border-gray-800">
+        {/* WAIT SECTION */}
+        <section id="wait-you-can" className="py-20 px-4 bg-gray-950 border-y border-gray-800">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-full mb-6">
-              <span className="text-2xl">🤯</span>
-              <span className="text-yellow-400 font-medium">Mind = Blown</span>
-            </div>
-
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
               Wait... I Can Trade Stocks on <span className="text-cyan-400">Weekends</span>?
             </h2>
@@ -335,38 +330,21 @@ export default function TradeStocksWithoutBroker() {
                         </ol>
                       </div>
                       <div className="bg-gray-800/50 rounded-xl p-5">
-                        <h4 className="text-white font-semibold mb-3">Why Rabby Wallet?</h4>
-                        <ul className="space-y-2 text-gray-400 text-sm">
-                          <li className="flex items-center gap-2">
-                            <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                            Transaction previews show what you're signing
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                            Scam detection warns about risky sites
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                            Multi-chain support built in
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                            Clean, beginner-friendly interface
-                          </li>
-                        </ul>
+                        <h4 className="text-white font-semibold mb-3">Watch: Wallet Setup Guide</h4>
+                        <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-4">
+                          <iframe
+                            src="https://www.youtube.com/embed/_ouAzSQJiM0"
+                            title="How to Set Up a Wallet for Trading Equity Perps"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="absolute inset-0 w-full h-full"
+                          />
+                        </div>
                         <a
                           href="https://rabby.io"
                           target="_blank"
                           rel="noopener"
-                          className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-cyan-500 text-gray-900 rounded-lg font-semibold text-sm hover:bg-cyan-400 transition-colors"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500 text-gray-900 rounded-lg font-semibold text-sm hover:bg-cyan-400 transition-colors"
                         >
                           Download Rabby
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

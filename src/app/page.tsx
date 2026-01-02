@@ -99,7 +99,7 @@ export default function Home() {
               href="/blog/what-are-equity-perpetuals"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-800 border border-gray-700 text-white rounded-xl font-semibold text-lg hover:bg-gray-700 hover:border-gray-600 transition-colors"
             >
-              What are Equity Perps?
+              Learn How It Works
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
