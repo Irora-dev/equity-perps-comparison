@@ -5,13 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import SearchBar from '@/components/SearchBar';
 import ComparisonTable from '@/components/ComparisonTable';
-import PlatformCard from '@/components/PlatformCard';
+import LiveStockRates from '@/components/LiveStockRates';
 import { platforms, type Platform } from '@/data/platforms';
 
 export default function Home() {
   const [searchResults, setSearchResults] = useState<Platform[] | null>(null);
-
-  const displayPlatforms = searchResults ?? platforms;
 
   return (
     <main className="min-h-screen">
@@ -57,88 +55,225 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="py-16 sm:py-24 px-4">
+      <section className="py-16 sm:py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-white">Compare</span>{' '}
-            <span className="text-cyan-400">Equity Perps</span>
+            <span className="text-white">Trade </span>
+            <span className="text-cyan-400">NVDA, TSLA, AAPL</span>
+            <br />
+            <span className="text-white">24/7, No Broker Required</span>
           </h1>
-          <p className="text-xl text-gray-400 mb-4 max-w-2xl mx-auto">
-            Compare the best platforms for trading equity perpetual futures.
-            Find zero-fee trading, high leverage, and 24/7 access to stock markets.
-          </p>
-          <p className="text-sm text-gray-500 mb-8">
-            Updated as of: January 2026
+          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            Equity perpetuals let you trade stocks around the clock with up to 200x leverage.
+            Self-custody. Zero KYC. No market hours.
           </p>
 
+          {/* Social Proof Bar */}
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-10 mb-10 text-sm">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="text-gray-400">$319B+ monthly volume</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-cyan-400" />
+              <span className="text-gray-400">50+ stocks available</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-purple-400" />
+              <span className="text-gray-400">7 platforms compared</span>
+            </div>
+          </div>
+
+          {/* Primary CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#live-rates"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-500 text-gray-900 rounded-xl font-bold text-lg hover:bg-cyan-400 transition-colors"
+            >
+              See Today&apos;s Best Rates
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </a>
+            <Link
+              href="/blog/what-are-equity-perpetuals"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-800 border border-gray-700 text-white rounded-xl font-semibold text-lg hover:bg-gray-700 hover:border-gray-600 transition-colors"
+            >
+              What are Equity Perps?
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Getting Started Section */}
-      <section className="py-8 px-4">
+      {/* Problem/Solution Section */}
+      <section className="py-16 px-4 bg-gray-900/50">
         <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* New to Equity Perps */}
-            <div className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-2xl p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10 text-center">
+            Why Traders Are Switching to Equity Perps
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Traditional Trading Problems */}
+            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </div>
-                <h2 className="text-xl font-bold text-white">New to Equity Perps?</h2>
+                <h3 className="text-lg font-semibold text-gray-400">Traditional Stock Trading</h3>
               </div>
-              <p className="text-gray-400 mb-6">
-                Equity perpetuals let you trade stocks like NVDA, TSLA, and AAPL 24/7 with leverage — no broker needed.
-                Unlike options, there&apos;s no expiry, no theta decay, and no complex Greeks. Just pick a direction and set your leverage.
-              </p>
-              <Link
-                href="/blog/what-are-equity-perpetuals"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-cyan-500 text-gray-900 rounded-xl font-semibold hover:bg-cyan-400 transition-colors"
-              >
-                Start Here
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </Link>
+              <ul className="space-y-4">
+                {[
+                  'Market hours only (9:30am - 4pm ET)',
+                  'Need a brokerage account + KYC',
+                  'Limited to 2-4x margin',
+                  'Complex options with theta decay',
+                  'Broker holds your funds',
+                  'T+2 settlement delays',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-500">
+                    <svg className="w-5 h-5 text-red-400/60 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Ready to Trade */}
-            <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-2xl p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            {/* Equity Perps Solution */}
+            <div className="bg-gradient-to-br from-cyan-500/10 to-green-500/10 border border-cyan-500/30 rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h2 className="text-xl font-bold text-white">Ready to Get Started?</h2>
+                <h3 className="text-lg font-semibold text-white">Equity Perpetuals</h3>
               </div>
-              <p className="text-gray-400 mb-6">
-                Compare trading venues, live funding rates, and find individual stocks across Hyperliquid, Lighter, and Ostium.
-                See which platform has the best rates for the stocks you want to trade.
-              </p>
-              <Link
-                href="/stocks"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-green-500 text-gray-900 rounded-xl font-semibold hover:bg-green-400 transition-colors"
-              >
-                Start Trading
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </Link>
+              <ul className="space-y-4">
+                {[
+                  'Trade 24/7/365 including weekends',
+                  'Just a crypto wallet, no KYC',
+                  'Up to 200x leverage',
+                  'Simple long/short, no Greeks',
+                  'Self-custody in your wallet',
+                  'Instant settlement',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-gray-300">
+                    <svg className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Comparison Table Section */}
-      <section className="py-12 px-4 bg-gray-900/30">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-2 text-center">
-            Feature Comparison
+      {/* Live Stock Rates - Primary Conversion Section */}
+      <LiveStockRates />
+
+      {/* How to Get Started */}
+      <section className="py-16 px-4 bg-gray-900/50">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 text-center">
+            Start Trading in 10 Minutes
           </h2>
-          <p className="text-gray-400 text-center mb-6">
-            See which platforms offer the features you need
+          <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+            No brokerage application. No waiting for approval. Just three simple steps.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Step 1 */}
+            <div className="relative">
+              <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 h-full">
+                <div className="w-12 h-12 rounded-full bg-cyan-500/20 border-2 border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-xl mb-4">
+                  1
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">Get a Wallet</h3>
+                <p className="text-gray-400 mb-4">
+                  Download Rabby or MetaMask. Create a new wallet and save your seed phrase securely.
+                </p>
+                <Link
+                  href="/blog/how-to-trade-equity-perps"
+                  className="text-cyan-400 hover:text-cyan-300 text-sm font-medium inline-flex items-center gap-1"
+                >
+                  Wallet Setup Guide
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+              {/* Connector */}
+              <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gray-700" />
+            </div>
+
+            {/* Step 2 */}
+            <div className="relative">
+              <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 h-full">
+                <div className="w-12 h-12 rounded-full bg-cyan-500/20 border-2 border-cyan-500 flex items-center justify-center text-cyan-400 font-bold text-xl mb-4">
+                  2
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">Get USDC</h3>
+                <p className="text-gray-400 mb-4">
+                  Buy USDC from Coinbase, Kraken, or use the platform&apos;s built-in card onramp. Start with $50-100.
+                </p>
+                <Link
+                  href="/blog/how-to-trade-equity-perps"
+                  className="text-cyan-400 hover:text-cyan-300 text-sm font-medium inline-flex items-center gap-1"
+                >
+                  Funding Guide
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+              {/* Connector */}
+              <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gray-700" />
+            </div>
+
+            {/* Step 3 */}
+            <div>
+              <div className="bg-gradient-to-br from-cyan-500/10 to-green-500/10 border border-cyan-500/30 rounded-2xl p-6 h-full">
+                <div className="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-gray-900 font-bold text-xl mb-4">
+                  3
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">Start Trading</h3>
+                <p className="text-gray-400 mb-4">
+                  Connect to Hyperliquid, deposit USDC, find your stock, and open your first position.
+                </p>
+                <a
+                  href="https://app.hyperliquid.xyz/join/COMPAREPERPS"
+                  target="_blank"
+                  rel="noopener sponsored"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500 text-gray-900 rounded-lg font-semibold text-sm hover:bg-cyan-400 transition-colors"
+                >
+                  Open Hyperliquid
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Comparison */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">
+            Compare Platforms
+          </h2>
+          <p className="text-gray-400 text-center mb-8">
+            Find the right platform for your trading style
           </p>
 
           {/* Search Bar */}
@@ -153,209 +288,221 @@ export default function Home() {
 
           <ComparisonTable filteredPlatforms={searchResults} />
 
-          {/* Tools Row */}
-          <div className="mt-10 pt-8 border-t border-gray-800">
-            <p className="text-center text-gray-400 text-sm mb-4">Trading Tools</p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <Link
-                href="/blog/funding-rate-tracker"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-lg text-sm text-gray-300 hover:border-gray-600 hover:text-white transition-colors"
-              >
-                <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                </svg>
-                Funding Rates
-              </Link>
-              <Link
-                href="/blog/fee-calculator"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-lg text-sm text-gray-300 hover:border-gray-600 hover:text-white transition-colors"
-              >
-                <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-                Fee Calculator
-              </Link>
-              <Link
-                href="/blog/liquidation-calculator"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-lg text-sm text-gray-300 hover:border-gray-600 hover:text-white transition-colors"
-              >
-                <svg className="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                </svg>
-                Liquidation Calculator
-              </Link>
-              <Link
-                href="/blog/cheapest-equity-perps-fees"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-lg text-sm text-gray-300 hover:border-gray-600 hover:text-white transition-colors"
-              >
-                <svg className="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                Fee Comparison
-              </Link>
-            </div>
+          {/* Quick Platform CTAs */}
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { id: 'hyperliquid', label: 'Largest Volume', sublabel: '#1 Platform' },
+              { id: 'lighter', label: 'Zero Fees', sublabel: 'ZK-Powered' },
+              { id: 'ostium', label: '200x Leverage', sublabel: 'RWA Focus' },
+              { id: 'avantis', label: 'Coinbase Backed', sublabel: 'On Base' },
+            ].map((item) => {
+              const platform = platforms.find(p => p.id === item.id);
+              if (!platform) return null;
+              return (
+                <a
+                  key={item.id}
+                  href={platform.referralUrl}
+                  target="_blank"
+                  rel="noopener sponsored"
+                  className="group bg-gray-900/50 border border-gray-800 rounded-xl p-4 hover:border-cyan-500/50 transition-all"
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <div
+                      className="w-3 h-3 rounded-full"
+                      style={{ backgroundColor: platform.color }}
+                    />
+                    <span className="text-white font-semibold group-hover:text-cyan-400 transition-colors">
+                      {platform.name}
+                    </span>
+                  </div>
+                  <p className="text-cyan-400 text-sm font-medium">{item.label}</p>
+                  <p className="text-gray-500 text-xs">{item.sublabel}</p>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Platform Cards Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-2 text-center">
-            Platform Overview
-          </h2>
-          <p className="text-gray-400 text-center mb-8">
-            Detailed look at each equity perps platform
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
-            {displayPlatforms.map((platform) => (
-              <div key={platform.id} className="flex">
-                <PlatformCard platform={platform} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Platform Screenshots Section */}
+      {/* Platform Screenshots */}
       <section className="py-16 px-4 bg-gray-900/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl font-bold text-white mb-2 text-center">
-            See the Platforms in Action
+            See the Platforms
           </h2>
           <p className="text-gray-400 text-center mb-10">
-            Trading interfaces from the top equity perps exchanges
+            Clean interfaces designed for fast execution
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Link href="/blog/hyperliquid" className="group">
-              <div className="bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-colors">
-                <div className="relative aspect-video">
-                  <Image
-                    src="/images/platforms/hyperliquid.jpg"
-                    alt="Hyperliquid trading interface showing NVDA perpetual futures"
-                    fill
-                    className="object-cover"
-                  />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { id: 'hyperliquid', img: '/images/platforms/hyperliquid.jpg', desc: 'The largest on-chain perpetuals exchange' },
+              { id: 'lighter', img: '/images/platforms/lighter.jpg', desc: 'ZK-powered with zero fees for retail' },
+              { id: 'ostium', img: '/images/platforms/ostium.jpg', desc: 'RWA perpetuals with up to 200x leverage' },
+            ].map((item) => {
+              const platform = platforms.find(p => p.id === item.id);
+              if (!platform) return null;
+              return (
+                <div key={item.id} className="group">
+                  <div className="bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden hover:border-gray-600 transition-colors">
+                    <div className="relative aspect-video">
+                      <Image
+                        src={item.img}
+                        alt={`${platform.name} trading interface`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="text-lg font-semibold text-white mb-1">
+                        {platform.name}
+                      </h3>
+                      <p className="text-gray-400 text-sm mb-4">
+                        {item.desc}
+                      </p>
+                      <div className="flex gap-3">
+                        <a
+                          href={platform.referralUrl}
+                          target="_blank"
+                          rel="noopener sponsored"
+                          className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2 bg-cyan-500 text-gray-900 rounded-lg font-semibold text-sm hover:bg-cyan-400 transition-colors"
+                        >
+                          Start Trading
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                        <Link
+                          href={`/blog/${platform.slug}`}
+                          className="inline-flex items-center justify-center px-4 py-2 bg-gray-800 text-white rounded-lg font-medium text-sm hover:bg-gray-700 transition-colors"
+                        >
+                          Review
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors">
-                    Hyperliquid
-                  </h3>
-                  <p className="text-gray-400 text-sm mt-1">
-                    The largest on-chain perpetuals exchange with $319B+ monthly volume
-                  </p>
-                </div>
-              </div>
-            </Link>
-            <Link href="/blog/lighter" className="group">
-              <div className="bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden hover:border-purple-500/50 transition-colors">
-                <div className="relative aspect-video">
-                  <Image
-                    src="/images/platforms/lighter.jpg"
-                    alt="Lighter trading interface showing perpetual futures"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-white group-hover:text-purple-400 transition-colors">
-                    Lighter
-                  </h3>
-                  <p className="text-gray-400 text-sm mt-1">
-                    ZK-powered perpetuals on Ethereum with zero fees for retail
-                  </p>
-                </div>
-              </div>
-            </Link>
-            <Link href="/blog/ostium" className="group">
-              <div className="bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden hover:border-orange-500/50 transition-colors">
-                <div className="relative aspect-video">
-                  <Image
-                    src="/images/platforms/ostium.jpg"
-                    alt="Ostium trading interface showing equity perpetual futures"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-white group-hover:text-orange-400 transition-colors">
-                    Ostium
-                  </h3>
-                  <p className="text-gray-400 text-sm mt-1">
-                    RWA perpetuals with 0DTE innovation and up to 200x leverage
-                  </p>
-                </div>
-              </div>
-            </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* SEO Content Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto prose prose-invert">
-          <h2 className="text-2xl font-bold text-white mb-6">
-            What are Equity Perpetual Futures?
-          </h2>
-          <div className="text-gray-300 space-y-4">
-            <p>
-              Equity perpetual futures (equity perps) are derivative contracts that allow you to trade
-              stocks like TSLA, NVDA, AAPL, and more with leverage—without an expiry date. Unlike
-              traditional futures that expire quarterly, perpetual futures can be held indefinitely.
-            </p>
-            <p>
-              These instruments have exploded in popularity in 2025, with platforms like Hyperliquid
-              processing over $300 billion in monthly volume. Key benefits include:
-            </p>
-            <ul className="list-disc list-inside space-y-2 text-gray-400">
-              <li><strong className="text-white">24/7 Trading:</strong> Trade equity exposure around the clock, even on weekends</li>
-              <li><strong className="text-white">High Leverage:</strong> Access up to 200x leverage on some platforms</li>
-              <li><strong className="text-white">Self-Custody:</strong> Keep control of your funds in your own wallet</li>
-              <li><strong className="text-white">Low/Zero Fees:</strong> Many platforms offer zero trading fees</li>
-              <li><strong className="text-white">No KYC:</strong> Trade without identity verification on decentralized platforms</li>
-            </ul>
-            <p>
-              Popular platforms include Hyperliquid (largest by volume), Lighter (ZK-powered),
-              Ostium (0DTE perpetuals), and Avantis (zero-fee on Base). Each platform has unique
-              features—use our comparison table above to find the best fit for your trading style.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Platform Reviews Section */}
-      <section className="py-16 px-4 bg-gray-900/30">
+      {/* Trust/Backing Section */}
+      <section className="py-12 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-2 text-center">
-            Platform Reviews
+          <p className="text-center text-gray-500 text-sm mb-6">Platforms backed by</p>
+          <div className="flex flex-wrap justify-center gap-x-10 gap-y-4 text-gray-400">
+            <span>Pantera Capital</span>
+            <span>Coinbase Ventures</span>
+            <span>Founders Fund</span>
+            <span>General Catalyst</span>
+            <span>Jump Crypto</span>
+            <span>Bain Capital</span>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 px-4 bg-gray-900/30">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10 text-center">
+            Frequently Asked Questions
           </h2>
-          <p className="text-gray-400 text-center mb-8">
-            Read our in-depth reviews for each platform
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {platforms.map((platform) => (
-              <Link
-                key={platform.id}
-                href={`/blog/${platform.slug}`}
-                className="flex items-center gap-3 p-4 bg-gray-900/50 border border-gray-800 rounded-lg hover:border-gray-600 transition-colors group"
+
+          <div className="space-y-4">
+            {[
+              {
+                q: 'What exactly are equity perpetuals?',
+                a: 'Equity perpetuals (perps) are derivative contracts that track stock prices without an expiry date. Unlike futures that expire quarterly or options with theta decay, perps let you hold positions indefinitely. They\'re settled in crypto (usually USDC) and trade 24/7 on decentralized exchanges.',
+              },
+              {
+                q: 'Do I need a brokerage account?',
+                a: 'No. You just need a crypto wallet (like Rabby or MetaMask) and USDC stablecoin. There\'s no account application, no identity verification, and no waiting period. You can start trading within minutes.',
+              },
+              {
+                q: 'Is this legal?',
+                a: 'Equity perps trade on decentralized exchanges that operate outside traditional regulatory frameworks. They\'re synthetic instruments that track prices via oracles, not actual stock ownership. Users should understand the regulatory landscape in their jurisdiction.',
+              },
+              {
+                q: 'How are prices tracked accurately?',
+                a: 'Platforms use oracle systems that pull real-time price data from major exchanges and data providers. Funding rates (periodic payments between longs and shorts) keep perp prices anchored to spot prices. If perps trade above spot, longs pay shorts, pushing prices down.',
+              },
+              {
+                q: 'What happens if I get liquidated?',
+                a: 'If the price moves against you enough to hit your liquidation threshold, your position is automatically closed and you lose your margin (collateral). This is why leverage management is critical. Most traders recommend starting with 2-5x leverage, not the maximum available.',
+              },
+              {
+                q: 'What are funding rates and why do they matter?',
+                a: 'Funding rates are periodic payments between long and short traders that keep perp prices aligned with spot prices. Positive funding means longs pay shorts. Negative funding means shorts pay longs (you earn money holding a long). We show the best rates for each stock above.',
+              },
+              {
+                q: 'Which platform should I start with?',
+                a: 'For beginners, we recommend Hyperliquid — it has the best liquidity, zero gas fees, and a clean interface. It\'s the largest platform by volume and supports 50+ equity perps. Check our comparison table to find what fits your needs.',
+              },
+            ].map((faq, i) => (
+              <details
+                key={i}
+                className="group bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden"
               >
-                <div
-                  className="w-3 h-3 rounded-full flex-shrink-0"
-                  style={{ backgroundColor: platform.color }}
-                />
-                <span className="text-gray-300 group-hover:text-white transition-colors text-sm font-medium">
-                  {platform.name}
-                </span>
-              </Link>
+                <summary className="flex items-center justify-between p-5 cursor-pointer list-none">
+                  <span className="text-white font-medium pr-4">{faq.q}</span>
+                  <svg
+                    className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div className="px-5 pb-5 text-gray-400">
+                  {faq.a}
+                </div>
+              </details>
             ))}
           </div>
-          <div className="mt-6 text-center">
+
+          <div className="mt-10 text-center">
             <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+              href="/blog/glossary"
+              className="text-cyan-400 hover:text-cyan-300 font-medium inline-flex items-center gap-2"
             >
-              View all reviews
+              View Full Glossary
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Ready to Trade Stocks 24/7?
+          </h2>
+          <p className="text-xl text-gray-400 mb-8">
+            Join thousands of traders using equity perps. Start with as little as $50.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://app.hyperliquid.xyz/join/COMPAREPERPS"
+              target="_blank"
+              rel="noopener sponsored"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-500 text-gray-900 rounded-xl font-bold text-lg hover:bg-cyan-400 transition-colors"
+            >
+              Start on Hyperliquid
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+            <Link
+              href="/stocks"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-800 border border-gray-700 text-white rounded-xl font-semibold text-lg hover:bg-gray-700 transition-colors"
+            >
+              Browse All Stocks
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
