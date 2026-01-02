@@ -7,16 +7,30 @@ import { stocks } from '@/data/stocks';
 
 interface PlatformMarketData {
   price: number | null;
+  change24h: number | null;
   fundingRate: number | null;
+  volume24h: number | null;
 }
 
 interface EquityMarketData {
+  ticker: string;
   hyperliquid: PlatformMarketData | null;
   lighter: PlatformMarketData | null;
   ostium: PlatformMarketData | null;
 }
 
-// Featured stocks for the conversion section
+interface APIResponse {
+  success: boolean;
+  timestamp: string;
+  data: Record<string, EquityMarketData>;
+  sources: {
+    ostium: number;
+    lighter: number;
+    hyperliquid: number;
+  };
+}
+
+// Featured stocks for the conversion section - NVDA and TSLA first
 const FEATURED_TICKERS = ['NVDA', 'TSLA', 'AAPL', 'AMZN', 'META', 'GOOGL', 'MSFT', 'COIN'];
 
 function formatPrice(price: number | null): string {
@@ -24,26 +38,48 @@ function formatPrice(price: number | null): string {
   return `$${price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
-function formatFundingRate(rate: number | null): string {
-  if (rate === null) return '—';
-  const percentage = rate * 100;
-  const sign = percentage >= 0 ? '+' : '';
-  return `${sign}${percentage.toFixed(4)}%`;
+function formatChange(change: number | null): { text: string; className: string } {
+  if (change === null) return { text: '—', className: 'text-gray-500' };
+  const sign = change >= 0 ? '+' : '';
+  const className = change >= 0 ? 'text-green-400' : 'text-red-400';
+  return { text: `${sign}${change.toFixed(2)}%`, className };
 }
 
-function getBestVenue(data: EquityMarketData | null): { platform: string; rate: number | null; price: number | null } | null {
+function formatFundingRate(rate: number | null): string {
+  if (rate === null) return '—';
+  // Rate is already in percentage form from API (annual %)
+  const sign = rate >= 0 ? '+' : '';
+  return `${sign}${rate.toFixed(2)}%`;
+}
+
+function getBestVenue(data: EquityMarketData | null): { platform: string; rate: number | null; price: number | null; change24h: number | null } | null {
   if (!data) return null;
 
-  const venues: { platform: string; rate: number | null; price: number | null }[] = [];
+  const venues: { platform: string; rate: number | null; price: number | null; change24h: number | null }[] = [];
 
   if (data.hyperliquid?.price) {
-    venues.push({ platform: 'hyperliquid', rate: data.hyperliquid.fundingRate, price: data.hyperliquid.price });
+    venues.push({
+      platform: 'hyperliquid',
+      rate: data.hyperliquid.fundingRate,
+      price: data.hyperliquid.price,
+      change24h: data.hyperliquid.change24h
+    });
   }
   if (data.lighter?.price) {
-    venues.push({ platform: 'lighter', rate: data.lighter.fundingRate, price: data.lighter.price });
+    venues.push({
+      platform: 'lighter',
+      rate: data.lighter.fundingRate,
+      price: data.lighter.price,
+      change24h: data.lighter.change24h
+    });
   }
   if (data.ostium?.price) {
-    venues.push({ platform: 'ostium', rate: data.ostium.fundingRate, price: data.ostium.price });
+    venues.push({
+      platform: 'ostium',
+      rate: data.ostium.fundingRate,
+      price: data.ostium.price,
+      change24h: data.ostium.change24h
+    });
   }
 
   if (venues.length === 0) return null;
@@ -62,35 +98,53 @@ function getBestVenue(data: EquityMarketData | null): { platform: string; rate: 
   );
 }
 
+// Get the best price from any platform (for display if best venue doesn't have it)
+function getBestPrice(data: EquityMarketData | null): { price: number | null; change24h: number | null } {
+  if (!data) return { price: null, change24h: null };
+
+  // Prefer Hyperliquid, then Lighter, then Ostium
+  if (data.hyperliquid?.price) {
+    return { price: data.hyperliquid.price, change24h: data.hyperliquid.change24h };
+  }
+  if (data.lighter?.price) {
+    return { price: data.lighter.price, change24h: data.lighter.change24h };
+  }
+  if (data.ostium?.price) {
+    return { price: data.ostium.price, change24h: data.ostium.change24h };
+  }
+  return { price: null, change24h: null };
+}
+
 export default function LiveStockRates() {
-  const [marketData, setMarketData] = useState<Map<string, EquityMarketData>>(new Map());
+  const [marketData, setMarketData] = useState<Record<string, EquityMarketData>>({});
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let mounted = true;
 
     const fetchAllData = async () => {
-      const newData = new Map<string, EquityMarketData>();
+      try {
+        const response = await fetch('/api/market-data');
+        if (!response.ok) {
+          throw new Error('Failed to fetch market data');
+        }
 
-      await Promise.all(
-        FEATURED_TICKERS.map(async (ticker) => {
-          try {
-            const response = await fetch(`/api/market-data?ticker=${ticker}`);
-            if (response.ok) {
-              const data = await response.json();
-              if (mounted) {
-                newData.set(ticker, data);
-              }
-            }
-          } catch (error) {
-            console.error(`Error fetching ${ticker}:`, error);
-          }
-        })
-      );
+        const result: APIResponse = await response.json();
 
-      if (mounted) {
-        setMarketData(newData);
-        setLoading(false);
+        if (mounted && result.success && result.data) {
+          setMarketData(result.data);
+          setError(null);
+        }
+      } catch (err) {
+        console.error('Error fetching market data:', err);
+        if (mounted) {
+          setError('Failed to load market data');
+        }
+      } finally {
+        if (mounted) {
+          setLoading(false);
+        }
       }
     };
 
@@ -119,29 +173,36 @@ export default function LiveStockRates() {
           </p>
         </div>
 
+        {error && (
+          <div className="text-center text-red-400 mb-6">{error}</div>
+        )}
+
         <div className="grid gap-3">
           {/* Header Row */}
-          <div className="hidden md:grid md:grid-cols-5 gap-4 px-6 py-3 text-sm text-gray-500 font-medium">
+          <div className="hidden md:grid md:grid-cols-6 gap-4 px-6 py-3 text-sm text-gray-500 font-medium">
             <div>Stock</div>
-            <div>Live Price</div>
+            <div>Price</div>
+            <div>24h</div>
             <div>Best Venue</div>
-            <div>Funding Rate</div>
+            <div>Funding (APR)</div>
             <div></div>
           </div>
 
           {/* Stock Rows */}
           {FEATURED_TICKERS.map((ticker) => {
             const stock = stocks.find(s => s.ticker === ticker);
-            const data = marketData.get(ticker);
-            const bestVenue = getBestVenue(data || null);
+            const data = marketData[ticker] || null;
+            const bestVenue = getBestVenue(data);
             const platform = bestVenue ? getPlatformInfo(bestVenue.platform) : null;
+            const priceData = getBestPrice(data);
+            const change = formatChange(priceData.change24h);
 
             return (
               <div
                 key={ticker}
                 className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 md:p-6 hover:border-gray-700 transition-colors"
               >
-                <div className="grid md:grid-cols-5 gap-4 items-center">
+                <div className="grid md:grid-cols-6 gap-4 items-center">
                   {/* Stock Info */}
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-white font-bold text-sm">
@@ -162,10 +223,22 @@ export default function LiveStockRates() {
                   <div className="md:text-left">
                     <span className="md:hidden text-gray-500 text-sm mr-2">Price:</span>
                     {loading ? (
-                      <span className="text-gray-500">Loading...</span>
+                      <div className="h-6 w-20 bg-gray-800 rounded animate-pulse" />
                     ) : (
                       <span className="text-white font-medium text-lg">
-                        {formatPrice(bestVenue?.price || null)}
+                        {formatPrice(priceData.price)}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* 24h Change */}
+                  <div className="md:text-left">
+                    <span className="md:hidden text-gray-500 text-sm mr-2">24h:</span>
+                    {loading ? (
+                      <div className="h-5 w-16 bg-gray-800 rounded animate-pulse" />
+                    ) : (
+                      <span className={`font-medium ${change.className}`}>
+                        {change.text}
                       </span>
                     )}
                   </div>
@@ -174,7 +247,7 @@ export default function LiveStockRates() {
                   <div className="md:text-left">
                     <span className="md:hidden text-gray-500 text-sm mr-2">Best Venue:</span>
                     {loading ? (
-                      <span className="text-gray-500">—</span>
+                      <div className="h-5 w-24 bg-gray-800 rounded animate-pulse" />
                     ) : platform ? (
                       <div className="flex items-center gap-2">
                         <div
@@ -192,7 +265,7 @@ export default function LiveStockRates() {
                   <div className="md:text-left">
                     <span className="md:hidden text-gray-500 text-sm mr-2">Funding:</span>
                     {loading ? (
-                      <span className="text-gray-500">—</span>
+                      <div className="h-5 w-20 bg-gray-800 rounded animate-pulse" />
                     ) : bestVenue?.rate !== null && bestVenue?.rate !== undefined ? (
                       <div>
                         <span className={bestVenue.rate < 0 ? 'text-green-400 font-medium' : 'text-yellow-400'}>
@@ -216,7 +289,7 @@ export default function LiveStockRates() {
                         rel="noopener sponsored"
                         className="inline-flex items-center gap-2 px-5 py-2.5 bg-cyan-500 text-gray-900 rounded-xl font-semibold hover:bg-cyan-400 transition-colors text-sm"
                       >
-                        Trade on {platform.name}
+                        Trade
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
@@ -226,7 +299,7 @@ export default function LiveStockRates() {
                         href={`/stocks/${ticker.toLowerCase()}`}
                         className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-700 text-white rounded-xl font-semibold hover:bg-gray-600 transition-colors text-sm"
                       >
-                        View Details
+                        View
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
