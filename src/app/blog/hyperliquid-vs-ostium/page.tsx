@@ -20,7 +20,7 @@ export default function HyperliquidVsOstium() {
   const comparisonData = [
     { feature: 'Chain', hyperliquid: 'Hyperliquid L1', ostium: 'Arbitrum' },
     { feature: 'Max Leverage', hyperliquid: '50x', ostium: '200x' },
-    { feature: 'Focus', hyperliquid: 'Crypto + Equities', ostium: '95% Real World Assets' },
+    { feature: 'Focus', hyperliquid: 'BTC/ETH + Equities', ostium: '95% Real World Assets' },
     { feature: '24/7 Trading', hyperliquid: 'Yes', ostium: 'No (market hours)' },
     { feature: 'Unique Feature', hyperliquid: 'HIP-3 protocol', ostium: '0DTE perpetuals' },
     { feature: 'Cumulative Volume', hyperliquid: '$1T+', ostium: '$25B' },
@@ -71,7 +71,7 @@ export default function HyperliquidVsOstium() {
 
           <p className="text-gray-300">
             That specialization shows. Over 95% of Ostium's open interest sits in RWA markets.
-            Meanwhile Hyperliquid remains primarily a crypto venue with equity perps as an addition.
+            Meanwhile Hyperliquid remains primarily a BTC/ETH venue with equity perps as an addition.
           </p>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-6">Side by Side</h2>
@@ -118,7 +118,7 @@ export default function HyperliquidVsOstium() {
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">Leverage Comparison</h2>
 
           <p className="text-gray-300">
-            Ostium offers up to 200x leverage on certain assets. This is aggressive even by crypto standards.
+            Ostium offers up to 200x leverage on certain assets. This is aggressive even by DeFi standards.
             During market hours on equity perps, you can access 100x.
           </p>
 
@@ -132,7 +132,7 @@ export default function HyperliquidVsOstium() {
           <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
             <p className="text-gray-300 mb-4">
               <strong className="text-white">Choose Hyperliquid if:</strong> You want 24/7 access to equity exposure,
-              trade crypto alongside stocks, or need maximum liquidity.
+              trade BTC/ETH alongside stocks, or need maximum liquidity.
             </p>
             <p className="text-gray-300">
               <strong className="text-white">Choose Ostium if:</strong> You focus on day trading, want to eliminate overnight risk,

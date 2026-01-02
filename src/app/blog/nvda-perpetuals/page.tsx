@@ -146,7 +146,7 @@ export default function NVDAPerpetuals() {
                 <li>Up to 100x leverage for capital efficiency</li>
                 <li>Easy short selling for bearish plays</li>
                 <li>No PDT rule or pattern day trading limits</li>
-                <li>Self-custody - your keys, your crypto</li>
+                <li>Self-custody - your keys, your funds</li>
               </ul>
             </div>
             <div className="bg-gray-900/30 border border-gray-800 rounded-xl p-4">

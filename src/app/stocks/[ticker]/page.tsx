@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `${stock.ticker} perps`,
       `trade ${stock.ticker} onchain`,
       `${stock.ticker} funding rate`,
-      `long ${stock.ticker} crypto`,
+      `long ${stock.ticker} onchain`,
       `${stock.ticker} synthetic`,
       `${stock.name.toLowerCase()} perpetual`,
       `short ${stock.ticker} onchain`,
@@ -130,7 +130,7 @@ export default async function StockPage({ params }: PageProps) {
       },
       {
         "@type": "Question",
-        name: `Can I short ${stock.name} with crypto?`,
+        name: `Can I short ${stock.name} with USDC?`,
         acceptedAnswer: {
           "@type": "Answer",
           text: `Yes. The same platforms that offer long exposure also let you short. Simply open a short position on ${stock.ticker}-PERP to profit from price decreases.`,

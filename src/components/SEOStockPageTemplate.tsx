@@ -480,7 +480,7 @@ export default function SEOStockPageTemplate({ stock }: SEOStockPageTemplateProp
             </div>
 
             <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-5">
-              <h3 className="text-white font-semibold mb-2">Can I short {stock.name} with crypto?</h3>
+              <h3 className="text-white font-semibold mb-2">Can I short {stock.name} with USDC?</h3>
               <p className="text-gray-400">
                 Yes. The same platforms that offer long exposure also let you short. Simply open a short position on {stock.ticker}-PERP to profit from price decreases.
               </p>

@@ -141,7 +141,7 @@ export const platforms: Platform[] = [
     chain: 'Arbitrum',
     maxLeverage: '200x',
     volume: '$25B cumulative',
-    backing: 'General Catalyst, Jump Crypto ($24M)',
+    backing: 'General Catalyst, Jump Trading ($24M)',
     features: {
       equityPerps: true,
       zeroFees: false,
@@ -246,11 +246,11 @@ export const platforms: Platform[] = [
     name: 'Avantis',
     slug: 'avantis',
     tagline: 'Zero-fee perps on Base',
-    description: 'Avantis is the largest DEX on Base, backed by Pantera and Coinbase. Trade crypto up to 500x and equities up to 25x leverage. Unique zero-fee model where you only pay fees on profitable trades, plus 20% rebates on losses.',
+    description: 'Avantis is the largest DEX on Base, backed by Pantera and Coinbase. Trade digital assets up to 500x and equities up to 25x leverage. Unique zero-fee model where you only pay fees on profitable trades, plus 20% rebates on losses.',
     referralUrl: 'https://www.avantisfi.com/', // Add your referral link
     website: 'https://avantisfi.com',
     chain: 'Base (L2)',
-    maxLeverage: '500x crypto / 25x equities',
+    maxLeverage: '500x BTC/ETH / 25x equities',
     volume: '$23M TVL',
     backing: 'Pantera Capital, Coinbase, Founders Fund ($8M Series A)',
     features: {
@@ -265,7 +265,7 @@ export const platforms: Platform[] = [
       mobileApp: false,
       apiAccess: true,
     },
-    supportedAssets: ['Major equities', 'Crypto', 'Forex', 'Commodities'],
+    supportedAssets: ['Major equities', 'BTC/ETH', 'Forex', 'Commodities'],
     pros: [
       'Zero fees (pay only on profit)',
       '20% loss rebates',

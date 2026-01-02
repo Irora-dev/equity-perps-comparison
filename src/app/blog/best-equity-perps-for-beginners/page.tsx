@@ -47,8 +47,8 @@ const faqs = [
     answer: "Never exceed 3x-5x leverage as a beginner. Many new traders use too much leverage and get liquidated quickly. Low leverage gives you room to learn from mistakes."
   },
   {
-    question: "Do I need crypto experience to trade equity perps?",
-    answer: "Basic familiarity with crypto wallets helps, but it's not required. Our step-by-step guide covers everything from wallet setup to placing your first trade."
+    question: "Do I need DeFi experience to trade equity perps?",
+    answer: "Basic familiarity with wallets helps, but it's not required. Our step-by-step guide covers everything from wallet setup to placing your first trade."
   },
 ];
 

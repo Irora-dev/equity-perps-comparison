@@ -4,11 +4,11 @@ import { platforms } from '@/data/platforms';
 
 export const metadata: Metadata = {
   title: 'Trade Stocks Without a Broker | Direct Access Guide 2026',
-  description: 'Learn how to trade stocks without a traditional broker using equity perpetuals. No brokerage account needed - just a crypto wallet. Trade NVDA, TSLA, AAPL 24/7.',
+  description: 'Learn how to trade stocks without a traditional broker using equity perpetuals. No brokerage account needed - just a wallet. Trade NVDA, TSLA, AAPL 24/7.',
   keywords: [
     'trade stocks without broker',
     'no broker stock trading',
-    'trade stocks with crypto wallet',
+    'trade stocks with wallet',
     'stock trading no brokerage',
     'direct stock trading',
     'decentralized stock trading',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Trade Stocks Without a Broker | 2026 Guide',
-    description: 'No brokerage account needed. Trade stocks with just a crypto wallet.',
+    description: 'No brokerage account needed. Trade stocks with just a wallet.',
     type: 'article',
   },
   alternates: {
@@ -45,7 +45,7 @@ export default function TradeStocksWithoutBroker() {
     "description": "Step-by-step guide to trading stocks using equity perpetuals without a brokerage account",
     "totalTime": "PT10M",
     "step": [
-      { "@type": "HowToStep", "position": 1, "name": "Get a wallet", "text": "Download Rabby Wallet from rabby.io and create a new crypto wallet" },
+      { "@type": "HowToStep", "position": 1, "name": "Get a wallet", "text": "Download Rabby Wallet from rabby.io and create a new wallet" },
       { "@type": "HowToStep", "position": 2, "name": "Fund with USDC", "text": "Buy USDC stablecoin from an exchange or use a card onramp" },
       { "@type": "HowToStep", "position": 3, "name": "Connect to platform", "text": "Go to Hyperliquid and connect your wallet" },
       { "@type": "HowToStep", "position": 4, "name": "Start trading", "text": "Deposit USDC and open positions on stocks like NVDA, TSLA, AAPL" },
@@ -72,7 +72,7 @@ export default function TradeStocksWithoutBroker() {
               Trade Stocks Without a Broker
             </h1>
             <p className="text-xl text-gray-400 mb-6">
-              Skip the brokerage account. Trade NVDA, TSLA, AAPL, and 50+ stocks using just a crypto wallet.
+              Skip the brokerage account. Trade NVDA, TSLA, AAPL, and 50+ stocks using just a wallet.
               No application, no approval wait, no minimum balance.
             </p>
           </header>
@@ -137,7 +137,7 @@ export default function TradeStocksWithoutBroker() {
               <div className="flex gap-4 items-start">
                 <div className="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center text-gray-900 font-bold text-lg flex-shrink-0">1</div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">Get a Crypto Wallet</h3>
+                  <h3 className="text-xl font-semibold text-white mb-2">Get a Wallet</h3>
                   <p className="text-gray-400">Download <a href="https://rabby.io" target="_blank" rel="noopener" className="text-cyan-400 hover:text-cyan-300">Rabby Wallet</a>. Create a new wallet in 2 minutes. No email, no phone number — just save your seed phrase securely. <a href="/blog/wallet-setup-guide" className="text-cyan-400 hover:text-cyan-300">Full setup guide →</a></p>
                 </div>
               </div>

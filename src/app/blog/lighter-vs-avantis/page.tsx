@@ -47,7 +47,7 @@ export default function LighterVsAvantis() {
 
   const comparisonData = [
     { feature: 'Chain', lighter: 'Ethereum L2 (ZK)', avantis: 'Base (L2)' },
-    { feature: 'Max Leverage', lighter: '100x', avantis: '500x (crypto), 25x (equity)' },
+    { feature: 'Max Leverage', lighter: '100x', avantis: '500x (BTC/ETH), 25x (equity)' },
     { feature: 'Trading Fees', lighter: 'Zero for retail', avantis: 'Zero fees' },
     { feature: 'Loss Rebates', lighter: 'No', avantis: '20% rebate' },
     { feature: 'Security', lighter: 'ZK proofs', avantis: 'Dual oracle' },
@@ -152,7 +152,7 @@ export default function LighterVsAvantis() {
           </p>
 
           <p className="text-gray-300">
-            The 500x crypto leverage is the highest in the market, though equity leverage is more modest at 25x.
+            The 500x BTC/ETH leverage is the highest in the market, though equity leverage is more modest at 25x.
           </p>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">Our Verdict</h2>

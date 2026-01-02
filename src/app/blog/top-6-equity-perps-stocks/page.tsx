@@ -105,11 +105,11 @@ export default function TopSixStocks() {
       rank: 5,
       ticker: 'COIN',
       name: 'Coinbase',
-      why: 'Crypto exchange stock that moves with Bitcoin',
+      why: 'Digital asset exchange stock that moves with Bitcoin',
       avgDailyMove: '3-6%',
       leverage: 'Up to 100x',
       platforms: ['Hyperliquid', 'Lighter'],
-      tradingTip: 'Correlates with crypto market sentiment',
+      tradingTip: 'Correlates with Bitcoin market sentiment',
     },
     {
       rank: 6,

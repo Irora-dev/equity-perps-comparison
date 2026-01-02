@@ -102,7 +102,7 @@ export const blogPosts: BlogPost[] = [
   // Essential guides
   {
     slug: 'wallet-setup-guide',
-    title: 'How to Set Up a Crypto Wallet for Trading Equity Perps',
+    title: 'How to Set Up a Wallet for Trading Equity Perps',
     description: 'Step-by-step guide to setting up a wallet, funding it with USDC, and connecting to trading platforms.',
     category: 'guide',
     publishedAt: '2025-01-01',
@@ -191,9 +191,9 @@ export const blogPosts: BlogPost[] = [
     updatedAt: '2025-01-01',
   },
   {
-    slug: 'crypto-perps-vs-equity-perps',
-    title: 'Crypto Perps vs Equity Perps: Which to Trade?',
-    description: 'Comparing crypto and stock perpetual markets by volatility, liquidity, and strategy.',
+    slug: 'btc-perps-vs-equity-perps',
+    title: 'BTC Perps vs Equity Perps: Which to Trade?',
+    description: 'Comparing Bitcoin and stock perpetual markets by volatility, liquidity, and strategy.',
     category: 'comparison',
     publishedAt: '2025-01-01',
     updatedAt: '2025-01-01',

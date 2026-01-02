@@ -131,9 +131,9 @@ export const comparisonArticles: Article[] = [
     category: 'comparison',
   },
   {
-    title: 'Crypto vs Equity Perps',
-    href: '/blog/crypto-perps-vs-equity-perps',
-    description: 'Which market is right for you',
+    title: 'Perps vs CFDs',
+    href: '/blog/equity-perps-vs-cfds',
+    description: 'How they compare for stock trading',
     category: 'comparison',
   },
 ];

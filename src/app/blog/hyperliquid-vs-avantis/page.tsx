@@ -47,7 +47,7 @@ export default function HyperliquidVsAvantis() {
 
   const comparisonData = [
     { feature: 'Chain', hyperliquid: 'Hyperliquid L1', avantis: 'Base (L2)' },
-    { feature: 'Max Leverage', hyperliquid: '50x', avantis: '500x (crypto), 25x (equity)' },
+    { feature: 'Max Leverage', hyperliquid: '50x', avantis: '500x (BTC/ETH), 25x (equity)' },
     { feature: 'Trading Fees', hyperliquid: 'Zero gas, low taker', avantis: 'Zero fees, pay on profit' },
     { feature: 'Monthly Volume', hyperliquid: '$319B peak', avantis: 'Growing' },
     { feature: 'Settlement', hyperliquid: 'USDC', avantis: 'USDC' },

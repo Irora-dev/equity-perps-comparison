@@ -106,7 +106,7 @@ export default function HyperliquidTutorial() {
             <h2 className="text-2xl font-bold text-white mt-12 mb-6">Step 1: Install Rabby Wallet</h2>
             <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
               <p className="text-gray-300 mb-4">
-                You need a crypto wallet to interact with Hyperliquid. We recommend <strong className="text-cyan-400">Rabby Wallet</strong> —
+                You need a self-custody wallet to interact with Hyperliquid. We recommend <strong className="text-cyan-400">Rabby Wallet</strong> —
                 it&apos;s built for DeFi trading with security features like transaction simulations and scam warnings.
               </p>
               <a

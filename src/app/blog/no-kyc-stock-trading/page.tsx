@@ -5,7 +5,7 @@ import WalletGuideCTA from '@/components/WalletGuideCTA';
 
 export const metadata: Metadata = {
   title: 'No KYC Stock Trading: Best Platforms 2026 | Trade Anonymously',
-  description: 'Trade stocks without identity verification. Compare the best no-KYC stock trading platforms offering equity perpetuals with just a crypto wallet. No SSN, no documents required.',
+  description: 'Trade stocks without identity verification. Compare the best no-KYC stock trading platforms offering equity perpetuals with just a wallet. No SSN, no documents required.',
   keywords: [
     'no kyc stock trading',
     'trade stocks without kyc',
@@ -54,7 +54,7 @@ export default function NoKYCStockTrading() {
         "name": "Can I trade stocks without KYC?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Decentralized equity perpetual platforms allow you to trade stock exposure without identity verification. You only need a crypto wallet and USDC stablecoin."
+          "text": "Yes. Decentralized equity perpetual platforms allow you to trade stock exposure without identity verification. You only need a wallet and USDC stablecoin."
         }
       },
       {
@@ -150,7 +150,7 @@ export default function NoKYCStockTrading() {
                 <svg className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span><strong className="text-white">No identity documents</strong> — Just a crypto wallet</span>
+                <span><strong className="text-white">No identity documents</strong> — Just a self-custody wallet</span>
               </li>
               <li className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -226,7 +226,7 @@ export default function NoKYCStockTrading() {
               <div className="flex gap-4">
                 <div className="w-10 h-10 rounded-full bg-cyan-500 flex items-center justify-center text-gray-900 font-bold flex-shrink-0">1</div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Get a Crypto Wallet</h3>
+                  <h3 className="text-lg font-semibold text-white mb-2">Get a Wallet</h3>
                   <p className="text-gray-400">Follow our <Link href="/blog/wallet-setup-guide" className="text-cyan-400 hover:text-cyan-300">wallet setup guide</Link> to create a wallet in 5 minutes. No email or phone required.</p>
                 </div>
               </div>
@@ -283,7 +283,7 @@ export default function NoKYCStockTrading() {
               {[
                 {
                   q: "Can I really trade stocks without providing ID?",
-                  a: "Yes. Decentralized equity perpetual platforms only require a crypto wallet connection. No identity documents, SSN, or personal information needed."
+                  a: "Yes. Decentralized equity perpetual platforms only require a wallet connection. No identity documents, SSN, or personal information needed."
                 },
                 {
                   q: "Is this legal?",

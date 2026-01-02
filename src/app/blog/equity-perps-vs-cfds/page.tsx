@@ -17,8 +17,8 @@ const faqs = [
     answer: "CFDs offer more stock coverage since they've been around longer. Equity perps focus on popular stocks like NVDA, TSLA, AAPL. The selection is growing but CFDs still have more variety."
   },
   {
-    question: "Do I need crypto to trade equity perps?",
-    answer: "Yes, you'll need stablecoins (usually USDC) to deposit on equity perps platforms. You'll also need a crypto wallet. CFDs let you stay entirely in fiat currency."
+    question: "Do I need USDC to trade equity perps?",
+    answer: "Yes, you'll need stablecoins (usually USDC) to deposit on equity perps platforms. You'll also need a self-custody wallet. CFDs let you stay entirely in fiat currency."
   },
   {
     question: "Can US residents trade equity perps?",
@@ -44,7 +44,7 @@ export default function EquityPerpsVsCFDs() {
     { feature: 'KYC Required', perps: 'No (decentralized)', cfds: 'Yes' },
     { feature: 'Max Leverage', perps: 'Up to 200x', cfds: '2x to 30x (regulated)' },
     { feature: 'Fees', perps: 'Trading + Funding', cfds: 'Spread + Overnight' },
-    { feature: 'Settlement', perps: 'USDC / Crypto', cfds: 'Fiat currency' },
+    { feature: 'Settlement', perps: 'USDC', cfds: 'Fiat currency' },
     { feature: 'Withdrawal Speed', perps: 'Minutes', cfds: 'Days' },
   ];
 
@@ -87,7 +87,7 @@ export default function EquityPerpsVsCFDs() {
         <div className="prose prose-invert max-w-none">
           <p className="text-gray-300 text-lg">
             CFDs (Contracts for Difference) have been the traditional way to trade leveraged stock exposure outside the US.
-            Equity perpetuals are the crypto native alternative. Each has distinct advantages depending on your priorities.
+            Equity perpetuals are the DeFi-native alternative. Each has distinct advantages depending on your priorities.
           </p>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-6">Side by Side</h2>
@@ -152,7 +152,7 @@ export default function EquityPerpsVsCFDs() {
 
           <h3 className="text-xl font-bold text-white mt-8 mb-3">Fiat Integration</h3>
           <p className="text-gray-300">
-            CFDs settle in your local currency. No need to convert to crypto, bridge between chains,
+            CFDs settle in your local currency. No need to convert to stablecoins, bridge between chains,
             or manage stablecoin exposure. For traders who prefer to stay in traditional finance rails,
             this simplifies everything.
           </p>
@@ -160,7 +160,7 @@ export default function EquityPerpsVsCFDs() {
           <h3 className="text-xl font-bold text-white mt-8 mb-3">Established Infrastructure</h3>
           <p className="text-gray-300">
             CFD platforms have decades of development. Mobile apps, customer support, educational resources,
-            and integration with tax software are mature. Crypto platforms are catching up but have not reached parity.
+            and integration with tax software are mature. DeFi platforms are catching up but have not reached parity.
           </p>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">Cost Comparison</h2>

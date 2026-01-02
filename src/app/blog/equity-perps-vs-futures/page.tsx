@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     'equity perps vs futures',
     'perpetuals vs futures',
     'perpetual futures difference',
-    'crypto perps vs futures',
+    'btc perps vs futures',
     'no expiration futures',
     'perpetual swaps explained',
     'futures vs perpetuals trading',

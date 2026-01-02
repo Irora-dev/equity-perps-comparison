@@ -246,7 +246,7 @@ export default function HowToTradeTemplate({ stock }: HowToTradeTemplateProps) {
 
           <h3 className="text-xl font-semibold text-white mt-8 mb-3">What are perpetuals?</h3>
           <p className="text-gray-300 leading-relaxed">
-            Perpetuals are futures contracts with no expiration date. They track the price of an underlying asset (in this case, {stock.ticker}) and let you go long or short with leverage. Originally created for crypto trading, perpetuals are now available for stocks, indices, commodities, and forex on decentralized exchanges.
+            Perpetuals are futures contracts with no expiration date. They track the price of an underlying asset (in this case, {stock.ticker}) and let you go long or short with leverage. Originally created for BTC and ETH trading, perpetuals are now available for stocks, indices, commodities, and forex on decentralized exchanges.
           </p>
 
           <h3 className="text-xl font-semibold text-white mt-8 mb-3">Why trade {stock.ticker} perps?</h3>
@@ -257,7 +257,7 @@ export default function HowToTradeTemplate({ stock }: HowToTradeTemplateProps) {
             </div>
             <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
               <h4 className="text-green-400 font-semibold mb-1">No brokerage account</h4>
-              <p className="text-gray-400 text-sm">Connect a crypto wallet, deposit USDC, and start trading. No forms, no waiting, no geographic restrictions.</p>
+              <p className="text-gray-400 text-sm">Connect a wallet, deposit USDC, and start trading. No forms, no waiting, no geographic restrictions.</p>
             </div>
             <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
               <h4 className="text-green-400 font-semibold mb-1">Built-in leverage</h4>
@@ -498,7 +498,7 @@ export default function HowToTradeTemplate({ stock }: HowToTradeTemplateProps) {
           </div>
           <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-5">
             <h3 className="text-white font-semibold mb-2">Do I need a brokerage account?</h3>
-            <p className="text-gray-400 text-sm">No. You just need a crypto wallet and USDC. No identity verification required on most decentralized platforms.</p>
+            <p className="text-gray-400 text-sm">No. You just need a self-custody wallet and USDC. No identity verification required on most decentralized platforms.</p>
           </div>
           <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-5">
             <h3 className="text-white font-semibold mb-2">How much leverage can I use?</h3>

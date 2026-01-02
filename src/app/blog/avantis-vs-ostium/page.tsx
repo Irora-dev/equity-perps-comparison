@@ -129,7 +129,7 @@ export default function AvantisVsOstium() {
           </p>
 
           <p className="text-gray-300">
-            For crypto, Avantis offers up to 500x. But we are comparing equity perps here, and 25x versus 100x is a significant difference
+            For BTC/ETH, Avantis offers up to 500x. But we are comparing equity perps here, and 25x versus 100x is a significant difference
             for those who want to maximize capital efficiency.
           </p>
 

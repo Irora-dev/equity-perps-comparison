@@ -78,14 +78,14 @@ export default function SevenReasonsToTradeEquityPerps() {
     {
       number: 3,
       title: 'No Pattern Day Trader Rules',
-      description: 'The PDT rule doesn\'t apply to crypto derivatives. Day trade as much as you want regardless of account size.',
+      description: 'The PDT rule doesn\'t apply to DeFi derivatives. Day trade as much as you want regardless of account size.',
       stat: '0',
       statLabel: 'PDT Restrictions',
     },
     {
       number: 4,
       title: 'Self-Custody of Funds',
-      description: 'Your crypto stays in your wallet until you trade. No broker holding your money. Withdraw anytime without delays.',
+      description: 'Your funds stay in your wallet until you trade. No broker holding your money. Withdraw anytime without delays.',
       stat: '100%',
       statLabel: 'Self-Custody',
     },

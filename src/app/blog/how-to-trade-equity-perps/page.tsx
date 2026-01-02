@@ -66,7 +66,7 @@ const faqs = [
   },
   {
     question: "Do I need to pay taxes on equity perps profits?",
-    answer: "Yes, profits from equity perps are typically taxable. The exact treatment varies by jurisdiction. Consult a tax professional familiar with cryptocurrency and derivatives. Check our tax guide for more details."
+    answer: "Yes, profits from equity perps are typically taxable. The exact treatment varies by jurisdiction. Consult a tax professional familiar with digital assets and derivatives. Check our tax guide for more details."
   },
 ];
 
@@ -203,9 +203,23 @@ export default function HowToTradeEquityPerps() {
           <h2 id="setup-wallet" className="text-2xl font-bold text-white mt-12 mb-4">Step 2: Set Up Your Wallet</h2>
 
           <p className="text-gray-300 mb-4">
-            You need a crypto wallet to interact with decentralized platforms. We recommend
+            You need a self-custody wallet to interact with decentralized platforms. We recommend
             <strong className="text-white"> Rabby Wallet</strong> for its security features and ease of use.
           </p>
+
+          {/* Video Tutorial */}
+          <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-5 my-6">
+            <h3 className="text-white font-semibold mb-3">Video: Wallet Setup Walkthrough</h3>
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.youtube.com/embed/_ouAzSQJiM0"
+                title="How to Set Up a Wallet for Trading Equity Perps"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            </div>
+          </div>
 
           <WalletGuideCTA />
 

@@ -53,7 +53,7 @@ export default function LighterVsOstium() {
     { feature: 'Unique Feature', lighter: 'ZK proofs for all trades', ostium: '0DTE perpetuals' },
     { feature: 'Trading Hours', lighter: '24/7', ostium: 'Market hours focus' },
     { feature: 'Equity Perps', lighter: 'COIN, HOOD (expanding)', ostium: '10+ stocks' },
-    { feature: 'Backing', lighter: 'Robinhood ($1.5B valuation)', ostium: 'General Catalyst, Jump Crypto' },
+    { feature: 'Backing', lighter: 'Robinhood ($1.5B valuation)', ostium: 'General Catalyst, Jump Trading' },
   ];
 
   return (
@@ -154,7 +154,7 @@ export default function LighterVsOstium() {
           </p>
 
           <p className="text-gray-300">
-            Backed by General Catalyst and Jump Crypto, Ostium has raised $24M to build out its RWA
+            Backed by General Catalyst and Jump Trading, Ostium has raised $24M to build out its RWA
             perpetuals vision. The platform focuses on real-world assets with 95%+ of open interest in RWAs.
           </p>
 

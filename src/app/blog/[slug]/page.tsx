@@ -24,15 +24,15 @@ const platformFAQs: Record<string, Array<{ question: string; answer: string }>> 
   ],
   ostium: [
     { question: "What are 0DTE perpetuals?", answer: "0DTE (zero days to expiration) perpetuals auto-close before market close each day. This gives you intraday exposure without overnight risk." },
-    { question: "Why does Ostium offer 200x leverage?", answer: "Ostium targets aggressive traders seeking maximum capital efficiency. The 200x leverage is available on crypto; equity perps have 100x during market hours." },
-    { question: "Is Ostium safe?", answer: "Ostium is backed by General Catalyst and Jump Crypto with $24M raised. It's built on Arbitrum and focuses primarily on RWAs with 95%+ of OI in real-world assets." },
+    { question: "Why does Ostium offer 200x leverage?", answer: "Ostium targets aggressive traders seeking maximum capital efficiency. The 200x leverage is available on BTC/ETH; equity perps have 100x during market hours." },
+    { question: "Is Ostium safe?", answer: "Ostium is backed by General Catalyst and Jump Trading with $24M raised. It's built on Arbitrum and focuses primarily on RWAs with 95%+ of OI in real-world assets." },
     { question: "What makes Ostium different?", answer: "Ostium's 0DTE perpetuals and highest leverage (200x) set it apart. The auto-close feature is unique for day traders who want defined risk periods." },
   ],
   avantis: [
     { question: "How do Avantis loss rebates work?", answer: "If your trade closes at a loss, Avantis refunds 20% of your losses. This significantly reduces the sting of losing trades and improves expected value." },
     { question: "Why are there no trading fees on Avantis?", answer: "Avantis uses a novel model where you pay nothing to enter positions. Fees are only charged when you close at a profit, aligning platform incentives with trader success." },
     { question: "Is Avantis safe?", answer: "Avantis is backed by Pantera Capital, Coinbase Ventures, and Founders Fund. It's built on Base (Coinbase's L2) and uses a dual oracle system for security." },
-    { question: "What leverage does Avantis offer?", answer: "Avantis offers up to 500x on crypto and 25x on equity perpetuals. The lower equity leverage reflects the product's focus on sustainable risk." },
+    { question: "What leverage does Avantis offer?", answer: "Avantis offers up to 500x on BTC/ETH and 25x on equity perpetuals. The lower equity leverage reflects the product's focus on sustainable risk." },
   ],
   variational: [
     { question: "What is RFQ trading?", answer: "RFQ (request-for-quote) is peer-to-peer trading where you request quotes from market makers rather than trading against an orderbook. This can provide better pricing for larger orders." },

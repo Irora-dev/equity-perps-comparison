@@ -135,7 +135,7 @@ export default function OstiumVsVariational() {
           </p>
 
           <p className="text-gray-300">
-            Backing from General Catalyst and Jump Crypto provides credibility and resources for growth.
+            Backing from General Catalyst and Jump Trading provides credibility and resources for growth.
             The focus on RWAs (95%+ of open interest) shows commitment to the equity perps niche.
           </p>
 

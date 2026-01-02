@@ -21,8 +21,8 @@ const faqs = [
     answer: "Keep records of every trade including date, entry/exit prices, position size, fees, and funding payments. Export data from platforms regularly and store it securely."
   },
   {
-    question: "Can I use crypto tax software for equity perps?",
-    answer: "Some crypto tax software supports perpetuals. Check if your platform integrates or exports in a compatible format. You may need to manually categorize equity perp trades."
+    question: "Can I use digital asset tax software for equity perps?",
+    answer: "Some digital asset tax software supports perpetuals. Check if your platform integrates or exports in a compatible format. You may need to manually categorize equity perp trades."
   },
 ];
 
@@ -65,14 +65,14 @@ export default function EquityPerpsTaxGuide() {
         <div className="prose prose-invert max-w-none">
           <p className="text-gray-300 text-lg">
             Equity perps sit in a grey area for most tax authorities. They combine characteristics of futures,
-            CFDs, and crypto assets. Few jurisdictions have issued specific guidance. Here is what we know.
+            CFDs, and digital assets. Few jurisdictions have issued specific guidance. Here is what we know.
           </p>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">General Principles</h2>
 
           <p className="text-gray-300">
             In most jurisdictions, profits from trading are taxable. This applies whether you trade stocks, futures,
-            CFDs, or crypto derivatives. The specific tax treatment depends on how your country classifies the instrument.
+            CFDs, or digital asset derivatives. The specific tax treatment depends on how your country classifies the instrument.
           </p>
 
           <p className="text-gray-300">
@@ -81,14 +81,14 @@ export default function EquityPerpsTaxGuide() {
 
           <ul className="text-gray-300 space-y-2 my-4">
             <li><strong className="text-white">Derivatives:</strong> Taxed like futures or options with mark to market rules</li>
-            <li><strong className="text-white">Crypto assets:</strong> Taxed under digital asset frameworks with realized gains</li>
+            <li><strong className="text-white">Digital assets:</strong> Taxed under digital asset frameworks with realized gains</li>
             <li><strong className="text-white">Gambling income:</strong> Some jurisdictions may classify speculative trading this way</li>
           </ul>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">United States</h2>
 
           <p className="text-gray-300">
-            The IRS has not issued specific guidance on equity perps. However, crypto derivatives likely fall under
+            The IRS has not issued specific guidance on equity perps. However, digital asset derivatives likely fall under
             existing frameworks for digital assets and derivatives.
           </p>
 
@@ -106,13 +106,13 @@ export default function EquityPerpsTaxGuide() {
 
           <p className="text-gray-300">
             US persons should also consider FBAR and FATCA reporting requirements if using offshore platforms.
-            Consult a tax attorney familiar with crypto and derivatives.
+            Consult a tax attorney familiar with digital assets and derivatives.
           </p>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">United Kingdom</h2>
 
           <p className="text-gray-300">
-            HMRC treats crypto derivatives similarly to other financial derivatives. Profits are typically subject
+            HMRC treats digital asset derivatives similarly to other financial derivatives. Profits are typically subject
             to Capital Gains Tax for individuals. Frequent traders may be classified as trading income subject to Income Tax.
           </p>
 
@@ -134,9 +134,9 @@ export default function EquityPerpsTaxGuide() {
           </p>
 
           <ul className="text-gray-300 space-y-2 my-4">
-            <li><strong className="text-white">Germany:</strong> Crypto held over one year may be tax free. Derivatives are taxed differently.</li>
-            <li><strong className="text-white">Portugal:</strong> Historically favorable for crypto, but rules are changing.</li>
-            <li><strong className="text-white">France:</strong> Flat tax on crypto gains with potential professional trader classification.</li>
+            <li><strong className="text-white">Germany:</strong> Digital assets held over one year may be tax free. Derivatives are taxed differently.</li>
+            <li><strong className="text-white">Portugal:</strong> Historically favorable for digital assets, but rules are changing.</li>
+            <li><strong className="text-white">France:</strong> Flat tax on digital asset gains with potential professional trader classification.</li>
           </ul>
 
           <h2 className="text-2xl font-bold text-white mt-12 mb-4">Record Keeping</h2>
@@ -181,7 +181,7 @@ export default function EquityPerpsTaxGuide() {
 
           <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 my-6">
             <ol className="text-gray-300 space-y-3 list-decimal list-inside">
-              <li>Consult a tax professional familiar with both crypto and derivatives before trading significant amounts</li>
+              <li>Consult a tax professional familiar with both digital assets and derivatives before trading significant amounts</li>
               <li>Keep meticulous records of all trades, funding payments, and fees</li>
               <li>Export platform data monthly and store it securely</li>
               <li>Set aside a portion of profits for taxes rather than reinvesting everything</li>
@@ -192,7 +192,7 @@ export default function EquityPerpsTaxGuide() {
 
           <p className="text-gray-300">
             Tax compliance may feel burdensome, but the consequences of non compliance are severe.
-            Crypto transactions are increasingly traceable. Tax authorities worldwide are investing in blockchain analytics.
+            On-chain transactions are increasingly traceable. Tax authorities worldwide are investing in blockchain analytics.
           </p>
         </div>
 

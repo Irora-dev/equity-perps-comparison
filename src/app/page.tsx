@@ -158,7 +158,7 @@ export default function Home() {
               <ul className="space-y-4">
                 {[
                   'Trade 24/7/365 including weekends',
-                  'Just a crypto wallet, no KYC',
+                  'Just a wallet, no KYC',
                   'Up to 200x leverage',
                   'Simple long/short, no Greeks',
                   'Self-custody in your wallet',
@@ -396,7 +396,7 @@ export default function Home() {
             <span>Coinbase Ventures</span>
             <span>Founders Fund</span>
             <span>General Catalyst</span>
-            <span>Jump Crypto</span>
+            <span>Jump Trading</span>
             <span>Bain Capital</span>
           </div>
         </div>
@@ -413,11 +413,11 @@ export default function Home() {
             {[
               {
                 q: 'What exactly are equity perpetuals?',
-                a: 'Equity perpetuals (perps) are derivative contracts that track stock prices without an expiry date. Unlike futures that expire quarterly or options with theta decay, perps let you hold positions indefinitely. They\'re settled in crypto (usually USDC) and trade 24/7 on decentralized exchanges.',
+                a: 'Equity perpetuals (perps) are derivative contracts that track stock prices without an expiry date. Unlike futures that expire quarterly or options with theta decay, perps let you hold positions indefinitely. They\'re settled in USDC stablecoin and trade 24/7 on decentralized exchanges.',
               },
               {
                 q: 'Do I need a brokerage account?',
-                a: 'No. You just need a crypto wallet (we recommend Rabby Wallet) and USDC stablecoin. There\'s no account application, no identity verification, and no waiting period. You can start trading within minutes.',
+                a: 'No. You just need a wallet (we recommend Rabby Wallet) and USDC stablecoin. There\'s no account application, no identity verification, and no waiting period. You can start trading within minutes.',
               },
               {
                 q: 'Is this legal?',

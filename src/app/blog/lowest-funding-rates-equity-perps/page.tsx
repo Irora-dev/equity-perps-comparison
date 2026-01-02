@@ -19,8 +19,8 @@ const faqs = [
     answer: "Funding rates change constantly and depend on market conditions. Hyperliquid tends to have stable rates due to liquidity. Ostium's 0DTE products avoid overnight funding entirely."
   },
   {
-    question: "Do equity perps have higher funding than crypto perps?",
-    answer: "Generally, equity perps have lower and more stable funding rates than crypto perps. The natural arbitrage with traditional markets helps keep rates anchored."
+    question: "Do equity perps have higher funding than BTC perps?",
+    answer: "Generally, equity perps have lower and more stable funding rates than BTC perps. The natural arbitrage with traditional markets helps keep rates anchored."
   },
   {
     question: "When do funding rates reset?",
@@ -168,7 +168,7 @@ export default function LowestFundingRates() {
           <p className="text-gray-300">
             Funding rates fluctuate constantly. During bull markets, longs typically pay shorts.
             In downtrends, the reverse often holds. Equity perps tend to have lower funding volatility
-            than crypto perps because of the natural arbitrage with traditional markets.
+            than BTC perps because of the natural arbitrage with traditional markets.
           </p>
 
           <p className="text-gray-300">

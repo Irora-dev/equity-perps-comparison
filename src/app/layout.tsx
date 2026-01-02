@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "Trove Markets",
     "decentralized trading",
     "leveraged trading",
-    "crypto derivatives",
+    "on-chain derivatives",
   ],
   authors: [{ name: "Compare Equity Perps" }],
   creator: "Compare Equity Perps",

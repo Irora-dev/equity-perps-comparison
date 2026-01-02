@@ -47,7 +47,7 @@ export default function AvantisVsLighter() {
 
   const comparisonData = [
     { feature: 'Chain', avantis: 'Base (L2)', lighter: 'Ethereum L2 (ZK)' },
-    { feature: 'Max Leverage', avantis: '500x (crypto), 25x (equity)', lighter: '100x' },
+    { feature: 'Max Leverage', avantis: '500x (BTC/ETH), 25x (equity)', lighter: '100x' },
     { feature: 'Trading Fees', avantis: 'Zero fees, pay on profit', lighter: 'Zero for retail' },
     { feature: 'Loss Rebates', avantis: '20% rebate', lighter: 'No' },
     { feature: 'Security Model', avantis: 'Dual oracle system', lighter: 'ZK proofs' },

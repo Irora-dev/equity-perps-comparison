@@ -50,7 +50,7 @@ export default function WalletGuideCTA({ variant = 'default' }: WalletGuideCTAPr
           </svg>
         </div>
         <div className="flex-1">
-          <h3 className="text-lg font-semibold text-white mb-1">New to Crypto Wallets?</h3>
+          <h3 className="text-lg font-semibold text-white mb-1">New to Self-Custody Wallets?</h3>
           <p className="text-gray-400 text-sm">
             Follow our step-by-step guide to set up your wallet, fund it with USDC, and connect to trading platforms in under 15 minutes.
           </p>

@@ -36,7 +36,7 @@ const relatedArticles = [
 const faqs = [
   {
     question: "What is the highest leverage available for equity perps?",
-    answer: "Ostium offers up to 200x leverage, the highest in the market. During equity market hours, this drops to 100x. Lighter and Avantis offer 100x on crypto but 25-100x on equities."
+    answer: "Ostium offers up to 200x leverage, the highest in the market. During equity market hours, this drops to 100x. Lighter and Avantis offer 100x on BTC/ETH but 25-100x on equities."
   },
   {
     question: "Is high leverage a good idea?",
@@ -74,7 +74,7 @@ export default function BestHighLeverage() {
       leverage: '200x',
       equityLeverage: '100x (market hours)',
       reason: 'Highest leverage in the market',
-      pros: ['200x max leverage', '0DTE perpetuals', 'RWA focus', 'Jump Crypto backing'],
+      pros: ['200x max leverage', '0DTE perpetuals', 'RWA focus', 'Jump Trading backing'],
     },
     {
       rank: 2,
@@ -87,10 +87,10 @@ export default function BestHighLeverage() {
     {
       rank: 3,
       platform: avantis,
-      leverage: '500x (crypto)',
+      leverage: '500x (BTC/ETH)',
       equityLeverage: '25x',
-      reason: 'Highest crypto leverage',
-      pros: ['500x on crypto', 'Zero fees', 'Loss rebates', 'Base ecosystem'],
+      reason: 'Highest BTC/ETH leverage',
+      pros: ['500x on BTC/ETH', 'Zero fees', 'Loss rebates', 'Base ecosystem'],
     },
     {
       rank: 4,

@@ -208,7 +208,7 @@ export default function WeekendStockTrading() {
           <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-6 my-6">
             <ul className="space-y-2 text-gray-300">
               <li>• <strong className="text-white">Lower liquidity</strong> — Weekends may have slightly wider spreads</li>
-              <li>• <strong className="text-white">Oracle updates</strong> — Price feeds continue updating via crypto oracles</li>
+              <li>• <strong className="text-white">Oracle updates</strong> — Price feeds continue updating via DeFi oracles</li>
               <li>• <strong className="text-white">Funding rates</strong> — Still accumulate on weekends</li>
               <li>• <strong className="text-white">Not actual shares</strong> — You&apos;re trading derivatives, not ownership</li>
             </ul>

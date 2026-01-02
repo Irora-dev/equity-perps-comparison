@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { platforms } from '@/data/platforms';
 
 export const metadata: Metadata = {
-  title: 'How to Set Up a Crypto Wallet for Trading Equity Perps | Complete Guide 2026',
+  title: 'How to Set Up a Wallet for Trading Equity Perps | Complete Guide 2026',
   description: 'Step-by-step guide to setting up Rabby Wallet to trade equity perpetuals. Learn how to install, fund with USDC from Coinbase/Kraken, and connect to trading platforms.',
   keywords: [
-    'crypto wallet setup',
+    'wallet setup',
     'rabby wallet setup',
     'rabby wallet guide',
     'wallet for equity perps',
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
 const walletGuideSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
-  name: 'How to Set Up a Crypto Wallet for Trading Equity Perps',
-  description: 'Complete guide to setting up a crypto wallet, funding it with USDC, and connecting to equity perpetual trading platforms.',
+  name: 'How to Set Up a Wallet for Trading Equity Perps',
+  description: 'Complete guide to setting up a self-custody wallet, funding it with USDC, and connecting to equity perpetual trading platforms.',
   totalTime: 'PT15M',
   estimatedCost: {
     '@type': 'MonetaryAmount',
@@ -106,10 +106,10 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'How much does it cost to set up a crypto wallet?',
+      name: 'How much does it cost to set up a wallet?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Setting up a crypto wallet is completely free. You only need funds (USDC/USDT) when you want to start trading.',
+        text: 'Setting up a wallet is completely free. You only need funds (USDC/USDT) when you want to start trading.',
       },
     },
     {
@@ -169,11 +169,11 @@ export default function WalletSetupGuide() {
               <span className="px-3 py-1 bg-green-500/20 text-green-400 text-sm font-medium rounded-full">15 min read</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              How to Set Up a Crypto Wallet for Trading Equity Perps
+              How to Set Up a Wallet for Trading Equity Perps
             </h1>
             <p className="text-xl text-gray-400">
               The complete beginner&apos;s guide to setting up a wallet, funding it with USDC, and connecting
-              to equity perpetual trading platforms. No prior crypto experience needed.
+              to equity perpetual trading platforms. No prior DeFi experience needed.
             </p>
           </header>
 
@@ -204,12 +204,27 @@ export default function WalletSetupGuide() {
             </div>
           </div>
 
+          {/* Video Tutorial */}
+          <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 mb-10">
+            <h2 className="text-lg font-semibold text-white mb-4">Video Tutorial</h2>
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden">
+              <iframe
+                src="https://www.youtube.com/embed/_ouAzSQJiM0"
+                title="How to Set Up a Wallet for Trading Equity Perps"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            </div>
+            <p className="text-gray-500 text-sm mt-3">Watch the full walkthrough or follow the step-by-step guide below.</p>
+          </div>
+
           <div className="prose prose-invert max-w-none">
             {/* Table of Contents */}
             <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 mb-10">
               <h2 className="text-lg font-semibold text-white mb-4 mt-0">Table of Contents</h2>
               <ul className="space-y-2 text-gray-400 list-none pl-0 mb-0">
-                <li><a href="#what-is-wallet" className="text-cyan-400 hover:text-cyan-300">What is a Crypto Wallet?</a></li>
+                <li><a href="#what-is-wallet" className="text-cyan-400 hover:text-cyan-300">What is a Self-Custody Wallet?</a></li>
                 <li><a href="#choose-wallet" className="text-cyan-400 hover:text-cyan-300">Step 1: Choose Your Wallet</a></li>
                 <li><a href="#install" className="text-cyan-400 hover:text-cyan-300">Step 2: Install the Wallet Extension</a></li>
                 <li><a href="#create" className="text-cyan-400 hover:text-cyan-300">Step 3: Create Your Wallet</a></li>
@@ -224,9 +239,9 @@ export default function WalletSetupGuide() {
 
             {/* What is a Wallet */}
             <section id="what-is-wallet">
-              <h2 className="text-2xl font-bold text-white mt-12 mb-4">What is a Crypto Wallet?</h2>
+              <h2 className="text-2xl font-bold text-white mt-12 mb-4">What is a Self-Custody Wallet?</h2>
               <p className="text-gray-300 mb-6">
-                A crypto wallet is software that lets you store, send, and receive cryptocurrency. Unlike a physical wallet,
+                A self-custody wallet is software that lets you store, send, and receive digital assets. Unlike a physical wallet,
                 it doesn&apos;t actually store your money — it stores the <strong className="text-white">private keys</strong> that
                 give you access to your funds on the blockchain.
               </p>
@@ -748,7 +763,7 @@ export default function WalletSetupGuide() {
                       <svg className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span>Use a dedicated browser for crypto</span>
+                      <span>Use a dedicated browser for DeFi</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <svg className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -887,9 +902,9 @@ export default function WalletSetupGuide() {
                 </div>
 
                 <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-5">
-                  <h3 className="text-white font-semibold mb-2">How much does it cost to set up a crypto wallet?</h3>
+                  <h3 className="text-white font-semibold mb-2">How much does it cost to set up a wallet?</h3>
                   <p className="text-gray-400 text-sm">
-                    Setting up a crypto wallet is completely free. You only need funds (USDC/USDT) when you want to start trading.
+                    Setting up a wallet is completely free. You only need funds (USDC/USDT) when you want to start trading.
                   </p>
                 </div>
 

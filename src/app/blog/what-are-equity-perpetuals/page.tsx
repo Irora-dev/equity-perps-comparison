@@ -127,6 +127,21 @@ export default function WhatAreEquityPerpetuals() {
           </p>
         </header>
 
+        {/* Video Tutorial */}
+        <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-5 mb-10">
+          <h2 className="text-lg font-semibold text-white mb-3">Getting Started Video</h2>
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+            <iframe
+              src="https://www.youtube.com/embed/_ouAzSQJiM0"
+              title="How to Get Started with Equity Perps"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            />
+          </div>
+          <p className="text-gray-500 text-sm mt-3">Watch how to set up your wallet and start trading.</p>
+        </div>
+
         <TableOfContents items={tocItems} />
 
         <div className="prose prose-invert max-w-none">

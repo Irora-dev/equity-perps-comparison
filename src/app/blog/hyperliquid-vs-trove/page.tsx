@@ -99,7 +99,7 @@ export default function HyperliquidVsTrove() {
           </p>
 
           <p className="text-gray-300">
-            Hyperliquid focuses on traditional equities and crypto. Trove goes where no perps platform has gone before:
+            Hyperliquid focuses on traditional equities and BTC/ETH. Trove goes where no perps platform has gone before:
             collectibles, luxury goods, and exotic assets that have never had liquid derivatives markets.
           </p>
 

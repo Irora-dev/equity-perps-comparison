@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     question: "Which alternative has the highest leverage?",
-    answer: "Ostium offers up to 200x leverage, compared to Hyperliquid's 50x. Lighter and Avantis offer 100x on crypto, though equity leverage varies."
+    answer: "Ostium offers up to 200x leverage, compared to Hyperliquid's 50x. Lighter and Avantis offer 100x on BTC/ETH, though equity leverage varies."
   },
   {
     question: "Which alternative has the lowest fees?",

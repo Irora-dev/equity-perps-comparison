@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `${stock.ticker} perpetual futures`,
       `${stock.ticker} perps`,
       `how to trade ${stock.name.toLowerCase()} with leverage`,
-      `long ${stock.ticker} with crypto`,
+      `long ${stock.ticker} with USDC`,
       `short ${stock.ticker} without borrowing`,
       `${stock.ticker} after hours trading`,
       `trade ${stock.ticker} on weekends`,
@@ -153,7 +153,7 @@ export default async function HowToTradePage({ params }: PageProps) {
         "name": "Do I need a brokerage account?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. You just need a crypto wallet and USDC. No identity verification required on most decentralized platforms."
+          "text": "No. You just need a self-custody wallet and USDC. No identity verification required on most decentralized platforms."
         }
       },
       {
