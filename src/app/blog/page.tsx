@@ -71,15 +71,13 @@ export default function BlogPage() {
             {/* Wallet Setup Guide */}
             <Link href="/blog/wallet-setup-guide" className="group block">
               <div className="bg-gradient-to-br from-green-500/10 to-cyan-500/10 border border-green-500/30 rounded-xl overflow-hidden hover:border-green-500/50 transition-all h-full">
-                <div className="relative aspect-video bg-gradient-to-br from-green-600/20 to-cyan-600/20 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto bg-green-500/20 rounded-2xl flex items-center justify-center mb-3">
-                      <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                      </svg>
-                    </div>
-                    <span className="text-green-400 text-xs font-medium">Essential Guide</span>
-                  </div>
+                <div className="relative aspect-video">
+                  <Image
+                    src="/images/rabby-wallet.jpg"
+                    alt="Rabby Wallet interface"
+                    fill
+                    className="object-cover"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-950 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <span className="inline-flex items-center gap-2 text-green-400 text-xs font-medium mb-2">
