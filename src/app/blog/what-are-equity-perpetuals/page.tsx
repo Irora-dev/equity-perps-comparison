@@ -157,7 +157,7 @@ export default function WhatAreEquityPerpetuals() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="#benefits"
+                  href="#simple-explanation"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 text-gray-900 rounded-2xl font-bold text-lg hover:from-cyan-400 hover:to-purple-400 transition-all shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105"
                 >
                   Learn More
@@ -182,7 +182,7 @@ export default function WhatAreEquityPerpetuals() {
         </section>
 
         {/* WHAT IS IT - Simple Explainer */}
-        <section className="py-20 px-4 bg-gray-950 border-y border-gray-800">
+        <section id="simple-explanation" className="py-20 px-4 bg-gray-950 border-y border-gray-800">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
