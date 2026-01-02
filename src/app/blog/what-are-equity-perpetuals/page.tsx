@@ -124,28 +124,28 @@ export default function WhatAreEquityPerpetuals() {
               </p>
 
               {/* Quick Stats */}
-              <div className="flex flex-wrap gap-6 mb-10">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center">
-                    <span className="text-2xl">24</span>
+              <div className="flex flex-wrap gap-4 mb-10">
+                <div className="flex items-center gap-3 bg-gray-900/80 border border-gray-800 rounded-xl px-4 py-3">
+                  <div className="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center">
+                    <span className="text-xl font-bold text-cyan-400">24</span>
                   </div>
                   <div>
                     <div className="text-white font-semibold">Hours a Day</div>
                     <div className="text-gray-500 text-sm">7 days a week</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center">
-                    <span className="text-2xl">200x</span>
+                <div className="flex items-center gap-3 bg-gray-900/80 border border-gray-800 rounded-xl px-4 py-3">
+                  <div className="w-12 h-12 rounded-xl bg-green-500/20 border border-green-500/30 flex items-center justify-center">
+                    <span className="text-lg font-bold text-green-400">200x</span>
                   </div>
                   <div>
                     <div className="text-white font-semibold">Max Leverage</div>
                     <div className="text-gray-500 text-sm">Capital efficient</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
-                    <span className="text-2xl">50+</span>
+                <div className="flex items-center gap-3 bg-gray-900/80 border border-gray-800 rounded-xl px-4 py-3">
+                  <div className="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center">
+                    <span className="text-xl font-bold text-purple-400">50+</span>
                   </div>
                   <div>
                     <div className="text-white font-semibold">Stocks Available</div>
@@ -157,23 +157,23 @@ export default function WhatAreEquityPerpetuals() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href={hyperliquid?.referralUrl}
-                  target="_blank"
-                  rel="noopener sponsored"
-                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 text-gray-900 rounded-2xl font-bold text-lg hover:from-cyan-400 hover:to-purple-400 transition-all shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105"
-                >
-                  Start Trading Now
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </a>
-                <a
                   href="#benefits"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-800/50 border border-gray-700 text-white rounded-2xl font-semibold hover:bg-gray-800 transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 text-gray-900 rounded-2xl font-bold text-lg hover:from-cyan-400 hover:to-purple-400 transition-all shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105"
                 >
                   Learn More
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </a>
+                <a
+                  href={hyperliquid?.referralUrl}
+                  target="_blank"
+                  rel="noopener sponsored"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gray-800/50 border border-gray-700 text-white rounded-2xl font-semibold hover:bg-gray-800 transition-all"
+                >
+                  Start Trading Now
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </a>
               </div>
@@ -622,7 +622,7 @@ export default function WhatAreEquityPerpetuals() {
               </div>
             </div>
 
-            {/* Step 3 - Connect & Trade */}
+            {/* Step 3 - Choose Platform & Trade */}
             <div className="mb-8">
               <div className="bg-gray-900 border-2 border-purple-500/30 rounded-2xl p-6">
                 <div className="flex items-center gap-6 mb-6">
@@ -630,8 +630,8 @@ export default function WhatAreEquityPerpetuals() {
                     3
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-1">Connect & Start Trading</h3>
-                    <p className="text-gray-400">You&apos;re ready! Open your first position in seconds</p>
+                    <h3 className="text-xl font-bold text-white mb-1">Choose a Platform & Start Trading</h3>
+                    <p className="text-gray-400">Pick an equity perps venue — we recommend <a href={hyperliquid?.referralUrl} target="_blank" rel="noopener sponsored" className="text-cyan-400 hover:text-cyan-300">Hyperliquid</a> for beginners</p>
                   </div>
                 </div>
 
