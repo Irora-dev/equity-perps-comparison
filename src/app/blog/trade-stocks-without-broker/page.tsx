@@ -283,8 +283,8 @@ export default function TradeStocksWithoutBroker() {
                     1
                   </div>
                   <div className="flex-grow">
-                    <h3 className="text-xl font-bold text-white mb-1">Create Your Wallet</h3>
-                    <p className="text-gray-400">Download Rabby Wallet — takes 2 minutes, no email required</p>
+                    <h3 className="text-xl font-bold text-white mb-1">Set Up Your Digital Wallet</h3>
+                    <p className="text-gray-400">Free, takes 2 minutes, and you only do this once</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="text-cyan-400 text-sm font-medium hidden sm:block">
@@ -303,35 +303,61 @@ export default function TradeStocksWithoutBroker() {
 
                 {walletExpanded && (
                   <div className="px-6 pb-6 border-t border-gray-800 pt-6">
+                    {/* What is a wallet explainer */}
+                    <div className="bg-cyan-500/10 border border-cyan-500/20 rounded-xl p-4 mb-6">
+                      <h4 className="text-cyan-400 font-semibold mb-2">What is a digital wallet?</h4>
+                      <p className="text-gray-300 text-sm mb-3">
+                        Think of it like a <strong className="text-white">digital bank account</strong> that you fully control.
+                        Instead of a bank holding your money, you hold it yourself using a simple browser extension.
+                      </p>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+                        <div className="bg-gray-800/50 rounded-lg p-2 text-center">
+                          <div className="text-lg mb-1">🔐</div>
+                          <span className="text-gray-400">You control it</span>
+                        </div>
+                        <div className="bg-gray-800/50 rounded-lg p-2 text-center">
+                          <div className="text-lg mb-1">🆓</div>
+                          <span className="text-gray-400">Completely free</span>
+                        </div>
+                        <div className="bg-gray-800/50 rounded-lg p-2 text-center">
+                          <div className="text-lg mb-1">⚡</div>
+                          <span className="text-gray-400">2 min setup</span>
+                        </div>
+                        <div className="bg-gray-800/50 rounded-lg p-2 text-center">
+                          <div className="text-lg mb-1">🌍</div>
+                          <span className="text-gray-400">Works globally</span>
+                        </div>
+                      </div>
+                    </div>
+
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <h4 className="text-white font-semibold mb-4">Step-by-Step:</h4>
+                        <h4 className="text-white font-semibold mb-4">Here&apos;s how to set it up:</h4>
                         <ol className="space-y-3 text-gray-300">
                           <li className="flex gap-3">
                             <span className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm font-bold flex-shrink-0">1</span>
-                            <span>Go to <a href="https://rabby.io" target="_blank" rel="noopener" className="text-cyan-400 hover:text-cyan-300">rabby.io</a> and click "Download"</span>
+                            <span>Go to <a href="https://rabby.io" target="_blank" rel="noopener" className="text-cyan-400 hover:text-cyan-300 underline">rabby.io</a> (it&apos;s the wallet we recommend)</span>
                           </li>
                           <li className="flex gap-3">
                             <span className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm font-bold flex-shrink-0">2</span>
-                            <span>Add the extension to Chrome/Brave/Firefox</span>
+                            <span>Click &quot;Download&quot; and add it to your browser (Chrome, Firefox, etc.)</span>
                           </li>
                           <li className="flex gap-3">
                             <span className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm font-bold flex-shrink-0">3</span>
-                            <span>Click "Create New Wallet"</span>
+                            <span>Click &quot;Create New Wallet&quot; and set a password</span>
                           </li>
                           <li className="flex gap-3">
                             <span className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm font-bold flex-shrink-0">4</span>
-                            <span><strong className="text-white">Write down your 12-word seed phrase</strong> and store it safely</span>
-                          </li>
-                          <li className="flex gap-3">
-                            <span className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm font-bold flex-shrink-0">5</span>
-                            <span>Confirm the seed phrase — done!</span>
+                            <div>
+                              <strong className="text-white">Write down your 12-word recovery phrase</strong>
+                              <p className="text-gray-500 text-xs mt-1">This is like a master password — keep it safe and never share it!</p>
+                            </div>
                           </li>
                         </ol>
                       </div>
                       <div className="bg-gray-800/50 rounded-xl p-5">
-                        <h4 className="text-white font-semibold mb-3">Watch: Wallet Setup Guide</h4>
-                        <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-4">
+                        <h4 className="text-white font-semibold mb-3">Watch: 2-Minute Setup Guide</h4>
+                        <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-3">
                           <iframe
                             src="https://www.youtube.com/embed/_ouAzSQJiM0"
                             title="How to Set Up a Wallet for Trading Equity Perps"
@@ -340,6 +366,9 @@ export default function TradeStocksWithoutBroker() {
                             className="absolute inset-0 w-full h-full"
                           />
                         </div>
+                        <p className="text-gray-500 text-xs mb-3">
+                          This video walks you through every step. Follow along and you&apos;ll have your wallet ready in no time.
+                        </p>
                         <a
                           href="https://rabby.io"
                           target="_blank"
@@ -352,11 +381,6 @@ export default function TradeStocksWithoutBroker() {
                           </svg>
                         </a>
                       </div>
-                    </div>
-                    <div className="mt-4 p-4 bg-yellow-500/10 border border-yellow-500/30 rounded-xl">
-                      <p className="text-yellow-400 text-sm">
-                        <strong>Important:</strong> Your seed phrase is the ONLY way to recover your wallet. Never share it. Never store it digitally. Write it on paper and keep it safe.
-                      </p>
                     </div>
                   </div>
                 )}

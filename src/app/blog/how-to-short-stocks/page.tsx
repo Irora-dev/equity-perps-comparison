@@ -400,10 +400,19 @@ export default function HowToShortStocks() {
                   1
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2">Get a Wallet</h3>
-                  <p className="text-gray-400 mb-3">Download <a href="https://rabby.io" target="_blank" rel="noopener" className="text-cyan-400 hover:text-cyan-300">Rabby Wallet</a>. No ID, no email, no approval process. Just install and create.</p>
+                  <h3 className="text-xl font-bold text-white mb-2">Set Up a Digital Wallet</h3>
+                  <p className="text-gray-400 mb-2">
+                    A wallet is like a <strong className="text-white">digital bank account you control</strong> — no bank needed.
+                    Download <a href="https://rabby.io" target="_blank" rel="noopener" className="text-cyan-400 hover:text-cyan-300">Rabby Wallet</a> (free browser extension, 2 minutes to set up).
+                  </p>
+                  <div className="flex flex-wrap gap-3 text-xs text-gray-500 mb-3">
+                    <span>🔐 You control it</span>
+                    <span>🆓 Free</span>
+                    <span>⚡ 2 min setup</span>
+                    <span>🌍 Works globally</span>
+                  </div>
                   <Link href="/blog/wallet-setup-guide" className="text-cyan-400 hover:text-cyan-300 text-sm font-medium inline-flex items-center gap-1">
-                    Complete setup guide <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                    Step-by-step guide with video <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                   </Link>
                 </div>
               </div>

@@ -204,6 +204,33 @@ export default function WalletSetupGuide() {
             </div>
           </div>
 
+          {/* Beginner-Friendly Intro */}
+          <div className="bg-cyan-500/10 border border-cyan-500/20 rounded-2xl p-6 mb-10">
+            <h2 className="text-lg font-semibold text-cyan-400 mb-3">New to wallets? Here&apos;s the simple version:</h2>
+            <p className="text-gray-300 mb-4">
+              Think of a digital wallet like a <strong className="text-white">bank account you control</strong> — no bank needed.
+              It&apos;s a free browser extension that lets you hold money and connect to trading platforms. You&apos;ll only do this once.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+              <div className="bg-gray-900/50 rounded-xl p-3 text-center">
+                <div className="text-2xl mb-1">🔐</div>
+                <span className="text-gray-400">You control it</span>
+              </div>
+              <div className="bg-gray-900/50 rounded-xl p-3 text-center">
+                <div className="text-2xl mb-1">🆓</div>
+                <span className="text-gray-400">Completely free</span>
+              </div>
+              <div className="bg-gray-900/50 rounded-xl p-3 text-center">
+                <div className="text-2xl mb-1">⚡</div>
+                <span className="text-gray-400">2 min setup</span>
+              </div>
+              <div className="bg-gray-900/50 rounded-xl p-3 text-center">
+                <div className="text-2xl mb-1">🌍</div>
+                <span className="text-gray-400">Works globally</span>
+              </div>
+            </div>
+          </div>
+
           {/* Video Tutorial */}
           <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 mb-10">
             <h2 className="text-lg font-semibold text-white mb-4">Video Tutorial</h2>
