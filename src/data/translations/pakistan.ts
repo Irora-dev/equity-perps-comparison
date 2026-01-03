@@ -20,7 +20,7 @@ export const translations = {
     howItWorks: 'How It Works',
 
     // Quick Stats
-    statMinimumValue: 'PKR 15K',
+    statMinimumValue: 'Rs 15,000',
     statMinimum: 'Minimum to Start',
     statTimeValue: '24/7',
     statTime: 'Any Time PKT',
@@ -49,8 +49,8 @@ export const translations = {
       },
       {
         icon: '💰',
-        title: 'Start with PKR 15,000',
-        desc: "Most US brokers need $500+ minimum and won't accept Pakistani residents. Here, start with PKR 15-20K and use leverage."
+        title: 'Start with Rs 15,000',
+        desc: "Most US brokers need $500+ minimum and won't accept Pakistani residents. Here, start with Rs 15-20K and use leverage."
       }
     ],
 
@@ -81,18 +81,23 @@ export const translations = {
     step2Desc: 'Use Binance P2P with JazzCash or Easypaisa',
     fundingIntro: 'You need USDC (a stablecoin worth $1) to trade. Here are the best ways to convert PKR:',
     binanceP2P: {
-      title: 'Binance P2P (Recommended)',
+      title: 'Binance P2P',
       desc: 'Best rates, most sellers',
       steps: ['Open Binance app', 'Go to P2P Trading', 'Select PKR and USDT', 'Pay via JazzCash/Easypaisa/Bank', 'Convert USDT → USDC', 'Withdraw to Rabby (Arbitrum)']
     },
-    kucoinP2P: {
-      title: 'KuCoin P2P',
-      desc: 'Alternative option',
-      steps: ['Create KuCoin account', 'Go to P2P section', 'Buy USDT with PKR', 'Convert to USDC', 'Withdraw to wallet']
+    jazzcash: {
+      title: 'JazzCash',
+      desc: 'Most popular mobile wallet',
+      steps: ['Link JazzCash to Binance', 'Find P2P seller accepting JazzCash', 'Buy USDT instantly', 'Convert USDT → USDC', 'Withdraw to Rabby']
+    },
+    easypaisa: {
+      title: 'Easypaisa',
+      desc: 'Fast mobile payments',
+      steps: ['Use Easypaisa for P2P', 'Buy USDT from verified sellers', 'Convert to USDC', '(Simple and widely accepted)']
     },
     proTip: 'Pro tip:',
     proTipText: 'JazzCash and Easypaisa are fastest. Look for sellers with 95%+ completion rate. Start with smaller amounts to test.',
-    seeDetailedGuide: 'See detailed PKR → USDC guide',
+    seeDetailedGuide: 'See detailed PKR → USDC guide with screenshots',
 
     // Step 3: Trade
     step3Title: 'Start Trading',
@@ -123,7 +128,7 @@ export const translations = {
       },
       {
         question: "What's the minimum amount to start?",
-        answer: 'You can start with as little as PKR 15,000-20,000 ($50-70). With leverage, this gives you exposure to $500-3,000 worth of US stocks. We recommend starting small to learn the platform.'
+        answer: 'You can start with as little as Rs 15,000-20,000 (~$50-70). With leverage, this gives you exposure to $500-3,000 worth of US stocks. We recommend starting small to learn the platform.'
       },
       {
         question: 'Can I trade at any time?',
@@ -137,17 +142,17 @@ export const translations = {
 
     // More Guides
     moreGuidesTitle: 'More Pakistan Guides',
-    moreGuidesDesc: 'Detailed guides specifically for Pakistani traders:',
+    moreGuidesDesc: "We've created detailed guides specifically for Pakistani traders. Check them out:",
     guides: [
-      { icon: '₨', title: 'Convert PKR to USDC', desc: 'JazzCash, Easypaisa, Bank Transfer', href: '/blog/convert-pkr-to-usdc' },
-      { icon: '💰', title: 'Trade with PKR 15,000', desc: 'Small account strategy guide', href: '/blog/trade-stocks-with-15000-pkr' },
-      { icon: '🤝', title: 'P2P Trading Guide', desc: 'Safety tips and best practices', href: '/blog/p2p-usdc-guide' },
-      { icon: '📊', title: 'PnL Simulator', desc: 'Calculate potential profits', href: '/blog/pnl-simulator' }
+      { icon: '₨', title: 'Convert PKR to USDC', desc: 'Step-by-step with JazzCash, Easypaisa', href: '/blog/convert-pkr-to-usdc' },
+      { icon: '💰', title: 'Trade with Rs 15,000', desc: 'Small account strategy guide', href: '/blog/trade-stocks-with-15000-pkr' },
+      { icon: '⚖️', title: 'Is It Legal in Pakistan?', desc: 'Regulations, taxes, and compliance', href: '/blog/equity-perps-legal-pakistan' },
+      { icon: '🤝', title: 'P2P Trading Guide', desc: 'Global P2P methods and safety tips', href: '/blog/p2p-usdc-guide' }
     ],
 
     // CTA
     ctaTitle: 'Start Trading US Stocks Today',
-    ctaDesc: 'Join Pakistani traders accessing NVDA, TSLA, and 50+ US stocks 24/7. No US broker needed. Start with just PKR 15,000.',
+    ctaDesc: 'Join Pakistani traders accessing NVDA, TSLA, and 50+ US stocks 24/7. No US broker needed. Start with just Rs 15,000.',
     getStartedCta: 'Get Started Now (4% Off Fees)',
 
     // Free Notice
@@ -159,7 +164,15 @@ export const translations = {
     freeNotice6: 'Lighter',
     freeNotice7: ', you get a',
     freeNotice8: '4% discount on trading fees',
-    freeNotice9: ' with our referral code. This helps support the site while saving you money on every trade.'
+    freeNotice9: ' with our referral code. This helps support the site while saving you money on every trade.',
+
+    // Related
+    relatedTitle: 'Related Guides',
+    relatedGuides: [
+      { tag: 'FUNDING', title: 'Convert PKR to USDC', desc: 'Step-by-step with screenshots', href: '/blog/convert-pkr-to-usdc' },
+      { tag: 'GUIDE', title: 'Trade with Rs 15,000', desc: 'Small account strategy', href: '/blog/trade-stocks-with-15000-pkr' },
+      { tag: 'LEGAL', title: 'Is It Legal in Pakistan?', desc: 'Regulatory overview', href: '/blog/equity-perps-legal-pakistan' }
+    ]
   },
   ur: {
     // Breadcrumb
@@ -178,7 +191,7 @@ export const translations = {
     howItWorks: 'یہ کیسے کام کرتا ہے',
 
     // Quick Stats
-    statMinimumValue: 'PKR 15K',
+    statMinimumValue: 'Rs 15,000',
     statMinimum: 'شروع کرنے کے لیے کم از کم',
     statTimeValue: '24/7',
     statTime: 'کسی بھی وقت PKT',
@@ -207,8 +220,8 @@ export const translations = {
       },
       {
         icon: '💰',
-        title: 'PKR 15,000 سے شروع کریں',
-        desc: 'زیادہ تر US بروکرز کو $500+ چاہیے اور پاکستانی رہائشیوں کو قبول نہیں کرتے۔ یہاں، PKR 15-20K سے شروع کریں اور لیوریج استعمال کریں۔'
+        title: 'Rs 15,000 سے شروع کریں',
+        desc: 'زیادہ تر US بروکرز کو $500+ چاہیے اور پاکستانی رہائشیوں کو قبول نہیں کرتے۔ یہاں، Rs 15-20K سے شروع کریں اور لیوریج استعمال کریں۔'
       }
     ],
 
@@ -239,18 +252,23 @@ export const translations = {
     step2Desc: 'JazzCash یا Easypaisa کے ساتھ Binance P2P استعمال کریں',
     fundingIntro: 'ٹریڈ کرنے کے لیے آپ کو USDC (ایک سٹیبل کوائن جو $1 کے برابر ہے) چاہیے۔ PKR کنورٹ کرنے کے بہترین طریقے:',
     binanceP2P: {
-      title: 'Binance P2P (تجویز کردہ)',
+      title: 'Binance P2P',
       desc: 'بہترین ریٹس، سب سے زیادہ سیلرز',
       steps: ['Binance ایپ کھولیں', 'P2P Trading پر جائیں', 'PKR اور USDT منتخب کریں', 'JazzCash/Easypaisa/بینک سے ادا کریں', 'USDT → USDC کنورٹ کریں', 'Rabby میں نکالیں (Arbitrum)']
     },
-    kucoinP2P: {
-      title: 'KuCoin P2P',
-      desc: 'متبادل آپشن',
-      steps: ['KuCoin اکاؤنٹ بنائیں', 'P2P سیکشن پر جائیں', 'PKR سے USDT خریدیں', 'USDC میں کنورٹ کریں', 'والیٹ میں نکالیں']
+    jazzcash: {
+      title: 'JazzCash',
+      desc: 'سب سے مقبول موبائل والیٹ',
+      steps: ['JazzCash کو Binance سے لنک کریں', 'JazzCash قبول کرنے والا P2P سیلر تلاش کریں', 'فوری USDT خریدیں', 'USDT → USDC کنورٹ کریں', 'Rabby میں نکالیں']
+    },
+    easypaisa: {
+      title: 'Easypaisa',
+      desc: 'تیز موبائل ادائیگیاں',
+      steps: ['P2P کے لیے Easypaisa استعمال کریں', 'تصدیق شدہ سیلرز سے USDT خریدیں', 'USDC میں کنورٹ کریں', '(آسان اور وسیع پیمانے پر قبول)']
     },
     proTip: 'پرو ٹپ:',
     proTipText: 'JazzCash اور Easypaisa سب سے تیز ہیں۔ 95%+ تکمیل کی شرح والے سیلرز تلاش کریں۔ ٹیسٹ کرنے کے لیے چھوٹی رقم سے شروع کریں۔',
-    seeDetailedGuide: 'تفصیلی PKR → USDC گائیڈ دیکھیں',
+    seeDetailedGuide: 'اسکرین شاٹس کے ساتھ تفصیلی PKR → USDC گائیڈ دیکھیں',
 
     // Step 3: Trade
     step3Title: 'ٹریڈنگ شروع کریں',
@@ -281,7 +299,7 @@ export const translations = {
       },
       {
         question: 'شروع کرنے کے لیے کم از کم رقم کتنی ہے؟',
-        answer: 'آپ PKR 15,000-20,000 ($50-70) جتنی کم رقم سے شروع کر سکتے ہیں۔ لیوریج کے ساتھ، یہ آپ کو $500-3,000 کے US اسٹاکس کا ایکسپوژر دیتا ہے۔ ہم پلیٹ فارم سیکھنے کے لیے چھوٹی رقم سے شروع کرنے کی تجویز دیتے ہیں۔'
+        answer: 'آپ Rs 15,000-20,000 (~$50-70) جتنی کم رقم سے شروع کر سکتے ہیں۔ لیوریج کے ساتھ، یہ آپ کو $500-3,000 کے US اسٹاکس کا ایکسپوژر دیتا ہے۔ ہم پلیٹ فارم سیکھنے کے لیے چھوٹی رقم سے شروع کرنے کی تجویز دیتے ہیں۔'
       },
       {
         question: 'کیا میں کسی بھی وقت ٹریڈ کر سکتا ہوں؟',
@@ -295,17 +313,17 @@ export const translations = {
 
     // More Guides
     moreGuidesTitle: 'مزید پاکستان گائیڈز',
-    moreGuidesDesc: 'پاکستانی ٹریڈرز کے لیے تفصیلی گائیڈز:',
+    moreGuidesDesc: 'ہم نے پاکستانی ٹریڈرز کے لیے تفصیلی گائیڈز بنائی ہیں۔ انہیں دیکھیں:',
     guides: [
-      { icon: '₨', title: 'PKR کو USDC میں بدلیں', desc: 'JazzCash، Easypaisa، بینک ٹرانسفر', href: '/blog/convert-pkr-to-usdc' },
-      { icon: '💰', title: 'PKR 15,000 سے ٹریڈ کریں', desc: 'چھوٹے اکاؤنٹ کی حکمت عملی گائیڈ', href: '/blog/trade-stocks-with-15000-pkr' },
-      { icon: '🤝', title: 'P2P ٹریڈنگ گائیڈ', desc: 'حفاظتی تجاویز اور بہترین طریقے', href: '/blog/p2p-usdc-guide' },
-      { icon: '📊', title: 'PnL سمیولیٹر', desc: 'ممکنہ منافع کا حساب لگائیں', href: '/blog/pnl-simulator' }
+      { icon: '₨', title: 'PKR کو USDC میں بدلیں', desc: 'JazzCash، Easypaisa کے ساتھ مرحلہ وار', href: '/blog/convert-pkr-to-usdc' },
+      { icon: '💰', title: 'Rs 15,000 سے ٹریڈ کریں', desc: 'چھوٹے اکاؤنٹ کی حکمت عملی گائیڈ', href: '/blog/trade-stocks-with-15000-pkr' },
+      { icon: '⚖️', title: 'کیا یہ پاکستان میں قانونی ہے؟', desc: 'قواعد، ٹیکس، اور تعمیل', href: '/blog/equity-perps-legal-pakistan' },
+      { icon: '🤝', title: 'P2P ٹریڈنگ گائیڈ', desc: 'عالمی P2P طریقے اور حفاظتی تجاویز', href: '/blog/p2p-usdc-guide' }
     ],
 
     // CTA
     ctaTitle: 'آج ہی US اسٹاکس ٹریڈنگ شروع کریں',
-    ctaDesc: 'پاکستانی ٹریڈرز کے ساتھ شامل ہوں جو 24/7 NVDA، TSLA، اور 50+ US اسٹاکس حاصل کر رہے ہیں۔ US بروکر کی ضرورت نہیں۔ صرف PKR 15,000 سے شروع کریں۔',
+    ctaDesc: 'پاکستانی ٹریڈرز کے ساتھ شامل ہوں جو 24/7 NVDA، TSLA، اور 50+ US اسٹاکس حاصل کر رہے ہیں۔ US بروکر کی ضرورت نہیں۔ صرف Rs 15,000 سے شروع کریں۔',
     getStartedCta: 'ابھی شروع کریں (4% فیس چھوٹ)',
 
     // Free Notice
@@ -317,7 +335,15 @@ export const translations = {
     freeNotice6: 'Lighter',
     freeNotice7: ' جیسے پلیٹ فارمز پر ہمارے لنکس سے سائن اپ کرتے ہیں، تو آپ کو',
     freeNotice8: 'ٹریڈنگ فیس پر 4% چھوٹ',
-    freeNotice9: ' ہمارے ریفرل کوڈ کے ساتھ ملتی ہے۔ یہ سائٹ کو سپورٹ کرنے میں مدد کرتا ہے اور ہر ٹریڈ پر آپ کے پیسے بچاتا ہے۔'
+    freeNotice9: ' ہمارے ریفرل کوڈ کے ساتھ ملتی ہے۔ یہ سائٹ کو سپورٹ کرنے میں مدد کرتا ہے اور ہر ٹریڈ پر آپ کے پیسے بچاتا ہے۔',
+
+    // Related
+    relatedTitle: 'متعلقہ گائیڈز',
+    relatedGuides: [
+      { tag: 'فنڈنگ', title: 'PKR کو USDC میں بدلیں', desc: 'اسکرین شاٹس کے ساتھ مرحلہ وار', href: '/blog/convert-pkr-to-usdc' },
+      { tag: 'گائیڈ', title: 'Rs 15,000 سے ٹریڈ کریں', desc: 'چھوٹے اکاؤنٹ کی حکمت عملی', href: '/blog/trade-stocks-with-15000-pkr' },
+      { tag: 'قانونی', title: 'کیا یہ پاکستان میں قانونی ہے؟', desc: 'ریگولیٹری جائزہ', href: '/blog/equity-perps-legal-pakistan' }
+    ]
   }
 };
 

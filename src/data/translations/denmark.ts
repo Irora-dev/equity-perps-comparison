@@ -11,32 +11,16 @@ export const translations = {
 
     // Hero
     badge: 'Denmark Guide',
-    noBrokerBadge: 'No US Broker Needed',
+    noBrokerBadge: 'No Broker Needed',
     heroTitle1: 'Trade US Stocks',
     heroTitle2: 'From Denmark',
     heroDesc: 'Access NVDA, TSLA, AAPL and 50+ US stocks without a US brokerage account. Convert DKK to USDC and start trading in',
     heroDescHighlight: '15 minutes',
     startTrading: 'Start Trading Now',
     howItWorks: 'How It Works',
-    comparePlatforms: 'Compare Platforms',
-
-    benefits: [
-      { icon: '💰', title: 'Start with 350 kr', desc: '~$50 USDC minimum' },
-      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime CET' },
-      { icon: '📱', title: 'MobilePay Ready', desc: 'Instant payments' },
-      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
-    ],
-
-    stepsTitle: 'Get Started in 4 Steps',
-    steps: [
-      { t: 'Convert DKK to USDC', d: 'Use Binance P2P with MobilePay or bank transfer.' },
-      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
-      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
-      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
-    ],
 
     // Quick Stats
-    statMinimumValue: '350 kr',
+    statMinimumValue: '~350 kr',
     statMinimum: 'Minimum to Start',
     statTimeValue: '24/7',
     statTime: 'Any Time CET',
@@ -65,8 +49,8 @@ export const translations = {
       },
       {
         icon: '💰',
-        title: 'Start with 350 kr',
-        desc: 'Most US brokers need $500+ minimum. Here, start with just 350 kr (~$50) and use leverage to control larger positions.'
+        title: 'Start with ~350 kr',
+        desc: 'Most US brokers need $500+ minimum. Here, start with just ~350 kr (~$50) and use leverage to control larger positions.'
       }
     ],
 
@@ -113,7 +97,7 @@ export const translations = {
     },
     proTip: 'Pro tip:',
     proTipText: 'Binance P2P usually has the best DKK rates. MobilePay is instant - buy USDT first (more liquidity), then convert to USDC on Binance (free).',
-    seeDetailedGuide: 'See detailed DKK to USDC guide',
+    seeDetailedGuide: 'See detailed DKK to USDC guide with screenshots',
 
     // Step 3: Trade
     step3Title: 'Start Trading',
@@ -128,13 +112,8 @@ export const translations = {
 
     // Popular Stocks
     popularStocksTitle: 'Popular US Stocks Available',
-    viewAllStocks: 'View all 50+ stocks',
+    viewAllStocks: 'View all 50+ stocks →',
     hot: 'HOT',
-
-    // Payment Methods
-    paymentTitle: 'Denmark Payment Methods',
-    digitalPayments: 'Digital Payments',
-    banks: 'Banks',
 
     // FAQ
     faqTitle: 'Frequently Asked Questions',
@@ -149,7 +128,7 @@ export const translations = {
       },
       {
         question: "What's the minimum to start?",
-        answer: 'You can start with as little as 350 kr (~$50). With leverage, this gives you exposure to $500-3,000 worth of stocks. We recommend starting small to learn the platform.'
+        answer: 'You can start with as little as ~350 kr (~$50). With leverage, this gives you exposure to $500-3,000 worth of stocks. We recommend starting small to learn the platform.'
       },
       {
         question: 'Can I trade during Danish evening hours?',
@@ -158,10 +137,6 @@ export const translations = {
       {
         question: 'Is KYC required?',
         answer: 'The trading platforms (like Hyperliquid) do not require KYC. However, you will need to complete KYC on an exchange (Binance, Kraken) to convert DKK to USDC initially.'
-      },
-      {
-        question: 'What about Danish taxes on trading profits?',
-        answer: 'Profits from trading are taxable in Denmark. They may be classified as capital gains (aktieindkomst) or speculation income depending on your trading pattern. Keep records of all trades and consult a tax advisor familiar with crypto/derivatives.'
       }
     ],
 
@@ -170,14 +145,14 @@ export const translations = {
     moreGuidesDesc: "We've created detailed guides specifically for Danish traders. Check them out:",
     guides: [
       { icon: 'kr', title: 'Convert DKK to USDC', desc: 'Step-by-step with MobilePay, SEPA', href: '/blog/p2p-usdc-guide' },
-      { icon: '💰', title: 'Trade with 350 kr', desc: 'Small account strategy guide', href: '/blog/trade-stocks-with-100' },
+      { icon: '💰', title: 'Trade with ~350 kr', desc: 'Small account strategy guide', href: '/blog/trade-stocks-with-100' },
       { icon: '📊', title: 'Platform Comparison', desc: 'Compare all equity perp platforms', href: '/' },
       { icon: '🤝', title: 'P2P Trading Guide', desc: 'Global P2P methods and safety tips', href: '/blog/p2p-usdc-guide' }
     ],
 
     // CTA
     ctaTitle: 'Start Trading US Stocks Today',
-    ctaDesc: 'Join thousands of Danish traders accessing NVDA, TSLA, and 50+ US stocks 24/7. No US broker needed. Start with just 350 kr.',
+    ctaDesc: 'Join thousands of Danish traders accessing NVDA, TSLA, and 50+ US stocks 24/7. No US broker needed. Start with just ~350 kr.',
     getStartedCta: 'Get Started Now (4% Off Fees)',
 
     // Free Notice
@@ -207,32 +182,16 @@ export const translations = {
 
     // Hero
     badge: 'Danmark Guide',
-    noBrokerBadge: 'Ingen US-maegler noedvendig',
+    noBrokerBadge: 'Ingen maegler noedvendig',
     heroTitle1: 'Handl amerikanske aktier',
     heroTitle2: 'fra Danmark',
     heroDesc: 'Faa adgang til NVDA, TSLA, AAPL og 50+ amerikanske aktier uden en amerikansk maeglerkonto. Konverter DKK til USDC og start handel paa',
     heroDescHighlight: '15 minutter',
     startTrading: 'Start handel nu',
     howItWorks: 'Saadan virker det',
-    comparePlatforms: 'Sammenlign platforme',
-
-    benefits: [
-      { icon: '💰', title: 'Start med 350 kr', desc: '~$50 USDC minimum' },
-      { icon: '🕐', title: '24/7 handel', desc: 'Handl naar som helst' },
-      { icon: '📱', title: 'MobilePay klar', desc: 'Oejeblikkelige betalinger' },
-      { icon: '🔐', title: 'Self-Custody', desc: 'Dine noegler, dine coins' },
-    ],
-
-    stepsTitle: 'Kom i gang med 4 trin',
-    steps: [
-      { t: 'Konverter DKK til USDC', d: 'Brug Binance P2P med MobilePay eller bankoverfaersel.' },
-      { t: 'Vaelg en platform', d: 'Sammenlign platforme.', l: '/', lt: 'Sammenlign' },
-      { t: 'Forbind din wallet', d: 'Brug MetaMask eller Rabby.' },
-      { t: 'Start handel', d: 'Begynd med 2-3x gearing.' },
-    ],
 
     // Quick Stats
-    statMinimumValue: '350 kr',
+    statMinimumValue: '~350 kr',
     statMinimum: 'Minimum for at starte',
     statTimeValue: '24/7',
     statTime: 'Naar som helst CET',
@@ -261,8 +220,8 @@ export const translations = {
       },
       {
         icon: '💰',
-        title: 'Start med 350 kr',
-        desc: 'De fleste amerikanske maeglere kraever $500+ minimum. Her kan du starte med kun 350 kr (~$50) og bruge gearing til at kontrollere stoerre positioner.'
+        title: 'Start med ~350 kr',
+        desc: 'De fleste amerikanske maeglere kraever $500+ minimum. Her kan du starte med kun ~350 kr (~$50) og bruge gearing til at kontrollere stoerre positioner.'
       }
     ],
 
@@ -309,7 +268,7 @@ export const translations = {
     },
     proTip: 'Pro tip:',
     proTipText: 'Binance P2P har normalt de bedste DKK-kurser. MobilePay er ojeblikkelig - koeb USDT foerst (mere likviditet), konverter derefter til USDC paa Binance (gratis).',
-    seeDetailedGuide: 'Se detaljeret DKK til USDC guide',
+    seeDetailedGuide: 'Se detaljeret DKK til USDC guide med screenshots',
 
     // Step 3: Trade
     step3Title: 'Start handel',
@@ -324,13 +283,8 @@ export const translations = {
 
     // Popular Stocks
     popularStocksTitle: 'Populaere amerikanske aktier tilgaengelige',
-    viewAllStocks: 'Se alle 50+ aktier',
+    viewAllStocks: 'Se alle 50+ aktier →',
     hot: 'HOT',
-
-    // Payment Methods
-    paymentTitle: 'Danske betalingsmetoder',
-    digitalPayments: 'Digitale betalinger',
-    banks: 'Banker',
 
     // FAQ
     faqTitle: 'Ofte stillede spoergsmaal',
@@ -345,7 +299,7 @@ export const translations = {
       },
       {
         question: 'Hvad er minimum for at starte?',
-        answer: 'Du kan starte med saa lidt som 350 kr (~$50). Med gearing giver dette dig eksponering til $500-3.000 vaerd af aktier. Vi anbefaler at starte smaat for at laere platformen.'
+        answer: 'Du kan starte med saa lidt som ~350 kr (~$50). Med gearing giver dette dig eksponering til $500-3.000 vaerd af aktier. Vi anbefaler at starte smaat for at laere platformen.'
       },
       {
         question: 'Kan jeg handle om aftenen dansk tid?',
@@ -354,10 +308,6 @@ export const translations = {
       {
         question: 'Er KYC paakraevet?',
         answer: 'Handelsplatformene (som Hyperliquid) kraever ikke KYC. Du skal dog gennemfoere KYC paa en boers (Binance, Kraken) for at konvertere DKK til USDC i foerste omgang.'
-      },
-      {
-        question: 'Hvad med dansk skat paa handelsgevinster?',
-        answer: 'Gevinster fra handel er skattepligtige i Danmark. De kan klassificeres som kapitalgevinster (aktieindkomst) eller spekulationsindkomst afhaengigt af dit handelsmoenster. Hold styr paa alle handler og kontakt en skatteraadgiver med kendskab til krypto/derivater.'
       }
     ],
 
@@ -366,14 +316,14 @@ export const translations = {
     moreGuidesDesc: 'Vi har lavet detaljerede guides specifikt til danske handlere. Tjek dem ud:',
     guides: [
       { icon: 'kr', title: 'Konverter DKK til USDC', desc: 'Trin-for-trin med MobilePay, SEPA', href: '/blog/p2p-usdc-guide' },
-      { icon: '💰', title: 'Handl med 350 kr', desc: 'Strateguide til smaa konti', href: '/blog/trade-stocks-with-100' },
+      { icon: '💰', title: 'Handl med ~350 kr', desc: 'Strateguide til smaa konti', href: '/blog/trade-stocks-with-100' },
       { icon: '📊', title: 'Platformsammenligning', desc: 'Sammenlign alle equity perp platforme', href: '/' },
       { icon: '🤝', title: 'P2P handelsguide', desc: 'Globale P2P metoder og sikkerhedstips', href: '/blog/p2p-usdc-guide' }
     ],
 
     // CTA
     ctaTitle: 'Start handel med amerikanske aktier i dag',
-    ctaDesc: 'Slut dig til tusindvis af danske handlere med adgang til NVDA, TSLA og 50+ amerikanske aktier 24/7. Ingen amerikansk maegler noedvendig. Start med kun 350 kr.',
+    ctaDesc: 'Slut dig til tusindvis af danske handlere med adgang til NVDA, TSLA og 50+ amerikanske aktier 24/7. Ingen amerikansk maegler noedvendig. Start med kun ~350 kr.',
     getStartedCta: 'Kom i gang nu (4% rabat paa gebyrer)',
 
     // Free Notice
@@ -396,9 +346,6 @@ export const translations = {
     ]
   },
 };
-
-export const digitalPayments = ['MobilePay (Most Popular)', 'SEPA', 'Trustly', 'Bank Transfer'];
-export const banksList = ['Danske Bank', 'Nordea', 'Jyske Bank', 'Nykredit'];
 
 export const popularStocks = [
   { ticker: 'NVDA', name: 'Nvidia', hot: true },

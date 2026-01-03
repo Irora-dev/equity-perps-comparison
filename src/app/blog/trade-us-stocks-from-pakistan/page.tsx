@@ -6,6 +6,25 @@ import { platforms } from '@/data/platforms';
 import { LanguageToggle } from '@/components/LanguageToggle';
 import { translations, popularStocks, nativeLang, nativeName, isRTL } from '@/data/translations/pakistan';
 
+// Google Ads conversion tracking for Hyperliquid clicks
+function trackHyperliquidClick(url: string) {
+  if (typeof window !== 'undefined' && typeof window.gtag !== 'undefined') {
+    window.gtag('event', 'conversion', {
+      'send_to': 'AW-17848310269/Zf82CIWA-9sbEP2z3r5C',
+      'event_callback': () => {
+        window.location.href = url;
+      }
+    });
+    // Fallback if callback doesn't fire within 1 second
+    setTimeout(() => {
+      window.location.href = url;
+    }, 1000);
+  } else {
+    // If gtag not loaded, just navigate
+    window.location.href = url;
+  }
+}
+
 export default function TradeUSStocksFromPakistan() {
   const [lang, setLang] = useState<'en' | 'ur'>('en');
   const t = translations[lang];
@@ -19,9 +38,9 @@ export default function TradeUSStocksFromPakistan() {
     <div className="min-h-screen bg-gray-950" dir={lang === 'ur' && isRTL ? 'rtl' : 'ltr'}>
       {/* Hero */}
       <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-gray-950 to-emerald-500/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-gray-950 to-white/10" />
         <div className="absolute top-20 left-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
 
         <div className="absolute top-4 right-4 z-10">
           <LanguageToggle currentLang={lang} nativeLang={nativeLang} nativeName={nativeName} onToggle={(l) => setLang(l as 'en' | 'ur')} />
@@ -37,7 +56,7 @@ export default function TradeUSStocksFromPakistan() {
           </nav>
 
           <div className="flex items-center gap-2 mb-6">
-            <span className="px-3 py-1 bg-green-500/20 text-green-400 text-sm font-medium rounded-full">🇵🇰 {t.badge}</span>
+            <span className="px-3 py-1 bg-green-500/20 text-green-400 text-sm font-medium rounded-full">{t.badge}</span>
             <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-sm font-medium rounded-full">{t.noBrokerBadge}</span>
           </div>
 
@@ -54,7 +73,7 @@ export default function TradeUSStocksFromPakistan() {
           <div className="flex flex-wrap gap-4 mb-12">
             <a
               href="#get-started"
-              className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-bold text-lg hover:from-green-400 hover:to-emerald-500 transition-all shadow-lg shadow-green-500/25"
+              className="px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold text-lg hover:from-green-400 hover:to-green-500 transition-all shadow-lg shadow-green-500/25"
             >
               {t.startTrading}
             </a>
@@ -108,7 +127,7 @@ export default function TradeUSStocksFromPakistan() {
       </section>
 
       {/* Detailed Get Started Section */}
-      <section id="get-started" className="py-16 px-4">
+      <section id="get-started" className="py-16 px-4 bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full mb-4">
@@ -234,7 +253,7 @@ export default function TradeUSStocksFromPakistan() {
                 <div className="px-6 pb-6 border-t border-gray-800 pt-6">
                   <p className="text-gray-300 mb-6">{t.fundingIntro}</p>
 
-                  <div className="grid md:grid-cols-2 gap-4 mb-6">
+                  <div className="grid md:grid-cols-3 gap-4 mb-6">
                     {/* Binance P2P */}
                     <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4">
                       <h4 className="text-yellow-400 font-semibold mb-2">{t.binanceP2P.title}</h4>
@@ -246,19 +265,30 @@ export default function TradeUSStocksFromPakistan() {
                       </ol>
                     </div>
 
-                    {/* KuCoin P2P */}
-                    <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-4">
-                      <h4 className="text-emerald-400 font-semibold mb-2">{t.kucoinP2P.title}</h4>
-                      <p className="text-gray-400 text-sm mb-3">{t.kucoinP2P.desc}</p>
+                    {/* JazzCash */}
+                    <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4">
+                      <h4 className="text-blue-400 font-semibold mb-2">{t.jazzcash.title}</h4>
+                      <p className="text-gray-400 text-sm mb-3">{t.jazzcash.desc}</p>
                       <ol className="text-xs text-gray-300 space-y-1">
-                        {t.kucoinP2P.steps.map((step, i) => (
+                        {t.jazzcash.steps.map((step, i) => (
                           <li key={i}>{i + 1}. {step}</li>
+                        ))}
+                      </ol>
+                    </div>
+
+                    {/* Easypaisa */}
+                    <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4">
+                      <h4 className="text-purple-400 font-semibold mb-2">{t.easypaisa.title}</h4>
+                      <p className="text-gray-400 text-sm mb-3">{t.easypaisa.desc}</p>
+                      <ol className="text-xs text-gray-300 space-y-1">
+                        {t.easypaisa.steps.map((step, i) => (
+                          <li key={i} className={step.startsWith('(') ? 'text-gray-500' : ''}>{step.startsWith('(') ? step : `${i + 1}. ${step}`}</li>
                         ))}
                       </ol>
                     </div>
                   </div>
 
-                  <div className="bg-gray-800/50 rounded-xl p-4 mb-4">
+                  <div className="bg-gray-800/50 rounded-xl p-4">
                     <p className="text-gray-300 text-sm">
                       <strong className="text-white">💡 {t.proTip}</strong> {t.proTipText}
                     </p>
@@ -266,7 +296,7 @@ export default function TradeUSStocksFromPakistan() {
 
                   <Link
                     href="/blog/convert-pkr-to-usdc"
-                    className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 font-medium"
+                    className="inline-flex items-center gap-2 mt-4 text-green-400 hover:text-green-300 font-medium"
                   >
                     {t.seeDetailedGuide}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -293,7 +323,7 @@ export default function TradeUSStocksFromPakistan() {
             <ol className="space-y-3 text-gray-300 mb-6">
               <li className="flex gap-3">
                 <span className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-sm font-bold flex-shrink-0">1</span>
-                <span>{t.tradeSteps[0].text} <a href={hyperliquid?.referralUrl} target="_blank" rel="noopener sponsored" className="text-emerald-400 hover:text-emerald-300">{t.tradeSteps[0].linkText}</a></span>
+                <span>{t.tradeSteps[0].text} <button onClick={() => hyperliquid?.referralUrl && trackHyperliquidClick(hyperliquid.referralUrl)} className="text-emerald-400 hover:text-emerald-300 underline">{t.tradeSteps[0].linkText}</button></span>
               </li>
               <li className="flex gap-3">
                 <span className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-sm font-bold flex-shrink-0">2</span>
@@ -309,23 +339,21 @@ export default function TradeUSStocksFromPakistan() {
               </li>
             </ol>
 
-            <a
-              href={hyperliquid?.referralUrl}
-              target="_blank"
-              rel="noopener sponsored"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-gray-900 rounded-xl font-bold hover:bg-emerald-400 transition-colors"
+            <button
+              onClick={() => hyperliquid?.referralUrl && trackHyperliquidClick(hyperliquid.referralUrl)}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-gray-900 rounded-xl font-bold hover:bg-emerald-400 transition-colors cursor-pointer"
             >
               {t.openHyperliquid}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </section>
 
       {/* Popular Stocks */}
-      <section className="py-16 px-4 bg-gray-900/50">
+      <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-8 text-center">
             {t.popularStocksTitle}
@@ -356,7 +384,7 @@ export default function TradeUSStocksFromPakistan() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-8 text-center">
             {t.faqTitle}
@@ -393,7 +421,7 @@ export default function TradeUSStocksFromPakistan() {
 
           {/* Pakistan Guides Section */}
           <div className="mt-12 bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-2xl p-6">
-            <h3 className="text-xl font-bold text-white mb-4">📚 {t.moreGuidesTitle}</h3>
+            <h3 className="text-xl font-bold text-white mb-4">{t.moreGuidesTitle}</h3>
             <p className="text-gray-400 mb-6">{t.moreGuidesDesc}</p>
             <div className="grid sm:grid-cols-2 gap-4">
               {t.guides.map((guide, i) => (
@@ -405,8 +433,8 @@ export default function TradeUSStocksFromPakistan() {
                   <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
                     i === 0 ? 'bg-green-500/20 text-green-400' :
                     i === 1 ? 'bg-emerald-500/20 text-emerald-400' :
-                    i === 2 ? 'bg-cyan-500/20 text-cyan-400' :
-                    'bg-purple-500/20 text-purple-400'
+                    i === 2 ? 'bg-yellow-500/20 text-yellow-400' :
+                    'bg-cyan-500/20 text-cyan-400'
                   }`}>{guide.icon}</div>
                   <div>
                     <h4 className="text-white font-medium">{guide.title}</h4>
@@ -420,7 +448,7 @@ export default function TradeUSStocksFromPakistan() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 px-4 bg-gray-900/50">
+      <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-2xl p-8 text-center">
             <h2 className="text-3xl font-bold text-white mb-4">
@@ -429,17 +457,15 @@ export default function TradeUSStocksFromPakistan() {
             <p className="text-gray-300 mb-6 max-w-xl mx-auto">
               {t.ctaDesc}
             </p>
-            <a
-              href={hyperliquid?.referralUrl}
-              target="_blank"
-              rel="noopener sponsored"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-bold text-lg hover:from-green-400 hover:to-emerald-500 transition-all shadow-lg shadow-green-500/25"
+            <button
+              onClick={() => hyperliquid?.referralUrl && trackHyperliquidClick(hyperliquid.referralUrl)}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl font-bold text-lg hover:from-green-400 hover:to-green-500 transition-all shadow-lg shadow-green-500/25 cursor-pointer"
             >
               {t.getStartedCta}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -451,6 +477,24 @@ export default function TradeUSStocksFromPakistan() {
             <p className="text-gray-400 text-sm leading-relaxed">
               {t.freeNotice} <span className="text-white font-medium">{t.freeNotice2}</span>{t.freeNotice3} <span className="text-cyan-400">{t.freeNotice4}</span> {t.freeNotice5} <span className="text-cyan-400">{t.freeNotice6}</span>{t.freeNotice7} <span className="text-green-400 font-semibold">{t.freeNotice8}</span>{t.freeNotice9}
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Guides */}
+      <section className="py-16 px-4 bg-gray-900/50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-xl font-bold text-white mb-6">{t.relatedTitle}</h2>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {t.relatedGuides.map((guide, i) => (
+              <Link key={i} href={guide.href} className="bg-gray-900 border border-gray-800 rounded-xl p-4 hover:border-green-500/50 transition-colors">
+                <span className={`text-xs font-medium ${
+                  i === 0 ? 'text-green-400' : i === 1 ? 'text-emerald-400' : 'text-yellow-400'
+                }`}>{guide.tag}</span>
+                <h3 className="text-white font-medium mt-1">{guide.title}</h3>
+                <p className="text-gray-500 text-sm mt-1">{guide.desc}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

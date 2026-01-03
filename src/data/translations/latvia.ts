@@ -1,336 +1,359 @@
-export const translations = {
-  en: {
-    badge: "Guide for Latvian Traders",
-    heroTitle1: "Trade US Stocks",
-    heroTitle2: "from Latvia",
-    heroDesc: "Access NVIDIA, Tesla, Apple with EUR. Start with €45. Trade 24/7 with SEPA.",
-    comparePlatforms: "Compare Platforms",
-    howItWorks: "How It Works",
-
-    // What are Equity Perps section
-    whatArePerpsTitle: "What Are Equity Perpetuals?",
-    whatArePerpsSubtitle: "A new way for Latvian traders to access US stock markets",
-    whatArePerpsContent: "Equity perpetuals (or \"perps\") are derivative contracts that track the price of US stocks like Tesla, Nvidia, and Apple. Unlike traditional stock trading through a Latvian broker or EU platform, equity perps let you trade 24/7 from anywhere in Latvia using just a digital wallet and USDC stablecoins.",
-    whatArePerpsHow: "How it works:",
-    whatArePerpsSteps: [
-      "Perps track real stock prices using price feeds (oracles) from major exchanges",
-      "You can go long (bet price goes up) or short (bet price goes down)",
-      "Use leverage to control larger positions with less capital",
-      "Trade anytime — markets never close, even on weekends and holidays",
-    ],
-    whatArePerpsCta: "No US brokerage account needed. No KYC. Just connect a wallet and start trading.",
-
-    // Why Equity Perps section
-    whyPerpsTitle: "Why Latvian Traders Choose Equity Perps",
-    whyPerpsSubtitle: "Compared to traditional EU brokerages",
-    whyPerpsReasons: [
-      {
-        icon: '🌍',
-        title: 'Global Access from Latvia',
-        desc: 'Trade US stocks without opening a US brokerage account. No SSN required, no complex foreign account paperwork. Works with Latvian banks via SEPA.',
-      },
-      {
-        icon: '🕐',
-        title: '24/7 Trading',
-        desc: 'Traditional US markets are only open 16:30-23:00 EET. Equity perps trade around the clock — react to Tesla earnings at midnight or trade NVIDIA on Sunday morning.',
-      },
-      {
-        icon: '📈',
-        title: 'Up to 50x Leverage',
-        desc: 'Control a $5,000 Tesla position with just $100. Traditional EU brokers offer limited leverage due to ESMA regulations. Start small and scale up as you learn.',
-      },
-      {
-        icon: '⚡',
-        title: 'Easy Short Selling',
-        desc: 'Think a stock will drop? Go short instantly. No borrowing shares, no hard-to-borrow fees, no restrictions. Just click sell and profit from falling prices.',
-      },
-      {
-        icon: '🔐',
-        title: 'Self-Custody',
-        desc: 'Your funds stay in your wallet. No broker holding your money. No withdrawal limits. No account freezes. You control your assets completely.',
-      },
-      {
-        icon: '💨',
-        title: 'Instant Settlement',
-        desc: 'No T+2 waiting period. Close a position and your profits are available immediately. Withdraw to your wallet in seconds, not days.',
-      },
-    ],
-
-    benefits: [
-      { icon: '💰', title: 'Start with €45', desc: '~$50 USDC minimum' },
-      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime EET' },
-      { icon: '🏦', title: 'SEPA Ready', desc: 'EUR bank transfers' },
-      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
-    ],
-
-    // Enhanced Getting Started section
-    getStartedTitle: "How to Get Started",
-    getStartedSubtitle: "Complete guide for Latvian traders — takes about 15 minutes",
-
-    step1Title: "Set Up Your Digital Wallet",
-    step1Subtitle: "Free, takes 2 minutes, and you only do this once",
-    step1WhatIsWallet: "What is a digital wallet?",
-    step1WhatIsWalletDesc: "Think of it like a digital bank account that you fully control. Instead of a bank holding your money, you hold it yourself using a simple browser extension.",
-    step1Features: [
-      { icon: '🔐', text: 'You control it' },
-      { icon: '🆓', text: 'Completely free' },
-      { icon: '⚡', text: '2 min setup' },
-      { icon: '🌍', text: 'Works globally' },
-    ],
-    step1Instructions: [
-      'Go to rabby.io (the wallet we recommend)',
-      'Click "Download" and add it to your browser (Chrome, Firefox, etc.)',
-      'Click "Create New Wallet" and set a password',
-      'Write down your 12-word recovery phrase — keep it safe and never share it!',
-    ],
-    step1VideoTitle: "Watch: 2-Minute Setup Guide",
-
-    step2Title: "Fund Your Wallet with USDC",
-    step2Subtitle: "Convert EUR to USDC using SEPA transfers",
-    step2Methods: [
-      {
-        name: 'Binance (Recommended)',
-        description: 'Deposit EUR via SEPA, buy USDC',
-        steps: [
-          'Create a Binance account (free)',
-          'Deposit EUR via SEPA from Swedbank/SEB/Citadele',
-          'Buy USDC with your EUR balance',
-          'Withdraw USDC to your Rabby wallet on Arbitrum',
-        ],
-        tip: 'SEPA transfers usually arrive same day or next business day',
-      },
-      {
-        name: 'Kraken',
-        description: 'EUR deposits with low fees',
-        steps: [
-          'Create a Kraken account',
-          'Deposit EUR via SEPA',
-          'Buy USDC',
-          'Withdraw to Rabby on Arbitrum',
-        ],
-        tip: 'Kraken has competitive fees for EU users',
-      },
-    ],
-    step2MinAmount: "Start with €45 (~$50 USDC)",
-
-    step3Title: "Connect to Hyperliquid & Trade",
-    step3Subtitle: "The most popular platform for equity perps",
-    step3Instructions: [
-      'Go to app.hyperliquid.xyz',
-      'Click "Connect" and select Rabby Wallet',
-      'Deposit your USDC to the platform',
-      'Search for a stock (e.g., NVDA-PERP, TSLA-PERP)',
-      'Choose Long (price up) or Short (price down)',
-      'Set your leverage (start with 2-3x)',
-      'Enter position size and click trade!',
-    ],
-    step3Tip: "Start with small positions (5-10% of your account) while you learn.",
-    step3Cta: "Start Trading on Hyperliquid",
-
-    // Risk Warning
-    riskTitle: "Understand the Risks",
-    riskWarnings: [
-      { title: 'Leverage amplifies losses', desc: 'The same 10x that turns 5% into 50% gains also turns 5% losses into 50% losses.' },
-      { title: 'Liquidation is real', desc: 'Your position can be closed automatically if it moves against you enough.' },
-      { title: 'Funding rates cost money', desc: 'Holding positions costs money every few hours, especially on popular trades.' },
-      { title: 'No ownership', desc: "You're trading price exposure, not actual shares. No dividends, no voting rights." },
-    ],
-
-    stepsTitle: "Get Started in 4 Steps",
-    steps: [
-      { t: 'Convert EUR to USDC', d: 'Use Binance or Kraken with SEPA transfer.' },
-      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
-      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
-      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
-    ],
-    paymentTitle: "Latvia Payment Methods",
-    digitalPayments: "Banks",
-    banks: "Exchanges",
-    faqTitle: "Frequently Asked Questions",
-    faqs: [
-      { question: 'Do I need a US brokerage account?', answer: 'No. Equity perps are synthetic derivatives that track US stock prices. You trade with USDC on decentralized platforms — no US broker, no SSN, no complex foreign account paperwork.' },
-      { question: 'Is this legal in Latvia?', answer: 'Equity perps exist in a regulatory gray area. They are decentralized derivatives not specifically regulated under Latvian law. As an EU member, MiCA regulations may apply in the future. You are responsible for reporting any trading profits for tax purposes.' },
-      { question: 'How do I convert EUR to USDC?', answer: 'Use Binance or Kraken with SEPA transfer from your Latvian bank (Swedbank, SEB, Citadele, Luminor). Deposits usually arrive same day or next business day.' },
-      { question: "What's the minimum to start?", answer: 'You can start with as little as €45 (~$50 USDC). Fractional trading means you can trade any US stock regardless of its price.' },
-      { question: 'What banks work from Latvia?', answer: 'All major Latvian banks support SEPA transfers: Swedbank, SEB banka, Citadele, Luminor. Simply send EUR to Binance or Kraken and buy USDC.' },
-      { question: 'How is this different from Interactive Brokers?', answer: 'Unlike traditional brokers, equity perps offer: 24/7 trading (not just US market hours), up to 50x leverage, no KYC required, self-custody of funds, and easier short selling.' },
-    ],
-    ctaTitle: "Ready to Trade US Stocks?",
-    ctaDesc: "Join Latvian traders accessing US markets 24/7.",
-    freeNotice: "This site is",
-    freeNotice2: "100% free",
-    freeNotice3: ". Get",
-    freeNotice4: "4% off fees",
-    freeNotice5: "through our links.",
-  },
-  lv: {
-    badge: "Ceļvedis Latvijas tirgotājiem",
-    heroTitle1: "Tirgo ASV akcijas",
-    heroTitle2: "no Latvijas",
-    heroDesc: "Piekļūsti NVIDIA, Tesla, Apple ar EUR. Sāc ar €45. Tirgo 24/7 ar SEPA.",
-    comparePlatforms: "Salīdzini platformas",
-    howItWorks: "Kā tas darbojas",
-
-    // What are Equity Perps section
-    whatArePerpsTitle: "Kas ir Equity Perpetuals?",
-    whatArePerpsSubtitle: "Jauns veids Latvijas tirgotājiem piekļūt ASV akciju tirgiem",
-    whatArePerpsContent: "Equity perpetuals (jeb \"perps\") ir atvasināto instrumentu līgumi, kas seko ASV akciju cenām, piemēram, Tesla, Nvidia un Apple. Atšķirībā no tradicionālās akciju tirdzniecības caur Latvijas brokeri vai ES platformu, equity perps ļauj tirgot 24/7 no jebkuras vietas Latvijā, izmantojot tikai digitālo maku un USDC steiblkoinus.",
-    whatArePerpsHow: "Kā tas darbojas:",
-    whatArePerpsSteps: [
-      "Perps seko reālām akciju cenām, izmantojot cenu plūsmas (orākulus) no galvenajām biržām",
-      "Vari iet long (likme uz cenas kāpumu) vai short (likme uz cenas kritumu)",
-      "Izmanto sviru, lai kontrolētu lielākas pozīcijas ar mazāku kapitālu",
-      "Tirgo jebkurā laikā — tirgi nekad neaizveras, pat nedēļas nogalēs un svētku dienās",
-    ],
-    whatArePerpsCta: "Nav nepieciešams ASV brokeru konts. Nav KYC. Vienkārši pievieno maku un sāc tirgot.",
-
-    // Why Equity Perps section
-    whyPerpsTitle: "Kāpēc Latvijas tirgotāji izvēlas Equity Perps",
-    whyPerpsSubtitle: "Salīdzinājumā ar tradicionālajiem ES brokeriem",
-    whyPerpsReasons: [
-      {
-        icon: '🌍',
-        title: 'Globāla piekļuve no Latvijas',
-        desc: 'Tirgo ASV akcijas bez ASV brokeru konta atvēršanas. Nav nepieciešams SSN, nav sarežģītu ārvalstu kontu dokumentu. Darbojas ar Latvijas bankām caur SEPA.',
-      },
-      {
-        icon: '🕐',
-        title: '24/7 tirdzniecība',
-        desc: 'Tradicionālie ASV tirgi ir atvērti tikai 16:30-23:00 EET. Equity perps tirgo visu diennakti — reaģē uz Tesla ienākumiem pusnaktī vai tirgo NVIDIA svētdienas rītā.',
-      },
-      {
-        icon: '📈',
-        title: 'Līdz 50x svira',
-        desc: 'Kontrolē $5,000 Tesla pozīciju ar tikai $100. Tradicionālie ES brokeri piedāvā ierobežotu sviru ESMA regulējuma dēļ. Sāc ar mazu summu un palielini, mācoties.',
-      },
-      {
-        icon: '⚡',
-        title: 'Viegla īsā pārdošana',
-        desc: 'Domā, ka akcija kritīs? Shortē uzreiz. Nav jāaizņemas akcijas, nav grūti aizņemamu akciju maksas, nav ierobežojumu. Vienkārši spied pārdot un pelni no krītošām cenām.',
-      },
-      {
-        icon: '🔐',
-        title: 'Self-Custody',
-        desc: 'Tavi līdzekļi paliek tavā makā. Neviens brokeris netur tavus naudu. Nav izņemšanas limitu. Nav konta iesaldēšanas. Tu pilnībā kontrolē savus aktīvus.',
-      },
-      {
-        icon: '💨',
-        title: 'Tūlītēja norēķināšanās',
-        desc: 'Nav T+2 gaidīšanas perioda. Aizver pozīciju, un tava peļņa ir pieejama nekavējoties. Izņem uz savu maku sekundēs, ne dienās.',
-      },
-    ],
-
-    benefits: [
-      { icon: '💰', title: 'Sāc ar €45', desc: '~$50 USDC minimums' },
-      { icon: '🕐', title: '24/7 tirdzniecība', desc: 'Tirgo jebkurā laikā' },
-      { icon: '🏦', title: 'SEPA gatavs', desc: 'EUR bankas pārskaitījumi' },
-      { icon: '🔐', title: 'Self-Custody', desc: 'Tavas atslēgas, tavas monētas' },
-    ],
-
-    // Enhanced Getting Started section
-    getStartedTitle: "Kā sākt",
-    getStartedSubtitle: "Pilns ceļvedis Latvijas tirgotājiem — aizņem apmēram 15 minūtes",
-
-    step1Title: "Izveido savu digitālo maku",
-    step1Subtitle: "Bezmaksas, aizņem 2 minūtes, dari tikai vienreiz",
-    step1WhatIsWallet: "Kas ir digitālais maks?",
-    step1WhatIsWalletDesc: "Iedomājies to kā digitālu bankas kontu, ko tu pilnībā kontrolē. Banka neuzglabā tavu naudu — tu pats to uzglabā, izmantojot vienkāršu pārlūkprogrammas paplašinājumu.",
-    step1Features: [
-      { icon: '🔐', text: 'Tu kontrolē' },
-      { icon: '🆓', text: 'Pilnīgi bezmaksas' },
-      { icon: '⚡', text: '2 min iestatīšana' },
-      { icon: '🌍', text: 'Darbojas globāli' },
-    ],
-    step1Instructions: [
-      'Ej uz rabby.io (maks, ko mēs iesakām)',
-      'Spied "Download" un pievieno savai pārlūkprogrammai (Chrome, Firefox, utt.)',
-      'Spied "Create New Wallet" un iestati paroli',
-      'Pieraksti savu 12 vārdu atjaunošanas frāzi — glabā drošībā un nekad nedalies!',
-    ],
-    step1VideoTitle: "Skaties: 2 minūšu iestatīšanas ceļvedis",
-
-    step2Title: "Papildini maku ar USDC",
-    step2Subtitle: "Konvertē EUR uz USDC ar SEPA pārskaitījumiem",
-    step2Methods: [
-      {
-        name: 'Binance (Ieteicams)',
-        description: 'Iemaksā EUR ar SEPA, pērc USDC',
-        steps: [
-          'Izveido Binance kontu (bezmaksas)',
-          'Iemaksā EUR ar SEPA no Swedbank/SEB/Citadele',
-          'Pērc USDC ar savu EUR atlikumu',
-          'Izņem USDC uz savu Rabby maku Arbitrum tīklā',
-        ],
-        tip: 'SEPA pārskaitījumi parasti pienāk tajā pašā dienā vai nākamajā darba dienā',
-      },
-      {
-        name: 'Kraken',
-        description: 'EUR iemaksas ar zemām komisijām',
-        steps: [
-          'Izveido Kraken kontu',
-          'Iemaksā EUR ar SEPA',
-          'Pērc USDC',
-          'Izņem uz Rabby Arbitrum tīklā',
-        ],
-        tip: 'Kraken piedāvā konkurētspējīgas komisijas ES lietotājiem',
-      },
-    ],
-    step2MinAmount: "Sāc ar €45 (~$50 USDC)",
-
-    step3Title: "Pievieno Hyperliquid un tirgo",
-    step3Subtitle: "Populārākā platforma equity perps",
-    step3Instructions: [
-      'Ej uz app.hyperliquid.xyz',
-      'Spied "Connect" un izvēlies Rabby Wallet',
-      'Iemaksā savu USDC platformā',
-      'Meklē akciju (piem., NVDA-PERP, TSLA-PERP)',
-      'Izvēlies Long (cena aug) vai Short (cena krīt)',
-      'Iestati sviru (sāc ar 2-3x)',
-      'Ievadi pozīcijas lielumu un spied trade!',
-    ],
-    step3Tip: "Sāc ar mazām pozīcijām (5-10% no konta) kamēr mācies.",
-    step3Cta: "Sāc tirgot Hyperliquid",
-
-    // Risk Warning
-    riskTitle: "Izproti riskus",
-    riskWarnings: [
-      { title: 'Svira pastiprina zaudējumus', desc: 'Tā pati 10x svira, kas pārvērš 5% peļņu 50%, pārvērš arī 5% zaudējumus 50% zaudējumos.' },
-      { title: 'Likvidācija ir reāla', desc: 'Tava pozīcija var tikt automātiski slēgta, ja tirgus iet pret tevi pietiekami daudz.' },
-      { title: 'Finansēšanas likmes maksā', desc: 'Pozīciju turēšana maksā naudu ik pēc dažām stundām, īpaši populāros tirgos.' },
-      { title: 'Nav īpašumtiesību', desc: 'Tu tirgo cenu ekspozīciju, ne īstas akcijas. Nav dividenžu, nav balsstiesību.' },
-    ],
-
-    stepsTitle: "Sāc 4 soļos",
-    steps: [
-      { t: 'Konvertē EUR uz USDC', d: 'Izmanto Binance vai Kraken ar SEPA pārskaitījumu.' },
-      { t: 'Izvēlies platformu', d: 'Salīdzini platformas.', l: '/', lt: 'Salīdzini' },
-      { t: 'Pievieno maku', d: 'Izmanto MetaMask vai Rabby.' },
-      { t: 'Sāc tirgot', d: 'Sāc ar 2-3x sviru.' },
-    ],
-    paymentTitle: "Latvijas maksājumu metodes",
-    digitalPayments: "Bankas",
-    banks: "Biržas",
-    faqTitle: "Biežāk uzdotie jautājumi",
-    faqs: [
-      { question: 'Vai man vajag ASV brokeru kontu?', answer: 'Nē. Equity perps ir sintētiski atvasinātie instrumenti, kas seko ASV akciju cenām. Tu tirgo ar USDC decentralizētās platformās — bez ASV brokera, bez SSN, bez sarežģītiem dokumentiem.' },
-      { question: 'Vai tas ir legāli Latvijā?', answer: 'Equity perps eksistē regulatīvā pelēkajā zonā. Tie ir decentralizēti atvasinātie instrumenti, kas nav specifiski regulēti Latvijas likumdošanā. Kā ES dalībvalstī, MiCA regulējums var attiekties nākotnē. Tu esi atbildīgs par tirdzniecības peļņas deklarēšanu nodokļu vajadzībām.' },
-      { question: 'Kā konvertēt EUR uz USDC?', answer: 'Izmanto Binance vai Kraken ar SEPA pārskaitījumu no savas Latvijas bankas (Swedbank, SEB, Citadele, Luminor). Iemaksas parasti pienāk tajā pašā dienā vai nākamajā darba dienā.' },
-      { question: 'Kāds ir minimums, lai sāktu?', answer: 'Vari sākt ar €45 (~$50 USDC). Daļēja tirdzniecība nozīmē, ka vari tirgot jebkuru ASV akciju neatkarīgi no tās cenas.' },
-      { question: 'Kādas bankas darbojas no Latvijas?', answer: 'Visas galvenās Latvijas bankas atbalsta SEPA pārskaitījumus: Swedbank, SEB banka, Citadele, Luminor. Vienkārši sūti EUR uz Binance vai Kraken un pērc USDC.' },
-      { question: 'Kā tas atšķiras no Interactive Brokers?', answer: 'Atšķirībā no tradicionālajiem brokeriem, equity perps piedāvā: 24/7 tirdzniecību (ne tikai ASV tirgus stundās), līdz 50x sviru, bez KYC, self-custody līdzekļiem un vieglāku īso pārdošanu.' },
-    ],
-    ctaTitle: "Gatavs tirgot ASV akcijas?",
-    ctaDesc: "Pievienojies Latvijas tirgotājiem ar piekļuvi ASV tirgiem 24/7.",
-    freeNotice: "Šī vietne ir",
-    freeNotice2: "100% bezmaksas",
-    freeNotice3: ". Saņem",
-    freeNotice4: "4% atlaidi",
-    freeNotice5: "caur mūsu saitēm.",
-  },
-};
-
-export const digitalPayments = ['Swedbank', 'SEB banka', 'Citadele', 'Luminor'];
-export const banksList = ['Binance', 'Kraken', 'Coinbase', 'Bitstamp'];
 export const nativeLang = 'lv';
 export const nativeName = 'Latviešu';
-export const popularStocks = ['NVDA', 'TSLA', 'AAPL', 'META', 'MSFT', 'AMZN'];
+export const isRTL = false;
+
+export const translations = {
+  en: {
+    // Breadcrumb
+    home: 'Home',
+    blog: 'Blog',
+    pageTitle: 'Trade US Stocks from Latvia',
+
+    // Hero
+    badge: 'Latvia Guide',
+    noBrokerBadge: 'No Broker Needed',
+    heroTitle1: 'Trade US Stocks',
+    heroTitle2: 'From Latvia',
+    heroDesc: 'Access NVDA, TSLA, AAPL and 50+ US stocks without a US brokerage account. Convert EUR to USDC via SEPA and start trading in',
+    heroDescHighlight: '15 minutes',
+    startTrading: 'Start Trading Now',
+    howItWorks: 'How It Works',
+
+    // Quick Stats
+    statMinimumValue: '~€45',
+    statMinimum: 'Minimum to Start',
+    statTimeValue: '24/7',
+    statTime: 'Any Time EET',
+    statStocksValue: '50+',
+    statStocks: 'US Stocks',
+    statKycValue: 'No KYC',
+    statKyc: 'On Trading Platform',
+
+    // Why Section
+    whyTitle: 'Why Latvian Traders Choose Equity Perps',
+    whyCards: [
+      {
+        icon: '🌍',
+        title: 'EU-Friendly Access',
+        desc: 'Trade US stocks without opening a US brokerage account. No SSN required, no complex foreign account paperwork. Works seamlessly with Latvian banks via SEPA.'
+      },
+      {
+        icon: '⚡',
+        title: 'Instant Access',
+        desc: 'No waiting weeks for US brokerage approval. Convert EUR to USDC via SEPA and start trading the same day.'
+      },
+      {
+        icon: '🕐',
+        title: 'Trade Any Time',
+        desc: 'US markets open at 16:30 EET. With equity perps, trade whenever you want - morning, afternoon, or midnight.'
+      },
+      {
+        icon: '💰',
+        title: 'Start with ~€45',
+        desc: 'Most US brokers need $500+ minimum. Here, start with just ~€45 (~$50) and use leverage to control larger positions.'
+      }
+    ],
+
+    // Get Started Section
+    stepByStep: 'Step-by-Step Guide',
+    getStartedTitle: 'Get Started in 15 Minutes',
+    getStartedDesc: 'Follow these steps to start trading US stocks from Latvia today.',
+
+    // Step 1: Wallet
+    step1Title: 'Set Up Your Digital Wallet',
+    step1Desc: 'Free, takes 2 minutes, and you only do this once',
+    walletExplainTitle: 'What is a digital wallet?',
+    walletExplainDesc: 'Think of it like a',
+    walletExplainHighlight: 'digital bank account you control',
+    walletExplainDesc2: '. Instead of a bank holding your money, you hold it yourself using a simple browser extension.',
+    walletFeatures: ['You control it', 'Completely free', '2 min setup', 'Works in Latvia'],
+    walletSetupTitle: "Here's how to set it up:",
+    walletSteps: [
+      { text: 'Go to', link: 'rabby.io' },
+      { text: 'Click "Download" and add to Chrome/Brave' },
+      { text: 'Click "Create New Wallet" and set a password' },
+      { text: 'Write down your 12-word recovery phrase', warning: 'Keep it safe and never share it!' }
+    ],
+    watchVideo: 'Watch: 2-Minute Setup Guide',
+
+    // Step 2: Funding
+    step2Title: 'Convert EUR to USDC',
+    step2Desc: 'Use Binance or Kraken with SEPA transfer',
+    fundingIntro: 'You need USDC (a stablecoin worth $1) to trade. Here are the best ways to convert EUR:',
+    binanceP2P: {
+      title: 'Binance (Recommended)',
+      desc: 'Best rates, SEPA deposits',
+      steps: ['Create a Binance account (free)', 'Deposit EUR via SEPA from Swedbank/SEB/Citadele', 'Buy USDC with your EUR balance', 'Withdraw to Rabby on Arbitrum']
+    },
+    wazirx: {
+      title: 'Kraken',
+      desc: 'EU-friendly, low fees',
+      steps: ['Create a Kraken account', 'Deposit EUR via SEPA', 'Buy USDC', 'Withdraw to Rabby on Arbitrum']
+    },
+    coindcx: {
+      title: 'Coinbase',
+      desc: 'Simple interface, trusted',
+      steps: ['Create Coinbase account', 'Deposit EUR via SEPA', 'Buy USDC directly', '(Higher fees but simpler)']
+    },
+    proTip: 'Pro tip:',
+    proTipText: 'SEPA transfers from Latvian banks (Swedbank, SEB, Citadele) usually arrive same day or next business day.',
+    seeDetailedGuide: 'See detailed EUR to USDC guide with screenshots',
+
+    // Step 3: Trade
+    step3Title: 'Start Trading',
+    step3Desc: 'Connect to Hyperliquid and trade 50+ US stocks',
+    tradeSteps: [
+      { text: 'Go to', linkText: 'app.hyperliquid.xyz' },
+      { text: 'Click "Connect" and select Rabby Wallet' },
+      { text: 'Click "Deposit" and bridge your USDC' },
+      { text: 'Search for a stock (NVDA, TSLA, AAPL) and open a position!' }
+    ],
+    openHyperliquid: 'Open Hyperliquid (4% Off Fees)',
+
+    // Popular Stocks
+    popularStocksTitle: 'Popular US Stocks Available',
+    viewAllStocks: 'View all 50+ stocks →',
+    hot: 'HOT',
+
+    // FAQ
+    faqTitle: 'Frequently Asked Questions',
+    faqs: [
+      {
+        question: 'Is it legal to trade US stocks from Latvia using equity perps?',
+        answer: "Equity perpetuals exist in a regulatory gray area. They are decentralized derivatives not specifically regulated under Latvian or EU law yet. As an EU member, MiCA regulations may apply in the future. You're trading price exposure through synthetic contracts, not buying actual US stocks. You are responsible for reporting any trading profits for tax purposes."
+      },
+      {
+        question: 'Do I need to pay tax on profits from equity perps in Latvia?',
+        answer: 'Yes, profits from trading are likely taxable in Latvia. They may be classified as capital gains or other income depending on your situation. Maintain records of all trades and consult a tax professional familiar with crypto/derivatives taxation in Latvia.'
+      },
+      {
+        question: "What's the minimum amount I need to start?",
+        answer: 'You can start with as little as ~€45 (~$50 USDC). With leverage, this gives you exposure to $500-3,000 worth of stocks. We recommend starting small to learn the platform.'
+      },
+      {
+        question: 'Can I trade outside US market hours?',
+        answer: "Yes! Equity perps trade 24/7. You can trade US stocks at any time - morning, evening, or late night EET. There's no restriction on trading hours."
+      },
+      {
+        question: 'Is KYC required?',
+        answer: "The trading platforms (like Hyperliquid) don't require KYC. However, you'll need to complete KYC on an exchange (Binance, Kraken, Coinbase) to convert EUR to USDC initially."
+      }
+    ],
+
+    // More Guides
+    moreGuidesTitle: 'More Latvia Guides',
+    moreGuidesDesc: "We've created detailed guides specifically for Latvian traders. Check them out:",
+    guides: [
+      { icon: '€', title: 'Convert EUR to USDC', desc: 'Step-by-step with Binance, Kraken', href: '/blog/convert-eur-to-usdc' },
+      { icon: '💰', title: 'Trade with €50', desc: 'Small account strategy guide', href: '/blog/trade-stocks-with-50-euros' },
+      { icon: '⚖️', title: 'EU Regulations', desc: 'MiCA, taxes, and compliance', href: '/blog/equity-perps-legal-eu' },
+      { icon: '🤝', title: 'SEPA Guide', desc: 'EUR transfers and best practices', href: '/blog/sepa-usdc-guide' }
+    ],
+
+    // CTA
+    ctaTitle: 'Start Trading US Stocks Today',
+    ctaDesc: 'Join Latvian traders accessing NVDA, TSLA, and 50+ US stocks 24/7. No US broker needed. Start with just ~€45.',
+    getStartedCta: 'Get Started Now (4% Off Fees)',
+
+    // Free Notice
+    freeNotice: 'This site is',
+    freeNotice2: '100% free',
+    freeNotice3: ' to use for comparing the best platforms to trade stocks 24/7. When you sign up through our links to platforms like',
+    freeNotice4: 'Hyperliquid',
+    freeNotice5: 'and',
+    freeNotice6: 'Lighter',
+    freeNotice7: ', you get a',
+    freeNotice8: '4% discount on trading fees',
+    freeNotice9: ' with our referral code. This helps support the site while saving you money on every trade.',
+
+    // Related
+    relatedTitle: 'Related Guides',
+    relatedGuides: [
+      { tag: 'FUNDING', title: 'Convert EUR to USDC', desc: 'Step-by-step with screenshots', href: '/blog/convert-eur-to-usdc' },
+      { tag: 'GUIDE', title: 'Trade with €50', desc: 'Small account strategy', href: '/blog/trade-stocks-with-50-euros' },
+      { tag: 'LEGAL', title: 'EU Regulations', desc: 'Regulatory overview', href: '/blog/equity-perps-legal-eu' }
+    ]
+  },
+  lv: {
+    // Breadcrumb
+    home: 'Sākums',
+    blog: 'Blogs',
+    pageTitle: 'Tirgo ASV akcijas no Latvijas',
+
+    // Hero
+    badge: 'Latvijas ceļvedis',
+    noBrokerBadge: 'Nav nepieciešams brokeris',
+    heroTitle1: 'Tirgo ASV akcijas',
+    heroTitle2: 'No Latvijas',
+    heroDesc: 'Piekļūsti NVDA, TSLA, AAPL un 50+ ASV akcijām bez ASV brokeru konta. Konvertē EUR uz USDC ar SEPA un sāc tirgot',
+    heroDescHighlight: '15 minūtēs',
+    startTrading: 'Sāc tirgot tagad',
+    howItWorks: 'Kā tas darbojas',
+
+    // Quick Stats
+    statMinimumValue: '~€45',
+    statMinimum: 'Minimums, lai sāktu',
+    statTimeValue: '24/7',
+    statTime: 'Jebkurā laikā EET',
+    statStocksValue: '50+',
+    statStocks: 'ASV akcijas',
+    statKycValue: 'Nav KYC',
+    statKyc: 'Tirdzniecības platformā',
+
+    // Why Section
+    whyTitle: 'Kāpēc Latvijas tirgotāji izvēlas Equity Perps',
+    whyCards: [
+      {
+        icon: '🌍',
+        title: 'ES draudzīga piekļuve',
+        desc: 'Tirgo ASV akcijas bez ASV brokeru konta atvēršanas. Nav nepieciešams SSN, nav sarežģītu ārvalstu kontu dokumentu. Darbojas nevainojami ar Latvijas bankām caur SEPA.'
+      },
+      {
+        icon: '⚡',
+        title: 'Tūlītēja piekļuve',
+        desc: 'Nav jāgaida nedēļas uz ASV brokeru apstiprinājumu. Konvertē EUR uz USDC ar SEPA un sāc tirgot tajā pašā dienā.'
+      },
+      {
+        icon: '🕐',
+        title: 'Tirgo jebkurā laikā',
+        desc: 'ASV tirgi atveras 16:30 EET. Ar equity perps tirgo, kad vēlies - no rīta, pēcpusdienā vai pusnaktī.'
+      },
+      {
+        icon: '💰',
+        title: 'Sāc ar ~€45',
+        desc: 'Vairumam ASV brokeru nepieciešami $500+ minimums. Šeit sāc ar tikai ~€45 (~$50) un izmanto sviru, lai kontrolētu lielākas pozīcijas.'
+      }
+    ],
+
+    // Get Started Section
+    stepByStep: 'Soli pa solim ceļvedis',
+    getStartedTitle: 'Sāc 15 minūtēs',
+    getStartedDesc: 'Seko šiem soļiem, lai šodien sāktu tirgot ASV akcijas no Latvijas.',
+
+    // Step 1: Wallet
+    step1Title: 'Izveido savu digitālo maku',
+    step1Desc: 'Bezmaksas, aizņem 2 minūtes, dari tikai vienreiz',
+    walletExplainTitle: 'Kas ir digitālais maks?',
+    walletExplainDesc: 'Iedomājies to kā',
+    walletExplainHighlight: 'digitālu bankas kontu, ko tu kontrolē',
+    walletExplainDesc2: '. Banka neuzglabā tavu naudu - tu pats to uzglabā, izmantojot vienkāršu pārlūkprogrammas paplašinājumu.',
+    walletFeatures: ['Tu kontrolē', 'Pilnīgi bezmaksas', '2 min iestatīšana', 'Darbojas Latvijā'],
+    walletSetupTitle: 'Kā to iestatīt:',
+    walletSteps: [
+      { text: 'Ej uz', link: 'rabby.io' },
+      { text: 'Spied "Download" un pievieno Chrome/Brave' },
+      { text: 'Spied "Create New Wallet" un iestati paroli' },
+      { text: 'Pieraksti savu 12 vārdu atjaunošanas frāzi', warning: 'Glabā drošībā un nekad nedalies!' }
+    ],
+    watchVideo: 'Skaties: 2 minūšu iestatīšanas ceļvedis',
+
+    // Step 2: Funding
+    step2Title: 'Konvertē EUR uz USDC',
+    step2Desc: 'Izmanto Binance vai Kraken ar SEPA pārskaitījumu',
+    fundingIntro: 'Tev nepieciešams USDC (steiblkoins $1 vērtībā), lai tirgotu. Labākie veidi, kā konvertēt EUR:',
+    binanceP2P: {
+      title: 'Binance (Ieteicams)',
+      desc: 'Labākie kursi, SEPA iemaksas',
+      steps: ['Izveido Binance kontu (bezmaksas)', 'Iemaksā EUR ar SEPA no Swedbank/SEB/Citadele', 'Pērc USDC ar savu EUR atlikumu', 'Izņem uz Rabby Arbitrum tīklā']
+    },
+    wazirx: {
+      title: 'Kraken',
+      desc: 'ES draudzīgs, zemas komisijas',
+      steps: ['Izveido Kraken kontu', 'Iemaksā EUR ar SEPA', 'Pērc USDC', 'Izņem uz Rabby Arbitrum tīklā']
+    },
+    coindcx: {
+      title: 'Coinbase',
+      desc: 'Vienkārša saskarne, uzticams',
+      steps: ['Izveido Coinbase kontu', 'Iemaksā EUR ar SEPA', 'Pērc USDC tieši', '(Augstākas komisijas, bet vienkāršāk)']
+    },
+    proTip: 'Padoms:',
+    proTipText: 'SEPA pārskaitījumi no Latvijas bankām (Swedbank, SEB, Citadele) parasti pienāk tajā pašā dienā vai nākamajā darba dienā.',
+    seeDetailedGuide: 'Skatīt detalizētu EUR uz USDC ceļvedi ar ekrānuzņēmumiem',
+
+    // Step 3: Trade
+    step3Title: 'Sāc tirgot',
+    step3Desc: 'Pievieno Hyperliquid un tirgo 50+ ASV akcijas',
+    tradeSteps: [
+      { text: 'Ej uz', linkText: 'app.hyperliquid.xyz' },
+      { text: 'Spied "Connect" un izvēlies Rabby Wallet' },
+      { text: 'Spied "Deposit" un pārvieto savu USDC' },
+      { text: 'Meklē akciju (NVDA, TSLA, AAPL) un atver pozīciju!' }
+    ],
+    openHyperliquid: 'Atvērt Hyperliquid (4% atlaide)',
+
+    // Popular Stocks
+    popularStocksTitle: 'Pieejamās populārās ASV akcijas',
+    viewAllStocks: 'Skatīt visas 50+ akcijas →',
+    hot: 'HOT',
+
+    // FAQ
+    faqTitle: 'Biežāk uzdotie jautājumi',
+    faqs: [
+      {
+        question: 'Vai ir legāli tirgot ASV akcijas no Latvijas, izmantojot equity perps?',
+        answer: 'Equity perpetuals eksistē regulatīvā pelēkajā zonā. Tie ir decentralizēti atvasinātie instrumenti, kas vēl nav specifiski regulēti Latvijas vai ES likumdošanā. Kā ES dalībvalstij, MiCA regulējums var attiekties nākotnē. Tu tirgo cenu ekspozīciju caur sintētiskiem līgumiem, nevis pērc īstas ASV akcijas. Tu esi atbildīgs par tirdzniecības peļņas deklarēšanu nodokļu vajadzībām.'
+      },
+      {
+        question: 'Vai man jāmaksā nodokļi par equity perps peļņu Latvijā?',
+        answer: 'Jā, peļņa no tirdzniecības, visticamāk, ir apliekama ar nodokļiem Latvijā. Tā var tikt klasificēta kā kapitāla pieaugums vai citi ienākumi atkarībā no tavas situācijas. Uzturi visu darījumu uzskaiti un konsultējies ar nodokļu speciālistu, kas pārzina kripto/atvasināto instrumentu nodokļus Latvijā.'
+      },
+      {
+        question: 'Kāda ir minimālā summa, lai sāktu?',
+        answer: 'Vari sākt ar tikai ~€45 (~$50 USDC). Ar sviru tas dod ekspozīciju $500-3,000 vērtībā akcijām. Iesakām sākt ar mazu summu, lai iemācītos platformu.'
+      },
+      {
+        question: 'Vai varu tirgot ārpus ASV tirgus stundām?',
+        answer: 'Jā! Equity perps tirgo 24/7. Vari tirgot ASV akcijas jebkurā laikā - no rīta, vakarā vai vēlu naktī EET. Nav ierobežojumu tirdzniecības stundām.'
+      },
+      {
+        question: 'Vai ir nepieciešams KYC?',
+        answer: 'Tirdzniecības platformas (piemēram, Hyperliquid) neprasa KYC. Tomēr tev būs jāiziet KYC biržā (Binance, Kraken, Coinbase), lai sākotnēji konvertētu EUR uz USDC.'
+      }
+    ],
+
+    // More Guides
+    moreGuidesTitle: 'Vēl Latvijas ceļveži',
+    moreGuidesDesc: 'Esam izveidojuši detalizētus ceļvežus tieši Latvijas tirgotājiem. Iepazīsties:',
+    guides: [
+      { icon: '€', title: 'Konvertē EUR uz USDC', desc: 'Soli pa solim ar Binance, Kraken', href: '/blog/convert-eur-to-usdc' },
+      { icon: '💰', title: 'Tirgo ar €50', desc: 'Maza konta stratēģijas ceļvedis', href: '/blog/trade-stocks-with-50-euros' },
+      { icon: '⚖️', title: 'ES regulējums', desc: 'MiCA, nodokļi un atbilstība', href: '/blog/equity-perps-legal-eu' },
+      { icon: '🤝', title: 'SEPA ceļvedis', desc: 'EUR pārskaitījumi un labākā prakse', href: '/blog/sepa-usdc-guide' }
+    ],
+
+    // CTA
+    ctaTitle: 'Sāc tirgot ASV akcijas šodien',
+    ctaDesc: 'Pievienojies Latvijas tirgotājiem, kas piekļūst NVDA, TSLA un 50+ ASV akcijām 24/7. Nav nepieciešams ASV brokeris. Sāc ar tikai ~€45.',
+    getStartedCta: 'Sāc tagad (4% atlaide)',
+
+    // Free Notice
+    freeNotice: 'Šī vietne ir',
+    freeNotice2: '100% bezmaksas',
+    freeNotice3: ' platformu salīdzināšanai, lai tirgotu akcijas 24/7. Reģistrējoties caur mūsu saitēm platformās kā',
+    freeNotice4: 'Hyperliquid',
+    freeNotice5: 'un',
+    freeNotice6: 'Lighter',
+    freeNotice7: ', tu saņem',
+    freeNotice8: '4% atlaidi tirdzniecības komisijām',
+    freeNotice9: ' ar mūsu referāla kodu. Tas palīdz atbalstīt vietni, vienlaikus ietaupot naudu katrā darījumā.',
+
+    // Related
+    relatedTitle: 'Saistītie ceļveži',
+    relatedGuides: [
+      { tag: 'FINANSĒŠANA', title: 'Konvertē EUR uz USDC', desc: 'Soli pa solim ar ekrānuzņēmumiem', href: '/blog/convert-eur-to-usdc' },
+      { tag: 'CEĻVEDIS', title: 'Tirgo ar €50', desc: 'Maza konta stratēģija', href: '/blog/trade-stocks-with-50-euros' },
+      { tag: 'LIKUMDOŠANA', title: 'ES regulējums', desc: 'Regulatīvais pārskats', href: '/blog/equity-perps-legal-eu' }
+    ]
+  }
+};
+
+export const popularStocks = [
+  { ticker: 'NVDA', name: 'Nvidia', hot: true },
+  { ticker: 'TSLA', name: 'Tesla', hot: true },
+  { ticker: 'AAPL', name: 'Apple', hot: false },
+  { ticker: 'MSFT', name: 'Microsoft', hot: false },
+  { ticker: 'META', name: 'Meta', hot: true },
+  { ticker: 'AMZN', name: 'Amazon', hot: false },
+  { ticker: 'GOOGL', name: 'Google', hot: false },
+  { ticker: 'COIN', name: 'Coinbase', hot: true },
+];

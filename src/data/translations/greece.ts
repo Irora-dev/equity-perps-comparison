@@ -1,344 +1,359 @@
-export const translations = {
-  en: {
-    badge: "Guide for Greek Traders",
-    heroTitle1: "Trade US Stocks",
-    heroTitle2: "from Greece",
-    heroDesc: "Access NVIDIA, Tesla, Apple with EUR. Start with €45. Trade 24/7 with SEPA.",
-    comparePlatforms: "Compare Platforms",
-    howItWorks: "How It Works",
-
-    // What are Equity Perps section
-    whatArePerpsTitle: "What Are Equity Perpetuals?",
-    whatArePerpsSubtitle: "A new way for Greek traders to access US stock markets",
-    whatArePerpsContent: "Equity perpetuals (or \"perps\") are derivative contracts that track the price of US stocks like Tesla, Nvidia, and Apple. Unlike traditional stock trading through a Greek broker, equity perps let you trade 24/7 from anywhere in Greece using just a digital wallet and USDC stablecoins.",
-    whatArePerpsHow: "How it works:",
-    whatArePerpsSteps: [
-      "Perps track real stock prices using price feeds (oracles) from major exchanges",
-      "You can go long (bet price goes up) or short (bet price goes down)",
-      "Use leverage to control larger positions with less capital",
-      "Trade anytime — markets never close, even on weekends and holidays",
-    ],
-    whatArePerpsCta: "No US brokerage account needed. No KYC. Just connect a wallet and start trading.",
-
-    // Why Equity Perps section
-    whyPerpsTitle: "Why Greek Traders Choose Equity Perps",
-    whyPerpsSubtitle: "Compared to traditional Greek brokerages",
-    whyPerpsReasons: [
-      {
-        icon: '🌍',
-        title: 'Global Access from Greece',
-        desc: 'Trade US stocks without opening a US brokerage account. No SSN required, no complex foreign account paperwork. Works with Greek bank accounts via SEPA.',
-      },
-      {
-        icon: '🕐',
-        title: '24/7 Trading',
-        desc: 'Traditional US markets are only open 16:30-23:00 EET. Equity perps trade around the clock — react to Tesla earnings at midnight or trade NVIDIA on Sunday morning.',
-      },
-      {
-        icon: '📈',
-        title: 'Up to 50x Leverage',
-        desc: 'Control a $5,000 Tesla position with just $100. Traditional Greek brokers offer limited leverage on US stocks. Start small and scale up as you learn.',
-      },
-      {
-        icon: '⚡',
-        title: 'Easy Short Selling',
-        desc: 'Think a stock will drop? Go short instantly. No borrowing shares, no hard-to-borrow fees, no restrictions. Just click sell and profit from falling prices.',
-      },
-      {
-        icon: '🔐',
-        title: 'Self-Custody',
-        desc: 'Your funds stay in your wallet. No broker holding your money. No withdrawal limits. No account freezes. You control your assets completely.',
-      },
-      {
-        icon: '💨',
-        title: 'Instant Settlement',
-        desc: 'No T+2 waiting period. Close a position and your profits are available immediately. Withdraw to your wallet in seconds, not days.',
-      },
-    ],
-
-    // Quick benefits (original)
-    benefits: [
-      { icon: '💰', title: 'Start with €45', desc: '~$50 USDC minimum' },
-      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime EET' },
-      { icon: '🏦', title: 'SEPA Ready', desc: 'EUR bank transfers' },
-      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
-    ],
-
-    // Enhanced Getting Started section
-    getStartedTitle: "How to Get Started",
-    getStartedSubtitle: "Complete guide for Greek traders — takes about 15 minutes",
-
-    step1Title: "Set Up Your Digital Wallet",
-    step1Subtitle: "Free, takes 2 minutes, and you only do this once",
-    step1WhatIsWallet: "What is a digital wallet?",
-    step1WhatIsWalletDesc: "Think of it like a digital bank account that you fully control. Instead of a bank holding your money, you hold it yourself using a simple browser extension.",
-    step1Features: [
-      { icon: '🔐', text: 'You control it' },
-      { icon: '🆓', text: 'Completely free' },
-      { icon: '⚡', text: '2 min setup' },
-      { icon: '🌍', text: 'Works globally' },
-    ],
-    step1Instructions: [
-      'Go to rabby.io (the wallet we recommend)',
-      'Click "Download" and add it to your browser (Chrome, Firefox, etc.)',
-      'Click "Create New Wallet" and set a password',
-      'Write down your 12-word recovery phrase — keep it safe and never share it!',
-    ],
-    step1VideoTitle: "Watch: 2-Minute Setup Guide",
-    step1Done: "I've set up my wallet",
-
-    step2Title: "Fund Your Wallet with USDC",
-    step2Subtitle: "Convert EUR to USDC using Binance or Kraken",
-    step2Methods: [
-      {
-        name: 'Binance with SEPA (Recommended)',
-        description: 'Buy USDC with EUR from your Greek bank',
-        steps: [
-          'Create a Binance account (free)',
-          'Deposit EUR via SEPA from your bank',
-          'Buy USDC with your EUR balance',
-          'Withdraw USDC to your Rabby wallet on Arbitrum',
-        ],
-        tip: 'Always use Arbitrum network for lowest fees (~€0.10)',
-      },
-      {
-        name: 'Kraken Exchange',
-        description: 'Alternative for larger amounts',
-        steps: [
-          'Create a Kraken account',
-          'Deposit EUR via SEPA transfer',
-          'Buy USDC with EUR',
-          'Withdraw USDC to Rabby on Arbitrum',
-        ],
-        tip: 'SEPA transfers typically arrive within 1-2 business days',
-      },
-    ],
-    step2MinAmount: "Start with €45 (~$50 USDC)",
-    step2Done: "I've funded my wallet",
-
-    step3Title: "Connect to Hyperliquid & Trade",
-    step3Subtitle: "The most popular platform for equity perps",
-    step3Instructions: [
-      'Go to app.hyperliquid.xyz',
-      'Click "Connect" and select Rabby Wallet',
-      'Deposit your USDC to the platform',
-      'Search for a stock (e.g., NVDA-PERP, TSLA-PERP)',
-      'Choose Long (price up) or Short (price down)',
-      'Set your leverage (start with 2-3x)',
-      'Enter position size and click trade!',
-    ],
-    step3Tip: "Start with small positions (5-10% of your account) while you learn.",
-    step3Cta: "Start Trading on Hyperliquid",
-
-    // Risk Warning
-    riskTitle: "Understand the Risks",
-    riskWarnings: [
-      { title: 'Leverage amplifies losses', desc: 'The same 10x that turns 5% into 50% gains also turns 5% losses into 50% losses.' },
-      { title: 'Liquidation is real', desc: 'Your position can be closed automatically if it moves against you enough.' },
-      { title: 'Funding rates cost money', desc: 'Holding positions costs money every few hours, especially on popular trades.' },
-      { title: 'No ownership', desc: "You're trading price exposure, not actual shares. No dividends, no voting rights." },
-    ],
-
-    // Original sections
-    stepsTitle: "Get Started in 4 Steps",
-    steps: [
-      { t: 'Convert EUR to USDC', d: 'Use Binance or Kraken with SEPA transfer.' },
-      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
-      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
-      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
-    ],
-    paymentTitle: "Greece Payment Methods",
-    digitalPayments: "Banks",
-    banks: "Exchanges",
-    faqTitle: "Frequently Asked Questions",
-    faqs: [
-      { question: 'Do I need a US brokerage account?', answer: 'No. Equity perps are synthetic derivatives that track US stock prices. You trade with USDC on decentralized platforms — no US broker, no SSN, no complex foreign account paperwork.' },
-      { question: 'Is this legal in Greece?', answer: 'Equity perps exist in a regulatory gray area. They are decentralized derivatives not specifically regulated in Greece. You are responsible for reporting any trading profits for tax purposes.' },
-      { question: 'How do I convert EUR to USDC?', answer: 'The easiest way is through Binance or Kraken with a SEPA transfer from your Greek bank. Piraeus Bank, Alpha Bank, Eurobank, and National Bank of Greece all support SEPA.' },
-      { question: "What's the minimum to start?", answer: 'You can start with as little as €45 (~$50 USDC). Fractional trading means you can trade any US stock regardless of its price — no need to buy a full share.' },
-      { question: 'What payment methods work from Greece?', answer: 'SEPA transfers from Greek banks are the most common method. Piraeus Bank, Alpha Bank, Eurobank, and National Bank of Greece all work well.' },
-      { question: 'How is this different from eToro or Degiro?', answer: 'Unlike Greek brokers, equity perps offer: 24/7 trading (not just US market hours), up to 50x leverage (vs 5x typical), no KYC required, self-custody of funds, and easier short selling.' },
-    ],
-    ctaTitle: "Ready to Trade US Stocks?",
-    ctaDesc: "Join thousands of Greek traders accessing US markets 24/7.",
-    freeNotice: "This site is",
-    freeNotice2: "100% free",
-    freeNotice3: ". Get",
-    freeNotice4: "4% off fees",
-    freeNotice5: "through our links.",
-  },
-  el: {
-    badge: "Οδηγός για Έλληνες Traders",
-    heroTitle1: "Κάντε Trading σε Αμερικανικές Μετοχές",
-    heroTitle2: "από την Ελλάδα",
-    heroDesc: "Αποκτήστε πρόσβαση σε NVIDIA, Tesla, Apple με EUR. Ξεκινήστε με €45. Trading 24/7 με SEPA.",
-    comparePlatforms: "Συγκρίνετε Πλατφόρμες",
-    howItWorks: "Πώς Λειτουργεί",
-
-    // What are Equity Perps section
-    whatArePerpsTitle: "Τι είναι τα Equity Perpetuals;",
-    whatArePerpsSubtitle: "Ένας νέος τρόπος για Έλληνες traders να αποκτήσουν πρόσβαση στις αμερικανικές αγορές",
-    whatArePerpsContent: "Τα Equity perpetuals (ή \"perps\") είναι παράγωγα συμβόλαια που παρακολουθούν την τιμή αμερικανικών μετοχών όπως Tesla, Nvidia και Apple. Σε αντίθεση με το παραδοσιακό trading μετοχών μέσω ελληνικού χρηματιστή, τα equity perps σας επιτρέπουν να κάνετε trading 24/7 από οπουδήποτε στην Ελλάδα χρησιμοποιώντας μόνο ένα ψηφιακό πορτοφόλι και stablecoins USDC.",
-    whatArePerpsHow: "Πώς λειτουργεί:",
-    whatArePerpsSteps: [
-      "Τα perps παρακολουθούν πραγματικές τιμές μετοχών χρησιμοποιώντας price feeds (oracles) από μεγάλα χρηματιστήρια",
-      "Μπορείτε να πάτε long (στοίχημα ότι η τιμή ανεβαίνει) ή short (στοίχημα ότι η τιμή πέφτει)",
-      "Χρησιμοποιήστε μόχλευση για να ελέγξετε μεγαλύτερες θέσεις με λιγότερο κεφάλαιο",
-      "Κάντε trading οποτεδήποτε — οι αγορές δεν κλείνουν ποτέ, ακόμα και τα Σαββατοκύριακα και τις αργίες",
-    ],
-    whatArePerpsCta: "Δεν χρειάζεται λογαριασμός χρηματιστηρίου στις ΗΠΑ. Χωρίς KYC. Απλά συνδέστε το πορτοφόλι σας και ξεκινήστε.",
-
-    // Why Equity Perps section
-    whyPerpsTitle: "Γιατί οι Έλληνες Traders Επιλέγουν τα Equity Perps",
-    whyPerpsSubtitle: "Σε σύγκριση με τα παραδοσιακά ελληνικά χρηματιστήρια",
-    whyPerpsReasons: [
-      {
-        icon: '🌍',
-        title: 'Παγκόσμια Πρόσβαση από την Ελλάδα',
-        desc: 'Κάντε trading αμερικανικές μετοχές χωρίς να ανοίξετε λογαριασμό σε αμερικανικό χρηματιστήριο. Δεν απαιτείται SSN, χωρίς περίπλοκα έγγραφα. Λειτουργεί με ελληνικούς τραπεζικούς λογαριασμούς μέσω SEPA.',
-      },
-      {
-        icon: '🕐',
-        title: 'Trading 24/7',
-        desc: 'Οι παραδοσιακές αμερικανικές αγορές είναι ανοιχτές μόνο 16:30-23:00 EET. Τα Equity perps λειτουργούν όλο το 24ωρο — αντιδράστε στα αποτελέσματα της Tesla τα μεσάνυχτα ή κάντε trading NVIDIA την Κυριακή το πρωί.',
-      },
-      {
-        icon: '📈',
-        title: 'Έως 50x Μόχλευση',
-        desc: 'Ελέγξτε μια θέση Tesla αξίας $5,000 με μόλις $100. Οι παραδοσιακοί Έλληνες χρηματιστές προσφέρουν περιορισμένη μόχλευση. Ξεκινήστε μικρά και κλιμακώστε καθώς μαθαίνετε.',
-      },
-      {
-        icon: '⚡',
-        title: 'Εύκολο Short Selling',
-        desc: 'Νομίζετε ότι μια μετοχή θα πέσει; Κάντε short αμέσως. Χωρίς δανεισμό μετοχών, χωρίς προμήθειες, χωρίς περιορισμούς. Απλά κάντε κλικ πώληση και κερδίστε από τις πτώσεις.',
-      },
-      {
-        icon: '🔐',
-        title: 'Self-Custody',
-        desc: 'Τα κεφάλαιά σας παραμένουν στο πορτοφόλι σας. Κανένας χρηματιστής δεν κρατά τα χρήματά σας. Χωρίς όρια αναλήψεων. Χωρίς πάγωμα λογαριασμού. Εσείς ελέγχετε πλήρως τα περιουσιακά σας στοιχεία.',
-      },
-      {
-        icon: '💨',
-        title: 'Άμεση Εκκαθάριση',
-        desc: 'Χωρίς αναμονή T+2. Κλείστε μια θέση και τα κέρδη σας είναι διαθέσιμα αμέσως. Ανάληψη στο πορτοφόλι σας σε δευτερόλεπτα, όχι μέρες.',
-      },
-    ],
-
-    // Quick benefits (original)
-    benefits: [
-      { icon: '💰', title: 'Ξεκινήστε με €45', desc: '~$50 USDC ελάχιστο' },
-      { icon: '🕐', title: 'Trading 24/7', desc: 'Κάντε trading οποιαδήποτε ώρα' },
-      { icon: '🏦', title: 'SEPA Έτοιμο', desc: 'Τραπεζικές μεταφορές EUR' },
-      { icon: '🔐', title: 'Self-Custody', desc: 'Τα κλειδιά σας, τα νομίσματά σας' },
-    ],
-
-    // Enhanced Getting Started section
-    getStartedTitle: "Πώς να Ξεκινήσετε",
-    getStartedSubtitle: "Πλήρης οδηγός για Έλληνες traders — διαρκεί περίπου 15 λεπτά",
-
-    step1Title: "Δημιουργήστε το Ψηφιακό σας Πορτοφόλι",
-    step1Subtitle: "Δωρεάν, διαρκεί 2 λεπτά, το κάνετε μόνο μία φορά",
-    step1WhatIsWallet: "Τι είναι το ψηφιακό πορτοφόλι;",
-    step1WhatIsWalletDesc: "Σκεφτείτε το σαν έναν ψηφιακό τραπεζικό λογαριασμό που ελέγχετε πλήρως εσείς. Αντί η τράπεζα να κρατά τα χρήματά σας, τα κρατάτε εσείς χρησιμοποιώντας μια απλή επέκταση browser.",
-    step1Features: [
-      { icon: '🔐', text: 'Εσείς το ελέγχετε' },
-      { icon: '🆓', text: 'Εντελώς δωρεάν' },
-      { icon: '⚡', text: '2 λεπτά εγκατάσταση' },
-      { icon: '🌍', text: 'Λειτουργεί παγκοσμίως' },
-    ],
-    step1Instructions: [
-      'Πηγαίνετε στο rabby.io (το πορτοφόλι που προτείνουμε)',
-      'Κάντε κλικ στο "Download" και προσθέστε το στον browser σας (Chrome, Firefox, κλπ.)',
-      'Κάντε κλικ στο "Create New Wallet" και ορίστε έναν κωδικό',
-      'Σημειώστε τη φράση ανάκτησης 12 λέξεων — κρατήστε την ασφαλή και μην τη μοιραστείτε ποτέ!',
-    ],
-    step1VideoTitle: "Δείτε: Οδηγός Εγκατάστασης 2 Λεπτών",
-    step1Done: "Έχω ρυθμίσει το πορτοφόλι μου",
-
-    step2Title: "Χρηματοδοτήστε το Πορτοφόλι σας με USDC",
-    step2Subtitle: "Μετατρέψτε EUR σε USDC χρησιμοποιώντας Binance ή Kraken",
-    step2Methods: [
-      {
-        name: 'Binance με SEPA (Προτεινόμενο)',
-        description: 'Αγοράστε USDC με EUR από την ελληνική σας τράπεζα',
-        steps: [
-          'Δημιουργήστε λογαριασμό Binance (δωρεάν)',
-          'Καταθέστε EUR μέσω SEPA από την τράπεζά σας',
-          'Αγοράστε USDC με το υπόλοιπο EUR σας',
-          'Αναλάβετε USDC στο πορτοφόλι Rabby σας στο Arbitrum',
-        ],
-        tip: 'Χρησιμοποιήστε πάντα το δίκτυο Arbitrum για τα χαμηλότερα τέλη (~€0.10)',
-      },
-      {
-        name: 'Ανταλλακτήριο Kraken',
-        description: 'Εναλλακτική για μεγαλύτερα ποσά',
-        steps: [
-          'Δημιουργήστε λογαριασμό Kraken',
-          'Καταθέστε EUR μέσω SEPA μεταφοράς',
-          'Αγοράστε USDC με EUR',
-          'Αναλάβετε USDC στο Rabby στο Arbitrum',
-        ],
-        tip: 'Οι μεταφορές SEPA συνήθως φτάνουν εντός 1-2 εργάσιμων ημερών',
-      },
-    ],
-    step2MinAmount: "Ξεκινήστε με €45 (~$50 USDC)",
-    step2Done: "Έχω χρηματοδοτήσει το πορτοφόλι μου",
-
-    step3Title: "Συνδεθείτε στο Hyperliquid και Κάντε Trading",
-    step3Subtitle: "Η πιο δημοφιλής πλατφόρμα για equity perps",
-    step3Instructions: [
-      'Πηγαίνετε στο app.hyperliquid.xyz',
-      'Κάντε κλικ στο "Connect" και επιλέξτε Rabby Wallet',
-      'Καταθέστε τα USDC σας στην πλατφόρμα',
-      'Αναζητήστε μια μετοχή (π.χ., NVDA-PERP, TSLA-PERP)',
-      'Επιλέξτε Long (τιμή πάνω) ή Short (τιμή κάτω)',
-      'Ρυθμίστε τη μόχλευση (ξεκινήστε με 2-3x)',
-      'Εισάγετε το μέγεθος θέσης και κάντε κλικ trade!',
-    ],
-    step3Tip: "Ξεκινήστε με μικρές θέσεις (5-10% του λογαριασμού σας) ενώ μαθαίνετε.",
-    step3Cta: "Ξεκινήστε Trading στο Hyperliquid",
-
-    // Risk Warning
-    riskTitle: "Κατανοήστε τους Κινδύνους",
-    riskWarnings: [
-      { title: 'Η μόχλευση ενισχύει τις απώλειες', desc: 'Η ίδια μόχλευση 10x που μετατρέπει το 5% κέρδος σε 50%, μετατρέπει επίσης το 5% ζημία σε 50% ζημία.' },
-      { title: 'Η εκκαθάριση είναι πραγματική', desc: 'Η θέση σας μπορεί να κλείσει αυτόματα αν κινηθεί αρκετά εναντίον σας.' },
-      { title: 'Τα funding rates κοστίζουν', desc: 'Η διατήρηση θέσεων κοστίζει χρήματα κάθε λίγες ώρες, ειδικά σε δημοφιλείς συναλλαγές.' },
-      { title: 'Χωρίς ιδιοκτησία', desc: 'Κάνετε trading έκθεση στην τιμή, όχι πραγματικές μετοχές. Χωρίς μερίσματα, χωρίς δικαιώματα ψήφου.' },
-    ],
-
-    // Original sections
-    stepsTitle: "Ξεκινήστε σε 4 Βήματα",
-    steps: [
-      { t: 'Μετατρέψτε EUR σε USDC', d: 'Χρησιμοποιήστε Binance ή Kraken με SEPA μεταφορά.' },
-      { t: 'Επιλέξτε Πλατφόρμα', d: 'Συγκρίνετε πλατφόρμες.', l: '/', lt: 'Σύγκριση' },
-      { t: 'Συνδέστε Πορτοφόλι', d: 'Χρησιμοποιήστε MetaMask ή Rabby.' },
-      { t: 'Ξεκινήστε το Trading', d: 'Ξεκινήστε με 2-3x μόχλευση.' },
-    ],
-    paymentTitle: "Μέθοδοι Πληρωμής Ελλάδας",
-    digitalPayments: "Τράπεζες",
-    banks: "Ανταλλακτήρια",
-    faqTitle: "Συχνές Ερωτήσεις",
-    faqs: [
-      { question: 'Χρειάζομαι λογαριασμό χρηματιστή στις ΗΠΑ;', answer: 'Όχι. Τα Equity perps είναι συνθετικά παράγωγα που παρακολουθούν τις τιμές αμερικανικών μετοχών. Κάνετε trading με USDC σε αποκεντρωμένες πλατφόρμες — χωρίς αμερικανικό χρηματιστή, χωρίς SSN, χωρίς περίπλοκα έγγραφα.' },
-      { question: 'Είναι νόμιμο στην Ελλάδα;', answer: 'Τα Equity perps υπάρχουν σε μια γκρίζα ρυθμιστική ζώνη. Είναι αποκεντρωμένα παράγωγα που δεν ρυθμίζονται συγκεκριμένα στην Ελλάδα. Είστε υπεύθυνοι για τη δήλωση τυχόν κερδών από trading για φορολογικούς σκοπούς.' },
-      { question: 'Πώς μετατρέπω EUR σε USDC;', answer: 'Ο ευκολότερος τρόπος είναι μέσω Binance ή Kraken με SEPA μεταφορά από την ελληνική σας τράπεζα. Η Τράπεζα Πειραιώς, Alpha Bank, Eurobank και Εθνική Τράπεζα υποστηρίζουν SEPA.' },
-      { question: 'Ποιο είναι το ελάχιστο για να ξεκινήσω;', answer: 'Μπορείτε να ξεκινήσετε με μόλις €45 (~$50 USDC). Το κλασματικό trading σημαίνει ότι μπορείτε να κάνετε trading οποιαδήποτε αμερικανική μετοχή ανεξάρτητα από την τιμή της — δεν χρειάζεται να αγοράσετε ολόκληρη μετοχή.' },
-      { question: 'Ποιες μέθοδοι πληρωμής λειτουργούν από την Ελλάδα;', answer: 'Οι μεταφορές SEPA από ελληνικές τράπεζες είναι η πιο κοινή μέθοδος. Η Τράπεζα Πειραιώς, Alpha Bank, Eurobank και Εθνική Τράπεζα λειτουργούν όλες καλά.' },
-      { question: 'Πώς διαφέρει αυτό από το eToro ή το Degiro;', answer: 'Σε αντίθεση με τους Έλληνες χρηματιστές, τα equity perps προσφέρουν: trading 24/7 (όχι μόνο ώρες αγοράς ΗΠΑ), έως 50x μόχλευση (vs τυπικό 5x), χωρίς KYC, self-custody κεφαλαίων και ευκολότερο short selling.' },
-    ],
-    ctaTitle: "Έτοιμοι να Κάνετε Trading Αμερικανικές Μετοχές;",
-    ctaDesc: "Ενταχθείτε σε χιλιάδες Έλληνες traders με πρόσβαση στις αμερικανικές αγορές 24/7.",
-    freeNotice: "Αυτός ο ιστότοπος είναι",
-    freeNotice2: "100% δωρεάν",
-    freeNotice3: ". Πάρτε",
-    freeNotice4: "4% έκπτωση",
-    freeNotice5: "μέσω των συνδέσμων μας.",
-  },
-};
-
-export const digitalPayments = ['Piraeus Bank', 'Alpha Bank', 'Eurobank', 'National Bank of Greece'];
-export const banksList = ['Binance', 'Kraken', 'Coinbase', 'Bitstamp'];
 export const nativeLang = 'el';
 export const nativeName = 'Ελληνικά';
-export const popularStocks = ['NVDA', 'TSLA', 'AAPL', 'META', 'MSFT', 'AMZN'];
+export const isRTL = false;
+
+export const translations = {
+  en: {
+    // Breadcrumb
+    home: 'Home',
+    blog: 'Blog',
+    pageTitle: 'Trade US Stocks from Greece',
+
+    // Hero
+    badge: 'Greece Guide',
+    noBrokerBadge: 'No Broker Needed',
+    heroTitle1: 'Trade US Stocks',
+    heroTitle2: 'From Greece',
+    heroDesc: 'Access NVDA, TSLA, AAPL and 50+ US stocks without a US brokerage account. Convert EUR to USDC and start trading in',
+    heroDescHighlight: '15 minutes',
+    startTrading: 'Start Trading Now',
+    howItWorks: 'How It Works',
+
+    // Quick Stats
+    statMinimumValue: '~€45',
+    statMinimum: 'Minimum to Start',
+    statTimeValue: '24/7',
+    statTime: 'Any Time EET',
+    statStocksValue: '50+',
+    statStocks: 'US Stocks',
+    statKycValue: 'No KYC',
+    statKyc: 'On Trading Platform',
+
+    // Why Section
+    whyTitle: 'Why Greek Traders Choose Equity Perps',
+    whyCards: [
+      {
+        icon: '🇪🇺',
+        title: 'EU-Friendly Access',
+        desc: 'No need for US brokerage accounts or complex foreign paperwork. Trade US stocks using EUR from your Greek bank via SEPA transfers.'
+      },
+      {
+        icon: '⚡',
+        title: 'Instant Access',
+        desc: 'No waiting weeks for US brokerage approval. Convert EUR to USDC via Binance or Kraken and start trading the same day.'
+      },
+      {
+        icon: '🕐',
+        title: 'Trade After Hours',
+        desc: 'US markets are only open 16:30-23:00 EET. With equity perps, trade whenever you want - morning, afternoon, or midnight.'
+      },
+      {
+        icon: '💰',
+        title: 'Start with ~€45',
+        desc: 'Most US brokers need $500+ minimum. Here, start with just ~€45 (~$50 USDC) and use leverage to control larger positions.'
+      }
+    ],
+
+    // Get Started Section
+    stepByStep: 'Step-by-Step Guide',
+    getStartedTitle: 'Get Started in 15 Minutes',
+    getStartedDesc: 'Follow these steps to start trading US stocks from Greece today.',
+
+    // Step 1: Wallet
+    step1Title: 'Set Up Your Digital Wallet',
+    step1Desc: 'Free, takes 2 minutes, and you only do this once',
+    walletExplainTitle: 'What is a digital wallet?',
+    walletExplainDesc: 'Think of it like a',
+    walletExplainHighlight: 'digital bank account you control',
+    walletExplainDesc2: '. Instead of a bank holding your money, you hold it yourself using a simple browser extension.',
+    walletFeatures: ['You control it', 'Completely free', '2 min setup', 'Works in Greece'],
+    walletSetupTitle: "Here's how to set it up:",
+    walletSteps: [
+      { text: 'Go to', link: 'rabby.io' },
+      { text: 'Click "Download" and add to Chrome/Brave' },
+      { text: 'Click "Create New Wallet" and set a password' },
+      { text: 'Write down your 12-word recovery phrase', warning: 'Keep it safe and never share it!' }
+    ],
+    watchVideo: 'Watch: 2-Minute Setup Guide',
+
+    // Step 2: Funding
+    step2Title: 'Convert EUR to USDC',
+    step2Desc: 'Use Binance, Kraken, or Coinbase with SEPA',
+    fundingIntro: 'You need USDC (a stablecoin worth $1) to trade. Here are the best ways to convert EUR:',
+    binanceP2P: {
+      title: 'Binance with SEPA',
+      desc: 'Best for most Greek traders',
+      steps: ['Create Binance account', 'Deposit EUR via SEPA', 'Buy USDC with EUR', 'Withdraw to Rabby (Arbitrum)']
+    },
+    wazirx: {
+      title: 'Kraken Exchange',
+      desc: 'Alternative for larger amounts',
+      steps: ['Create Kraken account', 'Deposit EUR via SEPA', 'Buy USDC with EUR', 'Withdraw to Rabby (Arbitrum)']
+    },
+    coindcx: {
+      title: 'Coinbase',
+      desc: 'EU-regulated, user-friendly',
+      steps: ['Create Coinbase account', 'Deposit EUR via SEPA', 'Buy USDC directly', '(Higher fees but simpler)']
+    },
+    proTip: 'Pro tip:',
+    proTipText: 'SEPA transfers from Piraeus Bank, Alpha Bank, Eurobank, or National Bank of Greece typically arrive within 1-2 business days.',
+    seeDetailedGuide: 'See detailed EUR to USDC guide with screenshots',
+
+    // Step 3: Trade
+    step3Title: 'Start Trading',
+    step3Desc: 'Connect to Hyperliquid and trade 50+ US stocks',
+    tradeSteps: [
+      { text: 'Go to', linkText: 'app.hyperliquid.xyz' },
+      { text: 'Click "Connect" and select Rabby Wallet' },
+      { text: 'Click "Deposit" and bridge your USDC' },
+      { text: 'Search for a stock (NVDA, TSLA, AAPL) and open a position!' }
+    ],
+    openHyperliquid: 'Open Hyperliquid (4% Off Fees)',
+
+    // Popular Stocks
+    popularStocksTitle: 'Popular US Stocks Available',
+    viewAllStocks: 'View all 50+ stocks →',
+    hot: 'HOT',
+
+    // FAQ
+    faqTitle: 'Frequently Asked Questions',
+    faqs: [
+      {
+        question: 'Is it legal to trade US stocks from Greece using equity perps?',
+        answer: "Equity perpetuals exist in a regulatory gray area. They are not explicitly regulated by Greek authorities as they operate on decentralized platforms. You're not directly buying US stocks - you're trading price exposure through synthetic contracts. Many Greek traders use these platforms, but you should understand the regulatory landscape and consult a tax professional."
+      },
+      {
+        question: 'Do I need to pay tax on profits from equity perps in Greece?',
+        answer: 'Yes, profits from trading are likely taxable in Greece. They may be classified as capital gains or other income depending on your situation. Maintain records of all trades and consult a tax advisor familiar with crypto/derivatives taxation in Greece.'
+      },
+      {
+        question: "What's the minimum amount I need to start?",
+        answer: 'You can start with as little as ~€45 (~$50 USDC). With leverage, this gives you exposure to $500-3,000 worth of stocks. We recommend starting small to learn the platform.'
+      },
+      {
+        question: 'Can I trade outside US market hours?',
+        answer: "Yes! Equity perps trade 24/7. You can trade US stocks at any time - morning, evening, or late night EET. There's no restriction on trading hours, unlike traditional brokers."
+      },
+      {
+        question: 'Is KYC required?',
+        answer: "The trading platforms (like Hyperliquid) don't require KYC. However, you'll need to complete KYC on an exchange (Binance, Kraken, Coinbase) to convert EUR to USDC initially."
+      }
+    ],
+
+    // More Guides
+    moreGuidesTitle: 'More Greece Guides',
+    moreGuidesDesc: "We've created detailed guides specifically for Greek traders. Check them out:",
+    guides: [
+      { icon: '€', title: 'Convert EUR to USDC', desc: 'Step-by-step with SEPA transfers', href: '/blog/convert-eur-to-usdc' },
+      { icon: '💰', title: 'Trade with €50', desc: 'Small account strategy guide', href: '/blog/trade-stocks-with-50-euros' },
+      { icon: '⚖️', title: 'Is It Legal in Greece?', desc: 'Regulations, taxes, and compliance', href: '/blog/equity-perps-legal-greece' },
+      { icon: '🤝', title: 'P2P Trading Guide', desc: 'Global P2P methods and safety tips', href: '/blog/p2p-usdc-guide' }
+    ],
+
+    // CTA
+    ctaTitle: 'Start Trading US Stocks Today',
+    ctaDesc: 'Join thousands of Greek traders accessing NVDA, TSLA, and 50+ US stocks 24/7. No US broker needed. Start with just ~€45.',
+    getStartedCta: 'Get Started Now (4% Off Fees)',
+
+    // Free Notice
+    freeNotice: 'This site is',
+    freeNotice2: '100% free',
+    freeNotice3: ' to use for comparing the best platforms to trade stocks 24/7. When you sign up through our links to platforms like',
+    freeNotice4: 'Hyperliquid',
+    freeNotice5: 'and',
+    freeNotice6: 'Lighter',
+    freeNotice7: ', you get a',
+    freeNotice8: '4% discount on trading fees',
+    freeNotice9: ' with our referral code. This helps support the site while saving you money on every trade.',
+
+    // Related
+    relatedTitle: 'Related Guides',
+    relatedGuides: [
+      { tag: 'FUNDING', title: 'Convert EUR to USDC', desc: 'Step-by-step with screenshots', href: '/blog/convert-eur-to-usdc' },
+      { tag: 'GUIDE', title: 'Trade with €50', desc: 'Small account strategy', href: '/blog/trade-stocks-with-50-euros' },
+      { tag: 'LEGAL', title: 'Is It Legal in Greece?', desc: 'Regulatory overview', href: '/blog/equity-perps-legal-greece' }
+    ]
+  },
+  el: {
+    // Breadcrumb
+    home: 'Αρχική',
+    blog: 'Ιστολόγιο',
+    pageTitle: 'Κάντε Trading Αμερικανικές Μετοχές από την Ελλάδα',
+
+    // Hero
+    badge: 'Οδηγός Ελλάδας',
+    noBrokerBadge: 'Χωρίς Χρηματιστή',
+    heroTitle1: 'Κάντε Trading Αμερικανικές Μετοχές',
+    heroTitle2: 'από την Ελλάδα',
+    heroDesc: 'Αποκτήστε πρόσβαση σε NVDA, TSLA, AAPL και 50+ αμερικανικές μετοχές χωρίς λογαριασμό χρηματιστηρίου ΗΠΑ. Μετατρέψτε EUR σε USDC και ξεκινήστε το trading σε',
+    heroDescHighlight: '15 λεπτά',
+    startTrading: 'Ξεκινήστε το Trading Τώρα',
+    howItWorks: 'Πώς Λειτουργεί',
+
+    // Quick Stats
+    statMinimumValue: '~€45',
+    statMinimum: 'Ελάχιστο για να ξεκινήσετε',
+    statTimeValue: '24/7',
+    statTime: 'Οποιαδήποτε ώρα EET',
+    statStocksValue: '50+',
+    statStocks: 'Αμερικανικές Μετοχές',
+    statKycValue: 'Χωρίς KYC',
+    statKyc: 'Στην Πλατφόρμα Trading',
+
+    // Why Section
+    whyTitle: 'Γιατί οι Έλληνες Traders Επιλέγουν τα Equity Perps',
+    whyCards: [
+      {
+        icon: '🇪🇺',
+        title: 'Φιλική προς την ΕΕ Πρόσβαση',
+        desc: 'Χωρίς ανάγκη για λογαριασμούς χρηματιστηρίου ΗΠΑ ή περίπλοκα ξένα έγγραφα. Κάντε trading αμερικανικές μετοχές χρησιμοποιώντας EUR από την ελληνική σας τράπεζα μέσω SEPA.'
+      },
+      {
+        icon: '⚡',
+        title: 'Άμεση Πρόσβαση',
+        desc: 'Χωρίς αναμονή εβδομάδων για έγκριση χρηματιστηρίου ΗΠΑ. Μετατρέψτε EUR σε USDC μέσω Binance ή Kraken και ξεκινήστε το trading την ίδια μέρα.'
+      },
+      {
+        icon: '🕐',
+        title: 'Trading Εκτός Ωρών',
+        desc: 'Οι αμερικανικές αγορές είναι ανοιχτές μόνο 16:30-23:00 EET. Με τα equity perps, κάντε trading όποτε θέλετε - πρωί, απόγευμα ή μεσάνυχτα.'
+      },
+      {
+        icon: '💰',
+        title: 'Ξεκινήστε με ~€45',
+        desc: 'Οι περισσότεροι χρηματιστές ΗΠΑ χρειάζονται ελάχιστο $500+. Εδώ, ξεκινήστε με μόλις ~€45 (~$50 USDC) και χρησιμοποιήστε μόχλευση για μεγαλύτερες θέσεις.'
+      }
+    ],
+
+    // Get Started Section
+    stepByStep: 'Οδηγός Βήμα-Βήμα',
+    getStartedTitle: 'Ξεκινήστε σε 15 Λεπτά',
+    getStartedDesc: 'Ακολουθήστε αυτά τα βήματα για να ξεκινήσετε το trading αμερικανικών μετοχών από την Ελλάδα σήμερα.',
+
+    // Step 1: Wallet
+    step1Title: 'Δημιουργήστε το Ψηφιακό σας Πορτοφόλι',
+    step1Desc: 'Δωρεάν, διαρκεί 2 λεπτά, το κάνετε μόνο μία φορά',
+    walletExplainTitle: 'Τι είναι το ψηφιακό πορτοφόλι;',
+    walletExplainDesc: 'Σκεφτείτε το σαν',
+    walletExplainHighlight: 'ψηφιακό τραπεζικό λογαριασμό που ελέγχετε εσείς',
+    walletExplainDesc2: '. Αντί η τράπεζα να κρατά τα χρήματά σας, τα κρατάτε εσείς χρησιμοποιώντας μια απλή επέκταση browser.',
+    walletFeatures: ['Εσείς το ελέγχετε', 'Εντελώς δωρεάν', '2 λεπτά εγκατάσταση', 'Λειτουργεί στην Ελλάδα'],
+    walletSetupTitle: 'Πώς να το ρυθμίσετε:',
+    walletSteps: [
+      { text: 'Πηγαίνετε στο', link: 'rabby.io' },
+      { text: 'Κάντε κλικ στο "Download" και προσθέστε το στον Chrome/Brave' },
+      { text: 'Κάντε κλικ στο "Create New Wallet" και ορίστε κωδικό' },
+      { text: 'Σημειώστε τη φράση ανάκτησης 12 λέξεων', warning: 'Κρατήστε την ασφαλή και μην τη μοιραστείτε ποτέ!' }
+    ],
+    watchVideo: 'Δείτε: Οδηγός Εγκατάστασης 2 Λεπτών',
+
+    // Step 2: Funding
+    step2Title: 'Μετατρέψτε EUR σε USDC',
+    step2Desc: 'Χρησιμοποιήστε Binance, Kraken ή Coinbase με SEPA',
+    fundingIntro: 'Χρειάζεστε USDC (ένα stablecoin αξίας $1) για trading. Οι καλύτεροι τρόποι μετατροπής EUR:',
+    binanceP2P: {
+      title: 'Binance με SEPA',
+      desc: 'Καλύτερο για τους περισσότερους Έλληνες traders',
+      steps: ['Δημιουργήστε λογαριασμό Binance', 'Καταθέστε EUR μέσω SEPA', 'Αγοράστε USDC με EUR', 'Αναλάβετε στο Rabby (Arbitrum)']
+    },
+    wazirx: {
+      title: 'Ανταλλακτήριο Kraken',
+      desc: 'Εναλλακτική για μεγαλύτερα ποσά',
+      steps: ['Δημιουργήστε λογαριασμό Kraken', 'Καταθέστε EUR μέσω SEPA', 'Αγοράστε USDC με EUR', 'Αναλάβετε στο Rabby (Arbitrum)']
+    },
+    coindcx: {
+      title: 'Coinbase',
+      desc: 'Ρυθμισμένο στην ΕΕ, φιλικό',
+      steps: ['Δημιουργήστε λογαριασμό Coinbase', 'Καταθέστε EUR μέσω SEPA', 'Αγοράστε USDC απευθείας', '(Υψηλότερα τέλη αλλά απλούστερο)']
+    },
+    proTip: 'Συμβουλή:',
+    proTipText: 'Οι μεταφορές SEPA από Τράπεζα Πειραιώς, Alpha Bank, Eurobank ή Εθνική Τράπεζα συνήθως φτάνουν εντός 1-2 εργάσιμων ημερών.',
+    seeDetailedGuide: 'Δείτε αναλυτικό οδηγό EUR σε USDC με screenshots',
+
+    // Step 3: Trade
+    step3Title: 'Ξεκινήστε το Trading',
+    step3Desc: 'Συνδεθείτε στο Hyperliquid και κάντε trading 50+ αμερικανικές μετοχές',
+    tradeSteps: [
+      { text: 'Πηγαίνετε στο', linkText: 'app.hyperliquid.xyz' },
+      { text: 'Κάντε κλικ στο "Connect" και επιλέξτε Rabby Wallet' },
+      { text: 'Κάντε κλικ στο "Deposit" και γεφυρώστε τα USDC σας' },
+      { text: 'Αναζητήστε μετοχή (NVDA, TSLA, AAPL) και ανοίξτε θέση!' }
+    ],
+    openHyperliquid: 'Ανοίξτε το Hyperliquid (4% Έκπτωση Τελών)',
+
+    // Popular Stocks
+    popularStocksTitle: 'Δημοφιλείς Διαθέσιμες Αμερικανικές Μετοχές',
+    viewAllStocks: 'Δείτε όλες τις 50+ μετοχές →',
+    hot: 'HOT',
+
+    // FAQ
+    faqTitle: 'Συχνές Ερωτήσεις',
+    faqs: [
+      {
+        question: 'Είναι νόμιμο να κάνω trading αμερικανικές μετοχές από την Ελλάδα με equity perps;',
+        answer: 'Τα equity perpetuals υπάρχουν σε μια ρυθμιστική γκρίζα ζώνη. Δεν ρυθμίζονται ρητά από τις ελληνικές αρχές καθώς λειτουργούν σε αποκεντρωμένες πλατφόρμες. Δεν αγοράζετε απευθείας αμερικανικές μετοχές - κάνετε trading έκθεση στην τιμή μέσω συνθετικών συμβολαίων. Πολλοί Έλληνες traders χρησιμοποιούν αυτές τις πλατφόρμες, αλλά θα πρέπει να κατανοήσετε το ρυθμιστικό τοπίο και να συμβουλευτείτε φοροτεχνικό.'
+      },
+      {
+        question: 'Πρέπει να πληρώσω φόρο στα κέρδη από equity perps στην Ελλάδα;',
+        answer: 'Ναι, τα κέρδη από trading είναι πιθανόν φορολογητέα στην Ελλάδα. Μπορεί να ταξινομηθούν ως κεφαλαιακά κέρδη ή άλλο εισόδημα ανάλογα με την περίπτωσή σας. Διατηρήστε αρχεία όλων των συναλλαγών και συμβουλευτείτε φοροτεχνικό εξοικειωμένο με τη φορολογία crypto/παραγώγων στην Ελλάδα.'
+      },
+      {
+        question: 'Ποιο είναι το ελάχιστο ποσό για να ξεκινήσω;',
+        answer: 'Μπορείτε να ξεκινήσετε με μόλις ~€45 (~$50 USDC). Με μόχλευση, αυτό σας δίνει έκθεση σε μετοχές αξίας $500-3,000. Προτείνουμε να ξεκινήσετε μικρά για να μάθετε την πλατφόρμα.'
+      },
+      {
+        question: 'Μπορώ να κάνω trading εκτός ωρών αμερικανικής αγοράς;',
+        answer: 'Ναι! Τα equity perps λειτουργούν 24/7. Μπορείτε να κάνετε trading αμερικανικές μετοχές οποιαδήποτε στιγμή - πρωί, βράδυ ή αργά τη νύχτα EET. Δεν υπάρχει περιορισμός στις ώρες trading, σε αντίθεση με τους παραδοσιακούς χρηματιστές.'
+      },
+      {
+        question: 'Απαιτείται KYC;',
+        answer: 'Οι πλατφόρμες trading (όπως το Hyperliquid) δεν απαιτούν KYC. Ωστόσο, θα χρειαστεί να ολοκληρώσετε KYC σε ένα ανταλλακτήριο (Binance, Kraken, Coinbase) για να μετατρέψετε αρχικά EUR σε USDC.'
+      }
+    ],
+
+    // More Guides
+    moreGuidesTitle: 'Περισσότεροι Οδηγοί για την Ελλάδα',
+    moreGuidesDesc: 'Δημιουργήσαμε αναλυτικούς οδηγούς ειδικά για Έλληνες traders. Δείτε τους:',
+    guides: [
+      { icon: '€', title: 'Μετατροπή EUR σε USDC', desc: 'Βήμα-βήμα με μεταφορές SEPA', href: '/blog/convert-eur-to-usdc' },
+      { icon: '💰', title: 'Trading με €50', desc: 'Οδηγός στρατηγικής μικρού λογαριασμού', href: '/blog/trade-stocks-with-50-euros' },
+      { icon: '⚖️', title: 'Είναι Νόμιμο στην Ελλάδα;', desc: 'Κανονισμοί, φόροι και συμμόρφωση', href: '/blog/equity-perps-legal-greece' },
+      { icon: '🤝', title: 'Οδηγός P2P Trading', desc: 'Παγκόσμιες μέθοδοι P2P και συμβουλές ασφαλείας', href: '/blog/p2p-usdc-guide' }
+    ],
+
+    // CTA
+    ctaTitle: 'Ξεκινήστε το Trading Αμερικανικών Μετοχών Σήμερα',
+    ctaDesc: 'Ενταχθείτε σε χιλιάδες Έλληνες traders με πρόσβαση σε NVDA, TSLA και 50+ αμερικανικές μετοχές 24/7. Χωρίς χρηματιστή ΗΠΑ. Ξεκινήστε με μόλις ~€45.',
+    getStartedCta: 'Ξεκινήστε Τώρα (4% Έκπτωση Τελών)',
+
+    // Free Notice
+    freeNotice: 'Αυτός ο ιστότοπος είναι',
+    freeNotice2: '100% δωρεάν',
+    freeNotice3: ' για χρήση για σύγκριση των καλύτερων πλατφορμών για trading μετοχών 24/7. Όταν εγγραφείτε μέσω των συνδέσμων μας σε πλατφόρμες όπως',
+    freeNotice4: 'Hyperliquid',
+    freeNotice5: 'και',
+    freeNotice6: 'Lighter',
+    freeNotice7: ', λαμβάνετε',
+    freeNotice8: '4% έκπτωση στα τέλη trading',
+    freeNotice9: ' με τον κωδικό παραπομπής μας. Αυτό βοηθά να υποστηρίξετε τον ιστότοπο ενώ εξοικονομείτε χρήματα σε κάθε συναλλαγή.',
+
+    // Related
+    relatedTitle: 'Σχετικοί Οδηγοί',
+    relatedGuides: [
+      { tag: 'ΧΡΗΜΑΤΟΔΟΤΗΣΗ', title: 'Μετατροπή EUR σε USDC', desc: 'Βήμα-βήμα με screenshots', href: '/blog/convert-eur-to-usdc' },
+      { tag: 'ΟΔΗΓΟΣ', title: 'Trading με €50', desc: 'Στρατηγική μικρού λογαριασμού', href: '/blog/trade-stocks-with-50-euros' },
+      { tag: 'ΝΟΜΙΚΑ', title: 'Είναι Νόμιμο στην Ελλάδα;', desc: 'Ρυθμιστική επισκόπηση', href: '/blog/equity-perps-legal-greece' }
+    ]
+  }
+};
+
+export const popularStocks = [
+  { ticker: 'NVDA', name: 'Nvidia', hot: true },
+  { ticker: 'TSLA', name: 'Tesla', hot: true },
+  { ticker: 'AAPL', name: 'Apple', hot: false },
+  { ticker: 'MSFT', name: 'Microsoft', hot: false },
+  { ticker: 'META', name: 'Meta', hot: true },
+  { ticker: 'AMZN', name: 'Amazon', hot: false },
+  { ticker: 'GOOGL', name: 'Google', hot: false },
+  { ticker: 'COIN', name: 'Coinbase', hot: true },
+];

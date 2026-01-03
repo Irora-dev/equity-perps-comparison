@@ -18,22 +18,6 @@ export const translations = {
     heroDescHighlight: '15 minutes',
     startTrading: 'Start Trading Now',
     howItWorks: 'How It Works',
-    comparePlatforms: 'Compare Platforms',
-
-    benefits: [
-      { icon: '💰', title: 'Start with 500 kr', desc: '~$50 USDC minimum' },
-      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime CET' },
-      { icon: '📱', title: 'Vipps Ready', desc: 'Instant payments' },
-      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
-    ],
-
-    stepsTitle: 'Get Started in 4 Steps',
-    steps: [
-      { t: 'Convert NOK to USDC', d: 'Use Binance P2P with Vipps or bank transfer.' },
-      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
-      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
-      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
-    ],
 
     // Quick Stats
     statMinimumValue: '500 kr',
@@ -49,9 +33,9 @@ export const translations = {
     whyTitle: 'Why Norwegian Traders Choose Equity Perps',
     whyCards: [
       {
-        icon: '🚫',
-        title: 'No Geographic Limits',
-        desc: 'Trade US stocks without US brokerage restrictions. No need for complex international account setups or currency exchange hassles.'
+        icon: '🇪🇺',
+        title: 'EEA Access',
+        desc: 'As an EEA member, Norway has strong financial infrastructure. Trade US stocks without complex international brokerage setups or currency exchange hassles.'
       },
       {
         icon: '⚡',
@@ -94,26 +78,26 @@ export const translations = {
 
     // Step 2: Funding
     step2Title: 'Convert NOK to USDC',
-    step2Desc: 'Use Vipps, SEPA, or bank transfer via Binance P2P',
+    step2Desc: 'Use Vipps, BankID, or bank transfer',
     fundingIntro: 'You need USDC (a stablecoin worth $1) to trade. Here are the best ways to convert NOK:',
     binanceP2P: {
       title: 'Binance P2P',
       desc: 'Best rates, Vipps support',
-      steps: ['Open Binance app', 'Go to P2P Trading', 'Buy USDT with NOK (Vipps/Bank)', 'Convert USDT to USDC', 'Withdraw to Rabby (Arbitrum)']
+      steps: ['Open Binance app', 'Go to P2P Trading', 'Buy USDT with NOK (Vipps/Bank)', 'Convert USDT → USDC', 'Withdraw to Rabby (Arbitrum)']
     },
-    vippsMethod: {
+    wazirx: {
       title: 'Vipps Direct',
       desc: "Norway's favorite payment",
       steps: ['Use Binance P2P with Vipps', 'Instant transfer from your bank', 'Buy USDT directly', 'Convert to USDC', 'Withdraw to wallet']
     },
-    sepaMethod: {
+    coindcx: {
       title: 'SEPA Transfer',
       desc: 'EU bank transfer option',
-      steps: ['Deposit NOK via SEPA', 'Convert to USDT/USDC', 'Lower fees for larger amounts', 'Withdraw to Rabby']
+      steps: ['Deposit NOK via SEPA', 'Convert to USDT/USDC', 'Lower fees for larger amounts', '(Takes 1-2 business days)']
     },
     proTip: 'Pro tip:',
     proTipText: 'Vipps through Binance P2P usually has the best NOK rates. Buy USDT first (more liquidity), then convert to USDC on Binance (free).',
-    seeDetailedGuide: 'See detailed NOK to USDC guide',
+    seeDetailedGuide: 'See detailed NOK → USDC guide with screenshots',
 
     // Step 3: Trade
     step3Title: 'Start Trading',
@@ -128,7 +112,7 @@ export const translations = {
 
     // Popular Stocks
     popularStocksTitle: 'Popular US Stocks Available',
-    viewAllStocks: 'View all 50+ stocks',
+    viewAllStocks: 'View all 50+ stocks →',
     hot: 'HOT',
 
     // FAQ
@@ -136,37 +120,33 @@ export const translations = {
     faqs: [
       {
         question: 'Is it legal to trade US stocks from Norway using equity perps?',
-        answer: 'Equity perpetuals operate on decentralized platforms and exist in a regulatory gray area. You are not directly buying US stocks - you are trading price exposure through synthetic contracts. Many Norwegian traders use these platforms. Consult a tax advisor for your specific situation.'
+        answer: "Equity perpetuals exist in a regulatory gray area. They are not explicitly regulated by Finanstilsynet as they operate on decentralized platforms. You're not directly buying US stocks - you're trading price exposure through synthetic contracts. Many Norwegian traders use these platforms, but you should understand the regulatory landscape and consult a tax professional."
       },
       {
-        question: 'Do I need to pay tax on profits in Norway?',
-        answer: 'Yes, profits from trading are likely taxable in Norway. Crypto and derivatives gains are typically treated as capital income. Keep records of all trades and consult with a Norwegian tax advisor (Skatteetaten) for proper reporting.'
+        question: 'Do I need to pay tax on profits from equity perps in Norway?',
+        answer: 'Yes, profits from trading are likely taxable in Norway. They may be classified as capital gains (kapitalinntekt). Maintain records of all trades and consult with Skatteetaten or a tax advisor familiar with crypto/derivatives taxation.'
       },
       {
         question: "What's the minimum amount I need to start?",
-        answer: 'You can start with as little as 500 kr (~$50). With leverage, this gives you exposure to larger positions. We recommend starting small to learn the platform before increasing your position sizes.'
+        answer: 'You can start with as little as 500 kr (~$50). With leverage, this gives you exposure to $500-3,000 worth of stocks. We recommend starting small to learn the platform.'
       },
       {
-        question: 'Can I use Vipps to fund my account?',
-        answer: 'Yes! Vipps is the most popular method for Norwegian traders. Use Binance P2P to buy USDT with Vipps, then convert to USDC. The process takes just a few minutes.'
-      },
-      {
-        question: 'Which Norwegian banks work for crypto purchases?',
-        answer: 'DNB, Nordea, SpareBank 1, and Danske Bank all work well for Binance P2P transfers. SEPA transfers are also supported from most Norwegian banks.'
+        question: 'Can I trade during Norwegian business hours?',
+        answer: "Yes! Equity perps trade 24/7. You can trade US stocks at any time - morning, afternoon, or late night CET. There's no restriction on trading hours."
       },
       {
         question: 'Is KYC required?',
-        answer: "Trading platforms like Hyperliquid don't require KYC. However, you'll need to complete KYC on Binance or another exchange to convert NOK to USDC initially."
+        answer: "The trading platforms (like Hyperliquid) don't require KYC. However, you'll need to complete KYC on Binance or a similar exchange to convert NOK to USDC initially."
       }
     ],
 
     // More Guides
     moreGuidesTitle: 'More Norway Guides',
-    moreGuidesDesc: "We've created detailed guides specifically for Norwegian traders:",
+    moreGuidesDesc: "We've created detailed guides specifically for Norwegian traders. Check them out:",
     guides: [
-      { icon: 'kr', title: 'Convert NOK to USDC', desc: 'Step-by-step with Vipps & Binance', href: '/blog/convert-nok-to-usdc' },
+      { icon: 'kr', title: 'Convert NOK to USDC', desc: 'Step-by-step with Vipps, Binance P2P', href: '/blog/convert-nok-to-usdc' },
       { icon: '💰', title: 'Trade with 500 kr', desc: 'Small account strategy guide', href: '/blog/trade-stocks-with-500-nok' },
-      { icon: '📊', title: 'Norwegian Tax Guide', desc: 'Reporting crypto gains to Skatteetaten', href: '/blog/norway-crypto-tax-guide' },
+      { icon: '⚖️', title: 'Norway Tax Guide', desc: 'Skatteetaten reporting', href: '/blog/norway-crypto-tax-guide' },
       { icon: '🤝', title: 'P2P Trading Guide', desc: 'Global P2P methods and safety tips', href: '/blog/p2p-usdc-guide' }
     ],
 
@@ -189,15 +169,10 @@ export const translations = {
     // Related
     relatedTitle: 'Related Guides',
     relatedGuides: [
-      { tag: 'FUNDING', title: 'Convert NOK to USDC', desc: 'Step-by-step with Vipps', href: '/blog/convert-nok-to-usdc' },
+      { tag: 'FUNDING', title: 'Convert NOK to USDC', desc: 'Step-by-step with screenshots', href: '/blog/convert-nok-to-usdc' },
       { tag: 'GUIDE', title: 'Trade with 500 kr', desc: 'Small account strategy', href: '/blog/trade-stocks-with-500-nok' },
       { tag: 'TAX', title: 'Norway Tax Guide', desc: 'Skatteetaten reporting', href: '/blog/norway-crypto-tax-guide' }
-    ],
-
-    // Payment Section
-    paymentTitle: 'Norway Payment Methods',
-    digitalPayments: 'Digital Payments',
-    banks: 'Banks',
+    ]
   },
   no: {
     // Breadcrumb
@@ -214,22 +189,6 @@ export const translations = {
     heroDescHighlight: '15 minutter',
     startTrading: 'Start handel na',
     howItWorks: 'Hvordan det fungerer',
-    comparePlatforms: 'Sammenlign plattformer',
-
-    benefits: [
-      { icon: '💰', title: 'Start med 500 kr', desc: '~$50 USDC minimum' },
-      { icon: '🕐', title: '24/7 handel', desc: 'Handle nar som helst' },
-      { icon: '📱', title: 'Vipps klar', desc: 'Umiddelbare betalinger' },
-      { icon: '🔐', title: 'Self-Custody', desc: 'Dine nokler, dine coins' },
-    ],
-
-    stepsTitle: 'Kom i gang med 4 steg',
-    steps: [
-      { t: 'Konverter NOK til USDC', d: 'Bruk Binance P2P med Vipps eller bankoverforing.' },
-      { t: 'Velg en plattform', d: 'Sammenlign plattformer.', l: '/', lt: 'Sammenlign' },
-      { t: 'Koble til lommebok', d: 'Bruk MetaMask eller Rabby.' },
-      { t: 'Start handel', d: 'Begynn med 2-3x giring.' },
-    ],
 
     // Quick Stats
     statMinimumValue: '500 kr',
@@ -245,9 +204,9 @@ export const translations = {
     whyTitle: 'Hvorfor norske tradere velger Equity Perps',
     whyCards: [
       {
-        icon: '🚫',
-        title: 'Ingen geografiske begrensninger',
-        desc: 'Handle amerikanske aksjer uten amerikanske meglerrestriksjoner. Ingen kompliserte internasjonale kontooppsett eller valutavekslingsmas.'
+        icon: '🇪🇺',
+        title: 'EOS-tilgang',
+        desc: 'Som EOS-medlem har Norge sterk finansiell infrastruktur. Handle amerikanske aksjer uten kompliserte internasjonale meglerkontoer eller valutavekslingsmas.'
       },
       {
         icon: '⚡',
@@ -290,26 +249,26 @@ export const translations = {
 
     // Step 2: Funding
     step2Title: 'Konverter NOK til USDC',
-    step2Desc: 'Bruk Vipps, SEPA eller bankoverforing via Binance P2P',
+    step2Desc: 'Bruk Vipps, BankID eller bankoverforing',
     fundingIntro: 'Du trenger USDC (en stablecoin verdt $1) for a handle. Her er de beste matene a konvertere NOK:',
     binanceP2P: {
       title: 'Binance P2P',
       desc: 'Beste kurser, Vipps-stotte',
-      steps: ['Apne Binance-appen', 'Ga til P2P Trading', 'Kjop USDT med NOK (Vipps/Bank)', 'Konverter USDT til USDC', 'Ta ut til Rabby (Arbitrum)']
+      steps: ['Apne Binance-appen', 'Ga til P2P Trading', 'Kjop USDT med NOK (Vipps/Bank)', 'Konverter USDT → USDC', 'Ta ut til Rabby (Arbitrum)']
     },
-    vippsMethod: {
+    wazirx: {
       title: 'Vipps Direkte',
       desc: 'Norges favorittbetaling',
       steps: ['Bruk Binance P2P med Vipps', 'Umiddelbar overforing fra banken din', 'Kjop USDT direkte', 'Konverter til USDC', 'Ta ut til lommebok']
     },
-    sepaMethod: {
+    coindcx: {
       title: 'SEPA-overforing',
       desc: 'EU-bankoverforingsalternativ',
-      steps: ['Sett inn NOK via SEPA', 'Konverter til USDT/USDC', 'Lavere gebyrer for storre belop', 'Ta ut til Rabby']
+      steps: ['Sett inn NOK via SEPA', 'Konverter til USDT/USDC', 'Lavere gebyrer for storre belop', '(Tar 1-2 virkedager)']
     },
     proTip: 'Profftips:',
     proTipText: 'Vipps gjennom Binance P2P har vanligvis de beste NOK-kursene. Kjop USDT forst (mer likviditet), deretter konverter til USDC pa Binance (gratis).',
-    seeDetailedGuide: 'Se detaljert NOK til USDC-guide',
+    seeDetailedGuide: 'Se detaljert NOK → USDC-guide med skjermbilder',
 
     // Step 3: Trade
     step3Title: 'Start handel',
@@ -324,7 +283,7 @@ export const translations = {
 
     // Popular Stocks
     popularStocksTitle: 'Populaere amerikanske aksjer tilgjengelig',
-    viewAllStocks: 'Se alle 50+ aksjer',
+    viewAllStocks: 'Se alle 50+ aksjer →',
     hot: 'HOT',
 
     // FAQ
@@ -332,37 +291,33 @@ export const translations = {
     faqs: [
       {
         question: 'Er det lovlig a handle amerikanske aksjer fra Norge med equity perps?',
-        answer: 'Equity perpetuals opererer pa desentraliserte plattformer og eksisterer i en regulatorisk grazone. Du kjoper ikke direkte amerikanske aksjer - du handler priseksponering gjennom syntetiske kontrakter. Mange norske tradere bruker disse plattformene. Radfor deg med en skatteradgiver for din spesifikke situasjon.'
+        answer: 'Equity perpetuals eksisterer i en regulatorisk grazone. De er ikke eksplisitt regulert av Finanstilsynet da de opererer pa desentraliserte plattformer. Du kjoper ikke direkte amerikanske aksjer - du handler priseksponering gjennom syntetiske kontrakter. Mange norske tradere bruker disse plattformene, men du bor forsta det regulatoriske landskapet og radfare deg med en skatteekspert.'
       },
       {
-        question: 'Ma jeg betale skatt pa gevinster i Norge?',
-        answer: 'Ja, gevinster fra handel er sannsynligvis skattepliktige i Norge. Krypto- og derivatgevinster behandles vanligvis som kapitalinntekt. Hold oversikt over alle handler og radfor deg med en norsk skatteradgiver (Skatteetaten) for riktig rapportering.'
+        question: 'Ma jeg betale skatt pa gevinster fra equity perps i Norge?',
+        answer: 'Ja, gevinster fra handel er sannsynligvis skattepliktige i Norge. De kan klassifiseres som kapitalinntekt. Hold oversikt over alle handler og radfor deg med Skatteetaten eller en skatteradgiver som er kjent med krypto/derivat-beskatning.'
       },
       {
         question: 'Hva er minimumbelopet jeg trenger for a starte?',
-        answer: 'Du kan starte med sa lite som 500 kr (~$50). Med giring gir dette deg eksponering mot storre posisjoner. Vi anbefaler a starte smatt for a laere plattformen for du oker posisjonsstorrelsene.'
+        answer: 'Du kan starte med sa lite som 500 kr (~$50). Med giring gir dette deg eksponering mot $500-3000 verdi av aksjer. Vi anbefaler a starte smatt for a laere plattformen.'
       },
       {
-        question: 'Kan jeg bruke Vipps til a finansiere kontoen min?',
-        answer: 'Ja! Vipps er den mest populaere metoden for norske tradere. Bruk Binance P2P for a kjope USDT med Vipps, deretter konverter til USDC. Prosessen tar bare noen minutter.'
-      },
-      {
-        question: 'Hvilke norske banker fungerer for kryptokjop?',
-        answer: 'DNB, Nordea, SpareBank 1 og Danske Bank fungerer alle bra for Binance P2P-overforinger. SEPA-overforinger stottes ogsa fra de fleste norske banker.'
+        question: 'Kan jeg handle i norsk arbeidstid?',
+        answer: 'Ja! Equity perps handles 24/7. Du kan handle amerikanske aksjer nar som helst - morgen, ettermiddag eller sen kveld CET. Det er ingen begrensning pa handelstider.'
       },
       {
         question: 'Er KYC pakrevd?',
-        answer: 'Handelsplattformer som Hyperliquid krever ikke KYC. Du ma imidlertid fullore KYC pa Binance eller en annen bors for a konvertere NOK til USDC i utgangspunktet.'
+        answer: 'Handelsplattformer (som Hyperliquid) krever ikke KYC. Du ma imidlertid fullore KYC pa Binance eller lignende bors for a konvertere NOK til USDC i utgangspunktet.'
       }
     ],
 
     // More Guides
     moreGuidesTitle: 'Flere Norge-guider',
-    moreGuidesDesc: 'Vi har laget detaljerte guider spesielt for norske tradere:',
+    moreGuidesDesc: 'Vi har laget detaljerte guider spesielt for norske tradere. Sjekk dem ut:',
     guides: [
-      { icon: 'kr', title: 'Konverter NOK til USDC', desc: 'Steg-for-steg med Vipps & Binance', href: '/blog/convert-nok-to-usdc' },
+      { icon: 'kr', title: 'Konverter NOK til USDC', desc: 'Steg-for-steg med Vipps, Binance P2P', href: '/blog/convert-nok-to-usdc' },
       { icon: '💰', title: 'Handle med 500 kr', desc: 'Strategi for sma kontoer', href: '/blog/trade-stocks-with-500-nok' },
-      { icon: '📊', title: 'Norsk skatteguide', desc: 'Rapportering av kryptogevinster til Skatteetaten', href: '/blog/norway-crypto-tax-guide' },
+      { icon: '⚖️', title: 'Norsk skatteguide', desc: 'Skatteetaten-rapportering', href: '/blog/norway-crypto-tax-guide' },
       { icon: '🤝', title: 'P2P-handelsguide', desc: 'Globale P2P-metoder og sikkerhetstips', href: '/blog/p2p-usdc-guide' }
     ],
 
@@ -385,20 +340,12 @@ export const translations = {
     // Related
     relatedTitle: 'Relaterte guider',
     relatedGuides: [
-      { tag: 'FINANSIERING', title: 'Konverter NOK til USDC', desc: 'Steg-for-steg med Vipps', href: '/blog/convert-nok-to-usdc' },
+      { tag: 'FINANSIERING', title: 'Konverter NOK til USDC', desc: 'Steg-for-steg med skjermbilder', href: '/blog/convert-nok-to-usdc' },
       { tag: 'GUIDE', title: 'Handle med 500 kr', desc: 'Strategi for sma kontoer', href: '/blog/trade-stocks-with-500-nok' },
       { tag: 'SKATT', title: 'Norsk skatteguide', desc: 'Skatteetaten-rapportering', href: '/blog/norway-crypto-tax-guide' }
-    ],
-
-    // Payment Section
-    paymentTitle: 'Norske betalingsmetoder',
-    digitalPayments: 'Digitale betalinger',
-    banks: 'Banker',
-  },
+    ]
+  }
 };
-
-export const digitalPayments = ['Vipps (Most Popular)', 'SEPA', 'Trustly', 'Bank Transfer'];
-export const banksList = ['DNB', 'Nordea', 'SpareBank 1', 'Danske Bank'];
 
 export const popularStocks = [
   { ticker: 'NVDA', name: 'Nvidia', hot: true },

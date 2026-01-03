@@ -18,25 +18,9 @@ export const translations = {
     heroDescHighlight: '15 minutes',
     startTrading: 'Start Trading Now',
     howItWorks: 'How It Works',
-    comparePlatforms: 'Compare Platforms',
-
-    benefits: [
-      { icon: '💰', title: 'Start with 500 kr', desc: '~$50 USDC minimum' },
-      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime CET' },
-      { icon: '📱', title: 'Swish Ready', desc: 'Instant payments' },
-      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
-    ],
-
-    stepsTitle: 'Get Started in 4 Steps',
-    steps: [
-      { t: 'Convert SEK to USDC', d: 'Use Binance P2P with Swish or bank transfer.' },
-      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
-      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
-      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
-    ],
 
     // Quick Stats
-    statMinimumValue: '500 kr',
+    statMinimumValue: '~500 SEK',
     statMinimum: 'Minimum to Start',
     statTimeValue: '24/7',
     statTime: 'Any Time CET',
@@ -45,33 +29,18 @@ export const translations = {
     statKycValue: 'No KYC',
     statKyc: 'On Trading Platform',
 
-    // What Are Perps Section
-    whatArePerpsTitle: 'What Are Equity Perpetuals?',
-    whatArePerpsSubtitle: 'A New Way to Trade US Stocks',
-    whatArePerpsContent: 'Equity perpetuals (perps) are synthetic contracts that track US stock prices 1:1. You get the same price exposure as owning the actual stock, but without needing a US brokerage account or dealing with currency exchange through traditional banks.',
-    whatArePerpsHow: 'How They Work:',
-    whatArePerpsSteps: [
-      'Prices are pulled from real US stock exchanges (NYSE, NASDAQ)',
-      'Smart contracts ensure the perp price stays locked to the real stock price',
-      'You can go long (bet price goes up) or short (bet price goes down)',
-      'Trade with leverage (2x-20x) to amplify your positions',
-      'Settle in USDC - a stablecoin worth $1'
-    ],
-    whatArePerpsCta: 'Learn More About Equity Perps',
-
-    // Why Perps Section
-    whyPerpsTitle: 'Why Swedish Traders Choose Equity Perps',
-    whyPerpsSubtitle: 'Advantages over traditional brokers like Avanza and Nordnet',
-    whyPerpsReasons: [
+    // Why Section
+    whyTitle: 'Why Swedish Traders Choose Equity Perps',
+    whyCards: [
       {
         icon: '🚫',
         title: 'Skip US Tax Forms',
-        desc: 'No W-8BEN forms, no US tax withholding on dividends, no complicated US tax reporting.'
+        desc: 'No W-8BEN forms, no US tax withholding on dividends, no complicated US tax reporting. Trade without the paperwork.'
       },
       {
         icon: '⚡',
         title: 'Instant Access',
-        desc: "No waiting weeks for brokerage approval. Convert SEK to USDC and start trading the same day."
+        desc: "No waiting weeks for brokerage approval. Convert SEK to USDC via Swish and start trading the same day."
       },
       {
         icon: '🕐',
@@ -80,91 +49,66 @@ export const translations = {
       },
       {
         icon: '💰',
-        title: 'Start with 500 kr',
-        desc: 'Most brokers have higher minimums. Here, start with just 500 kr and use leverage to control larger positions.'
-      },
-      {
-        icon: '📈',
-        title: 'Go Long or Short',
-        desc: 'Profit from both rising and falling markets. Short sell any stock without borrowing restrictions.'
-      },
-      {
-        icon: '🔐',
-        title: 'Self-Custody',
-        desc: 'Your funds stay in your own wallet. No broker can freeze your account or block your trades.'
+        title: 'Start with ~500 SEK',
+        desc: 'Most brokers like Avanza/Nordnet have higher minimums. Here, start with just ~500 SEK (~$50) and use leverage to control larger positions.'
       }
     ],
 
     // Get Started Section
+    stepByStep: 'Step-by-Step Guide',
     getStartedTitle: 'Get Started in 15 Minutes',
-    getStartedSubtitle: 'Follow these steps to start trading US stocks from Sweden today.',
+    getStartedDesc: 'Follow these steps to start trading US stocks from Sweden today.',
 
     // Step 1: Wallet
     step1Title: 'Set Up Your Digital Wallet',
-    step1Subtitle: 'Free, takes 2 minutes, and you only do this once',
-    step1WhatIsWallet: 'What is a digital wallet?',
-    step1WhatIsWalletDesc: 'Think of it like a digital bank account you control. Instead of a bank holding your money, you hold it yourself using a simple browser extension.',
-    step1Features: ['You control it', 'Completely free', '2 min setup', 'Works in Sweden'],
-    step1Instructions: "Here's how to set it up:",
-    step1VideoTitle: 'Watch: 2-Minute Setup Guide',
+    step1Desc: 'Free, takes 2 minutes, and you only do this once',
+    walletExplainTitle: 'What is a digital wallet?',
+    walletExplainDesc: 'Think of it like a',
+    walletExplainHighlight: 'digital bank account you control',
+    walletExplainDesc2: '. Instead of a bank holding your money, you hold it yourself using a simple browser extension.',
+    walletFeatures: ['You control it', 'Completely free', '2 min setup', 'Works in Sweden'],
+    walletSetupTitle: "Here's how to set it up:",
+    walletSteps: [
+      { text: 'Go to', link: 'rabby.io' },
+      { text: 'Click "Download" and add to Chrome/Brave' },
+      { text: 'Click "Create New Wallet" and set a password' },
+      { text: 'Write down your 12-word recovery phrase', warning: 'Keep it safe and never share it!' }
+    ],
+    watchVideo: 'Watch: 2-Minute Setup Guide',
 
     // Step 2: Funding
     step2Title: 'Convert SEK to USDC',
-    step2Subtitle: 'Use Swish, Klarna, or bank transfer',
-    step2Methods: [
-      {
-        name: 'Swish + Binance P2P',
-        description: 'Fastest option for most Swedes',
-        steps: ['Open Binance app', 'Go to P2P Trading', 'Buy USDT with SEK via Swish', 'Convert USDT to USDC', 'Withdraw to Rabby (Arbitrum)'],
-        tip: 'Best rates, instant transfers'
-      },
-      {
-        name: 'SEPA Bank Transfer',
-        description: 'From Swedbank, SEB, Nordea, Handelsbanken',
-        steps: ['Deposit EUR via SEPA to exchange', 'Buy USDC directly', 'Withdraw to Rabby wallet', '1-2 business days'],
-        tip: 'Lower fees for larger amounts'
-      },
-      {
-        name: 'Klarna',
-        description: 'Pay later option available',
-        steps: ['Use exchange supporting Klarna', 'Buy crypto with Klarna', 'Convert to USDC', 'Withdraw to wallet'],
-        tip: 'Convenient but higher fees'
-      }
-    ],
-    step2MinAmount: 'Minimum: 500 kr (~$50 USDC)',
+    step2Desc: 'Use Swish, BankID, or bank transfer',
+    fundingIntro: 'You need USDC (a stablecoin worth $1) to trade. Here are the best ways to convert SEK:',
+    binanceP2P: {
+      title: 'Swish + Binance P2P',
+      desc: 'Fastest option for most Swedes',
+      steps: ['Open Binance app', 'Go to P2P Trading', 'Buy USDT with SEK via Swish', 'Convert USDT to USDC', 'Withdraw to Rabby (Arbitrum)']
+    },
+    wazirx: {
+      title: 'SEPA Bank Transfer',
+      desc: 'From SEB, Nordea, Handelsbanken, Swedbank',
+      steps: ['Deposit EUR via SEPA to exchange', 'Buy USDC directly', 'Withdraw to Rabby wallet', '1-2 business days']
+    },
+    coindcx: {
+      title: 'Kraken Exchange',
+      desc: 'EU-regulated, supports SEK',
+      steps: ['Deposit SEK via bank transfer', 'Buy USDC directly', 'Withdraw to Rabby', '(Higher fees but simpler)']
+    },
+    proTip: 'Pro tip:',
+    proTipText: 'Swish + Binance P2P usually has the best SEK rates. Buy USDT first (more liquidity), then convert to USDC on Binance (free).',
+    seeDetailedGuide: 'See detailed SEK to USDC guide with screenshots',
 
     // Step 3: Trade
     step3Title: 'Start Trading',
-    step3Subtitle: 'Connect to Hyperliquid and trade 50+ US stocks',
-    step3Instructions: [
+    step3Desc: 'Connect to Hyperliquid and trade 50+ US stocks',
+    tradeSteps: [
       { text: 'Go to', linkText: 'app.hyperliquid.xyz' },
       { text: 'Click "Connect" and select Rabby Wallet' },
       { text: 'Click "Deposit" and bridge your USDC' },
       { text: 'Search for a stock (NVDA, TSLA, AAPL) and open a position!' }
     ],
-    step3Tip: 'Start with 2-3x leverage until you are comfortable with the platform.',
-    step3Cta: 'Open Hyperliquid (4% Off Fees)',
-
-    // Risk Section
-    riskTitle: 'Important Risks to Understand',
-    riskWarnings: [
-      {
-        title: 'Leverage Risk',
-        desc: 'Trading with leverage amplifies both gains and losses. You can lose more than your initial deposit. Start with low leverage (2-3x).'
-      },
-      {
-        title: 'Liquidation Risk',
-        desc: 'If your position moves against you too much, it will be automatically closed (liquidated). Always use stop-losses.'
-      },
-      {
-        title: 'Regulatory Status',
-        desc: 'Equity perps operate on decentralized platforms and are not regulated by Finansinspektionen. Understand the legal landscape before trading.'
-      },
-      {
-        title: 'Smart Contract Risk',
-        desc: 'Your funds interact with smart contracts. While audited, there is always some technical risk. Never invest more than you can afford to lose.'
-      }
-    ],
+    openHyperliquid: 'Open Hyperliquid (4% Off Fees)',
 
     // Popular Stocks
     popularStocksTitle: 'Popular US Stocks Available',
@@ -176,29 +120,39 @@ export const translations = {
     faqs: [
       {
         question: 'Is it legal to trade US stocks from Sweden using equity perps?',
-        answer: 'Equity perpetuals exist in a regulatory gray area. They are not explicitly regulated by Finansinspektionen as they operate on decentralized platforms. You are not directly buying US stocks - you are trading price exposure through synthetic contracts. Many Swedish traders use these platforms, but you should understand the regulatory landscape and consult a tax advisor.'
+        answer: "Equity perpetuals exist in a regulatory gray area. They are not explicitly regulated by Finansinspektionen as they operate on decentralized platforms. You're not directly buying US stocks - you're trading price exposure through synthetic contracts. Many Swedish traders use these platforms, but you should understand the regulatory landscape and consult a tax advisor."
       },
       {
         question: 'Do I need to pay tax on profits from equity perps in Sweden?',
         answer: 'Yes, profits from trading are likely taxable in Sweden as capital gains. You should report your trading activity on your tax return. Keep records of all trades and consult a tax advisor (skatteradgivare) familiar with crypto and derivatives taxation.'
       },
       {
-        question: 'What is the minimum amount I need to start?',
-        answer: 'You can start with as little as 500 kr (~$50). With leverage, this gives you exposure to $500-3,000 worth of stocks. We recommend starting small to learn the platform.'
+        question: "What's the minimum amount I need to start?",
+        answer: 'You can start with as little as ~500 SEK (~$50). With leverage, this gives you exposure to $500-3,000 worth of stocks. We recommend starting small to learn the platform.'
       },
       {
         question: 'Can I use Swish to fund my account?',
-        answer: 'Yes! Swish is the most popular method for Swedish traders. Use Binance P2P to buy USDT with Swish, then convert to USDC and withdraw to your wallet.'
+        answer: "Yes! Swish is the most popular method for Swedish traders. Use Binance P2P to buy USDT with Swish, then convert to USDC and withdraw to your wallet."
       },
       {
         question: 'Is KYC required?',
-        answer: 'The trading platforms (like Hyperliquid) do not require KYC. However, you will need to complete KYC on an exchange (Binance, Kraken) to convert SEK to USDC initially.'
+        answer: "The trading platforms (like Hyperliquid) don't require KYC. However, you'll need to complete KYC on an exchange (Binance, Kraken) to convert SEK to USDC initially."
       }
+    ],
+
+    // More Guides
+    moreGuidesTitle: 'More Sweden Guides',
+    moreGuidesDesc: "We've created detailed guides specifically for Swedish traders. Check them out:",
+    guides: [
+      { icon: 'kr', title: 'Convert SEK to USDC', desc: 'Step-by-step with Swish & BankID', href: '/blog/convert-sek-to-usdc' },
+      { icon: '💰', title: 'Trade with 500 SEK', desc: 'Small account strategy guide', href: '/blog/trade-stocks-with-500-sek' },
+      { icon: '⚖️', title: 'Is It Legal in Sweden?', desc: 'Regulations, taxes, and compliance', href: '/blog/equity-perps-legal-sweden' },
+      { icon: '🤝', title: 'P2P Trading Guide', desc: 'Global P2P methods and safety tips', href: '/blog/p2p-usdc-guide' }
     ],
 
     // CTA
     ctaTitle: 'Start Trading US Stocks Today',
-    ctaDesc: 'Join thousands of Swedish traders accessing NVDA, TSLA, and 50+ US stocks 24/7. No US broker needed. Start with just 500 kr.',
+    ctaDesc: 'Join thousands of Swedish traders accessing NVDA, TSLA, and 50+ US stocks 24/7. No US broker needed. Start with just ~500 SEK.',
     getStartedCta: 'Get Started Now (4% Off Fees)',
 
     // Free Notice
@@ -216,14 +170,9 @@ export const translations = {
     relatedTitle: 'Related Guides',
     relatedGuides: [
       { tag: 'FUNDING', title: 'Convert SEK to USDC', desc: 'Step-by-step with Swish', href: '/blog/convert-sek-to-usdc' },
-      { tag: 'GUIDE', title: 'Trade with 500 kr', desc: 'Small account strategy', href: '/blog/trade-stocks-with-500-kr' },
+      { tag: 'GUIDE', title: 'Trade with 500 SEK', desc: 'Small account strategy', href: '/blog/trade-stocks-with-500-sek' },
       { tag: 'LEGAL', title: 'Is It Legal in Sweden?', desc: 'Regulatory overview', href: '/blog/equity-perps-legal-sweden' }
-    ],
-
-    // Payment Methods
-    paymentTitle: 'Sweden Payment Methods',
-    digitalPayments: 'Digital Payments',
-    banks: 'Banks'
+    ]
   },
   sv: {
     // Breadcrumb
@@ -240,25 +189,9 @@ export const translations = {
     heroDescHighlight: '15 minuter',
     startTrading: 'Borja handla nu',
     howItWorks: 'Hur det fungerar',
-    comparePlatforms: 'Jamfor plattformar',
-
-    benefits: [
-      { icon: '💰', title: 'Borja med 500 kr', desc: '~$50 USDC minimum' },
-      { icon: '🕐', title: '24/7 handel', desc: 'Handla nar som helst' },
-      { icon: '📱', title: 'Swish-redo', desc: 'Omedelbara betalningar' },
-      { icon: '🔐', title: 'Self-Custody', desc: 'Dina nycklar, dina coins' },
-    ],
-
-    stepsTitle: 'Kom igang med 4 steg',
-    steps: [
-      { t: 'Konvertera SEK till USDC', d: 'Anvand Binance P2P med Swish eller bankoverforing.' },
-      { t: 'Valj en plattform', d: 'Jamfor plattformar.', l: '/', lt: 'Jamfor' },
-      { t: 'Anslut planbok', d: 'Anvand MetaMask eller Rabby.' },
-      { t: 'Borja handla', d: 'Borja med 2-3x havstang.' },
-    ],
 
     // Quick Stats
-    statMinimumValue: '500 kr',
+    statMinimumValue: '~500 SEK',
     statMinimum: 'Minimum for att borja',
     statTimeValue: '24/7',
     statTime: 'Nar som helst CET',
@@ -267,24 +200,9 @@ export const translations = {
     statKycValue: 'Ingen KYC',
     statKyc: 'Pa handelsplattformen',
 
-    // What Are Perps Section
-    whatArePerpsTitle: 'Vad ar Equity Perpetuals?',
-    whatArePerpsSubtitle: 'Ett nytt satt att handla amerikanska aktier',
-    whatArePerpsContent: 'Equity perpetuals (perps) ar syntetiska kontrakt som foljer amerikanska aktiekurser 1:1. Du far samma prisexponering som om du agde den faktiska aktien, men utan att behova ett amerikanskt maklarkonto eller hantera valutavaxling genom traditionella banker.',
-    whatArePerpsHow: 'Hur de fungerar:',
-    whatArePerpsSteps: [
-      'Priser hamtas fran riktiga amerikanska borser (NYSE, NASDAQ)',
-      'Smarta kontrakt sakersstaller att perp-priset foljer det verkliga aktiepriset',
-      'Du kan ga lang (satsa pa att priset gar upp) eller kort (satsa pa att priset gar ner)',
-      'Handla med havstang (2x-20x) for att forstarka dina positioner',
-      'Avraknas i USDC - en stablecoin vard $1'
-    ],
-    whatArePerpsCta: 'Las mer om Equity Perps',
-
-    // Why Perps Section
-    whyPerpsTitle: 'Varfor svenska handlare valjer Equity Perps',
-    whyPerpsSubtitle: 'Fordelar jamfort med traditionella maklare som Avanza och Nordnet',
-    whyPerpsReasons: [
+    // Why Section
+    whyTitle: 'Varfor svenska handlare valjer Equity Perps',
+    whyCards: [
       {
         icon: '🚫',
         title: 'Hoppa over amerikanska skatteformular',
@@ -293,7 +211,7 @@ export const translations = {
       {
         icon: '⚡',
         title: 'Omedelbar tillgang',
-        desc: 'Ingen vantan i veckor pa maklar-godkannande. Konvertera SEK till USDC och borja handla samma dag.'
+        desc: 'Ingen vantan i veckor pa maklar-godkannande. Konvertera SEK till USDC via Swish och borja handla samma dag.'
       },
       {
         icon: '🕐',
@@ -302,91 +220,66 @@ export const translations = {
       },
       {
         icon: '💰',
-        title: 'Borja med 500 kr',
-        desc: 'De flesta maklare har hogre minimum. Har kan du borja med bara 500 kr och anvanda havstang for att kontrollera storre positioner.'
-      },
-      {
-        icon: '📈',
-        title: 'Ga lang eller kort',
-        desc: 'Tjana pengar pa bade stigande och fallande marknader. Blanka vilken aktie som helst utan lanebegransningar.'
-      },
-      {
-        icon: '🔐',
-        title: 'Self-Custody',
-        desc: 'Dina pengar stannar i din egen planbok. Ingen maklare kan frysa ditt konto eller blockera dina affarer.'
+        title: 'Borja med ~500 SEK',
+        desc: 'De flesta maklare som Avanza/Nordnet har hogre minimum. Har kan du borja med bara ~500 SEK (~$50) och anvanda havstang for att kontrollera storre positioner.'
       }
     ],
 
     // Get Started Section
+    stepByStep: 'Steg-for-steg guide',
     getStartedTitle: 'Kom igang pa 15 minuter',
-    getStartedSubtitle: 'Folj dessa steg for att borja handla amerikanska aktier fran Sverige idag.',
+    getStartedDesc: 'Folj dessa steg for att borja handla amerikanska aktier fran Sverige idag.',
 
     // Step 1: Wallet
     step1Title: 'Konfigurera din digitala planbok',
-    step1Subtitle: 'Gratis, tar 2 minuter, och du gor det bara en gang',
-    step1WhatIsWallet: 'Vad ar en digital planbok?',
-    step1WhatIsWalletDesc: 'Tank pa det som ett digitalt bankkonto du kontrollerar. Istallet for att en bank haller dina pengar, haller du dem sjalv med ett enkelt webblasartillagg.',
-    step1Features: ['Du kontrollerar den', 'Helt gratis', '2 min installation', 'Fungerar i Sverige'],
-    step1Instructions: 'Sa har konfigurerar du den:',
-    step1VideoTitle: 'Se: 2-minuters installationsguide',
+    step1Desc: 'Gratis, tar 2 minuter, och du gor det bara en gang',
+    walletExplainTitle: 'Vad ar en digital planbok?',
+    walletExplainDesc: 'Tank pa det som ett',
+    walletExplainHighlight: 'digitalt bankkonto du kontrollerar',
+    walletExplainDesc2: '. Istallet for att en bank haller dina pengar, haller du dem sjalv med ett enkelt webblasartillagg.',
+    walletFeatures: ['Du kontrollerar den', 'Helt gratis', '2 min installation', 'Fungerar i Sverige'],
+    walletSetupTitle: 'Sa har konfigurerar du den:',
+    walletSteps: [
+      { text: 'Ga till', link: 'rabby.io' },
+      { text: 'Klicka pa "Download" och lagg till i Chrome/Brave' },
+      { text: 'Klicka pa "Create New Wallet" och satt ett losenord' },
+      { text: 'Skriv ner dina 12 aterhamtningsord', warning: 'Forvara dem sakert och dela aldrig!' }
+    ],
+    watchVideo: 'Se: 2-minuters installationsguide',
 
     // Step 2: Funding
     step2Title: 'Konvertera SEK till USDC',
-    step2Subtitle: 'Anvand Swish, Klarna eller bankoverforing',
-    step2Methods: [
-      {
-        name: 'Swish + Binance P2P',
-        description: 'Snabbaste alternativet for de flesta svenskar',
-        steps: ['Oppna Binance-appen', 'Ga till P2P Trading', 'Kop USDT med SEK via Swish', 'Konvertera USDT till USDC', 'Ta ut till Rabby (Arbitrum)'],
-        tip: 'Basta kurser, omedelbara overforingar'
-      },
-      {
-        name: 'SEPA-bankoverforing',
-        description: 'Fran Swedbank, SEB, Nordea, Handelsbanken',
-        steps: ['Satt in EUR via SEPA till bors', 'Kop USDC direkt', 'Ta ut till Rabby-planbok', '1-2 bankdagar'],
-        tip: 'Lagre avgifter for storre belopp'
-      },
-      {
-        name: 'Klarna',
-        description: 'Betala senare-alternativ tillgangligt',
-        steps: ['Anvand bors som stodjer Klarna', 'Kop krypto med Klarna', 'Konvertera till USDC', 'Ta ut till planbok'],
-        tip: 'Bekv amt men hogre avgifter'
-      }
-    ],
-    step2MinAmount: 'Minimum: 500 kr (~$50 USDC)',
+    step2Desc: 'Anvand Swish, BankID eller bankoverforing',
+    fundingIntro: 'Du behover USDC (en stablecoin vard $1) for att handla. Har ar de basta satten att konvertera SEK:',
+    binanceP2P: {
+      title: 'Swish + Binance P2P',
+      desc: 'Snabbaste alternativet for de flesta svenskar',
+      steps: ['Oppna Binance-appen', 'Ga till P2P Trading', 'Kop USDT med SEK via Swish', 'Konvertera USDT till USDC', 'Ta ut till Rabby (Arbitrum)']
+    },
+    wazirx: {
+      title: 'SEPA-bankoverforing',
+      desc: 'Fran SEB, Nordea, Handelsbanken, Swedbank',
+      steps: ['Satt in EUR via SEPA till bors', 'Kop USDC direkt', 'Ta ut till Rabby-planbok', '1-2 bankdagar']
+    },
+    coindcx: {
+      title: 'Kraken Exchange',
+      desc: 'EU-reglerad, stodjer SEK',
+      steps: ['Satt in SEK via bankoverforing', 'Kop USDC direkt', 'Ta ut till Rabby', '(Hogre avgifter men enklare)']
+    },
+    proTip: 'Pro-tips:',
+    proTipText: 'Swish + Binance P2P har oftast bast SEK-kurser. Kop USDT forst (mer likviditet), konvertera sedan till USDC pa Binance (gratis).',
+    seeDetailedGuide: 'Se detaljerad SEK till USDC guide med skarmdumpar',
 
     // Step 3: Trade
     step3Title: 'Borja handla',
-    step3Subtitle: 'Anslut till Hyperliquid och handla 50+ amerikanska aktier',
-    step3Instructions: [
+    step3Desc: 'Anslut till Hyperliquid och handla 50+ amerikanska aktier',
+    tradeSteps: [
       { text: 'Ga till', linkText: 'app.hyperliquid.xyz' },
       { text: 'Klicka pa "Connect" och valj Rabby Wallet' },
       { text: 'Klicka pa "Deposit" och overfar din USDC' },
       { text: 'Sok efter en aktie (NVDA, TSLA, AAPL) och oppna en position!' }
     ],
-    step3Tip: 'Borja med 2-3x havstang tills du ar bekant med plattformen.',
-    step3Cta: 'Oppna Hyperliquid (4% rabatt pa avgifter)',
-
-    // Risk Section
-    riskTitle: 'Viktiga risker att forsta',
-    riskWarnings: [
-      {
-        title: 'Havstangsrisk',
-        desc: 'Handel med havstang forstarker bade vinster och forluster. Du kan forlora mer an din ursprungliga insattning. Borja med lag havstang (2-3x).'
-      },
-      {
-        title: 'Likvidationsrisk',
-        desc: 'Om din position ror sig for mycket mot dig kommer den automatiskt att stangas (likvideras). Anvand alltid stop-loss.'
-      },
-      {
-        title: 'Regleringstatus',
-        desc: 'Equity perps opererar pa decentraliserade plattformar och regleras inte av Finansinspektionen. Forsta det juridiska landskapet innan du handlar.'
-      },
-      {
-        title: 'Smart Contract-risk',
-        desc: 'Dina medel interagerar med smarta kontrakt. Aven om de ar granskade finns alltid viss teknisk risk. Investera aldrig mer an du har rad att forlora.'
-      }
-    ],
+    openHyperliquid: 'Oppna Hyperliquid (4% rabatt pa avgifter)',
 
     // Popular Stocks
     popularStocksTitle: 'Populara amerikanska aktier tillgangliga',
@@ -406,7 +299,7 @@ export const translations = {
       },
       {
         question: 'Vad ar minimumbeloppet for att borja?',
-        answer: 'Du kan borja med sa lite som 500 kr (~$50). Med havstang ger detta dig exponering mot $500-3 000 worth av aktier. Vi rekommenderar att borja smatt for att lara dig plattformen.'
+        answer: 'Du kan borja med sa lite som ~500 SEK (~$50). Med havstang ger detta dig exponering mot $500-3 000 worth av aktier. Vi rekommenderar att borja smatt for att lara dig plattformen.'
       },
       {
         question: 'Kan jag anvanda Swish for att finansiera mitt konto?',
@@ -418,9 +311,19 @@ export const translations = {
       }
     ],
 
+    // More Guides
+    moreGuidesTitle: 'Fler Sverige-guider',
+    moreGuidesDesc: 'Vi har skapat detaljerade guider speciellt for svenska handlare. Kolla in dem:',
+    guides: [
+      { icon: 'kr', title: 'Konvertera SEK till USDC', desc: 'Steg-for-steg med Swish & BankID', href: '/blog/convert-sek-to-usdc' },
+      { icon: '💰', title: 'Handla med 500 SEK', desc: 'Strategi for sma konton', href: '/blog/trade-stocks-with-500-sek' },
+      { icon: '⚖️', title: 'Ar det lagligt i Sverige?', desc: 'Regler, skatter och efterlevnad', href: '/blog/equity-perps-legal-sweden' },
+      { icon: '🤝', title: 'P2P-handelsguide', desc: 'Globala P2P-metoder och sakerhetstips', href: '/blog/p2p-usdc-guide' }
+    ],
+
     // CTA
     ctaTitle: 'Borja handla amerikanska aktier idag',
-    ctaDesc: 'Ga med tusentals svenska handlare som far tillgang till NVDA, TSLA och 50+ amerikanska aktier 24/7. Ingen amerikansk maklare behovs. Borja med bara 500 kr.',
+    ctaDesc: 'Ga med tusentals svenska handlare som far tillgang till NVDA, TSLA och 50+ amerikanska aktier 24/7. Ingen amerikansk maklare behovs. Borja med bara ~500 SEK.',
     getStartedCta: 'Kom igang nu (4% rabatt pa avgifter)',
 
     // Free Notice
@@ -438,19 +341,11 @@ export const translations = {
     relatedTitle: 'Relaterade guider',
     relatedGuides: [
       { tag: 'FINANSIERING', title: 'Konvertera SEK till USDC', desc: 'Steg-for-steg med Swish', href: '/blog/convert-sek-to-usdc' },
-      { tag: 'GUIDE', title: 'Handla med 500 kr', desc: 'Strategi for sma konton', href: '/blog/trade-stocks-with-500-kr' },
+      { tag: 'GUIDE', title: 'Handla med 500 SEK', desc: 'Strategi for sma konton', href: '/blog/trade-stocks-with-500-sek' },
       { tag: 'JURIDISKT', title: 'Ar det lagligt i Sverige?', desc: 'Regulatorisk oversikt', href: '/blog/equity-perps-legal-sweden' }
-    ],
-
-    // Payment Methods
-    paymentTitle: 'Svenska betalningsmetoder',
-    digitalPayments: 'Digitala betalningar',
-    banks: 'Banker'
+    ]
   }
 };
-
-export const digitalPayments = ['Swish (Most Popular)', 'Klarna', 'Trustly', 'SEPA'];
-export const banksList = ['Swedbank', 'SEB', 'Nordea', 'Handelsbanken'];
 
 export const popularStocks = [
   { ticker: 'NVDA', name: 'Nvidia', hot: true },

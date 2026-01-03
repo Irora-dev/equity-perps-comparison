@@ -1,336 +1,359 @@
-export const translations = {
-  en: {
-    badge: "Guide for Lithuanian Traders",
-    heroTitle1: "Trade US Stocks",
-    heroTitle2: "from Lithuania",
-    heroDesc: "Access NVIDIA, Tesla, Apple with EUR. Start with €45. Trade 24/7 with SEPA.",
-    comparePlatforms: "Compare Platforms",
-    howItWorks: "How It Works",
-
-    // What are Equity Perps section
-    whatArePerpsTitle: "What Are Equity Perpetuals?",
-    whatArePerpsSubtitle: "A new way for Lithuanian traders to access US stock markets",
-    whatArePerpsContent: "Equity perpetuals (or \"perps\") are derivative contracts that track the price of US stocks like Tesla, Nvidia, and Apple. Unlike traditional stock trading through a Lithuanian broker or EU platform, equity perps let you trade 24/7 from anywhere in Lithuania using just a digital wallet and USDC stablecoins.",
-    whatArePerpsHow: "How it works:",
-    whatArePerpsSteps: [
-      "Perps track real stock prices using price feeds (oracles) from major exchanges",
-      "You can go long (bet price goes up) or short (bet price goes down)",
-      "Use leverage to control larger positions with less capital",
-      "Trade anytime — markets never close, even on weekends and holidays",
-    ],
-    whatArePerpsCta: "No US brokerage account needed. No KYC. Just connect a wallet and start trading.",
-
-    // Why Equity Perps section
-    whyPerpsTitle: "Why Lithuanian Traders Choose Equity Perps",
-    whyPerpsSubtitle: "Compared to traditional EU brokerages",
-    whyPerpsReasons: [
-      {
-        icon: '🌍',
-        title: 'Global Access from Lithuania',
-        desc: 'Trade US stocks without opening a US brokerage account. No SSN required, no complex foreign account paperwork. Works with Lithuanian banks via SEPA.',
-      },
-      {
-        icon: '🕐',
-        title: '24/7 Trading',
-        desc: 'Traditional US markets are only open 16:30-23:00 EET. Equity perps trade around the clock — react to Tesla earnings at midnight or trade NVIDIA on Sunday morning.',
-      },
-      {
-        icon: '📈',
-        title: 'Up to 50x Leverage',
-        desc: 'Control a $5,000 Tesla position with just $100. Traditional EU brokers offer limited leverage due to ESMA regulations. Start small and scale up as you learn.',
-      },
-      {
-        icon: '⚡',
-        title: 'Easy Short Selling',
-        desc: 'Think a stock will drop? Go short instantly. No borrowing shares, no hard-to-borrow fees, no restrictions. Just click sell and profit from falling prices.',
-      },
-      {
-        icon: '🔐',
-        title: 'Self-Custody',
-        desc: 'Your funds stay in your wallet. No broker holding your money. No withdrawal limits. No account freezes. You control your assets completely.',
-      },
-      {
-        icon: '💨',
-        title: 'Instant Settlement',
-        desc: 'No T+2 waiting period. Close a position and your profits are available immediately. Withdraw to your wallet in seconds, not days.',
-      },
-    ],
-
-    benefits: [
-      { icon: '💰', title: 'Start with €45', desc: '~$50 USDC minimum' },
-      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime EET' },
-      { icon: '🏦', title: 'SEPA Ready', desc: 'EUR bank transfers' },
-      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
-    ],
-
-    // Enhanced Getting Started section
-    getStartedTitle: "How to Get Started",
-    getStartedSubtitle: "Complete guide for Lithuanian traders — takes about 15 minutes",
-
-    step1Title: "Set Up Your Digital Wallet",
-    step1Subtitle: "Free, takes 2 minutes, and you only do this once",
-    step1WhatIsWallet: "What is a digital wallet?",
-    step1WhatIsWalletDesc: "Think of it like a digital bank account that you fully control. Instead of a bank holding your money, you hold it yourself using a simple browser extension.",
-    step1Features: [
-      { icon: '🔐', text: 'You control it' },
-      { icon: '🆓', text: 'Completely free' },
-      { icon: '⚡', text: '2 min setup' },
-      { icon: '🌍', text: 'Works globally' },
-    ],
-    step1Instructions: [
-      'Go to rabby.io (the wallet we recommend)',
-      'Click "Download" and add it to your browser (Chrome, Firefox, etc.)',
-      'Click "Create New Wallet" and set a password',
-      'Write down your 12-word recovery phrase — keep it safe and never share it!',
-    ],
-    step1VideoTitle: "Watch: 2-Minute Setup Guide",
-
-    step2Title: "Fund Your Wallet with USDC",
-    step2Subtitle: "Convert EUR to USDC using SEPA transfers",
-    step2Methods: [
-      {
-        name: 'Binance (Recommended)',
-        description: 'Deposit EUR via SEPA, buy USDC',
-        steps: [
-          'Create a Binance account (free)',
-          'Deposit EUR via SEPA from Swedbank/SEB/Luminor',
-          'Buy USDC with your EUR balance',
-          'Withdraw USDC to your Rabby wallet on Arbitrum',
-        ],
-        tip: 'SEPA transfers usually arrive same day or next business day',
-      },
-      {
-        name: 'Kraken',
-        description: 'EUR deposits with low fees',
-        steps: [
-          'Create a Kraken account',
-          'Deposit EUR via SEPA',
-          'Buy USDC',
-          'Withdraw to Rabby on Arbitrum',
-        ],
-        tip: 'Kraken has competitive fees for EU users',
-      },
-    ],
-    step2MinAmount: "Start with €45 (~$50 USDC)",
-
-    step3Title: "Connect to Hyperliquid & Trade",
-    step3Subtitle: "The most popular platform for equity perps",
-    step3Instructions: [
-      'Go to app.hyperliquid.xyz',
-      'Click "Connect" and select Rabby Wallet',
-      'Deposit your USDC to the platform',
-      'Search for a stock (e.g., NVDA-PERP, TSLA-PERP)',
-      'Choose Long (price up) or Short (price down)',
-      'Set your leverage (start with 2-3x)',
-      'Enter position size and click trade!',
-    ],
-    step3Tip: "Start with small positions (5-10% of your account) while you learn.",
-    step3Cta: "Start Trading on Hyperliquid",
-
-    // Risk Warning
-    riskTitle: "Understand the Risks",
-    riskWarnings: [
-      { title: 'Leverage amplifies losses', desc: 'The same 10x that turns 5% into 50% gains also turns 5% losses into 50% losses.' },
-      { title: 'Liquidation is real', desc: 'Your position can be closed automatically if it moves against you enough.' },
-      { title: 'Funding rates cost money', desc: 'Holding positions costs money every few hours, especially on popular trades.' },
-      { title: 'No ownership', desc: "You're trading price exposure, not actual shares. No dividends, no voting rights." },
-    ],
-
-    stepsTitle: "Get Started in 4 Steps",
-    steps: [
-      { t: 'Convert EUR to USDC', d: 'Use Binance or Kraken with SEPA transfer.' },
-      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
-      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
-      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
-    ],
-    paymentTitle: "Lithuania Payment Methods",
-    digitalPayments: "Banks",
-    banks: "Exchanges",
-    faqTitle: "Frequently Asked Questions",
-    faqs: [
-      { question: 'Do I need a US brokerage account?', answer: 'No. Equity perps are synthetic derivatives that track US stock prices. You trade with USDC on decentralized platforms — no US broker, no SSN, no complex foreign account paperwork.' },
-      { question: 'Is this legal in Lithuania?', answer: 'Equity perps exist in a regulatory gray area. They are decentralized derivatives not specifically regulated under Lithuanian law. As an EU member, MiCA regulations may apply in the future. You are responsible for reporting any trading profits for tax purposes.' },
-      { question: 'How do I convert EUR to USDC?', answer: 'Use Binance or Kraken with SEPA transfer from your Lithuanian bank (Swedbank, SEB bankas, Luminor, Šiaulių bankas). Deposits usually arrive same day or next business day.' },
-      { question: "What's the minimum to start?", answer: 'You can start with as little as €45 (~$50 USDC). Fractional trading means you can trade any US stock regardless of its price.' },
-      { question: 'What banks work from Lithuania?', answer: 'All major Lithuanian banks support SEPA transfers: Swedbank, SEB bankas, Luminor, Šiaulių bankas. Simply send EUR to Binance or Kraken and buy USDC.' },
-      { question: 'How is this different from Interactive Brokers?', answer: 'Unlike traditional brokers, equity perps offer: 24/7 trading (not just US market hours), up to 50x leverage, no KYC required, self-custody of funds, and easier short selling.' },
-    ],
-    ctaTitle: "Ready to Trade US Stocks?",
-    ctaDesc: "Join Lithuanian traders accessing US markets 24/7.",
-    freeNotice: "This site is",
-    freeNotice2: "100% free",
-    freeNotice3: ". Get",
-    freeNotice4: "4% off fees",
-    freeNotice5: "through our links.",
-  },
-  lt: {
-    badge: "Vadovas Lietuvos prekiautojams",
-    heroTitle1: "Prekiaukite JAV akcijomis",
-    heroTitle2: "iš Lietuvos",
-    heroDesc: "Pasiekite NVIDIA, Tesla, Apple su EUR. Pradėkite nuo €45. Prekiaukite 24/7 su SEPA.",
-    comparePlatforms: "Palyginti platformas",
-    howItWorks: "Kaip tai veikia",
-
-    // What are Equity Perps section
-    whatArePerpsTitle: "Kas yra Equity Perpetuals?",
-    whatArePerpsSubtitle: "Naujas būdas Lietuvos prekiautojams pasiekti JAV akcijų rinkas",
-    whatArePerpsContent: "Equity perpetuals (arba \"perps\") yra išvestinių finansinių priemonių kontraktai, kurie seka JAV akcijų kainas, tokias kaip Tesla, Nvidia ir Apple. Skirtingai nuo tradicinės akcijų prekybos per Lietuvos brokerį ar ES platformą, equity perps leidžia prekiauti 24/7 iš bet kurios Lietuvos vietos, naudojant tik skaitmeninę piniginę ir USDC stablecoins.",
-    whatArePerpsHow: "Kaip tai veikia:",
-    whatArePerpsSteps: [
-      "Perps seka realias akcijų kainas naudodami kainų srautus (orakulus) iš pagrindinių biržų",
-      "Galite eiti long (lažintis, kad kaina kils) arba short (lažintis, kad kaina kris)",
-      "Naudokite svertą valdyti didesnes pozicijas su mažesniu kapitalu",
-      "Prekiaukite bet kuriuo metu — rinkos niekada neužsidaro, net savaitgaliais ir švenčių dienomis",
-    ],
-    whatArePerpsCta: "Nereikia JAV brokerio sąskaitos. Nereikia KYC. Tiesiog prijunkite piniginę ir pradėkite prekiauti.",
-
-    // Why Equity Perps section
-    whyPerpsTitle: "Kodėl Lietuvos prekiautojai renkasi Equity Perps",
-    whyPerpsSubtitle: "Palyginus su tradiciniais ES brokeriais",
-    whyPerpsReasons: [
-      {
-        icon: '🌍',
-        title: 'Globalus prieinamumas iš Lietuvos',
-        desc: 'Prekiaukite JAV akcijomis be JAV brokerio sąskaitos atidarymo. Nereikia SSN, nereikia sudėtingų užsienio sąskaitų dokumentų. Veikia su Lietuvos bankais per SEPA.',
-      },
-      {
-        icon: '🕐',
-        title: '24/7 prekyba',
-        desc: 'Tradicinės JAV rinkos veikia tik 16:30-23:00 EET. Equity perps prekiaujama visą parą — reaguokite į Tesla pajamas vidurnaktį arba prekiaukite NVIDIA sekmadienio rytą.',
-      },
-      {
-        icon: '📈',
-        title: 'Iki 50x svertas',
-        desc: 'Valdykite $5,000 Tesla poziciją su vos $100. Tradiciniai ES brokeriai siūlo ribotą svertą dėl ESMA reguliacijų. Pradėkite nuo mažos sumos ir didinkite, kai mokotės.',
-      },
-      {
-        icon: '⚡',
-        title: 'Lengvas short pardavimas',
-        desc: 'Manote, kad akcija kris? Shortinkite iš karto. Nereikia skolintis akcijų, nereikia sunkiai randamų akcijų mokesčių, nereikia apribojimų. Tiesiog spauskite parduoti ir uždirbiškite iš krentančių kainų.',
-      },
-      {
-        icon: '🔐',
-        title: 'Self-Custody',
-        desc: 'Jūsų lėšos lieka jūsų piniginėje. Joks brokeris nelaiko jūsų pinigų. Nėra išėmimo limitų. Nėra sąskaitos įšaldymo. Jūs visiškai kontroliuojate savo turtą.',
-      },
-      {
-        icon: '💨',
-        title: 'Momentinis atsiskaitymas',
-        desc: 'Nėra T+2 laukimo periodo. Uždarykite poziciją ir jūsų pelnas iš karto prieinamas. Išsiimkite į savo piniginę per sekundes, ne dienas.',
-      },
-    ],
-
-    benefits: [
-      { icon: '💰', title: 'Pradėkite nuo €45', desc: '~$50 USDC minimumas' },
-      { icon: '🕐', title: '24/7 prekyba', desc: 'Prekiaukite bet kada' },
-      { icon: '🏦', title: 'SEPA paruošta', desc: 'EUR banko pervedimai' },
-      { icon: '🔐', title: 'Self-Custody', desc: 'Jūsų raktai, jūsų monetos' },
-    ],
-
-    // Enhanced Getting Started section
-    getStartedTitle: "Kaip pradėti",
-    getStartedSubtitle: "Pilnas vadovas Lietuvos prekiautojams — užtrunka apie 15 minučių",
-
-    step1Title: "Sukurkite savo skaitmeninę piniginę",
-    step1Subtitle: "Nemokama, užtrunka 2 minutes, darote tik vieną kartą",
-    step1WhatIsWallet: "Kas yra skaitmeninė piniginė?",
-    step1WhatIsWalletDesc: "Įsivaizduokite tai kaip skaitmeninę banko sąskaitą, kurią jūs visiškai kontroliuojate. Vietoj to, kad bankas laikytų jūsų pinigus, jūs patys juos laikote naudodami paprastą naršyklės plėtinį.",
-    step1Features: [
-      { icon: '🔐', text: 'Jūs kontroliuojate' },
-      { icon: '🆓', text: 'Visiškai nemokama' },
-      { icon: '⚡', text: '2 min nustatymas' },
-      { icon: '🌍', text: 'Veikia globaliai' },
-    ],
-    step1Instructions: [
-      'Eikite į rabby.io (piniginė, kurią rekomenduojame)',
-      'Spauskite "Download" ir pridėkite prie savo naršyklės (Chrome, Firefox ir kt.)',
-      'Spauskite "Create New Wallet" ir nustatykite slaptažodį',
-      'Užsirašykite savo 12 žodžių atkūrimo frazę — saugokite ją ir niekada nesidalinkite!',
-    ],
-    step1VideoTitle: "Žiūrėkite: 2 minučių nustatymo vadovas",
-
-    step2Title: "Papildykite piniginę USDC",
-    step2Subtitle: "Konvertuokite EUR į USDC naudojant SEPA pervedimus",
-    step2Methods: [
-      {
-        name: 'Binance (Rekomenduojama)',
-        description: 'Įmokėkite EUR per SEPA, pirkite USDC',
-        steps: [
-          'Sukurkite Binance paskyrą (nemokama)',
-          'Įmokėkite EUR per SEPA iš Swedbank/SEB/Luminor',
-          'Pirkite USDC su savo EUR likučiu',
-          'Išsiimkite USDC į savo Rabby piniginę Arbitrum tinkle',
-        ],
-        tip: 'SEPA pervedimai paprastai ateina tą pačią dieną arba kitą darbo dieną',
-      },
-      {
-        name: 'Kraken',
-        description: 'EUR įmokos su mažais mokesčiais',
-        steps: [
-          'Sukurkite Kraken paskyrą',
-          'Įmokėkite EUR per SEPA',
-          'Pirkite USDC',
-          'Išsiimkite į Rabby Arbitrum tinkle',
-        ],
-        tip: 'Kraken turi konkurencingus mokesčius ES vartotojams',
-      },
-    ],
-    step2MinAmount: "Pradėkite nuo €45 (~$50 USDC)",
-
-    step3Title: "Prisijunkite prie Hyperliquid ir prekiaukite",
-    step3Subtitle: "Populiariausia platforma equity perps",
-    step3Instructions: [
-      'Eikite į app.hyperliquid.xyz',
-      'Spauskite "Connect" ir pasirinkite Rabby Wallet',
-      'Įmokėkite savo USDC į platformą',
-      'Ieškokite akcijos (pvz., NVDA-PERP, TSLA-PERP)',
-      'Pasirinkite Long (kaina kyla) arba Short (kaina krenta)',
-      'Nustatykite savo svertą (pradėkite nuo 2-3x)',
-      'Įveskite pozicijos dydį ir spauskite trade!',
-    ],
-    step3Tip: "Pradėkite su mažomis pozicijomis (5-10% savo sąskaitos) kol mokotės.",
-    step3Cta: "Pradėti prekiauti Hyperliquid",
-
-    // Risk Warning
-    riskTitle: "Supraskite rizikas",
-    riskWarnings: [
-      { title: 'Svertas padidina nuostolius', desc: 'Tas pats 10x, kuris paverčia 5% į 50% pelną, taip pat paverčia 5% nuostolius į 50% nuostolius.' },
-      { title: 'Likvidacija yra reali', desc: 'Jūsų pozicija gali būti automatiškai uždaryta, jei rinka pakankamai pajuda prieš jus.' },
-      { title: 'Finansavimo normos kainuoja', desc: 'Pozicijų laikymas kainuoja pinigų kas kelias valandas, ypač populiariose prekybose.' },
-      { title: 'Nėra nuosavybės', desc: 'Jūs prekiaujate kainos ekspozicija, ne tikromis akcijomis. Nėra dividendų, nėra balsavimo teisių.' },
-    ],
-
-    stepsTitle: "Pradėkite 4 žingsniais",
-    steps: [
-      { t: 'Konvertuokite EUR į USDC', d: 'Naudokite Binance arba Kraken su SEPA pervedimu.' },
-      { t: 'Pasirinkite platformą', d: 'Palyginkite platformas.', l: '/', lt: 'Palyginti' },
-      { t: 'Prijunkite piniginę', d: 'Naudokite MetaMask arba Rabby.' },
-      { t: 'Pradėkite prekiauti', d: 'Pradėkite su 2-3x svertu.' },
-    ],
-    paymentTitle: "Lietuvos mokėjimo būdai",
-    digitalPayments: "Bankai",
-    banks: "Biržos",
-    faqTitle: "Dažnai užduodami klausimai",
-    faqs: [
-      { question: 'Ar man reikia JAV brokerio sąskaitos?', answer: 'Ne. Equity perps yra sintetiniai išvestiniai instrumentai, kurie seka JAV akcijų kainas. Prekiaujate su USDC decentralizuotose platformose — be JAV brokerio, be SSN, be sudėtingų dokumentų.' },
-      { question: 'Ar tai legalu Lietuvoje?', answer: 'Equity perps egzistuoja reguliacinėje pilkojoje zonoje. Tai decentralizuoti išvestiniai instrumentai, kurie nėra konkrečiai reguliuojami Lietuvos įstatymais. Kaip ES narė, MiCA reguliacija gali būti taikoma ateityje. Jūs esate atsakingi už prekybos pelno deklaravimą mokesčių tikslais.' },
-      { question: 'Kaip konvertuoti EUR į USDC?', answer: 'Naudokite Binance arba Kraken su SEPA pervedimu iš savo Lietuvos banko (Swedbank, SEB bankas, Luminor, Šiaulių bankas). Įmokos paprastai ateina tą pačią dieną arba kitą darbo dieną.' },
-      { question: 'Koks minimalus kiekis pradėti?', answer: 'Galite pradėti nuo €45 (~$50 USDC). Dalinė prekyba reiškia, kad galite prekiauti bet kuria JAV akcija, nepriklausomai nuo jos kainos.' },
-      { question: 'Kokie bankai veikia iš Lietuvos?', answer: 'Visi pagrindiniai Lietuvos bankai palaiko SEPA pervedimus: Swedbank, SEB bankas, Luminor, Šiaulių bankas. Tiesiog siųskite EUR į Binance arba Kraken ir pirkite USDC.' },
-      { question: 'Kuo tai skiriasi nuo Interactive Brokers?', answer: 'Skirtingai nuo tradicinių brokerių, equity perps siūlo: 24/7 prekybą (ne tik JAV rinkos valandas), iki 50x svertą, be KYC, self-custody lėšas ir lengvesnį short pardavimą.' },
-    ],
-    ctaTitle: "Pasiruošę prekiauti JAV akcijomis?",
-    ctaDesc: "Prisijunkite prie Lietuvos prekiautojų, pasiekiančių JAV rinkas 24/7.",
-    freeNotice: "Ši svetainė yra",
-    freeNotice2: "100% nemokama",
-    freeNotice3: ". Gaukite",
-    freeNotice4: "4% nuolaidą",
-    freeNotice5: "per mūsų nuorodas.",
-  },
-};
-
-export const digitalPayments = ['Swedbank', 'SEB bankas', 'Luminor', 'Šiaulių bankas'];
-export const banksList = ['Binance', 'Kraken', 'Coinbase', 'Bitstamp'];
 export const nativeLang = 'lt';
 export const nativeName = 'Lietuvių';
-export const popularStocks = ['NVDA', 'TSLA', 'AAPL', 'META', 'MSFT', 'AMZN'];
+export const isRTL = false;
+
+export const translations = {
+  en: {
+    // Breadcrumb
+    home: 'Home',
+    blog: 'Blog',
+    pageTitle: 'Trade US Stocks from Lithuania',
+
+    // Hero
+    badge: 'Lithuania Guide',
+    noBrokerBadge: 'No Broker Needed',
+    heroTitle1: 'Trade US Stocks',
+    heroTitle2: 'From Lithuania',
+    heroDesc: 'Access NVDA, TSLA, AAPL and 50+ US stocks without a US brokerage account. Convert EUR to USDC and start trading in',
+    heroDescHighlight: '15 minutes',
+    startTrading: 'Start Trading Now',
+    howItWorks: 'How It Works',
+
+    // Quick Stats
+    statMinimumValue: '~€45',
+    statMinimum: 'Minimum to Start',
+    statTimeValue: '24/7',
+    statTime: 'Any Time EET',
+    statStocksValue: '50+',
+    statStocks: 'US Stocks',
+    statKycValue: 'No KYC',
+    statKyc: 'On Trading Platform',
+
+    // Why Section
+    whyTitle: 'Why Lithuanian Traders Choose Equity Perps',
+    whyCards: [
+      {
+        icon: '🇪🇺',
+        title: 'EU-Friendly Access',
+        desc: 'No US brokerage account needed. No SSN, no W-8BEN forms, no complex foreign account paperwork. Works seamlessly with Lithuanian banks via SEPA.'
+      },
+      {
+        icon: '⚡',
+        title: 'Instant SEPA Funding',
+        desc: 'Deposit EUR from Swedbank, SEB, or Luminor via SEPA transfer. Funds arrive same day or next business day. Start trading immediately.'
+      },
+      {
+        icon: '🕐',
+        title: 'Trade Beyond EET Hours',
+        desc: 'US markets are only open 16:30-23:00 EET. With equity perps, trade whenever you want - morning, afternoon, or weekend.'
+      },
+      {
+        icon: '💰',
+        title: 'Start with ~€45',
+        desc: 'Most US brokers need $500+ minimum. Here, start with just €45 (~$50) and use leverage to control larger positions.'
+      }
+    ],
+
+    // Get Started Section
+    stepByStep: 'Step-by-Step Guide',
+    getStartedTitle: 'Get Started in 15 Minutes',
+    getStartedDesc: 'Follow these steps to start trading US stocks from Lithuania today.',
+
+    // Step 1: Wallet
+    step1Title: 'Set Up Your Digital Wallet',
+    step1Desc: 'Free, takes 2 minutes, and you only do this once',
+    walletExplainTitle: 'What is a digital wallet?',
+    walletExplainDesc: 'Think of it like a',
+    walletExplainHighlight: 'digital bank account you control',
+    walletExplainDesc2: '. Instead of a bank holding your money, you hold it yourself using a simple browser extension.',
+    walletFeatures: ['You control it', 'Completely free', '2 min setup', 'Works in Lithuania'],
+    walletSetupTitle: "Here's how to set it up:",
+    walletSteps: [
+      { text: 'Go to', link: 'rabby.io' },
+      { text: 'Click "Download" and add to Chrome/Brave' },
+      { text: 'Click "Create New Wallet" and set a password' },
+      { text: 'Write down your 12-word recovery phrase', warning: 'Keep it safe and never share it!' }
+    ],
+    watchVideo: 'Watch: 2-Minute Setup Guide',
+
+    // Step 2: Funding
+    step2Title: 'Convert EUR to USDC',
+    step2Desc: 'Use Binance or Kraken with SEPA transfer',
+    fundingIntro: 'You need USDC (a stablecoin worth $1) to trade. Here are the best ways to convert EUR:',
+    binanceP2P: {
+      title: 'Binance (Recommended)',
+      desc: 'Best rates, most liquidity',
+      steps: ['Create a Binance account', 'Deposit EUR via SEPA from your bank', 'Buy USDC with EUR', 'Withdraw to Rabby (Arbitrum)']
+    },
+    wazirx: {
+      title: 'Kraken',
+      desc: 'EU-friendly, low fees',
+      steps: ['Create a Kraken account', 'Deposit EUR via SEPA', 'Buy USDC', 'Withdraw to Rabby (Arbitrum)']
+    },
+    coindcx: {
+      title: 'Coinbase',
+      desc: 'Simple interface, EU regulated',
+      steps: ['Create a Coinbase account', 'Deposit EUR via SEPA', 'Buy USDC', 'Withdraw to Rabby (Arbitrum)']
+    },
+    proTip: 'Pro tip:',
+    proTipText: 'SEPA transfers from Swedbank, SEB, Luminor, or Siauliu bankas usually arrive same day. Binance typically has the best rates.',
+    seeDetailedGuide: 'See detailed EUR to USDC guide',
+
+    // Step 3: Trade
+    step3Title: 'Start Trading',
+    step3Desc: 'Connect to Hyperliquid and trade 50+ US stocks',
+    tradeSteps: [
+      { text: 'Go to', linkText: 'app.hyperliquid.xyz' },
+      { text: 'Click "Connect" and select Rabby Wallet' },
+      { text: 'Click "Deposit" and bridge your USDC' },
+      { text: 'Search for a stock (NVDA, TSLA, AAPL) and open a position!' }
+    ],
+    openHyperliquid: 'Open Hyperliquid (4% Off Fees)',
+
+    // Popular Stocks
+    popularStocksTitle: 'Popular US Stocks Available',
+    viewAllStocks: 'View all 50+ stocks',
+    hot: 'HOT',
+
+    // FAQ
+    faqTitle: 'Frequently Asked Questions',
+    faqs: [
+      {
+        question: 'Is it legal to trade US stocks from Lithuania using equity perps?',
+        answer: "Equity perpetuals exist in a regulatory gray area. They are not explicitly regulated by Lithuanian law as they operate on decentralized platforms. As an EU member, MiCA regulations may apply in the future. You're not directly buying US stocks - you're trading price exposure through synthetic contracts. You should understand the regulatory landscape and consult a tax professional."
+      },
+      {
+        question: 'Do I need to pay tax on profits from equity perps in Lithuania?',
+        answer: 'Yes, profits from trading are likely taxable in Lithuania. They may be classified as capital gains or other income depending on your trading activity. Maintain records of all trades and consult a tax advisor familiar with crypto/derivatives taxation in Lithuania.'
+      },
+      {
+        question: "What's the minimum amount I need to start?",
+        answer: 'You can start with as little as €45 (~$50 USDC). With leverage, this gives you exposure to $500-3,000 worth of stocks. We recommend starting small to learn the platform.'
+      },
+      {
+        question: 'Can I trade during Lithuanian business hours?',
+        answer: "Yes! Equity perps trade 24/7. You can trade US stocks at any time - morning, evening, or late night EET. There's no restriction on trading hours."
+      },
+      {
+        question: 'Is KYC required?',
+        answer: "The trading platforms (like Hyperliquid) don't require KYC. However, you'll need to complete KYC on an exchange (Binance, Kraken) to convert EUR to USDC initially."
+      }
+    ],
+
+    // More Guides
+    moreGuidesTitle: 'More Lithuania Guides',
+    moreGuidesDesc: "We've created detailed guides specifically for Lithuanian traders. Check them out:",
+    guides: [
+      { icon: '€', title: 'Convert EUR to USDC', desc: 'Step-by-step with SEPA transfers', href: '/blog/convert-eur-to-usdc' },
+      { icon: '💰', title: 'Trade with €50', desc: 'Small account strategy guide', href: '/blog/trade-stocks-with-50-eur' },
+      { icon: '⚖️', title: 'Is It Legal in the EU?', desc: 'Regulations, taxes, and compliance', href: '/blog/equity-perps-legal-eu' },
+      { icon: '🤝', title: 'P2P Trading Guide', desc: 'Global P2P methods and safety tips', href: '/blog/p2p-usdc-guide' }
+    ],
+
+    // CTA
+    ctaTitle: 'Start Trading US Stocks Today',
+    ctaDesc: 'Join thousands of Lithuanian traders accessing NVDA, TSLA, and 50+ US stocks 24/7. No US broker needed. Start with just €45.',
+    getStartedCta: 'Get Started Now (4% Off Fees)',
+
+    // Free Notice
+    freeNotice: 'This site is',
+    freeNotice2: '100% free',
+    freeNotice3: ' to use for comparing the best platforms to trade stocks 24/7. When you sign up through our links to platforms like',
+    freeNotice4: 'Hyperliquid',
+    freeNotice5: 'and',
+    freeNotice6: 'Lighter',
+    freeNotice7: ', you get a',
+    freeNotice8: '4% discount on trading fees',
+    freeNotice9: ' with our referral code. This helps support the site while saving you money on every trade.',
+
+    // Related
+    relatedTitle: 'Related Guides',
+    relatedGuides: [
+      { tag: 'FUNDING', title: 'Convert EUR to USDC', desc: 'Step-by-step with screenshots', href: '/blog/convert-eur-to-usdc' },
+      { tag: 'GUIDE', title: 'Trade with €50', desc: 'Small account strategy', href: '/blog/trade-stocks-with-50-eur' },
+      { tag: 'LEGAL', title: 'Is It Legal in the EU?', desc: 'Regulatory overview', href: '/blog/equity-perps-legal-eu' }
+    ]
+  },
+  lt: {
+    // Breadcrumb
+    home: 'Pagrindinis',
+    blog: 'Tinklarastis',
+    pageTitle: 'Prekiaukite JAV akcijomis is Lietuvos',
+
+    // Hero
+    badge: 'Lietuvos vadovas',
+    noBrokerBadge: 'Brokerio nereikia',
+    heroTitle1: 'Prekiaukite JAV akcijomis',
+    heroTitle2: 'Is Lietuvos',
+    heroDesc: 'Pasiekite NVDA, TSLA, AAPL ir 50+ JAV akciju be JAV brokerio saskaitos. Konvertuokite EUR i USDC ir pradekite prekiauti per',
+    heroDescHighlight: '15 minuciu',
+    startTrading: 'Pradeti prekiauti dabar',
+    howItWorks: 'Kaip tai veikia',
+
+    // Quick Stats
+    statMinimumValue: '~€45',
+    statMinimum: 'Minimumas pradeti',
+    statTimeValue: '24/7',
+    statTime: 'Bet kuriuo metu EET',
+    statStocksValue: '50+',
+    statStocks: 'JAV akcijos',
+    statKycValue: 'Be KYC',
+    statKyc: 'Prekybos platformoje',
+
+    // Why Section
+    whyTitle: 'Kodel Lietuvos prekiautojai renkasi Equity Perps',
+    whyCards: [
+      {
+        icon: '🇪🇺',
+        title: 'ES draugiskas prieinamumas',
+        desc: 'Nereikia JAV brokerio saskaitos. Nereikia SSN, W-8BEN formu, sudétingu uzsienio saskaitu dokumentu. Puikiai veikia su Lietuvos bankais per SEPA.'
+      },
+      {
+        icon: '⚡',
+        title: 'Greitas SEPA finansavimas',
+        desc: 'Imokekite EUR is Swedbank, SEB ar Luminor per SEPA pervedima. Lesós ateina ta pacia diena arba kita darbo diena. Pradekite prekiauti is karto.'
+      },
+      {
+        icon: '🕐',
+        title: 'Prekiaukite uz EET valandu',
+        desc: 'JAV rinkos veikia tik 16:30-23:00 EET. Su equity perps prekiaukite kada norite - ryte, popiet ar savaitgali.'
+      },
+      {
+        icon: '💰',
+        title: 'Pradekite nuo ~€45',
+        desc: 'Daugumai JAV brokeriu reikia $500+ minimumo. Cia pradekite tik nuo €45 (~$50) ir naudokite sverta didesniems pozicijoms valdyti.'
+      }
+    ],
+
+    // Get Started Section
+    stepByStep: 'Zingsnis po zingsnio vadovas',
+    getStartedTitle: 'Pradekite per 15 minuciu',
+    getStartedDesc: 'Sekite siuos zingsnius, kad siandien pradetumete prekiauti JAV akcijomis is Lietuvos.',
+
+    // Step 1: Wallet
+    step1Title: 'Sukurkite savo skaitmenine pinigine',
+    step1Desc: 'Nemokama, uzima 2 minutes, ir tai darote tik viena karta',
+    walletExplainTitle: 'Kas yra skaitmenine pinigine?',
+    walletExplainDesc: 'Galvokite apie tai kaip apie',
+    walletExplainHighlight: 'skaitmenine banko saskaita, kuria jus kontroliuojate',
+    walletExplainDesc2: '. Uzuot bankas laiketu jusu pinigus, jus patys juos laikote naudodami paprasta narslykles pletin.',
+    walletFeatures: ['Jus kontroliuojate', 'Viskai nemokama', '2 min nustatymas', 'Veikia Lietuvoje'],
+    walletSetupTitle: 'Stai kaip tai nustatyti:',
+    walletSteps: [
+      { text: 'Eikite i', link: 'rabby.io' },
+      { text: 'Spauskite "Download" ir idiekite i Chrome/Brave' },
+      { text: 'Spauskite "Create New Wallet" ir nustatykite slaptazodi' },
+      { text: 'Uzsiraskite savo 12 zodziu atkurimo fraze', warning: 'Saugokite ja ir niekada nesidalinkite!' }
+    ],
+    watchVideo: 'Ziureti: 2 minuciu nustatymo vadova',
+
+    // Step 2: Funding
+    step2Title: 'Konvertuokite EUR i USDC',
+    step2Desc: 'Naudokite Binance arba Kraken su SEPA pervedimu',
+    fundingIntro: 'Jums reikia USDC (stablecoin vertes $1) prekybai. Cia geriausi budai konvertuoti EUR:',
+    binanceP2P: {
+      title: 'Binance (Rekomenduojama)',
+      desc: 'Geriausi kursai, didiausia likvidumas',
+      steps: ['Sukurkite Binance paskyra', 'Imokekite EUR per SEPA is savo banko', 'Pirkite USDC uz EUR', 'Isiimkite i Rabby (Arbitrum)']
+    },
+    wazirx: {
+      title: 'Kraken',
+      desc: 'ES draugiskas, mazi mokesciai',
+      steps: ['Sukurkite Kraken paskyra', 'Imokekite EUR per SEPA', 'Pirkite USDC', 'Isiimkite i Rabby (Arbitrum)']
+    },
+    coindcx: {
+      title: 'Coinbase',
+      desc: 'Paprasta sasaja, ES reguliuojama',
+      steps: ['Sukurkite Coinbase paskyra', 'Imokekite EUR per SEPA', 'Pirkite USDC', 'Isiimkite i Rabby (Arbitrum)']
+    },
+    proTip: 'Pro patarimas:',
+    proTipText: 'SEPA pervedimai is Swedbank, SEB, Luminor ar Siauliu banko paprastai ateina ta pacia diena. Binance paprastai turi geriausius kursus.',
+    seeDetailedGuide: 'Ziureti detalu EUR i USDC vadova',
+
+    // Step 3: Trade
+    step3Title: 'Pradekite prekiauti',
+    step3Desc: 'Prisijunkite prie Hyperliquid ir prekiaukite 50+ JAV akcijomis',
+    tradeSteps: [
+      { text: 'Eikite i', linkText: 'app.hyperliquid.xyz' },
+      { text: 'Spauskite "Connect" ir pasirinkite Rabby Wallet' },
+      { text: 'Spauskite "Deposit" ir perkelkite savo USDC' },
+      { text: 'Ieskokite akcijos (NVDA, TSLA, AAPL) ir atidarykite pozicija!' }
+    ],
+    openHyperliquid: 'Atidaryti Hyperliquid (4% nuolaida mokesciams)',
+
+    // Popular Stocks
+    popularStocksTitle: 'Populiarios JAV akcijos',
+    viewAllStocks: 'Ziureti visas 50+ akcijas',
+    hot: 'HOT',
+
+    // FAQ
+    faqTitle: 'Daznai uzduodami klausimai',
+    faqs: [
+      {
+        question: 'Ar legalu prekiauti JAV akcijomis is Lietuvos naudojant equity perps?',
+        answer: 'Equity perpetuals egzistuoja reguliaciniame pilkoje zonoje. Jie nera aiskiai reguliuojami Lietuvos istatymu, nes veikia decentralizuotose platformose. Kaip ES nare, MiCA reguliacijos gali buti taikomos ateityje. Jus ne tiesiogiai perkate JAV akcijas - prekiaujate kainos ekspozicija per sintetinius kontraktus. Turétumete suprasti reguliacine aplinka ir pasikonsultuoti su mokesciu specialistu.'
+      },
+      {
+        question: 'Ar turiu mokéti mokescius nuo equity perps pelno Lietuvoje?',
+        answer: 'Taip, pelnas is prekybos greiciausiai apmokestinamas Lietuvoje. Jis gali buti klasifikuojamas kaip kapitalo prieaugis arba kitos pajamos, priklausomai nuo jusu prekybos veiklos. Saugokite visu sandoriu irasus ir pasikonsultuokite su mokesciu konsultantu, issmananciau kripto/isvestiniu priemoniu apmokestinima Lietuvoje.'
+      },
+      {
+        question: 'Koks minimalus kiekis pradeti?',
+        answer: 'Galite pradéti nuo €45 (~$50 USDC). Su svertu tai suteikia ekspozicija i $500-3,000 vertes akcijas. Rekomenduojame pradeti nuo mazu sumu, kad ismoktuméte platforma.'
+      },
+      {
+        question: 'Ar galiu prekiauti Lietuvos darbo valandomis?',
+        answer: 'Taip! Equity perps prekiaujama 24/7. Galite prekiauti JAV akcijomis bet kuriuo metu - ryte, vakare ar vélu nakti EET. Nera jokiu prekybos valandu apribojimu.'
+      },
+      {
+        question: 'Ar reikalingas KYC?',
+        answer: 'Prekybos platformos (kaip Hyperliquid) nereikalauja KYC. Taciau jums reikés uzbaigti KYC birzoje (Binance, Kraken), kad galétumete konvertuoti EUR i USDC pradiioje.'
+      }
+    ],
+
+    // More Guides
+    moreGuidesTitle: 'Daugiau Lietuvos vadovu',
+    moreGuidesDesc: 'Sukureme issamius vadovus specialiai Lietuvos prekiautojams. Patikrinikite:',
+    guides: [
+      { icon: '€', title: 'Konvertuoti EUR i USDC', desc: 'Zingsnis po zingsnio su SEPA pervedimais', href: '/blog/convert-eur-to-usdc' },
+      { icon: '💰', title: 'Prekiauti su €50', desc: 'Mazos saskaitos strategijos vadovas', href: '/blog/trade-stocks-with-50-eur' },
+      { icon: '⚖️', title: 'Ar tai legalu ES?', desc: 'Reguliacijos, mokesciai ir atitiktis', href: '/blog/equity-perps-legal-eu' },
+      { icon: '🤝', title: 'P2P prekybos vadovas', desc: 'Globalus P2P metodai ir saugumo patarimai', href: '/blog/p2p-usdc-guide' }
+    ],
+
+    // CTA
+    ctaTitle: 'Pradekite prekiauti JAV akcijomis siandien',
+    ctaDesc: 'Prisijunkite prie tukstanciu Lietuvos prekiautoju, pasiekianciu NVDA, TSLA ir 50+ JAV akciju 24/7. Nereikia JAV brokerio. Pradekite tik nuo €45.',
+    getStartedCta: 'Pradeti dabar (4% nuolaida mokesciams)',
+
+    // Free Notice
+    freeNotice: 'Si svetaine yra',
+    freeNotice2: '100% nemokama',
+    freeNotice3: ' naudoti palyginti geriausias platformas prekiauti akcijomis 24/7. Kai uzsregistruojate per musu nuorodas i platformas kaip',
+    freeNotice4: 'Hyperliquid',
+    freeNotice5: 'ir',
+    freeNotice6: 'Lighter',
+    freeNotice7: ', gaunate',
+    freeNotice8: '4% nuolaida prekybos mokesciams',
+    freeNotice9: ' su musu rekomendacijos kodu. Tai padeda palaikyti svetaine ir taupo jusu pinigus kiekvienam sandoriui.',
+
+    // Related
+    relatedTitle: 'Susije vadovai',
+    relatedGuides: [
+      { tag: 'FINANSAVIMAS', title: 'Konvertuoti EUR i USDC', desc: 'Zingsnis po zingsnio su ekrano nuotraukomis', href: '/blog/convert-eur-to-usdc' },
+      { tag: 'VADOVAS', title: 'Prekiauti su €50', desc: 'Mazos saskaitos strategija', href: '/blog/trade-stocks-with-50-eur' },
+      { tag: 'TEISINE', title: 'Ar tai legalu ES?', desc: 'Reguliacine apzvalga', href: '/blog/equity-perps-legal-eu' }
+    ]
+  }
+};
+
+export const popularStocks = [
+  { ticker: 'NVDA', name: 'Nvidia', hot: true },
+  { ticker: 'TSLA', name: 'Tesla', hot: true },
+  { ticker: 'AAPL', name: 'Apple', hot: false },
+  { ticker: 'MSFT', name: 'Microsoft', hot: false },
+  { ticker: 'META', name: 'Meta', hot: true },
+  { ticker: 'AMZN', name: 'Amazon', hot: false },
+  { ticker: 'GOOGL', name: 'Google', hot: false },
+  { ticker: 'COIN', name: 'Coinbase', hot: true },
+];
