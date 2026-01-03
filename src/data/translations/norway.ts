@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Norwegian Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from Norway",
+    heroDesc: "Access NVIDIA, Tesla, Apple with NOK. Start with 550 kr. Trade 24/7 with Vipps.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with 550 kr', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime CET' },
+      { icon: '📱', title: 'Vipps Ready', desc: 'Norway\'s top payment' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Convert NOK to USDC', d: 'Use Binance P2P with Vipps or bank transfer.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Norway Payment Methods",
+    digitalPayments: "Digital Payments",
+    banks: "Banks",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I convert NOK to USDC?', answer: 'Use Binance P2P with Vipps or bank transfer from Norwegian banks.' },
+      { question: "What's the minimum to start?", answer: 'Start with 550 kr (~$50). Fractional trading gives access to all US stocks.' },
+      { question: 'What payment methods work?', answer: 'Vipps (most popular), bank transfers from DNB, Nordea, SpareBank 1.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with 550 kr.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  no: {
+    badge: "Guide for norske tradere",
+    heroTitle1: "Handle amerikanske aksjer",
+    heroTitle2: "fra Norge",
+    heroDesc: "Få tilgang til NVIDIA, Tesla, Apple med NOK. Start med 550 kr. Handle 24/7 med Vipps.",
+    comparePlatforms: "Sammenlign plattformer",
+    howItWorks: "Hvordan det fungerer",
+    benefits: [
+      { icon: '💰', title: 'Start med 550 kr', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 handel', desc: 'Handle når som helst' },
+      { icon: '📱', title: 'Vipps-klar', desc: 'Norges beste betaling' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Dine nøkler, dine mynter' },
+    ],
+    stepsTitle: "Kom i gang i 4 trinn",
+    steps: [
+      { t: 'Konverter NOK til USDC', d: 'Bruk Binance P2P med Vipps eller bankoverføring.' },
+      { t: 'Velg en plattform', d: 'Sammenlign plattformer.', l: '/', lt: 'Sammenlign' },
+      { t: 'Koble til lommebok', d: 'Bruk MetaMask eller Rabby.' },
+      { t: 'Start handel', d: 'Start med 2-3x giring.' },
+    ],
+    paymentTitle: "Norske betalingsmetoder",
+    digitalPayments: "Digitale betalinger",
+    banks: "Banker",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Trenger jeg en amerikansk meglerkonto?', answer: 'Nei. Handle syntetiske amerikanske aksjer med USDC på desentraliserte plattformer.' },
+      { question: 'Hvordan konverterer jeg NOK til USDC?', answer: 'Bruk Binance P2P med Vipps eller bankoverføring fra norske banker.' },
+      { question: 'Hva er minimum for å starte?', answer: 'Start med 550 kr (~$50). Fraksjonell handel gir tilgang til alle amerikanske aksjer.' },
+      { question: 'Hvilke betalingsmetoder fungerer?', answer: 'Vipps (mest populær), bankoverføringer fra DNB, Nordea, SpareBank 1.' },
+    ],
+    ctaTitle: "Klar til å handle?",
+    ctaDesc: "Start med 550 kr.",
+    freeNotice: "Denne siden er",
+    freeNotice2: "100% gratis",
+    freeNotice3: ". Få",
+    freeNotice4: "4% rabatt",
+    freeNotice5: "via våre lenker.",
+  },
+};
+
+export const digitalPayments = ['Vipps (Most Popular)', 'SEPA', 'Trustly', 'Bank Transfer'];
+export const banksList = ['DNB', 'Nordea', 'SpareBank 1', 'Danske Bank'];
+export const nativeLang = 'no';
+export const nativeName = 'Norsk';

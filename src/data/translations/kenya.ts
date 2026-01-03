@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Kenyan Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from Kenya",
+    heroDesc: "Access NVIDIA, Tesla, Apple with KES. Start with KSh 6,500. Trade 24/7 with M-Pesa.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with KSh 6,500', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime EAT' },
+      { icon: '📱', title: 'M-Pesa Ready', desc: 'Kenya\'s top mobile money' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Convert KES to USDC', d: 'Use Binance P2P with M-Pesa or Airtel Money.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Kenya Payment Methods",
+    digitalPayments: "Mobile Money",
+    banks: "Banks",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I convert KES to USDC?', answer: 'Use Binance P2P with M-Pesa, Airtel Money, or bank transfer.' },
+      { question: "What's the minimum to start?", answer: 'Start with KSh 6,500 (~$50). Fractional trading gives access to all US stocks.' },
+      { question: 'What payment methods work?', answer: 'M-Pesa (most popular), Airtel Money, T-Kash, and major Kenyan banks.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with KSh 6,500.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  sw: {
+    badge: "Mwongozo kwa Wafanyabiashara wa Kenya",
+    heroTitle1: "Fanya Biashara ya Hisa za Marekani",
+    heroTitle2: "kutoka Kenya",
+    heroDesc: "Pata NVIDIA, Tesla, Apple kwa KES. Anza na KSh 6,500. Fanya biashara 24/7 na M-Pesa.",
+    comparePlatforms: "Linganisha Majukwaa",
+    howItWorks: "Inafanya Kazi Vipi",
+    benefits: [
+      { icon: '💰', title: 'Anza na KSh 6,500', desc: '~$50 USDC chini' },
+      { icon: '🕐', title: 'Biashara 24/7', desc: 'Fanya biashara wakati wowote' },
+      { icon: '📱', title: 'M-Pesa Tayari', desc: 'Pesa ya simu bora Kenya' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Funguo zako, sarafu zako' },
+    ],
+    stepsTitle: "Anza kwa Hatua 4",
+    steps: [
+      { t: 'Badilisha KES kuwa USDC', d: 'Tumia Binance P2P na M-Pesa au Airtel Money.' },
+      { t: 'Chagua Jukwaa', d: 'Linganisha majukwaa.', l: '/', lt: 'Linganisha' },
+      { t: 'Unganisha Wallet', d: 'Tumia MetaMask au Rabby.' },
+      { t: 'Anza Kufanya Biashara', d: 'Anza na leverage 2-3x.' },
+    ],
+    paymentTitle: "Njia za Malipo Kenya",
+    digitalPayments: "Pesa ya Simu",
+    banks: "Benki",
+    faqTitle: "Maswali Yanayoulizwa Mara kwa Mara",
+    faqs: [
+      { question: 'Je, ninahitaji akaunti ya dalali ya Marekani?', answer: 'Hapana. Fanya biashara ya hisa synthetic za Marekani na USDC kwenye majukwaa ya decentralized.' },
+      { question: 'Ninabadilishaje KES kuwa USDC?', answer: 'Tumia Binance P2P na M-Pesa, Airtel Money, au uhamisho wa benki.' },
+      { question: 'Kiwango cha chini cha kuanza ni kipi?', answer: 'Anza na KSh 6,500 (~$50). Biashara ya sehemu inakupa upatikanaji wa hisa zote za Marekani.' },
+      { question: 'Njia gani za malipo zinafanya kazi?', answer: 'M-Pesa (maarufu zaidi), Airtel Money, T-Kash, na benki kuu za Kenya.' },
+    ],
+    ctaTitle: "Uko Tayari Kufanya Biashara?",
+    ctaDesc: "Anza na KSh 6,500.",
+    freeNotice: "Tovuti hii ni",
+    freeNotice2: "bure 100%",
+    freeNotice3: ". Pata",
+    freeNotice4: "punguzo la 4%",
+    freeNotice5: "kupitia viungo vyetu.",
+  },
+};
+
+export const digitalPayments = ['M-Pesa (Most Popular)', 'Airtel Money', 'T-Kash', 'Equitel'];
+export const banksList = ['Equity Bank', 'KCB', 'Co-operative Bank', 'NCBA'];
+export const nativeLang = 'sw';
+export const nativeName = 'Kiswahili';

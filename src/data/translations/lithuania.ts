@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Lithuanian Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from Lithuania",
+    heroDesc: "Access NVIDIA, Tesla, Apple with EUR. Start with €45. Trade 24/7 with SEPA.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with €45', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime EET' },
+      { icon: '🏦', title: 'SEPA Ready', desc: 'EUR bank transfers' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Convert EUR to USDC', d: 'Use Binance or Kraken with SEPA transfer.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Lithuania Payment Methods",
+    digitalPayments: "Banks",
+    banks: "Exchanges",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I convert EUR to USDC?', answer: 'Use Binance or Kraken with SEPA transfer from your Lithuanian bank.' },
+      { question: "What's the minimum to start?", answer: 'Start with €45 (~$50). Fractional trading gives access to all US stocks.' },
+      { question: 'What payment methods work?', answer: 'SEPA transfers from Swedbank, SEB, Luminor, and other Lithuanian banks.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with €45.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  lt: {
+    badge: "Vadovas Lietuvos prekiautojams",
+    heroTitle1: "Prekiaukite JAV akcijomis",
+    heroTitle2: "iš Lietuvos",
+    heroDesc: "Pasiekite NVIDIA, Tesla, Apple su EUR. Pradėkite nuo €45. Prekiaukite 24/7 su SEPA.",
+    comparePlatforms: "Palyginti platformas",
+    howItWorks: "Kaip tai veikia",
+    benefits: [
+      { icon: '💰', title: 'Pradėkite nuo €45', desc: '~$50 USDC minimumas' },
+      { icon: '🕐', title: '24/7 prekyba', desc: 'Prekiaukite bet kada' },
+      { icon: '🏦', title: 'SEPA paruošta', desc: 'EUR banko pervedimai' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Jūsų raktai, jūsų monetos' },
+    ],
+    stepsTitle: "Pradėkite 4 žingsniais",
+    steps: [
+      { t: 'Konvertuokite EUR į USDC', d: 'Naudokite Binance arba Kraken su SEPA pervedimu.' },
+      { t: 'Pasirinkite platformą', d: 'Palyginkite platformas.', l: '/', lt: 'Palyginti' },
+      { t: 'Prijunkite piniginę', d: 'Naudokite MetaMask arba Rabby.' },
+      { t: 'Pradėkite prekiauti', d: 'Pradėkite su 2-3x svertu.' },
+    ],
+    paymentTitle: "Lietuvos mokėjimo būdai",
+    digitalPayments: "Bankai",
+    banks: "Biržos",
+    faqTitle: "DUK",
+    faqs: [
+      { question: 'Ar man reikia JAV brokerio sąskaitos?', answer: 'Ne. Prekiaukite sintetinėmis JAV akcijomis su USDC decentralizuotose platformose.' },
+      { question: 'Kaip konvertuoti EUR į USDC?', answer: 'Naudokite Binance arba Kraken su SEPA pervedimu iš savo Lietuvos banko.' },
+      { question: 'Koks minimalus kiekis pradėti?', answer: 'Pradėkite nuo €45 (~$50). Dalinė prekyba suteikia prieigą prie visų JAV akcijų.' },
+      { question: 'Kokie mokėjimo būdai veikia?', answer: 'SEPA pervedimai iš Swedbank, SEB, Luminor ir kitų Lietuvos bankų.' },
+    ],
+    ctaTitle: "Pasiruošę prekiauti?",
+    ctaDesc: "Pradėkite nuo €45.",
+    freeNotice: "Ši svetainė yra",
+    freeNotice2: "100% nemokama",
+    freeNotice3: ". Gaukite",
+    freeNotice4: "4% nuolaidą",
+    freeNotice5: "per mūsų nuorodas.",
+  },
+};
+
+export const digitalPayments = ['Swedbank', 'SEB bankas', 'Luminor', 'Šiaulių bankas'];
+export const banksList = ['Binance', 'Kraken', 'Coinbase', 'Bitstamp'];
+export const nativeLang = 'lt';
+export const nativeName = 'Lietuvių';

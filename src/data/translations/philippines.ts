@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Filipino Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from the Philippines",
+    heroDesc: "Access NVIDIA, Tesla, Apple with PHP. Start with ₱3,000. Trade 24/7 with GCash or Maya.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with ₱3,000', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime PHT' },
+      { icon: '📱', title: 'GCash Ready', desc: 'Philippines\' top e-wallet' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Convert PHP to USDC', d: 'Use Binance P2P with GCash or Maya.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Philippines Payment Methods",
+    digitalPayments: "E-Wallets",
+    banks: "Banks",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I convert PHP to USDC?', answer: 'Use Binance P2P with GCash, Maya, or bank transfer.' },
+      { question: "What's the minimum to start?", answer: 'Start with ₱3,000 (~$50). Fractional trading gives access to all US stocks.' },
+      { question: 'What payment methods work?', answer: 'GCash (most popular), Maya, Coins.ph, bank transfers from BDO, BPI, Metrobank.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with ₱3,000.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  tl: {
+    badge: "Gabay para sa mga Filipino Trader",
+    heroTitle1: "Mag-trade ng US Stocks",
+    heroTitle2: "mula sa Pilipinas",
+    heroDesc: "I-access ang NVIDIA, Tesla, Apple gamit ang PHP. Magsimula sa ₱3,000. Mag-trade 24/7 gamit ang GCash o Maya.",
+    comparePlatforms: "Ihambing ang mga Platform",
+    howItWorks: "Paano Ito Gumagana",
+    benefits: [
+      { icon: '💰', title: 'Magsimula sa ₱3,000', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Mag-trade anumang oras' },
+      { icon: '📱', title: 'GCash Ready', desc: 'Top e-wallet ng Pilipinas' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Mga susi mo, mga barya mo' },
+    ],
+    stepsTitle: "Magsimula sa 4 na Hakbang",
+    steps: [
+      { t: 'I-convert ang PHP sa USDC', d: 'Gamitin ang Binance P2P gamit ang GCash o Maya.' },
+      { t: 'Pumili ng Platform', d: 'Ihambing ang mga platform.', l: '/', lt: 'Ihambing' },
+      { t: 'I-connect ang Wallet', d: 'Gamitin ang MetaMask o Rabby.' },
+      { t: 'Magsimulang Mag-trade', d: 'Magsimula sa 2-3x leverage.' },
+    ],
+    paymentTitle: "Mga Paraan ng Pagbabayad sa Pilipinas",
+    digitalPayments: "E-Wallets",
+    banks: "Mga Bangko",
+    faqTitle: "Mga Tanong",
+    faqs: [
+      { question: 'Kailangan ko ba ng US brokerage account?', answer: 'Hindi. Mag-trade ng synthetic US stocks gamit ang USDC sa mga decentralized platform.' },
+      { question: 'Paano i-convert ang PHP sa USDC?', answer: 'Gamitin ang Binance P2P gamit ang GCash, Maya, o bank transfer.' },
+      { question: 'Ano ang minimum para magsimula?', answer: 'Magsimula sa ₱3,000 (~$50). Ang fractional trading ay nagbibigay ng access sa lahat ng US stocks.' },
+      { question: 'Anong mga paraan ng pagbabayad ang gumagana?', answer: 'GCash (pinakasikat), Maya, Coins.ph, bank transfers mula sa BDO, BPI, Metrobank.' },
+    ],
+    ctaTitle: "Handa nang Mag-trade?",
+    ctaDesc: "Magsimula sa ₱3,000.",
+    freeNotice: "Ang site na ito ay",
+    freeNotice2: "100% libre",
+    freeNotice3: ". Makakuha ng",
+    freeNotice4: "4% discount",
+    freeNotice5: "sa pamamagitan ng aming mga link.",
+  },
+};
+
+export const digitalPayments = ['GCash (Most Popular)', 'Maya', 'Coins.ph', 'GrabPay'];
+export const banksList = ['BDO', 'BPI', 'Metrobank', 'UnionBank'];
+export const nativeLang = 'tl';
+export const nativeName = 'Filipino';

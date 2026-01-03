@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Cambodian Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from Cambodia",
+    heroDesc: "Access NVIDIA, Tesla, Apple with USD. Start with $50. Trade 24/7 with Wing or ABA.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with $50', desc: 'USD-friendly country' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime ICT' },
+      { icon: '📱', title: 'Wing & ABA Ready', desc: 'Popular payment apps' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Get USDC', d: 'Use Binance P2P with Wing, ABA, or bank transfer.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Cambodia Payment Methods",
+    digitalPayments: "Mobile Payments",
+    banks: "Banks",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I get USDC in Cambodia?', answer: 'Use Binance P2P with Wing, ABA Pay, or bank transfer. Cambodia is USD-friendly.' },
+      { question: "What's the minimum to start?", answer: 'Start with $50. Cambodia uses USD widely, making it easy to get started.' },
+      { question: 'What payment methods work?', answer: 'Wing (most popular), ABA Pay, ACLEDA mobile, bank transfers from ABA, ACLEDA, Canadia.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with $50.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  km: {
+    badge: "មគ្គុទ្ទេសក៍សម្រាប់អ្នកជួញដូរកម្ពុជា",
+    heroTitle1: "ជួញដូរភាគហ៊ុនអាមេរិក",
+    heroTitle2: "ពីកម្ពុជា",
+    heroDesc: "ចូលប្រើ NVIDIA, Tesla, Apple ជាមួយ USD។ ចាប់ផ្ដើមពី $50។ ជួញដូរ 24/7 ជាមួយ Wing ឬ ABA។",
+    comparePlatforms: "ប្រៀបធៀបវេទិកា",
+    howItWorks: "របៀបដំណើរការ",
+    benefits: [
+      { icon: '💰', title: 'ចាប់ផ្ដើមពី $50', desc: 'ប្រទេសប្រើ USD' },
+      { icon: '🕐', title: 'ជួញដូរ 24/7', desc: 'ជួញដូរគ្រប់ពេល' },
+      { icon: '📱', title: 'Wing & ABA រួចរាល់', desc: 'កម្មវិធីទូទាត់ពេញនិយម' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'សោរបស់អ្នក កាក់របស់អ្នក' },
+    ],
+    stepsTitle: "ចាប់ផ្ដើមក្នុង 4 ជំហាន",
+    steps: [
+      { t: 'ទទួល USDC', d: 'ប្រើ Binance P2P ជាមួយ Wing, ABA ឬផ្ទេរតាមធនាគារ។' },
+      { t: 'ជ្រើសរើសវេទិកា', d: 'ប្រៀបធៀបវេទិកា។', l: '/', lt: 'ប្រៀបធៀប' },
+      { t: 'ភ្ជាប់កាបូប', d: 'ប្រើ MetaMask ឬ Rabby។' },
+      { t: 'ចាប់ផ្ដើមជួញដូរ', d: 'ចាប់ផ្ដើមជាមួយ leverage 2-3x។' },
+    ],
+    paymentTitle: "វិធីទូទាត់នៅកម្ពុជា",
+    digitalPayments: "ការទូទាត់ចល័ត",
+    banks: "ធនាគារ",
+    faqTitle: "សំណួរញឹកញាប់",
+    faqs: [
+      { question: 'ខ្ញុំត្រូវការគណនីឈ្មួញកណ្ដាលអាមេរិកទេ?', answer: 'ទេ។ ជួញដូរភាគហ៊ុនសំយោគអាមេរិកជាមួយ USDC នៅលើវេទិកាវិមជ្ឈការ។' },
+      { question: 'តើខ្ញុំទទួល USDC នៅកម្ពុជាដោយរបៀបណា?', answer: 'ប្រើ Binance P2P ជាមួយ Wing, ABA Pay ឬផ្ទេរតាមធនាគារ។ កម្ពុជាប្រើ USD។' },
+      { question: 'អប្បបរមាដើម្បីចាប់ផ្ដើមគឺប៉ុន្មាន?', answer: 'ចាប់ផ្ដើមពី $50។ កម្ពុជាប្រើ USD ទូលំទូលាយ ធ្វើឱ្យចាប់ផ្ដើមបានងាយស្រួល។' },
+      { question: 'វិធីទូទាត់អ្វីខ្លះដែលដំណើរការ?', answer: 'Wing (ពេញនិយមបំផុត), ABA Pay, ACLEDA mobile, ផ្ទេរពី ABA, ACLEDA, Canadia។' },
+    ],
+    ctaTitle: "រួចរាល់ក្នុងការជួញដូរ?",
+    ctaDesc: "ចាប់ផ្ដើមពី $50។",
+    freeNotice: "គេហទំព័រនេះ",
+    freeNotice2: "ឥតគិតថ្លៃ 100%",
+    freeNotice3: "។ ទទួល",
+    freeNotice4: "បញ្ចុះ 4%",
+    freeNotice5: "តាមរយៈតំណរបស់យើង។",
+  },
+};
+
+export const digitalPayments = ['Wing (Most Popular)', 'ABA Pay', 'ACLEDA Mobile', 'TrueMoney'];
+export const banksList = ['ABA Bank', 'ACLEDA Bank', 'Canadia Bank', 'Prince Bank'];
+export const nativeLang = 'km';
+export const nativeName = 'ខ្មែរ';

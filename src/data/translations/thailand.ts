@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Thai Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from Thailand",
+    heroDesc: "Access NVIDIA, Tesla, Apple with THB. Start with ฿1,800. Trade 24/7 with PromptPay.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with ฿1,800', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime ICT' },
+      { icon: '📱', title: 'PromptPay Ready', desc: 'Instant transfers' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Convert THB to USDC', d: 'Use Binance P2P with PromptPay or bank transfer.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Thailand Payment Methods",
+    digitalPayments: "Digital Payments",
+    banks: "Banks",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I convert THB to USDC?', answer: 'Use Binance P2P with PromptPay, TrueMoney, or bank transfer.' },
+      { question: "What's the minimum to start?", answer: 'Start with ฿1,800 (~$50). Fractional trading gives access to all US stocks.' },
+      { question: 'What payment methods work?', answer: 'PromptPay (most popular), TrueMoney, bank transfers from Bangkok Bank, Kasikorn, SCB.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with ฿1,800.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  th: {
+    badge: "คู่มือสำหรับเทรดเดอร์ไทย",
+    heroTitle1: "เทรดหุ้นสหรัฐ",
+    heroTitle2: "จากประเทศไทย",
+    heroDesc: "เข้าถึง NVIDIA, Tesla, Apple ด้วยเงินบาท เริ่มต้นที่ ฿1,800 เทรด 24/7 ด้วย PromptPay",
+    comparePlatforms: "เปรียบเทียบแพลตฟอร์ม",
+    howItWorks: "วิธีการทำงาน",
+    benefits: [
+      { icon: '💰', title: 'เริ่มต้นที่ ฿1,800', desc: 'ขั้นต่ำ ~$50 USDC' },
+      { icon: '🕐', title: 'เทรด 24/7', desc: 'เทรดได้ทุกเวลา' },
+      { icon: '📱', title: 'รองรับ PromptPay', desc: 'โอนเงินทันที' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'กุญแจของคุณ เหรียญของคุณ' },
+    ],
+    stepsTitle: "เริ่มต้นใน 4 ขั้นตอน",
+    steps: [
+      { t: 'แลก THB เป็น USDC', d: 'ใช้ Binance P2P กับ PromptPay หรือโอนผ่านธนาคาร' },
+      { t: 'เลือกแพลตฟอร์ม', d: 'เปรียบเทียบแพลตฟอร์ม', l: '/', lt: 'เปรียบเทียบ' },
+      { t: 'เชื่อมต่อกระเป๋าเงิน', d: 'ใช้ MetaMask หรือ Rabby' },
+      { t: 'เริ่มเทรด', d: 'เริ่มต้นด้วย leverage 2-3x' },
+    ],
+    paymentTitle: "วิธีชำระเงินในประเทศไทย",
+    digitalPayments: "ชำระเงินดิจิทัล",
+    banks: "ธนาคาร",
+    faqTitle: "คำถามที่พบบ่อย",
+    faqs: [
+      { question: 'ต้องมีบัญชีโบรกเกอร์สหรัฐไหม?', answer: 'ไม่ต้อง เทรดหุ้นสังเคราะห์สหรัฐด้วย USDC บนแพลตฟอร์มกระจายศูนย์' },
+      { question: 'แลก THB เป็น USDC ยังไง?', answer: 'ใช้ Binance P2P กับ PromptPay, TrueMoney หรือโอนผ่านธนาคาร' },
+      { question: 'ขั้นต่ำเริ่มต้นเท่าไหร่?', answer: 'เริ่มต้นที่ ฿1,800 (~$50) การเทรดเศษส่วนให้เข้าถึงหุ้นสหรัฐทั้งหมด' },
+      { question: 'วิธีชำระเงินอะไรใช้ได้?', answer: 'PromptPay (นิยมที่สุด), TrueMoney, โอนจากกรุงเทพ, กสิกร, SCB' },
+    ],
+    ctaTitle: "พร้อมเทรดหรือยัง?",
+    ctaDesc: "เริ่มต้นที่ ฿1,800",
+    freeNotice: "เว็บไซต์นี้",
+    freeNotice2: "ฟรี 100%",
+    freeNotice3: " รับ",
+    freeNotice4: "ส่วนลด 4%",
+    freeNotice5: "ผ่านลิงก์ของเรา",
+  },
+};
+
+export const digitalPayments = ['PromptPay (Most Popular)', 'TrueMoney', 'LINE Pay', 'Rabbit LINE Pay'];
+export const banksList = ['Bangkok Bank', 'Kasikornbank', 'SCB', 'Krungthai Bank'];
+export const nativeLang = 'th';
+export const nativeName = 'ไทย';

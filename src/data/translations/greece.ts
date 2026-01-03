@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Greek Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from Greece",
+    heroDesc: "Access NVIDIA, Tesla, Apple with EUR. Start with €45. Trade 24/7 with SEPA.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with €45', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime EET' },
+      { icon: '🏦', title: 'SEPA Ready', desc: 'EUR bank transfers' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Convert EUR to USDC', d: 'Use Binance or Kraken with SEPA transfer.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Greece Payment Methods",
+    digitalPayments: "Banks",
+    banks: "Exchanges",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I convert EUR to USDC?', answer: 'Use Binance or Kraken with SEPA transfer from your Greek bank.' },
+      { question: "What's the minimum to start?", answer: 'Start with €45 (~$50). Fractional trading gives access to all US stocks.' },
+      { question: 'What payment methods work?', answer: 'SEPA transfers from Alpha Bank, Eurobank, Piraeus Bank, National Bank of Greece.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with €45.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  el: {
+    badge: "Οδηγός για Έλληνες Traders",
+    heroTitle1: "Κάντε Trading σε Αμερικανικές Μετοχές",
+    heroTitle2: "από την Ελλάδα",
+    heroDesc: "Αποκτήστε πρόσβαση σε NVIDIA, Tesla, Apple με EUR. Ξεκινήστε με €45. Trading 24/7 με SEPA.",
+    comparePlatforms: "Συγκρίνετε Πλατφόρμες",
+    howItWorks: "Πώς Λειτουργεί",
+    benefits: [
+      { icon: '💰', title: 'Ξεκινήστε με €45', desc: '~$50 USDC ελάχιστο' },
+      { icon: '🕐', title: 'Trading 24/7', desc: 'Κάντε trading οποιαδήποτε ώρα' },
+      { icon: '🏦', title: 'SEPA Έτοιμο', desc: 'Τραπεζικές μεταφορές EUR' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Τα κλειδιά σας, τα νομίσματά σας' },
+    ],
+    stepsTitle: "Ξεκινήστε σε 4 Βήματα",
+    steps: [
+      { t: 'Μετατρέψτε EUR σε USDC', d: 'Χρησιμοποιήστε Binance ή Kraken με SEPA μεταφορά.' },
+      { t: 'Επιλέξτε Πλατφόρμα', d: 'Συγκρίνετε πλατφόρμες.', l: '/', lt: 'Σύγκριση' },
+      { t: 'Συνδέστε Πορτοφόλι', d: 'Χρησιμοποιήστε MetaMask ή Rabby.' },
+      { t: 'Ξεκινήστε το Trading', d: 'Ξεκινήστε με 2-3x μόχλευση.' },
+    ],
+    paymentTitle: "Μέθοδοι Πληρωμής Ελλάδας",
+    digitalPayments: "Τράπεζες",
+    banks: "Ανταλλακτήρια",
+    faqTitle: "Συχνές Ερωτήσεις",
+    faqs: [
+      { question: 'Χρειάζομαι λογαριασμό χρηματιστή στις ΗΠΑ;', answer: 'Όχι. Κάντε trading συνθετικές αμερικανικές μετοχές με USDC σε αποκεντρωμένες πλατφόρμες.' },
+      { question: 'Πώς μετατρέπω EUR σε USDC;', answer: 'Χρησιμοποιήστε Binance ή Kraken με SEPA μεταφορά από την ελληνική σας τράπεζα.' },
+      { question: 'Ποιο είναι το ελάχιστο για να ξεκινήσω;', answer: 'Ξεκινήστε με €45 (~$50). Το κλασματικό trading δίνει πρόσβαση σε όλες τις αμερικανικές μετοχές.' },
+      { question: 'Ποιες μέθοδοι πληρωμής λειτουργούν;', answer: 'SEPA μεταφορές από Alpha Bank, Eurobank, Τράπεζα Πειραιώς, Εθνική Τράπεζα.' },
+    ],
+    ctaTitle: "Έτοιμοι για Trading;",
+    ctaDesc: "Ξεκινήστε με €45.",
+    freeNotice: "Αυτός ο ιστότοπος είναι",
+    freeNotice2: "100% δωρεάν",
+    freeNotice3: ". Πάρτε",
+    freeNotice4: "4% έκπτωση",
+    freeNotice5: "μέσω των συνδέσμων μας.",
+  },
+};
+
+export const digitalPayments = ['Alpha Bank', 'Eurobank', 'Piraeus Bank', 'National Bank of Greece'];
+export const banksList = ['Binance', 'Kraken', 'Coinbase', 'Bitstamp'];
+export const nativeLang = 'el';
+export const nativeName = 'Ελληνικά';

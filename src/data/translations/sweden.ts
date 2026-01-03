@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Swedish Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from Sweden",
+    heroDesc: "Access NVIDIA, Tesla, Apple with SEK. Start with 500 kr. Trade 24/7 with Swish.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with 500 kr', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime CET' },
+      { icon: '📱', title: 'Swish Ready', desc: 'Instant payments' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Convert SEK to USDC', d: 'Use Binance P2P with Swish or bank transfer.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Sweden Payment Methods",
+    digitalPayments: "Digital Payments",
+    banks: "Banks",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I convert SEK to USDC?', answer: 'Use Binance P2P with Swish or bank transfer from Swedish banks.' },
+      { question: "What's the minimum to start?", answer: 'Start with 500 kr (~$50). Fractional trading gives access to all US stocks.' },
+      { question: 'What payment methods work?', answer: 'Swish (most popular), bank transfers from Swedbank, SEB, Nordea, Handelsbanken.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with 500 kr.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  sv: {
+    badge: "Guide för svenska handlare",
+    heroTitle1: "Handla amerikanska aktier",
+    heroTitle2: "från Sverige",
+    heroDesc: "Få tillgång till NVIDIA, Tesla, Apple med SEK. Börja med 500 kr. Handla 24/7 med Swish.",
+    comparePlatforms: "Jämför plattformar",
+    howItWorks: "Hur det fungerar",
+    benefits: [
+      { icon: '💰', title: 'Börja med 500 kr', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 handel', desc: 'Handla när som helst' },
+      { icon: '📱', title: 'Swish-redo', desc: 'Snabba betalningar' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Dina nycklar, dina mynt' },
+    ],
+    stepsTitle: "Kom igång i 4 steg",
+    steps: [
+      { t: 'Konvertera SEK till USDC', d: 'Använd Binance P2P med Swish eller banköverföring.' },
+      { t: 'Välj en plattform', d: 'Jämför plattformar.', l: '/', lt: 'Jämför' },
+      { t: 'Anslut plånbok', d: 'Använd MetaMask eller Rabby.' },
+      { t: 'Börja handla', d: 'Börja med 2-3x hävstång.' },
+    ],
+    paymentTitle: "Svenska betalningsmetoder",
+    digitalPayments: "Digitala betalningar",
+    banks: "Banker",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Behöver jag ett amerikanskt mäklarkonto?', answer: 'Nej. Handla syntetiska amerikanska aktier med USDC på decentraliserade plattformar.' },
+      { question: 'Hur konverterar jag SEK till USDC?', answer: 'Använd Binance P2P med Swish eller banköverföring från svenska banker.' },
+      { question: 'Vad är minimum för att börja?', answer: 'Börja med 500 kr (~$50). Fraktionell handel ger tillgång till alla amerikanska aktier.' },
+      { question: 'Vilka betalningsmetoder fungerar?', answer: 'Swish (populärast), banköverföringar från Swedbank, SEB, Nordea, Handelsbanken.' },
+    ],
+    ctaTitle: "Redo att handla?",
+    ctaDesc: "Börja med 500 kr.",
+    freeNotice: "Denna sida är",
+    freeNotice2: "100% gratis",
+    freeNotice3: ". Få",
+    freeNotice4: "4% rabatt",
+    freeNotice5: "via våra länkar.",
+  },
+};
+
+export const digitalPayments = ['Swish (Most Popular)', 'Klarna', 'Trustly', 'SEPA'];
+export const banksList = ['Swedbank', 'SEB', 'Nordea', 'Handelsbanken'];
+export const nativeLang = 'sv';
+export const nativeName = 'Svenska';

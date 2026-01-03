@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Vietnamese Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from Vietnam",
+    heroDesc: "Access NVIDIA, Tesla, Apple with VND. Start with 1,250,000₫. Trade 24/7 with MoMo.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with 1.25M₫', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime ICT' },
+      { icon: '📱', title: 'MoMo Ready', desc: 'Vietnam\'s top e-wallet' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Convert VND to USDC', d: 'Use Binance P2P with MoMo or bank transfer.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Vietnam Payment Methods",
+    digitalPayments: "E-Wallets",
+    banks: "Banks",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I convert VND to USDC?', answer: 'Use Binance P2P with MoMo, ZaloPay, or bank transfer.' },
+      { question: "What's the minimum to start?", answer: 'Start with 1,250,000₫ (~$50). Fractional trading gives access to all US stocks.' },
+      { question: 'What payment methods work?', answer: 'MoMo (most popular), ZaloPay, ViettelPay, bank transfers from Vietcombank, Techcombank.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with 1,250,000₫.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  vi: {
+    badge: "Hướng dẫn cho nhà giao dịch Việt Nam",
+    heroTitle1: "Giao dịch cổ phiếu Mỹ",
+    heroTitle2: "từ Việt Nam",
+    heroDesc: "Truy cập NVIDIA, Tesla, Apple bằng VND. Bắt đầu từ 1.250.000₫. Giao dịch 24/7 với MoMo.",
+    comparePlatforms: "So sánh nền tảng",
+    howItWorks: "Cách thức hoạt động",
+    benefits: [
+      { icon: '💰', title: 'Bắt đầu từ 1,25 triệu₫', desc: 'Tối thiểu ~$50 USDC' },
+      { icon: '🕐', title: 'Giao dịch 24/7', desc: 'Giao dịch mọi lúc' },
+      { icon: '📱', title: 'Hỗ trợ MoMo', desc: 'Ví điện tử hàng đầu VN' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Chìa khóa của bạn, tiền của bạn' },
+    ],
+    stepsTitle: "Bắt đầu trong 4 bước",
+    steps: [
+      { t: 'Đổi VND sang USDC', d: 'Dùng Binance P2P với MoMo hoặc chuyển khoản ngân hàng.' },
+      { t: 'Chọn nền tảng', d: 'So sánh các nền tảng.', l: '/', lt: 'So sánh' },
+      { t: 'Kết nối ví', d: 'Sử dụng MetaMask hoặc Rabby.' },
+      { t: 'Bắt đầu giao dịch', d: 'Bắt đầu với đòn bẩy 2-3x.' },
+    ],
+    paymentTitle: "Phương thức thanh toán tại Việt Nam",
+    digitalPayments: "Ví điện tử",
+    banks: "Ngân hàng",
+    faqTitle: "Câu hỏi thường gặp",
+    faqs: [
+      { question: 'Tôi có cần tài khoản môi giới Mỹ không?', answer: 'Không. Giao dịch cổ phiếu tổng hợp Mỹ bằng USDC trên nền tảng phi tập trung.' },
+      { question: 'Làm sao đổi VND sang USDC?', answer: 'Dùng Binance P2P với MoMo, ZaloPay hoặc chuyển khoản ngân hàng.' },
+      { question: 'Số tiền tối thiểu để bắt đầu?', answer: 'Bắt đầu từ 1.250.000₫ (~$50). Giao dịch theo phần cho phép truy cập tất cả cổ phiếu Mỹ.' },
+      { question: 'Phương thức thanh toán nào hoạt động?', answer: 'MoMo (phổ biến nhất), ZaloPay, ViettelPay, chuyển khoản từ Vietcombank, Techcombank.' },
+    ],
+    ctaTitle: "Sẵn sàng giao dịch?",
+    ctaDesc: "Bắt đầu từ 1.250.000₫.",
+    freeNotice: "Trang web này",
+    freeNotice2: "hoàn toàn miễn phí",
+    freeNotice3: ". Nhận",
+    freeNotice4: "giảm 4% phí",
+    freeNotice5: "qua liên kết của chúng tôi.",
+  },
+};
+
+export const digitalPayments = ['MoMo (Most Popular)', 'ZaloPay', 'ViettelPay', 'VNPay'];
+export const banksList = ['Vietcombank', 'Techcombank', 'MB Bank', 'VPBank'];
+export const nativeLang = 'vi';
+export const nativeName = 'Tiếng Việt';

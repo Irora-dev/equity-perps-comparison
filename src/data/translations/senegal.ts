@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Senegalese Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from Senegal",
+    heroDesc: "Access NVIDIA, Tesla, Apple with XOF. Start with 30,000 CFA. Trade 24/7 with Wave or Orange Money.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with 30K CFA', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime GMT' },
+      { icon: '📱', title: 'Wave & Orange', desc: 'Popular mobile money' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Convert XOF to USDC', d: 'Use Binance P2P with Wave or Orange Money.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Senegal Payment Methods",
+    digitalPayments: "Mobile Money",
+    banks: "Banks",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I convert XOF to USDC?', answer: 'Use Binance P2P with Wave, Orange Money, or bank transfer.' },
+      { question: "What's the minimum to start?", answer: 'Start with 30,000 XOF (~$50). Fractional trading gives access to all US stocks.' },
+      { question: 'What payment methods work?', answer: 'Wave (most popular), Orange Money, Free Money, and major banks.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with 30,000 XOF.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  fr: {
+    badge: "Guide pour les traders sénégalais",
+    heroTitle1: "Tradez les actions US",
+    heroTitle2: "depuis le Sénégal",
+    heroDesc: "Accédez à NVIDIA, Tesla, Apple en XOF. Commencez avec 30 000 CFA. Tradez 24/7 avec Wave ou Orange Money.",
+    comparePlatforms: "Comparer les plateformes",
+    howItWorks: "Comment ça marche",
+    benefits: [
+      { icon: '💰', title: 'Commencez à 30K CFA', desc: '~50$ USDC minimum' },
+      { icon: '🕐', title: 'Trading 24/7', desc: 'Tradez à tout moment' },
+      { icon: '📱', title: 'Wave & Orange', desc: 'Mobile money populaire' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Vos clés, vos coins' },
+    ],
+    stepsTitle: "Commencez en 4 étapes",
+    steps: [
+      { t: 'Convertir XOF en USDC', d: 'Utilisez Binance P2P avec Wave ou Orange Money.' },
+      { t: 'Choisir une plateforme', d: 'Comparez les plateformes.', l: '/', lt: 'Comparer' },
+      { t: 'Connecter le wallet', d: 'Utilisez MetaMask ou Rabby.' },
+      { t: 'Commencer à trader', d: 'Débutez avec un levier 2-3x.' },
+    ],
+    paymentTitle: "Méthodes de paiement au Sénégal",
+    digitalPayments: "Mobile Money",
+    banks: "Banques",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: "Ai-je besoin d'un compte de courtage US?", answer: 'Non. Tradez des actions US synthétiques avec USDC sur des plateformes décentralisées.' },
+      { question: 'Comment convertir XOF en USDC?', answer: 'Utilisez Binance P2P avec Wave, Orange Money ou virement bancaire.' },
+      { question: 'Quel est le minimum pour commencer?', answer: 'Commencez avec 30 000 XOF (~50$). Le trading fractionné donne accès à toutes les actions US.' },
+      { question: 'Quels moyens de paiement fonctionnent?', answer: 'Wave (le plus populaire), Orange Money, Free Money et les grandes banques.' },
+    ],
+    ctaTitle: "Prêt à trader?",
+    ctaDesc: "Commencez avec 30 000 XOF.",
+    freeNotice: "Ce site est",
+    freeNotice2: "100% gratuit",
+    freeNotice3: ". Obtenez",
+    freeNotice4: "4% de réduction",
+    freeNotice5: "via nos liens.",
+  },
+};
+
+export const digitalPayments = ['Wave (Most Popular)', 'Orange Money', 'Free Money', 'E-Money'];
+export const banksList = ['CBAO', 'BICIS', 'Société Générale', 'Ecobank'];
+export const nativeLang = 'fr';
+export const nativeName = 'Français';

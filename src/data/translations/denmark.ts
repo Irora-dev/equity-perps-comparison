@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Danish Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from Denmark",
+    heroDesc: "Access NVIDIA, Tesla, Apple with DKK. Start with 350 kr. Trade 24/7 with MobilePay.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with 350 kr', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime CET' },
+      { icon: '📱', title: 'MobilePay Ready', desc: 'Denmark\'s top payment' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Convert DKK to USDC', d: 'Use Binance P2P with MobilePay or bank transfer.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Denmark Payment Methods",
+    digitalPayments: "Digital Payments",
+    banks: "Banks",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I convert DKK to USDC?', answer: 'Use Binance P2P with MobilePay or bank transfer from Danish banks.' },
+      { question: "What's the minimum to start?", answer: 'Start with 350 kr (~$50). Fractional trading gives access to all US stocks.' },
+      { question: 'What payment methods work?', answer: 'MobilePay (most popular), bank transfers from Danske Bank, Nordea, Jyske Bank.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with 350 kr.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  da: {
+    badge: "Guide til danske tradere",
+    heroTitle1: "Handl amerikanske aktier",
+    heroTitle2: "fra Danmark",
+    heroDesc: "Få adgang til NVIDIA, Tesla, Apple med DKK. Start med 350 kr. Handl 24/7 med MobilePay.",
+    comparePlatforms: "Sammenlign platforme",
+    howItWorks: "Sådan virker det",
+    benefits: [
+      { icon: '💰', title: 'Start med 350 kr', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 handel', desc: 'Handl når som helst' },
+      { icon: '📱', title: 'MobilePay-klar', desc: 'Danmarks bedste betaling' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Dine nøgler, dine mønter' },
+    ],
+    stepsTitle: "Kom i gang i 4 trin",
+    steps: [
+      { t: 'Konverter DKK til USDC', d: 'Brug Binance P2P med MobilePay eller bankoverførsel.' },
+      { t: 'Vælg en platform', d: 'Sammenlign platforme.', l: '/', lt: 'Sammenlign' },
+      { t: 'Tilslut pung', d: 'Brug MetaMask eller Rabby.' },
+      { t: 'Start handel', d: 'Start med 2-3x gearing.' },
+    ],
+    paymentTitle: "Danske betalingsmetoder",
+    digitalPayments: "Digitale betalinger",
+    banks: "Banker",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Har jeg brug for en amerikansk mæglerkonto?', answer: 'Nej. Handl syntetiske amerikanske aktier med USDC på decentraliserede platforme.' },
+      { question: 'Hvordan konverterer jeg DKK til USDC?', answer: 'Brug Binance P2P med MobilePay eller bankoverførsel fra danske banker.' },
+      { question: 'Hvad er minimum for at starte?', answer: 'Start med 350 kr (~$50). Fraktionel handel giver adgang til alle amerikanske aktier.' },
+      { question: 'Hvilke betalingsmetoder virker?', answer: 'MobilePay (mest populær), bankoverførsler fra Danske Bank, Nordea, Jyske Bank.' },
+    ],
+    ctaTitle: "Klar til at handle?",
+    ctaDesc: "Start med 350 kr.",
+    freeNotice: "Denne side er",
+    freeNotice2: "100% gratis",
+    freeNotice3: ". Få",
+    freeNotice4: "4% rabat",
+    freeNotice5: "via vores links.",
+  },
+};
+
+export const digitalPayments = ['MobilePay (Most Popular)', 'SEPA', 'Trustly', 'Bank Transfer'];
+export const banksList = ['Danske Bank', 'Nordea', 'Jyske Bank', 'Nykredit'];
+export const nativeLang = 'da';
+export const nativeName = 'Dansk';

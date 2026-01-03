@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Myanmar Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from Myanmar",
+    heroDesc: "Access NVIDIA, Tesla, Apple with MMK. Start with 100,000 Ks. Trade 24/7 with Wave Money.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with 100K Ks', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime MMT' },
+      { icon: '📱', title: 'Wave Money Ready', desc: 'Popular mobile money' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Convert MMK to USDC', d: 'Use Binance P2P with Wave Money or KBZ Pay.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Myanmar Payment Methods",
+    digitalPayments: "Mobile Money",
+    banks: "Banks",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I convert MMK to USDC?', answer: 'Use Binance P2P with Wave Money, KBZ Pay, or bank transfer.' },
+      { question: "What's the minimum to start?", answer: 'Start with 100,000 Ks (~$50). Fractional trading gives access to all US stocks.' },
+      { question: 'What payment methods work?', answer: 'Wave Money, KBZ Pay, CB Pay, and bank transfers from KBZ, CB, AYA.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with 100,000 Ks.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  my: {
+    badge: "မြန်မာကုန်သည်များအတွက် လမ်းညွှန်",
+    heroTitle1: "အမေရိကန်စတော့များ ရောင်းဝယ်ပါ",
+    heroTitle2: "မြန်မာနိုင်ငံမှ",
+    heroDesc: "NVIDIA, Tesla, Apple ကို ကျပ်ငွေဖြင့် ဝင်ရောက်ပါ။ ကျပ် ၁သိန်းဖြင့် စတင်ပါ။ Wave Money ဖြင့် ၂၄/၇ ရောင်းဝယ်ပါ။",
+    comparePlatforms: "ပလက်ဖောင်းများ နှိုင်းယှဉ်ပါ",
+    howItWorks: "ဘယ်လိုအလုပ်လုပ်သလဲ",
+    benefits: [
+      { icon: '💰', title: 'ကျပ် ၁သိန်းဖြင့် စတင်ပါ', desc: '~$50 USDC အနည်းဆုံး' },
+      { icon: '🕐', title: '၂၄/၇ ရောင်းဝယ်ခြင်း', desc: 'အချိန်မရွေး ရောင်းဝယ်ပါ' },
+      { icon: '📱', title: 'Wave Money အဆင်သင့်', desc: 'လူကြိုက်များ မိုဘိုင်းငွေ' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'သင့်သော့ သင့်ဒင်္ဂါး' },
+    ],
+    stepsTitle: "အဆင့် ၄ ဆင့်ဖြင့် စတင်ပါ",
+    steps: [
+      { t: 'ကျပ်ကို USDC သို့ ပြောင်းပါ', d: 'Binance P2P ကို Wave Money သို့မဟုတ် KBZ Pay ဖြင့် သုံးပါ။' },
+      { t: 'ပလက်ဖောင်းရွေးပါ', d: 'ပလက်ဖောင်းများ နှိုင်းယှဉ်ပါ။', l: '/', lt: 'နှိုင်းယှဉ်ပါ' },
+      { t: 'ပိုက်ဆံအိတ် ချိတ်ဆက်ပါ', d: 'MetaMask သို့မဟုတ် Rabby သုံးပါ။' },
+      { t: 'ရောင်းဝယ်ရန် စတင်ပါ', d: '၂-၃x leverage ဖြင့် စတင်ပါ။' },
+    ],
+    paymentTitle: "မြန်မာ ငွေပေးချေမှုနည်းလမ်းများ",
+    digitalPayments: "မိုဘိုင်းငွေ",
+    banks: "ဘဏ်များ",
+    faqTitle: "မေးလေ့ရှိသောမေးခွန်းများ",
+    faqs: [
+      { question: 'အမေရိကန်ပွဲစားအကောင့် လိုအပ်ပါသလား?', answer: 'မလိုပါ။ decentralized platforms တွင် USDC ဖြင့် synthetic အမေရိကန်စတော့များ ရောင်းဝယ်ပါ။' },
+      { question: 'ကျပ်ကို USDC သို့ ဘယ်လိုပြောင်းမလဲ?', answer: 'Binance P2P ကို Wave Money, KBZ Pay သို့မဟုတ် ဘဏ်လွှဲဖြင့် သုံးပါ။' },
+      { question: 'စတင်ရန် အနည်းဆုံး ဘယ်လောက်လိုလဲ?', answer: 'ကျပ် ၁သိန်း (~$50) ဖြင့် စတင်ပါ။ အပိုင်းပိုင်းရောင်းဝယ်ခြင်းက အမေရိကန်စတော့အားလုံး ဝင်ရောက်ခွင့်ပေးသည်။' },
+      { question: 'ဘယ်ငွေပေးချေမှုနည်းလမ်းတွေ အလုပ်လုပ်လဲ?', answer: 'Wave Money, KBZ Pay, CB Pay နှင့် KBZ, CB, AYA မှ ဘဏ်လွှဲများ။' },
+    ],
+    ctaTitle: "ရောင်းဝယ်ဖို့ အဆင်သင့်ဖြစ်ပြီလား?",
+    ctaDesc: "ကျပ် ၁သိန်းဖြင့် စတင်ပါ။",
+    freeNotice: "ဤဆိုက်သည်",
+    freeNotice2: "၁၀၀% အခမဲ့",
+    freeNotice3: "။ ရယူပါ",
+    freeNotice4: "၄% လျှော့ဈေး",
+    freeNotice5: "ကျွန်ုပ်တို့၏လင့်ခ်များမှတဆင့်။",
+  },
+};
+
+export const digitalPayments = ['Wave Money', 'KBZ Pay', 'CB Pay', 'OK Dollar'];
+export const banksList = ['KBZ Bank', 'CB Bank', 'AYA Bank', 'Yoma Bank'];
+export const nativeLang = 'my';
+export const nativeName = 'မြန်မာ';

@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Ethiopian Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from Ethiopia",
+    heroDesc: "Access NVIDIA, Tesla, Apple with ETB. Start with 2,800 Birr. Trade 24/7 with telebirr.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with 2,800 ETB', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime EAT' },
+      { icon: '📱', title: 'telebirr Ready', desc: 'Ethiopia\'s top mobile money' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Convert ETB to USDC', d: 'Use Binance P2P with telebirr or bank transfer.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Ethiopia Payment Methods",
+    digitalPayments: "Mobile Money",
+    banks: "Banks",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I convert ETB to USDC?', answer: 'Use Binance P2P with telebirr, CBE Birr, or bank transfer.' },
+      { question: "What's the minimum to start?", answer: 'Start with 2,800 ETB (~$50). Fractional trading gives access to all US stocks.' },
+      { question: 'What payment methods work?', answer: 'telebirr, CBE Birr, HelloCash, and major Ethiopian banks.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with 2,800 ETB.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  am: {
+    badge: "ለኢትዮጵያውያን ነጋዴዎች መመሪያ",
+    heroTitle1: "የአሜሪካ አክሲዮኖች ይገበያዩ",
+    heroTitle2: "ከኢትዮጵያ",
+    heroDesc: "NVIDIA፣ Tesla፣ Apple በብር ይድረሱ። በ2,800 ብር ይጀምሩ። በቴሌብር 24/7 ይገበያዩ።",
+    comparePlatforms: "መድረኮችን ያወዳድሩ",
+    howItWorks: "እንዴት እንደሚሰራ",
+    benefits: [
+      { icon: '💰', title: 'በ2,800 ብር ይጀምሩ', desc: '~$50 USDC ዝቅተኛ' },
+      { icon: '🕐', title: '24/7 ግብይት', desc: 'በማንኛውም ጊዜ ይገበያዩ' },
+      { icon: '📱', title: 'ቴሌብር ዝግጁ', desc: 'የኢትዮጵያ ቁጥር 1 ሞባይል ገንዘብ' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'ቁልፎችዎ፣ ሳንቲሞችዎ' },
+    ],
+    stepsTitle: "በ4 ደረጃዎች ይጀምሩ",
+    steps: [
+      { t: 'ብርን ወደ USDC ይቀይሩ', d: 'Binance P2P ከቴሌብር ወይም የባንክ ዝውውር ጋር ይጠቀሙ።' },
+      { t: 'መድረክ ይምረጡ', d: 'መድረኮችን ያወዳድሩ።', l: '/', lt: 'ያወዳድሩ' },
+      { t: 'ዋሌት ያገናኙ', d: 'MetaMask ወይም Rabby ይጠቀሙ።' },
+      { t: 'መገበያየት ይጀምሩ', d: 'በ2-3x leverage ይጀምሩ።' },
+    ],
+    paymentTitle: "የኢትዮጵያ የክፍያ ዘዴዎች",
+    digitalPayments: "ሞባይል ገንዘብ",
+    banks: "ባንኮች",
+    faqTitle: "ተደጋጋሚ ጥያቄዎች",
+    faqs: [
+      { question: 'የአሜሪካ ብሮከሬጅ አካውንት ያስፈልገኛል?', answer: 'አያስፈልግም። በdecentralized መድረኮች ላይ በUSDC synthetic የአሜሪካ አክሲዮኖች ይገበያዩ።' },
+      { question: 'ብርን ወደ USDC እንዴት እቀይራለሁ?', answer: 'Binance P2P ከቴሌብር፣ CBE ብር ወይም የባንክ ዝውውር ጋር ይጠቀሙ።' },
+      { question: 'ለመጀመር ዝቅተኛው ስንት ነው?', answer: 'በ2,800 ብር (~$50) ይጀምሩ። ክፍልፋይ ግብይት ሁሉንም የአሜሪካ አክሲዮኖች ያገኛል።' },
+      { question: 'የትኞቹ የክፍያ ዘዴዎች ይሰራሉ?', answer: 'ቴሌብር፣ CBE ብር፣ HelloCash እና ዋና ዋና የኢትዮጵያ ባንኮች።' },
+    ],
+    ctaTitle: "ለመገበያየት ዝግጁ ነዎት?",
+    ctaDesc: "በ2,800 ብር ይጀምሩ።",
+    freeNotice: "ይህ ጣቢያ",
+    freeNotice2: "100% ነፃ ነው",
+    freeNotice3: "። ያግኙ",
+    freeNotice4: "4% ቅናሽ",
+    freeNotice5: "በእኛ ሊንኮች።",
+  },
+};
+
+export const digitalPayments = ['telebirr (Most Popular)', 'CBE Birr', 'HelloCash', 'M-Birr'];
+export const banksList = ['Commercial Bank of Ethiopia', 'Dashen Bank', 'Awash Bank', 'Bank of Abyssinia'];
+export const nativeLang = 'am';
+export const nativeName = 'አማርኛ';

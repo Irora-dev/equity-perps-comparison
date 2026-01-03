@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Polish Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from Poland",
+    heroDesc: "Access NVIDIA, Tesla, Apple with PLN. Start with 200 zł. Trade 24/7 with BLIK.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with 200 zł', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime CET' },
+      { icon: '📱', title: 'BLIK Ready', desc: 'Instant payments' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Convert PLN to USDC', d: 'Use Binance P2P with BLIK or bank transfer.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Poland Payment Methods",
+    digitalPayments: "Digital Payments",
+    banks: "Banks",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I convert PLN to USDC?', answer: 'Use Binance P2P with BLIK, Przelewy24, or bank transfer.' },
+      { question: "What's the minimum to start?", answer: 'Start with 200 zł (~$50). Fractional trading gives access to all US stocks.' },
+      { question: 'What payment methods work?', answer: 'BLIK (most popular), Przelewy24, bank transfers from PKO BP, mBank, Santander.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with 200 zł.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  pl: {
+    badge: "Przewodnik dla polskich traderów",
+    heroTitle1: "Handluj akcjami USA",
+    heroTitle2: "z Polski",
+    heroDesc: "Dostęp do NVIDIA, Tesla, Apple za PLN. Zacznij od 200 zł. Handluj 24/7 przez BLIK.",
+    comparePlatforms: "Porównaj platformy",
+    howItWorks: "Jak to działa",
+    benefits: [
+      { icon: '💰', title: 'Zacznij od 200 zł', desc: '~50$ USDC minimum' },
+      { icon: '🕐', title: 'Handel 24/7', desc: 'Handluj o każdej porze' },
+      { icon: '📱', title: 'Obsługa BLIK', desc: 'Natychmiastowe płatności' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Twoje klucze, twoje monety' },
+    ],
+    stepsTitle: "Rozpocznij w 4 krokach",
+    steps: [
+      { t: 'Zamień PLN na USDC', d: 'Użyj Binance P2P z BLIK lub przelewem bankowym.' },
+      { t: 'Wybierz platformę', d: 'Porównaj platformy.', l: '/', lt: 'Porównaj' },
+      { t: 'Połącz portfel', d: 'Użyj MetaMask lub Rabby.' },
+      { t: 'Zacznij handlować', d: 'Zacznij z dźwignią 2-3x.' },
+    ],
+    paymentTitle: "Metody płatności w Polsce",
+    digitalPayments: "Płatności cyfrowe",
+    banks: "Banki",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Czy potrzebuję amerykańskiego konta maklerskiego?', answer: 'Nie. Handluj syntetycznymi akcjami USA za USDC na zdecentralizowanych platformach.' },
+      { question: 'Jak zamienić PLN na USDC?', answer: 'Użyj Binance P2P z BLIK, Przelewy24 lub przelewem bankowym.' },
+      { question: 'Jaki jest minimalny depozyt?', answer: 'Zacznij od 200 zł (~50$). Handel ułamkowy daje dostęp do wszystkich akcji USA.' },
+      { question: 'Jakie metody płatności działają?', answer: 'BLIK (najpopularniejszy), Przelewy24, przelewy z PKO BP, mBank, Santander.' },
+    ],
+    ctaTitle: "Gotowy do handlu?",
+    ctaDesc: "Zacznij od 200 zł.",
+    freeNotice: "Ta strona jest",
+    freeNotice2: "100% darmowa",
+    freeNotice3: ". Otrzymaj",
+    freeNotice4: "4% zniżki",
+    freeNotice5: "przez nasze linki.",
+  },
+};
+
+export const digitalPayments = ['BLIK (Most Popular)', 'Przelewy24', 'PayU', 'Dotpay'];
+export const banksList = ['PKO Bank Polski', 'mBank', 'Santander Poland', 'ING Bank Śląski'];
+export const nativeLang = 'pl';
+export const nativeName = 'Polski';

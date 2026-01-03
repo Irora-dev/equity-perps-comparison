@@ -3,31 +3,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { platforms } from '@/data/platforms';
-
-const faqs = [
-  {
-    question: "Is trading US stocks legal in Pakistan?",
-    answer: "Crypto trading exists in a regulatory gray area in Pakistan. The State Bank has issued warnings but there's no explicit ban. Many Pakistanis use decentralized platforms for trading. You should stay informed about evolving regulations and consult local experts."
-  },
-  {
-    question: "How do I convert PKR to USDC?",
-    answer: "The easiest way is through Binance P2P. You can pay with JazzCash, Easypaisa, or bank transfer to buy USDT from local sellers, then convert to USDC. This avoids international wire transfer fees and SBP restrictions."
-  },
-  {
-    question: "What's the minimum amount to start?",
-    answer: "You can start with as little as PKR 15,000-20,000 ($50-70). With leverage, this gives you exposure to $500-3,000 worth of US stocks. We recommend starting small to learn the platform."
-  },
-  {
-    question: "Can I trade at any time?",
-    answer: "Yes! Equity perps trade 24/7. US markets normally open at 6:30pm PKT, but with equity perps you can trade at any time - morning, evening, or late night."
-  },
-  {
-    question: "Is KYC required?",
-    answer: "The trading platforms (like Hyperliquid) don't require KYC. However, you'll need basic verification on Binance to use P2P trading for converting PKR to crypto."
-  },
-];
+import { LanguageToggle } from '@/components/LanguageToggle';
+import { translations, popularStocks, nativeLang, nativeName, isRTL } from '@/data/translations/pakistan';
 
 export default function TradeUSStocksFromPakistan() {
+  const [lang, setLang] = useState<'en' | 'ur'>('en');
+  const t = translations[lang];
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [walletExpanded, setWalletExpanded] = useState(false);
   const [fundingExpanded, setFundingExpanded] = useState(false);
@@ -35,36 +16,39 @@ export default function TradeUSStocksFromPakistan() {
   const hyperliquid = platforms.find(p => p.id === 'hyperliquid');
 
   return (
-    <div className="min-h-screen bg-gray-950">
+    <div className="min-h-screen bg-gray-950" dir={lang === 'ur' && isRTL ? 'rtl' : 'ltr'}>
       {/* Hero */}
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 via-gray-950 to-emerald-500/20" />
         <div className="absolute top-20 left-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl" />
 
+        <div className="absolute top-4 right-4 z-10">
+          <LanguageToggle currentLang={lang} nativeLang={nativeLang} nativeName={nativeName} onToggle={(l) => setLang(l as 'en' | 'ur')} />
+        </div>
+
         <div className="max-w-4xl mx-auto relative">
           <nav className="text-sm text-gray-500 mb-8">
-            <Link href="/" className="hover:text-white">Home</Link>
+            <Link href="/" className="hover:text-white">{t.home}</Link>
             <span className="mx-2">/</span>
-            <Link href="/blog" className="hover:text-white">Blog</Link>
+            <Link href="/blog" className="hover:text-white">{t.blog}</Link>
             <span className="mx-2">/</span>
-            <span className="text-gray-400">Trade US Stocks from Pakistan</span>
+            <span className="text-gray-400">{t.pageTitle}</span>
           </nav>
 
           <div className="flex items-center gap-2 mb-6">
-            <span className="px-3 py-1 bg-green-500/20 text-green-400 text-sm font-medium rounded-full">🇵🇰 Pakistan Guide</span>
-            <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-sm font-medium rounded-full">No Broker Needed</span>
+            <span className="px-3 py-1 bg-green-500/20 text-green-400 text-sm font-medium rounded-full">🇵🇰 {t.badge}</span>
+            <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-sm font-medium rounded-full">{t.noBrokerBadge}</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-            Trade US Stocks
+            {t.heroTitle1}
             <br />
-            <span className="text-green-400">From Pakistan</span>
+            <span className="text-green-400">{t.heroTitle2}</span>
           </h1>
 
           <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-            Access NVDA, TSLA, AAPL and 50+ US stocks without a US brokerage account.
-            Convert PKR to USDC via JazzCash or Easypaisa and start trading in <strong className="text-white">15 minutes</strong>.
+            {t.heroDesc} <strong className="text-white">{t.heroDescHighlight}</strong>.
           </p>
 
           <div className="flex flex-wrap gap-4 mb-12">
@@ -72,33 +56,33 @@ export default function TradeUSStocksFromPakistan() {
               href="#get-started"
               className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-bold text-lg hover:from-green-400 hover:to-emerald-500 transition-all shadow-lg shadow-green-500/25"
             >
-              Start Trading Now
+              {t.startTrading}
             </a>
             <a
               href="#get-started"
               className="px-8 py-4 bg-gray-800 text-white rounded-xl font-bold text-lg hover:bg-gray-700 transition-all border border-gray-700"
             >
-              How It Works
+              {t.howItWorks}
             </a>
           </div>
 
           {/* Quick Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-gray-900/80 border border-gray-800 rounded-xl p-4 text-center">
-              <div className="text-2xl font-bold text-white">PKR 15K</div>
-              <div className="text-gray-400 text-sm">Minimum to Start</div>
+              <div className="text-2xl font-bold text-white">{t.statMinimumValue}</div>
+              <div className="text-gray-400 text-sm">{t.statMinimum}</div>
             </div>
             <div className="bg-gray-900/80 border border-gray-800 rounded-xl p-4 text-center">
-              <div className="text-2xl font-bold text-white">24/7</div>
-              <div className="text-gray-400 text-sm">Any Time PKT</div>
+              <div className="text-2xl font-bold text-white">{t.statTimeValue}</div>
+              <div className="text-gray-400 text-sm">{t.statTime}</div>
             </div>
             <div className="bg-gray-900/80 border border-gray-800 rounded-xl p-4 text-center">
-              <div className="text-2xl font-bold text-white">50+</div>
-              <div className="text-gray-400 text-sm">US Stocks</div>
+              <div className="text-2xl font-bold text-white">{t.statStocksValue}</div>
+              <div className="text-gray-400 text-sm">{t.statStocks}</div>
             </div>
             <div className="bg-gray-900/80 border border-gray-800 rounded-xl p-4 text-center">
-              <div className="text-2xl font-bold text-white">No KYC</div>
-              <div className="text-gray-400 text-sm">On Trading Platform</div>
+              <div className="text-2xl font-bold text-white">{t.statKycValue}</div>
+              <div className="text-gray-400 text-sm">{t.statKyc}</div>
             </div>
           </div>
         </div>
@@ -108,45 +92,17 @@ export default function TradeUSStocksFromPakistan() {
       <section className="py-16 px-4 bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-8 text-center">
-            Why Pakistani Traders Choose Equity Perps
+            {t.whyTitle}
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
-              <div className="text-3xl mb-4">🚫</div>
-              <h3 className="text-xl font-bold text-white mb-2">No SBP Restrictions</h3>
-              <p className="text-gray-400">
-                Bypass State Bank forex limitations. Trade using crypto without needing
-                foreign currency approvals or bank permissions.
-              </p>
-            </div>
-
-            <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
-              <div className="text-3xl mb-4">⚡</div>
-              <h3 className="text-xl font-bold text-white mb-2">Use JazzCash/Easypaisa</h3>
-              <p className="text-gray-400">
-                Buy crypto directly with your mobile wallet through P2P trading.
-                No bank account complications.
-              </p>
-            </div>
-
-            <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
-              <div className="text-3xl mb-4">🕐</div>
-              <h3 className="text-xl font-bold text-white mb-2">Trade Anytime</h3>
-              <p className="text-gray-400">
-                US markets open at 6:30pm PKT. With equity perps, trade whenever you want -
-                morning, afternoon, or 2am.
-              </p>
-            </div>
-
-            <div className="bg-gray-900 border border-gray-800 rounded-xl p-6">
-              <div className="text-3xl mb-4">💰</div>
-              <h3 className="text-xl font-bold text-white mb-2">Start with PKR 15,000</h3>
-              <p className="text-gray-400">
-                Most US brokers need $500+ minimum and won&apos;t accept Pakistani residents.
-                Here, start with PKR 15-20K and use leverage.
-              </p>
-            </div>
+            {t.whyCards.map((card, i) => (
+              <div key={i} className="bg-gray-900 border border-gray-800 rounded-xl p-6">
+                <div className="text-3xl mb-4">{card.icon}</div>
+                <h3 className="text-xl font-bold text-white mb-2">{card.title}</h3>
+                <p className="text-gray-400">{card.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -156,13 +112,13 @@ export default function TradeUSStocksFromPakistan() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full mb-4">
-              <span className="text-green-400 font-medium">Step-by-Step Guide</span>
+              <span className="text-green-400 font-medium">{t.stepByStep}</span>
             </span>
             <h2 className="text-3xl font-bold text-white mb-4">
-              Get Started in 15 Minutes
+              {t.getStartedTitle}
             </h2>
             <p className="text-gray-400 max-w-xl mx-auto">
-              Follow these steps to start trading US stocks from Pakistan today.
+              {t.getStartedDesc}
             </p>
           </div>
 
@@ -177,8 +133,8 @@ export default function TradeUSStocksFromPakistan() {
                   1
                 </div>
                 <div className="flex-grow">
-                  <h3 className="text-xl font-bold text-white mb-1">Set Up Your Digital Wallet</h3>
-                  <p className="text-gray-400">Free, takes 2 minutes, and you only do this once</p>
+                  <h3 className="text-xl font-bold text-white mb-1">{t.step1Title}</h3>
+                  <p className="text-gray-400">{t.step1Desc}</p>
                 </div>
                 <svg
                   className={`w-6 h-6 text-cyan-400 transition-transform ${walletExpanded ? 'rotate-180' : ''}`}
@@ -193,58 +149,47 @@ export default function TradeUSStocksFromPakistan() {
               {walletExpanded && (
                 <div className="px-6 pb-6 border-t border-gray-800 pt-6">
                   <div className="bg-cyan-500/10 border border-cyan-500/20 rounded-xl p-4 mb-6">
-                    <h4 className="text-cyan-400 font-semibold mb-2">What is a digital wallet?</h4>
+                    <h4 className="text-cyan-400 font-semibold mb-2">{t.walletExplainTitle}</h4>
                     <p className="text-gray-300 text-sm mb-3">
-                      Think of it like a <strong className="text-white">digital bank account you control</strong>.
-                      Instead of a bank holding your money, you hold it yourself using a simple browser extension.
+                      {t.walletExplainDesc} <strong className="text-white">{t.walletExplainHighlight}</strong>{t.walletExplainDesc2}
                     </p>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-                      <div className="bg-gray-800/50 rounded-lg p-2 text-center">
-                        <div className="text-lg mb-1">🔐</div>
-                        <span className="text-gray-400">You control it</span>
-                      </div>
-                      <div className="bg-gray-800/50 rounded-lg p-2 text-center">
-                        <div className="text-lg mb-1">🆓</div>
-                        <span className="text-gray-400">Completely free</span>
-                      </div>
-                      <div className="bg-gray-800/50 rounded-lg p-2 text-center">
-                        <div className="text-lg mb-1">⚡</div>
-                        <span className="text-gray-400">2 min setup</span>
-                      </div>
-                      <div className="bg-gray-800/50 rounded-lg p-2 text-center">
-                        <div className="text-lg mb-1">🌍</div>
-                        <span className="text-gray-400">Works in Pakistan</span>
-                      </div>
+                      {['🔐', '🆓', '⚡', '🌍'].map((icon, i) => (
+                        <div key={i} className="bg-gray-800/50 rounded-lg p-2 text-center">
+                          <div className="text-lg mb-1">{icon}</div>
+                          <span className="text-gray-400">{t.walletFeatures[i]}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="text-white font-semibold mb-4">Here&apos;s how to set it up:</h4>
+                      <h4 className="text-white font-semibold mb-4">{t.walletSetupTitle}</h4>
                       <ol className="space-y-3 text-gray-300">
                         <li className="flex gap-3">
                           <span className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm font-bold flex-shrink-0">1</span>
-                          <span>Go to <a href="https://rabby.io" target="_blank" rel="noopener" className="text-cyan-400 hover:text-cyan-300 underline">rabby.io</a></span>
+                          <span>{t.walletSteps[0].text} <a href="https://rabby.io" target="_blank" rel="noopener" className="text-cyan-400 hover:text-cyan-300 underline">{t.walletSteps[0].link}</a></span>
                         </li>
                         <li className="flex gap-3">
                           <span className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm font-bold flex-shrink-0">2</span>
-                          <span>Click &quot;Download&quot; and add to Chrome/Brave</span>
+                          <span>{t.walletSteps[1].text}</span>
                         </li>
                         <li className="flex gap-3">
                           <span className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm font-bold flex-shrink-0">3</span>
-                          <span>Click &quot;Create New Wallet&quot; and set a password</span>
+                          <span>{t.walletSteps[2].text}</span>
                         </li>
                         <li className="flex gap-3">
                           <span className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm font-bold flex-shrink-0">4</span>
                           <div>
-                            <strong className="text-white">Write down your 12-word recovery phrase</strong>
-                            <p className="text-gray-500 text-xs mt-1">Keep it safe and never share it!</p>
+                            <strong className="text-white">{t.walletSteps[3].text}</strong>
+                            <p className="text-gray-500 text-xs mt-1">{t.walletSteps[3].warning}</p>
                           </div>
                         </li>
                       </ol>
                     </div>
                     <div className="bg-gray-800/50 rounded-xl p-5">
-                      <h4 className="text-white font-semibold mb-3">Watch: 2-Minute Setup Guide</h4>
+                      <h4 className="text-white font-semibold mb-3">{t.watchVideo}</h4>
                       <div className="relative w-full aspect-video rounded-lg overflow-hidden">
                         <iframe
                           src="https://www.youtube.com/embed/_ouAzSQJiM0"
@@ -272,8 +217,8 @@ export default function TradeUSStocksFromPakistan() {
                   2
                 </div>
                 <div className="flex-grow">
-                  <h3 className="text-xl font-bold text-white mb-1">Convert PKR to USDC</h3>
-                  <p className="text-gray-400">Use Binance P2P with JazzCash or Easypaisa</p>
+                  <h3 className="text-xl font-bold text-white mb-1">{t.step2Title}</h3>
+                  <p className="text-gray-400">{t.step2Desc}</p>
                 </div>
                 <svg
                   className={`w-6 h-6 text-green-400 transition-transform ${fundingExpanded ? 'rotate-180' : ''}`}
@@ -287,43 +232,35 @@ export default function TradeUSStocksFromPakistan() {
 
               {fundingExpanded && (
                 <div className="px-6 pb-6 border-t border-gray-800 pt-6">
-                  <p className="text-gray-300 mb-6">
-                    You need USDC (a stablecoin worth $1) to trade. Here are the best ways to convert PKR:
-                  </p>
+                  <p className="text-gray-300 mb-6">{t.fundingIntro}</p>
 
                   <div className="grid md:grid-cols-2 gap-4 mb-6">
                     {/* Binance P2P */}
                     <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4">
-                      <h4 className="text-yellow-400 font-semibold mb-2">Binance P2P (Recommended)</h4>
-                      <p className="text-gray-400 text-sm mb-3">Best rates, most sellers</p>
+                      <h4 className="text-yellow-400 font-semibold mb-2">{t.binanceP2P.title}</h4>
+                      <p className="text-gray-400 text-sm mb-3">{t.binanceP2P.desc}</p>
                       <ol className="text-xs text-gray-300 space-y-1">
-                        <li>1. Open Binance app</li>
-                        <li>2. Go to P2P Trading</li>
-                        <li>3. Select PKR and USDT</li>
-                        <li>4. Pay via JazzCash/Easypaisa/Bank</li>
-                        <li>5. Convert USDT → USDC</li>
-                        <li>6. Withdraw to Rabby (Arbitrum)</li>
+                        {t.binanceP2P.steps.map((step, i) => (
+                          <li key={i}>{i + 1}. {step}</li>
+                        ))}
                       </ol>
                     </div>
 
                     {/* KuCoin P2P */}
                     <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-4">
-                      <h4 className="text-emerald-400 font-semibold mb-2">KuCoin P2P</h4>
-                      <p className="text-gray-400 text-sm mb-3">Alternative option</p>
+                      <h4 className="text-emerald-400 font-semibold mb-2">{t.kucoinP2P.title}</h4>
+                      <p className="text-gray-400 text-sm mb-3">{t.kucoinP2P.desc}</p>
                       <ol className="text-xs text-gray-300 space-y-1">
-                        <li>1. Create KuCoin account</li>
-                        <li>2. Go to P2P section</li>
-                        <li>3. Buy USDT with PKR</li>
-                        <li>4. Convert to USDC</li>
-                        <li>5. Withdraw to wallet</li>
+                        {t.kucoinP2P.steps.map((step, i) => (
+                          <li key={i}>{i + 1}. {step}</li>
+                        ))}
                       </ol>
                     </div>
                   </div>
 
                   <div className="bg-gray-800/50 rounded-xl p-4 mb-4">
                     <p className="text-gray-300 text-sm">
-                      <strong className="text-white">💡 Pro tip:</strong> JazzCash and Easypaisa are fastest.
-                      Look for sellers with 95%+ completion rate. Start with smaller amounts to test.
+                      <strong className="text-white">💡 {t.proTip}</strong> {t.proTipText}
                     </p>
                   </div>
 
@@ -331,7 +268,7 @@ export default function TradeUSStocksFromPakistan() {
                     href="/blog/convert-pkr-to-usdc"
                     className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 font-medium"
                   >
-                    See detailed PKR → USDC guide
+                    {t.seeDetailedGuide}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -348,27 +285,27 @@ export default function TradeUSStocksFromPakistan() {
                 3
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-1">Start Trading</h3>
-                <p className="text-gray-400">Connect to Hyperliquid and trade 50+ US stocks</p>
+                <h3 className="text-xl font-bold text-white mb-1">{t.step3Title}</h3>
+                <p className="text-gray-400">{t.step3Desc}</p>
               </div>
             </div>
 
             <ol className="space-y-3 text-gray-300 mb-6">
               <li className="flex gap-3">
                 <span className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-sm font-bold flex-shrink-0">1</span>
-                <span>Go to <a href={hyperliquid?.referralUrl} target="_blank" rel="noopener sponsored" className="text-emerald-400 hover:text-emerald-300">app.hyperliquid.xyz</a></span>
+                <span>{t.tradeSteps[0].text} <a href={hyperliquid?.referralUrl} target="_blank" rel="noopener sponsored" className="text-emerald-400 hover:text-emerald-300">{t.tradeSteps[0].linkText}</a></span>
               </li>
               <li className="flex gap-3">
                 <span className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-sm font-bold flex-shrink-0">2</span>
-                <span>Click &quot;Connect&quot; and select Rabby Wallet</span>
+                <span>{t.tradeSteps[1].text}</span>
               </li>
               <li className="flex gap-3">
                 <span className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-sm font-bold flex-shrink-0">3</span>
-                <span>Click &quot;Deposit&quot; and bridge your USDC</span>
+                <span>{t.tradeSteps[2].text}</span>
               </li>
               <li className="flex gap-3">
                 <span className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-sm font-bold flex-shrink-0">4</span>
-                <span>Search for a stock (NVDA, TSLA, AAPL) and open a position!</span>
+                <span>{t.tradeSteps[3].text}</span>
               </li>
             </ol>
 
@@ -378,7 +315,7 @@ export default function TradeUSStocksFromPakistan() {
               rel="noopener sponsored"
               className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500 text-gray-900 rounded-xl font-bold hover:bg-emerald-400 transition-colors"
             >
-              Open Hyperliquid (4% Off Fees)
+              {t.openHyperliquid}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
@@ -391,20 +328,11 @@ export default function TradeUSStocksFromPakistan() {
       <section className="py-16 px-4 bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-8 text-center">
-            Popular US Stocks Available
+            {t.popularStocksTitle}
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { ticker: 'NVDA', name: 'Nvidia', hot: true },
-              { ticker: 'TSLA', name: 'Tesla', hot: true },
-              { ticker: 'AAPL', name: 'Apple', hot: false },
-              { ticker: 'MSFT', name: 'Microsoft', hot: false },
-              { ticker: 'META', name: 'Meta', hot: true },
-              { ticker: 'AMZN', name: 'Amazon', hot: false },
-              { ticker: 'GOOGL', name: 'Google', hot: false },
-              { ticker: 'COIN', name: 'Coinbase', hot: true },
-            ].map(stock => (
+            {popularStocks.map(stock => (
               <Link
                 key={stock.ticker}
                 href={`/stocks/${stock.ticker.toLowerCase()}`}
@@ -412,7 +340,7 @@ export default function TradeUSStocksFromPakistan() {
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white font-bold">{stock.ticker}</span>
-                  {stock.hot && <span className="text-xs bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full">HOT</span>}
+                  {stock.hot && <span className="text-xs bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full">{t.hot}</span>}
                 </div>
                 <span className="text-gray-500 text-sm">{stock.name}</span>
               </Link>
@@ -421,7 +349,7 @@ export default function TradeUSStocksFromPakistan() {
 
           <div className="text-center mt-6">
             <Link href="/stocks" className="text-green-400 hover:text-green-300 font-medium">
-              View all 50+ stocks →
+              {t.viewAllStocks}
             </Link>
           </div>
         </div>
@@ -431,11 +359,11 @@ export default function TradeUSStocksFromPakistan() {
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-8 text-center">
-            Frequently Asked Questions
+            {t.faqTitle}
           </h2>
 
           <div className="space-y-4">
-            {faqs.map((faq, index) => (
+            {t.faqs.map((faq, index) => (
               <div
                 key={index}
                 className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden"
@@ -465,51 +393,27 @@ export default function TradeUSStocksFromPakistan() {
 
           {/* Pakistan Guides Section */}
           <div className="mt-12 bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-2xl p-6">
-            <h3 className="text-xl font-bold text-white mb-4">📚 More Pakistan Guides</h3>
-            <p className="text-gray-400 mb-6">
-              Detailed guides specifically for Pakistani traders:
-            </p>
+            <h3 className="text-xl font-bold text-white mb-4">📚 {t.moreGuidesTitle}</h3>
+            <p className="text-gray-400 mb-6">{t.moreGuidesDesc}</p>
             <div className="grid sm:grid-cols-2 gap-4">
-              <Link
-                href="/blog/convert-pkr-to-usdc"
-                className="flex items-center gap-3 bg-gray-900/80 border border-gray-800 rounded-xl p-4 hover:border-green-500/50 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400 flex-shrink-0">₨</div>
-                <div>
-                  <h4 className="text-white font-medium">Convert PKR to USDC</h4>
-                  <p className="text-gray-500 text-sm">JazzCash, Easypaisa, Bank Transfer</p>
-                </div>
-              </Link>
-              <Link
-                href="/blog/trade-stocks-with-15000-pkr"
-                className="flex items-center gap-3 bg-gray-900/80 border border-gray-800 rounded-xl p-4 hover:border-emerald-500/50 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0">💰</div>
-                <div>
-                  <h4 className="text-white font-medium">Trade with PKR 15,000</h4>
-                  <p className="text-gray-500 text-sm">Small account strategy guide</p>
-                </div>
-              </Link>
-              <Link
-                href="/blog/p2p-usdc-guide"
-                className="flex items-center gap-3 bg-gray-900/80 border border-gray-800 rounded-xl p-4 hover:border-cyan-500/50 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400 flex-shrink-0">🤝</div>
-                <div>
-                  <h4 className="text-white font-medium">P2P Trading Guide</h4>
-                  <p className="text-gray-500 text-sm">Safety tips and best practices</p>
-                </div>
-              </Link>
-              <Link
-                href="/blog/pnl-simulator"
-                className="flex items-center gap-3 bg-gray-900/80 border border-gray-800 rounded-xl p-4 hover:border-purple-500/50 transition-colors"
-              >
-                <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400 flex-shrink-0">📊</div>
-                <div>
-                  <h4 className="text-white font-medium">PnL Simulator</h4>
-                  <p className="text-gray-500 text-sm">Calculate potential profits</p>
-                </div>
-              </Link>
+              {t.guides.map((guide, i) => (
+                <Link
+                  key={i}
+                  href={guide.href}
+                  className="flex items-center gap-3 bg-gray-900/80 border border-gray-800 rounded-xl p-4 hover:border-green-500/50 transition-colors"
+                >
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                    i === 0 ? 'bg-green-500/20 text-green-400' :
+                    i === 1 ? 'bg-emerald-500/20 text-emerald-400' :
+                    i === 2 ? 'bg-cyan-500/20 text-cyan-400' :
+                    'bg-purple-500/20 text-purple-400'
+                  }`}>{guide.icon}</div>
+                  <div>
+                    <h4 className="text-white font-medium">{guide.title}</h4>
+                    <p className="text-gray-500 text-sm">{guide.desc}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -520,11 +424,10 @@ export default function TradeUSStocksFromPakistan() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-2xl p-8 text-center">
             <h2 className="text-3xl font-bold text-white mb-4">
-              Start Trading US Stocks Today
+              {t.ctaTitle}
             </h2>
             <p className="text-gray-300 mb-6 max-w-xl mx-auto">
-              Join Pakistani traders accessing NVDA, TSLA, and 50+ US stocks 24/7.
-              No US broker needed. Start with just PKR 15,000.
+              {t.ctaDesc}
             </p>
             <a
               href={hyperliquid?.referralUrl}
@@ -532,7 +435,7 @@ export default function TradeUSStocksFromPakistan() {
               rel="noopener sponsored"
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-bold text-lg hover:from-green-400 hover:to-emerald-500 transition-all shadow-lg shadow-green-500/25"
             >
-              Get Started Now (4% Off Fees)
+              {t.getStartedCta}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
@@ -546,10 +449,7 @@ export default function TradeUSStocksFromPakistan() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 text-center">
             <p className="text-gray-400 text-sm leading-relaxed">
-              This site is <span className="text-white font-medium">100% free</span> to use for comparing the best platforms to trade stocks 24/7.
-              When you sign up through our links to platforms like <span className="text-cyan-400">Hyperliquid</span> and <span className="text-cyan-400">Lighter</span>,
-              you get a <span className="text-green-400 font-semibold">4% discount on trading fees</span> with our referral code.
-              This helps support the site while saving you money on every trade.
+              {t.freeNotice} <span className="text-white font-medium">{t.freeNotice2}</span>{t.freeNotice3} <span className="text-cyan-400">{t.freeNotice4}</span> {t.freeNotice5} <span className="text-cyan-400">{t.freeNotice6}</span>{t.freeNotice7} <span className="text-green-400 font-semibold">{t.freeNotice8}</span>{t.freeNotice9}
             </p>
           </div>
         </div>

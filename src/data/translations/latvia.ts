@@ -1,0 +1,83 @@
+export const translations = {
+  en: {
+    badge: "Guide for Latvian Traders",
+    heroTitle1: "Trade US Stocks",
+    heroTitle2: "from Latvia",
+    heroDesc: "Access NVIDIA, Tesla, Apple with EUR. Start with €45. Trade 24/7 with SEPA.",
+    comparePlatforms: "Compare Platforms",
+    howItWorks: "How It Works",
+    benefits: [
+      { icon: '💰', title: 'Start with €45', desc: '~$50 USDC minimum' },
+      { icon: '🕐', title: '24/7 Trading', desc: 'Trade anytime EET' },
+      { icon: '🏦', title: 'SEPA Ready', desc: 'EUR bank transfers' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Your keys, your coins' },
+    ],
+    stepsTitle: "Get Started in 4 Steps",
+    steps: [
+      { t: 'Convert EUR to USDC', d: 'Use Binance or Kraken with SEPA transfer.' },
+      { t: 'Choose a Platform', d: 'Compare platforms.', l: '/', lt: 'Compare' },
+      { t: 'Connect Wallet', d: 'Use MetaMask or Rabby.' },
+      { t: 'Start Trading', d: 'Begin with 2-3x leverage.' },
+    ],
+    paymentTitle: "Latvia Payment Methods",
+    digitalPayments: "Banks",
+    banks: "Exchanges",
+    faqTitle: "FAQ",
+    faqs: [
+      { question: 'Do I need a US brokerage account?', answer: 'No. Trade synthetic US stocks with USDC on decentralized platforms.' },
+      { question: 'How do I convert EUR to USDC?', answer: 'Use Binance or Kraken with SEPA transfer from your Latvian bank.' },
+      { question: "What's the minimum to start?", answer: 'Start with €45 (~$50). Fractional trading gives access to all US stocks.' },
+      { question: 'What payment methods work?', answer: 'SEPA transfers from Swedbank, SEB, Citadele, and other Latvian banks.' },
+    ],
+    ctaTitle: "Ready to Trade?",
+    ctaDesc: "Start with €45.",
+    freeNotice: "This site is",
+    freeNotice2: "100% free",
+    freeNotice3: ". Get",
+    freeNotice4: "4% off fees",
+    freeNotice5: "through our links.",
+  },
+  lv: {
+    badge: "Ceļvedis Latvijas tirgotājiem",
+    heroTitle1: "Tirgo ASV akcijas",
+    heroTitle2: "no Latvijas",
+    heroDesc: "Piekļūsti NVIDIA, Tesla, Apple ar EUR. Sāc ar €45. Tirgo 24/7 ar SEPA.",
+    comparePlatforms: "Salīdzini platformas",
+    howItWorks: "Kā tas darbojas",
+    benefits: [
+      { icon: '💰', title: 'Sāc ar €45', desc: '~$50 USDC minimums' },
+      { icon: '🕐', title: '24/7 tirdzniecība', desc: 'Tirgo jebkurā laikā' },
+      { icon: '🏦', title: 'SEPA gatavs', desc: 'EUR bankas pārskaitījumi' },
+      { icon: '🔐', title: 'Self-Custody', desc: 'Tavas atslēgas, tavas monētas' },
+    ],
+    stepsTitle: "Sāc 4 soļos",
+    steps: [
+      { t: 'Konvertē EUR uz USDC', d: 'Izmanto Binance vai Kraken ar SEPA pārskaitījumu.' },
+      { t: 'Izvēlies platformu', d: 'Salīdzini platformas.', l: '/', lt: 'Salīdzini' },
+      { t: 'Pievieno maku', d: 'Izmanto MetaMask vai Rabby.' },
+      { t: 'Sāc tirgot', d: 'Sāc ar 2-3x sviru.' },
+    ],
+    paymentTitle: "Latvijas maksājumu metodes",
+    digitalPayments: "Bankas",
+    banks: "Biržas",
+    faqTitle: "BUJ",
+    faqs: [
+      { question: 'Vai man vajag ASV brokeru kontu?', answer: 'Nē. Tirgo sintētiskas ASV akcijas ar USDC decentralizētās platformās.' },
+      { question: 'Kā konvertēt EUR uz USDC?', answer: 'Izmanto Binance vai Kraken ar SEPA pārskaitījumu no tavas Latvijas bankas.' },
+      { question: 'Kāds ir minimums lai sāktu?', answer: 'Sāc ar €45 (~$50). Daļēja tirdzniecība dod piekļuvi visām ASV akcijām.' },
+      { question: 'Kādas maksājumu metodes darbojas?', answer: 'SEPA pārskaitījumi no Swedbank, SEB, Citadele un citām Latvijas bankām.' },
+    ],
+    ctaTitle: "Gatavs tirgot?",
+    ctaDesc: "Sāc ar €45.",
+    freeNotice: "Šī vietne ir",
+    freeNotice2: "100% bezmaksas",
+    freeNotice3: ". Saņem",
+    freeNotice4: "4% atlaidi",
+    freeNotice5: "caur mūsu saitēm.",
+  },
+};
+
+export const digitalPayments = ['Swedbank', 'SEB banka', 'Citadele', 'Luminor'];
+export const banksList = ['Binance', 'Kraken', 'Coinbase', 'Bitstamp'];
+export const nativeLang = 'lv';
+export const nativeName = 'Latviešu';
