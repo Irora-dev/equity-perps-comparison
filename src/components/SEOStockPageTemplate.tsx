@@ -463,7 +463,7 @@ export default function SEOStockPageTemplate({ stock }: SEOStockPageTemplateProp
               <div className="bg-gray-900/50 rounded-xl p-5">
                 <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-gray-900 font-bold mb-3">2</div>
                 <h3 className="text-white font-semibold mb-2">Fund with USDC</h3>
-                <p className="text-gray-400 text-sm">Transfer USDC from Coinbase, Kraken, or Binance to your wallet. Start with $50-100.</p>
+                <p className="text-gray-400 text-sm">Transfer USDC from Coinbase, Kraken, Binance, or via P2P. Start with $50 (₹4,000).</p>
               </div>
 
               <div className="bg-gray-900/50 rounded-xl p-5">

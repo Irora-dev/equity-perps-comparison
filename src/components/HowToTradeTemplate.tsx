@@ -506,7 +506,7 @@ export default function HowToTradeTemplate({ stock }: HowToTradeTemplateProps) {
           </div>
           <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-5">
             <h3 className="text-white font-semibold mb-2">What&apos;s the minimum to start?</h3>
-            <p className="text-gray-400 text-sm">You can start with as little as $10-50 on most platforms, though $100+ gives you more flexibility.</p>
+            <p className="text-gray-400 text-sm">You can start with as little as $50 (₹4,000) on most platforms. No minimum deposits required on Hyperliquid.</p>
           </div>
           <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-5">
             <h3 className="text-white font-semibold mb-2">What if I get liquidated?</h3>

@@ -19,12 +19,20 @@ const popularStocks = [
 
 const priceChanges = [-50, -30, -20, -10, -5, 0, 5, 10, 20, 30, 50, 100];
 
+type Currency = 'USD' | 'INR';
+
+const currencyConfig = {
+  USD: { symbol: '$', rate: 1, locale: 'en-US', minPosition: 50, maxPosition: 10000 },
+  INR: { symbol: '₹', rate: 83, locale: 'en-IN', minPosition: 4000, maxPosition: 830000 },
+};
+
 export default function PnLSimulator() {
   const [selectedStock, setSelectedStock] = useState(popularStocks[0]);
   const [customPrice, setCustomPrice] = useState<string>('');
   const [positionSize, setPositionSize] = useState<number>(100);
   const [leverage, setLeverage] = useState<number>(5);
   const [direction, setDirection] = useState<'long' | 'short'>('long');
+  const [currency, setCurrency] = useState<Currency>('USD');
 
   const hyperliquid = platforms.find(p => p.id === 'hyperliquid');
 
@@ -34,7 +42,9 @@ export default function PnLSimulator() {
   const calculations = useMemo(() => {
     if (!isValidPrice) return null;
 
-    const margin = positionSize;
+    // Use USD for all calculations (convert INR to USD if needed)
+    const marginUSD = currency === 'INR' ? positionSize / currencyConfig.INR.rate : positionSize;
+    const margin = marginUSD;
     const positionValue = margin * leverage;
     const shares = positionValue / entryPrice;
 
@@ -70,15 +80,58 @@ export default function PnLSimulator() {
       liquidationMove,
       scenarios,
     };
-  }, [entryPrice, positionSize, leverage, direction, isValidPrice]);
+  }, [entryPrice, positionSize, leverage, direction, isValidPrice, currency]);
 
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('en-US', {
+  const config = currencyConfig[currency];
+
+  // Convert position size to USD for calculations (stock prices are always USD)
+  const positionSizeUSD = currency === 'INR' ? positionSize / config.rate : positionSize;
+
+  const formatCurrency = (value: number, forceUSD = false) => {
+    if (forceUSD || currency === 'USD') {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2,
+      }).format(value);
+    }
+    // Convert USD to INR for display
+    const inrValue = value * config.rate;
+    return new Intl.NumberFormat('en-IN', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'INR',
       minimumFractionDigits: 0,
-      maximumFractionDigits: 2,
+      maximumFractionDigits: 0,
+    }).format(inrValue);
+  };
+
+  const formatLocalCurrency = (value: number) => {
+    if (currency === 'USD') {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2,
+      }).format(value);
+    }
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     }).format(value);
+  };
+
+  const handleCurrencyChange = (newCurrency: Currency) => {
+    const newConfig = currencyConfig[newCurrency];
+    // Convert position size to maintain similar USD value
+    if (newCurrency === 'INR' && currency === 'USD') {
+      setPositionSize(Math.round(positionSize * newConfig.rate / 100) * 100);
+    } else if (newCurrency === 'USD' && currency === 'INR') {
+      setPositionSize(Math.round(positionSize / currencyConfig.INR.rate / 10) * 10);
+    }
+    setCurrency(newCurrency);
   };
 
   const formatPercent = (value: number) => {
@@ -116,7 +169,35 @@ export default function PnLSimulator() {
       <section className="py-8 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 mb-8">
-            <h2 className="text-lg font-bold text-white mb-6">Configure Your Trade</h2>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-lg font-bold text-white">Configure Your Trade</h2>
+              {/* Currency Toggle */}
+              <div className="flex items-center gap-2">
+                <span className="text-gray-500 text-sm">Currency:</span>
+                <div className="flex bg-gray-800 rounded-lg p-0.5">
+                  <button
+                    onClick={() => handleCurrencyChange('USD')}
+                    className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                      currency === 'USD'
+                        ? 'bg-cyan-500 text-gray-900'
+                        : 'text-gray-400 hover:text-white'
+                    }`}
+                  >
+                    $ USD
+                  </button>
+                  <button
+                    onClick={() => handleCurrencyChange('INR')}
+                    className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
+                      currency === 'INR'
+                        ? 'bg-orange-500 text-gray-900'
+                        : 'text-gray-400 hover:text-white'
+                    }`}
+                  >
+                    ₹ INR
+                  </button>
+                </div>
+              </div>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               {/* Left Column - Inputs */}
@@ -181,20 +262,27 @@ export default function PnLSimulator() {
                 {/* Position Size */}
                 <div>
                   <label className="block text-sm font-medium text-gray-400 mb-2">
-                    Your Capital (Margin): <span className="text-white">{formatCurrency(positionSize)}</span>
+                    Your Capital (Margin): <span className="text-white">{formatLocalCurrency(positionSize)}</span>
+                    {currency === 'INR' && (
+                      <span className="text-gray-500 text-xs ml-2">
+                        (~{formatCurrency(positionSize / config.rate, true)})
+                      </span>
+                    )}
                   </label>
                   <input
                     type="range"
-                    min="50"
-                    max="10000"
-                    step="50"
+                    min={config.minPosition}
+                    max={config.maxPosition}
+                    step={currency === 'INR' ? 1000 : 50}
                     value={positionSize}
                     onChange={(e) => setPositionSize(Number(e.target.value))}
-                    className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-cyan-500"
+                    className={`w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer ${
+                      currency === 'INR' ? 'accent-orange-500' : 'accent-cyan-500'
+                    }`}
                   />
                   <div className="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>$50</span>
-                    <span>$10,000</span>
+                    <span>{formatLocalCurrency(config.minPosition)}</span>
+                    <span>{formatLocalCurrency(config.maxPosition)}</span>
                   </div>
                 </div>
 
@@ -227,15 +315,27 @@ export default function PnLSimulator() {
                   <div className="space-y-4">
                     <div className="flex justify-between">
                       <span className="text-gray-400">Entry Price</span>
-                      <span className="text-white font-medium">{formatCurrency(entryPrice)}</span>
+                      <span className="text-white font-medium">{formatCurrency(entryPrice, true)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Your Margin</span>
-                      <span className="text-white font-medium">{formatCurrency(calculations.margin)}</span>
+                      <div className="text-right">
+                        <span className="text-white font-medium">{formatLocalCurrency(positionSize)}</span>
+                        {currency === 'INR' && (
+                          <p className="text-xs text-gray-500">~{formatCurrency(calculations.margin, true)}</p>
+                        )}
+                      </div>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Position Size</span>
-                      <span className="text-cyan-400 font-bold">{formatCurrency(calculations.positionValue)}</span>
+                      <div className="text-right">
+                        <span className={`font-bold ${currency === 'INR' ? 'text-orange-400' : 'text-cyan-400'}`}>
+                          {formatCurrency(calculations.positionValue)}
+                        </span>
+                        {currency === 'INR' && (
+                          <p className="text-xs text-gray-500">~{formatCurrency(calculations.positionValue, true)}</p>
+                        )}
+                      </div>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Shares Controlled</span>
@@ -245,7 +345,7 @@ export default function PnLSimulator() {
                       <div className="flex justify-between items-center">
                         <span className="text-gray-400">Liquidation Price</span>
                         <div className="text-right">
-                          <span className="text-red-400 font-bold">{formatCurrency(calculations.liquidationPrice)}</span>
+                          <span className="text-red-400 font-bold">{formatCurrency(calculations.liquidationPrice, true)}</span>
                           <p className="text-xs text-gray-500">
                             ({direction === 'long' ? '-' : '+'}{calculations.liquidationMove.toFixed(1)}% move)
                           </p>
@@ -275,7 +375,10 @@ export default function PnLSimulator() {
                 PnL Scenarios for {customPrice ? 'Custom Stock' : selectedStock.ticker}
               </h2>
               <p className="text-gray-400 text-sm mb-6">
-                See how your {formatCurrency(positionSize)} position with {leverage}x leverage performs at different price levels
+                See how your {formatLocalCurrency(positionSize)} position with {leverage}x leverage performs at different price levels
+                {currency === 'INR' && (
+                  <span className="text-orange-400/70"> (showing PnL in both ₹ and $)</span>
+                )}
               </p>
 
               <div className="overflow-x-auto">
@@ -304,15 +407,22 @@ export default function PnLSimulator() {
                           </span>
                         </td>
                         <td className="py-3 px-4 text-white">
-                          {formatCurrency(scenario.exitPrice)}
+                          {formatCurrency(scenario.exitPrice, true)}
                         </td>
                         <td className="py-3 px-4 text-right">
                           {scenario.isLiquidated ? (
                             <span className="text-red-500 font-bold">LIQUIDATED</span>
                           ) : (
-                            <span className={`font-bold ${scenario.pnl >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-                              {scenario.pnl >= 0 ? '+' : ''}{formatCurrency(scenario.pnl)}
-                            </span>
+                            <div>
+                              <span className={`font-bold ${scenario.pnl >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                                {scenario.pnl >= 0 ? '+' : ''}{formatCurrency(scenario.pnl)}
+                              </span>
+                              {currency === 'INR' && (
+                                <p className="text-xs text-gray-500">
+                                  {scenario.pnl >= 0 ? '+' : ''}{formatCurrency(scenario.pnl, true)}
+                                </p>
+                              )}
+                            </div>
                           )}
                         </td>
                         <td className="py-3 px-4 text-right">
@@ -352,7 +462,7 @@ export default function PnLSimulator() {
                             style={{ width: `${width}%` }}
                           />
                         </div>
-                        <span className={`w-24 text-sm text-right font-medium ${isProfit ? 'text-green-400' : 'text-red-400'}`}>
+                        <span className={`w-28 text-sm text-right font-medium ${isProfit ? 'text-green-400' : 'text-red-400'}`}>
                           {isProfit ? '+' : ''}{formatCurrency(scenario.pnl)}
                         </span>
                       </div>

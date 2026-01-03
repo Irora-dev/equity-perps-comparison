@@ -483,7 +483,7 @@ export default function Home() {
             Ready to Trade Stocks 24/7?
           </h2>
           <p className="text-xl text-gray-400 mb-8">
-            Join thousands of traders using equity perps. Start with as little as $50.
+            Join thousands of traders worldwide using equity perps. Start with as little as $50 (₹4,000).
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

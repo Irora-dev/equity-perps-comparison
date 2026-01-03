@@ -172,6 +172,65 @@ const preferenceData = {
   },
 };
 
+type FundingRegion = 'us' | 'india' | 'pakistan' | 'sea' | 'other';
+
+const regionFundingData: Record<FundingRegion, {
+  name: string;
+  currency: string;
+  minAmount: string;
+  platforms: { name: string; color: string; steps: string[] }[];
+  tip?: string;
+}> = {
+  us: {
+    name: 'United States',
+    currency: 'USD',
+    minAmount: '$50-100',
+    platforms: [
+      { name: 'Coinbase', color: 'blue', steps: ['Send/Receive → USDC', 'Paste wallet address', 'Select Arbitrum', 'Confirm'] },
+      { name: 'Kraken', color: 'purple', steps: ['Funding → Withdraw', 'Select USDC', 'Network: Arbitrum', 'Enter address'] },
+    ],
+  },
+  india: {
+    name: 'India',
+    currency: 'INR',
+    minAmount: '₹4,000-5,000',
+    platforms: [
+      { name: 'Binance P2P', color: 'yellow', steps: ['Buy USDC via P2P', 'Pay with UPI/IMPS', 'Withdraw to wallet', 'Network: Arbitrum'] },
+      { name: 'WazirX', color: 'blue', steps: ['Buy USDC with INR', 'Withdraw to wallet', 'Network: Arbitrum', 'Done!'] },
+    ],
+    tip: 'UPI is fastest. Don\'t mention "crypto" in payment notes.',
+  },
+  pakistan: {
+    name: 'Pakistan',
+    currency: 'PKR',
+    minAmount: 'PKR 15,000',
+    platforms: [
+      { name: 'Binance P2P', color: 'yellow', steps: ['Buy USDC via P2P', 'Pay with JazzCash/Easypaisa', 'Withdraw to wallet', 'Network: Arbitrum'] },
+      { name: 'KuCoin P2P', color: 'green', steps: ['Buy USDT via P2P', 'Convert to USDC', 'Withdraw to wallet', 'Network: Arbitrum'] },
+    ],
+    tip: 'JazzCash and Easypaisa are most common payment methods.',
+  },
+  sea: {
+    name: 'Southeast Asia',
+    currency: 'Various',
+    minAmount: '$50',
+    platforms: [
+      { name: 'Binance P2P', color: 'yellow', steps: ['Buy USDC via P2P', 'Pay with local method', 'Withdraw to wallet', 'Network: Arbitrum'] },
+      { name: 'Bybit P2P', color: 'orange', steps: ['Buy USDC via P2P', 'GCash/GrabPay/Bank', 'Withdraw to wallet', 'Network: Arbitrum'] },
+    ],
+    tip: 'Philippines: GCash works well. Thailand: PromptPay. Vietnam: Bank transfer.',
+  },
+  other: {
+    name: 'Other Regions',
+    currency: 'USD',
+    minAmount: '$50-100',
+    platforms: [
+      { name: 'Binance P2P', color: 'yellow', steps: ['Buy USDC via P2P', 'Pay with local method', 'Withdraw to wallet', 'Network: Arbitrum'] },
+      { name: 'Coinbase', color: 'blue', steps: ['Send/Receive → USDC', 'Paste wallet address', 'Select Arbitrum', 'Confirm'] },
+    ],
+  },
+};
+
 export default function StartPage() {
   const [stockInput, setStockInput] = useState('');
   const [selectedStock, setSelectedStock] = useState<typeof availableStocks[0] | null>(null);
@@ -182,6 +241,7 @@ export default function StartPage() {
   const [walletExpanded, setWalletExpanded] = useState(false);
   const [fundingExpanded, setFundingExpanded] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  const [fundingRegion, setFundingRegion] = useState<FundingRegion>('us');
 
   const hyperliquid = platforms.find(p => p.id === 'hyperliquid');
 
@@ -671,37 +731,103 @@ export default function StartPage() {
 
                     {fundingExpanded && (
                       <div className="px-6 pb-6 border-t border-gray-800 pt-6">
-                        <div className="grid md:grid-cols-3 gap-4 mb-6">
-                          <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4">
-                            <h4 className="text-blue-400 font-semibold mb-2">Coinbase</h4>
-                            <ol className="text-sm text-gray-300 space-y-1">
-                              <li>1. Send/Receive → USDC</li>
-                              <li>2. Paste wallet address</li>
-                              <li>3. Select <strong className="text-white">Arbitrum</strong></li>
-                              <li>4. Confirm</li>
-                            </ol>
-                          </div>
-                          <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4">
-                            <h4 className="text-purple-400 font-semibold mb-2">Kraken</h4>
-                            <ol className="text-sm text-gray-300 space-y-1">
-                              <li>1. Funding → Withdraw</li>
-                              <li>2. Select USDC</li>
-                              <li>3. Network: <strong className="text-white">Arbitrum</strong></li>
-                              <li>4. Enter address</li>
-                            </ol>
-                          </div>
-                          <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4">
-                            <h4 className="text-yellow-400 font-semibold mb-2">Binance</h4>
-                            <ol className="text-sm text-gray-300 space-y-1">
-                              <li>1. Wallet → Withdraw</li>
-                              <li>2. USDC → Address</li>
-                              <li>3. Network: <strong className="text-white">Arbitrum</strong></li>
-                              <li>4. Confirm</li>
-                            </ol>
+                        {/* Region Selector */}
+                        <div className="mb-6">
+                          <p className="text-gray-400 text-sm mb-3">Where are you located?</p>
+                          <div className="flex flex-wrap gap-2">
+                            {(Object.keys(regionFundingData) as FundingRegion[]).map((region) => (
+                              <button
+                                key={region}
+                                onClick={() => setFundingRegion(region)}
+                                className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                                  fundingRegion === region
+                                    ? 'bg-green-500 text-gray-900'
+                                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                                }`}
+                              >
+                                {regionFundingData[region].name}
+                              </button>
+                            ))}
                           </div>
                         </div>
+
+                        {/* Region-specific funding options */}
+                        <div className="grid md:grid-cols-2 gap-4 mb-6">
+                          {regionFundingData[fundingRegion].platforms.map((platform) => (
+                            <div
+                              key={platform.name}
+                              className={`bg-${platform.color}-500/10 border border-${platform.color}-500/30 rounded-xl p-4`}
+                              style={{
+                                backgroundColor: platform.color === 'yellow' ? 'rgba(234, 179, 8, 0.1)' :
+                                                platform.color === 'blue' ? 'rgba(59, 130, 246, 0.1)' :
+                                                platform.color === 'purple' ? 'rgba(168, 85, 247, 0.1)' :
+                                                platform.color === 'green' ? 'rgba(34, 197, 94, 0.1)' :
+                                                platform.color === 'orange' ? 'rgba(249, 115, 22, 0.1)' : 'rgba(59, 130, 246, 0.1)',
+                                borderColor: platform.color === 'yellow' ? 'rgba(234, 179, 8, 0.3)' :
+                                            platform.color === 'blue' ? 'rgba(59, 130, 246, 0.3)' :
+                                            platform.color === 'purple' ? 'rgba(168, 85, 247, 0.3)' :
+                                            platform.color === 'green' ? 'rgba(34, 197, 94, 0.3)' :
+                                            platform.color === 'orange' ? 'rgba(249, 115, 22, 0.3)' : 'rgba(59, 130, 246, 0.3)',
+                              }}
+                            >
+                              <h4
+                                className="font-semibold mb-2"
+                                style={{
+                                  color: platform.color === 'yellow' ? 'rgb(250, 204, 21)' :
+                                        platform.color === 'blue' ? 'rgb(96, 165, 250)' :
+                                        platform.color === 'purple' ? 'rgb(192, 132, 252)' :
+                                        platform.color === 'green' ? 'rgb(74, 222, 128)' :
+                                        platform.color === 'orange' ? 'rgb(251, 146, 60)' : 'rgb(96, 165, 250)',
+                                }}
+                              >
+                                {platform.name}
+                              </h4>
+                              <ol className="text-sm text-gray-300 space-y-1">
+                                {platform.steps.map((step, i) => (
+                                  <li key={i}>{i + 1}. {step}</li>
+                                ))}
+                              </ol>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Region tip */}
+                        {regionFundingData[fundingRegion].tip && (
+                          <div className="bg-cyan-500/10 border border-cyan-500/20 rounded-lg p-3 mb-4">
+                            <p className="text-cyan-400 text-sm">
+                              <strong>Tip:</strong> {regionFundingData[fundingRegion].tip}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* Detailed guide link for India */}
+                        {fundingRegion === 'india' && (
+                          <div className="mb-4">
+                            <Link
+                              href="/blog/convert-inr-to-usdc"
+                              className="text-cyan-400 hover:text-cyan-300 text-sm underline"
+                            >
+                              Read our detailed INR to USDC guide →
+                            </Link>
+                          </div>
+                        )}
+
+                        {/* P2P guide link for non-US */}
+                        {fundingRegion !== 'us' && fundingRegion !== 'india' && (
+                          <div className="mb-4">
+                            <Link
+                              href="/blog/p2p-usdc-guide"
+                              className="text-cyan-400 hover:text-cyan-300 text-sm underline"
+                            >
+                              Read our global P2P guide →
+                            </Link>
+                          </div>
+                        )}
+
                         <div className="flex items-center justify-between">
-                          <p className="text-gray-500 text-sm">Start with $50-100. Fees on Arbitrum are ~$0.10</p>
+                          <p className="text-gray-500 text-sm">
+                            Start with {regionFundingData[fundingRegion].minAmount}. Fees on Arbitrum are ~$0.10
+                          </p>
                           <button
                             onClick={() => { setCurrentStep(3); setFundingExpanded(false); }}
                             className="px-4 py-2 bg-green-500 text-gray-900 rounded-lg font-semibold text-sm hover:bg-green-400 transition-colors"
