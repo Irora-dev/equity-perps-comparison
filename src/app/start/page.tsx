@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { platforms } from '@/data/platforms';
 
+// Stocks available as equity perpetuals
 const availableStocks = [
   { ticker: 'NVDA', name: 'Nvidia', hot: true },
   { ticker: 'TSLA', name: 'Tesla', hot: true },
@@ -26,6 +27,117 @@ const availableStocks = [
   { ticker: 'KO', name: 'Coca-Cola', hot: false },
   { ticker: 'PFE', name: 'Pfizer', hot: false },
 ];
+
+// Extended S&P 500 stocks for recognition (not all available as perps)
+const sp500Stocks = [
+  { ticker: 'AAPL', name: 'Apple' },
+  { ticker: 'ABBV', name: 'AbbVie' },
+  { ticker: 'ABT', name: 'Abbott Laboratories' },
+  { ticker: 'ACN', name: 'Accenture' },
+  { ticker: 'ADBE', name: 'Adobe' },
+  { ticker: 'ADP', name: 'Automatic Data Processing' },
+  { ticker: 'AIG', name: 'American International Group' },
+  { ticker: 'AMAT', name: 'Applied Materials' },
+  { ticker: 'AMD', name: 'AMD' },
+  { ticker: 'AMGN', name: 'Amgen' },
+  { ticker: 'AMZN', name: 'Amazon' },
+  { ticker: 'AVGO', name: 'Broadcom' },
+  { ticker: 'AXP', name: 'American Express' },
+  { ticker: 'BA', name: 'Boeing' },
+  { ticker: 'BAC', name: 'Bank of America' },
+  { ticker: 'BLK', name: 'BlackRock' },
+  { ticker: 'BMY', name: 'Bristol-Myers Squibb' },
+  { ticker: 'BRK.B', name: 'Berkshire Hathaway' },
+  { ticker: 'C', name: 'Citigroup' },
+  { ticker: 'CAT', name: 'Caterpillar' },
+  { ticker: 'CHTR', name: 'Charter Communications' },
+  { ticker: 'CL', name: 'Colgate-Palmolive' },
+  { ticker: 'CMCSA', name: 'Comcast' },
+  { ticker: 'COIN', name: 'Coinbase' },
+  { ticker: 'COP', name: 'ConocoPhillips' },
+  { ticker: 'COST', name: 'Costco' },
+  { ticker: 'CRM', name: 'Salesforce' },
+  { ticker: 'CSCO', name: 'Cisco' },
+  { ticker: 'CVS', name: 'CVS Health' },
+  { ticker: 'CVX', name: 'Chevron' },
+  { ticker: 'DE', name: 'John Deere' },
+  { ticker: 'DHR', name: 'Danaher' },
+  { ticker: 'DIS', name: 'Disney' },
+  { ticker: 'DOW', name: 'Dow Inc' },
+  { ticker: 'DUK', name: 'Duke Energy' },
+  { ticker: 'EMR', name: 'Emerson Electric' },
+  { ticker: 'EXC', name: 'Exelon' },
+  { ticker: 'F', name: 'Ford' },
+  { ticker: 'FDX', name: 'FedEx' },
+  { ticker: 'GD', name: 'General Dynamics' },
+  { ticker: 'GE', name: 'General Electric' },
+  { ticker: 'GILD', name: 'Gilead Sciences' },
+  { ticker: 'GM', name: 'General Motors' },
+  { ticker: 'GOOG', name: 'Alphabet Class C' },
+  { ticker: 'GOOGL', name: 'Google' },
+  { ticker: 'GS', name: 'Goldman Sachs' },
+  { ticker: 'HD', name: 'Home Depot' },
+  { ticker: 'HON', name: 'Honeywell' },
+  { ticker: 'HOOD', name: 'Robinhood' },
+  { ticker: 'IBM', name: 'IBM' },
+  { ticker: 'INTC', name: 'Intel' },
+  { ticker: 'INTU', name: 'Intuit' },
+  { ticker: 'JNJ', name: 'Johnson & Johnson' },
+  { ticker: 'JPM', name: 'JPMorgan' },
+  { ticker: 'KHC', name: 'Kraft Heinz' },
+  { ticker: 'KO', name: 'Coca-Cola' },
+  { ticker: 'LIN', name: 'Linde' },
+  { ticker: 'LLY', name: 'Eli Lilly' },
+  { ticker: 'LMT', name: 'Lockheed Martin' },
+  { ticker: 'LOW', name: 'Lowes' },
+  { ticker: 'MA', name: 'Mastercard' },
+  { ticker: 'MCD', name: 'McDonalds' },
+  { ticker: 'MDLZ', name: 'Mondelez' },
+  { ticker: 'MDT', name: 'Medtronic' },
+  { ticker: 'MET', name: 'MetLife' },
+  { ticker: 'META', name: 'Meta' },
+  { ticker: 'MMM', name: '3M' },
+  { ticker: 'MO', name: 'Altria' },
+  { ticker: 'MRK', name: 'Merck' },
+  { ticker: 'MS', name: 'Morgan Stanley' },
+  { ticker: 'MSFT', name: 'Microsoft' },
+  { ticker: 'MSTR', name: 'MicroStrategy' },
+  { ticker: 'NEE', name: 'NextEra Energy' },
+  { ticker: 'NFLX', name: 'Netflix' },
+  { ticker: 'NKE', name: 'Nike' },
+  { ticker: 'NOW', name: 'ServiceNow' },
+  { ticker: 'NVDA', name: 'Nvidia' },
+  { ticker: 'ORCL', name: 'Oracle' },
+  { ticker: 'PEP', name: 'PepsiCo' },
+  { ticker: 'PFE', name: 'Pfizer' },
+  { ticker: 'PG', name: 'Procter & Gamble' },
+  { ticker: 'PLTR', name: 'Palantir' },
+  { ticker: 'PM', name: 'Philip Morris' },
+  { ticker: 'PYPL', name: 'PayPal' },
+  { ticker: 'QCOM', name: 'Qualcomm' },
+  { ticker: 'RTX', name: 'Raytheon' },
+  { ticker: 'SBUX', name: 'Starbucks' },
+  { ticker: 'SCHW', name: 'Charles Schwab' },
+  { ticker: 'SO', name: 'Southern Company' },
+  { ticker: 'SPG', name: 'Simon Property Group' },
+  { ticker: 'T', name: 'AT&T' },
+  { ticker: 'TGT', name: 'Target' },
+  { ticker: 'TMO', name: 'Thermo Fisher' },
+  { ticker: 'TSLA', name: 'Tesla' },
+  { ticker: 'TXN', name: 'Texas Instruments' },
+  { ticker: 'UNH', name: 'UnitedHealth' },
+  { ticker: 'UNP', name: 'Union Pacific' },
+  { ticker: 'UPS', name: 'UPS' },
+  { ticker: 'USB', name: 'US Bancorp' },
+  { ticker: 'V', name: 'Visa' },
+  { ticker: 'VZ', name: 'Verizon' },
+  { ticker: 'WFC', name: 'Wells Fargo' },
+  { ticker: 'WMT', name: 'Walmart' },
+  { ticker: 'XOM', name: 'Exxon Mobil' },
+];
+
+// Create a set of available tickers for quick lookup
+const availableTickers = new Set(availableStocks.map(s => s.ticker));
 
 type Preference = 'broker' | '24/7' | 'weekends' | 'outside-us' | null;
 
@@ -63,6 +175,7 @@ const preferenceData = {
 export default function StartPage() {
   const [stockInput, setStockInput] = useState('');
   const [selectedStock, setSelectedStock] = useState<typeof availableStocks[0] | null>(null);
+  const [unavailableStock, setUnavailableStock] = useState<{ ticker: string; name: string } | null>(null);
   const [preference, setPreference] = useState<Preference>(null);
   const [showDropdown, setShowDropdown] = useState(false);
   const [hasWallet, setHasWallet] = useState<boolean | null>(null);
@@ -72,33 +185,102 @@ export default function StartPage() {
 
   const hyperliquid = platforms.find(p => p.id === 'hyperliquid');
 
-  const filteredStocks = useMemo(() => {
-    if (!stockInput) return availableStocks.slice(0, 8);
-    const search = stockInput.toUpperCase();
-    return availableStocks.filter(
-      s => s.ticker.includes(search) || s.name.toUpperCase().includes(search)
-    ).slice(0, 8);
+  // Search results combining available and unavailable stocks
+  const searchResults = useMemo(() => {
+    if (!stockInput) {
+      // Show popular available stocks when no input
+      return availableStocks.slice(0, 8).map(s => ({ ...s, available: true }));
+    }
+
+    const search = stockInput.toUpperCase().trim();
+    const results: { ticker: string; name: string; hot?: boolean; available: boolean }[] = [];
+
+    // Search available stocks first
+    availableStocks.forEach(stock => {
+      if (
+        stock.ticker.includes(search) ||
+        stock.name.toUpperCase().includes(search) ||
+        stock.name.toUpperCase().startsWith(search)
+      ) {
+        results.push({ ...stock, available: true });
+      }
+    });
+
+    // Then search S&P 500 for unavailable matches
+    sp500Stocks.forEach(stock => {
+      if (!availableTickers.has(stock.ticker)) {
+        if (
+          stock.ticker.includes(search) ||
+          stock.name.toUpperCase().includes(search) ||
+          stock.name.toUpperCase().startsWith(search)
+        ) {
+          results.push({ ...stock, available: false });
+        }
+      }
+    });
+
+    // Sort: available first, then by relevance (exact ticker match first)
+    results.sort((a, b) => {
+      if (a.available !== b.available) return a.available ? -1 : 1;
+      if (a.ticker === search) return -1;
+      if (b.ticker === search) return 1;
+      return 0;
+    });
+
+    return results.slice(0, 8);
   }, [stockInput]);
 
-  const handleStockSelect = (stock: typeof availableStocks[0]) => {
-    setSelectedStock(stock);
+  const handleStockSelect = (stock: { ticker: string; name: string; hot?: boolean; available: boolean }) => {
+    if (stock.available) {
+      const availableMatch = availableStocks.find(s => s.ticker === stock.ticker);
+      setSelectedStock(availableMatch || null);
+      setUnavailableStock(null);
+    } else {
+      setSelectedStock(null);
+      setUnavailableStock({ ticker: stock.ticker, name: stock.name });
+    }
     setStockInput(stock.ticker);
     setShowDropdown(false);
   };
 
   const handleInputChange = (value: string) => {
-    setStockInput(value.toUpperCase());
+    const upperValue = value.toUpperCase();
+    setStockInput(upperValue);
     setShowDropdown(true);
-    // Check if exact match
-    const match = availableStocks.find(s => s.ticker === value.toUpperCase());
-    if (match) {
-      setSelectedStock(match);
-    } else {
-      setSelectedStock(null);
+
+    // Check for exact match in available stocks
+    const availableMatch = availableStocks.find(
+      s => s.ticker === upperValue || s.name.toUpperCase() === upperValue
+    );
+    if (availableMatch) {
+      setSelectedStock(availableMatch);
+      setUnavailableStock(null);
+      return;
     }
+
+    // Check for exact match in S&P 500 (unavailable)
+    const sp500Match = sp500Stocks.find(
+      s => s.ticker === upperValue || s.name.toUpperCase() === upperValue
+    );
+    if (sp500Match && !availableTickers.has(sp500Match.ticker)) {
+      setSelectedStock(null);
+      setUnavailableStock(sp500Match);
+      return;
+    }
+
+    // No exact match
+    setSelectedStock(null);
+    setUnavailableStock(null);
+  };
+
+  const selectAlternativeStock = (stock: typeof availableStocks[0]) => {
+    setSelectedStock(stock);
+    setUnavailableStock(null);
+    setStockInput(stock.ticker);
   };
 
   const isReady = selectedStock && preference;
+  const showUnavailableFlow = unavailableStock && preference;
 
   return (
     <main className="min-h-screen">
@@ -114,8 +296,8 @@ export default function StartPage() {
         <div className="relative max-w-5xl mx-auto px-4 py-20 w-full">
           <div className="text-center mb-12">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-              I want to trade
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400"> stocks</span>
+              Unlock A World Of
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400"> 24/7 Stock Trading</span>
             </h1>
           </div>
 
@@ -130,24 +312,35 @@ export default function StartPage() {
                     value={stockInput}
                     onChange={(e) => handleInputChange(e.target.value)}
                     onFocus={() => setShowDropdown(true)}
-                    placeholder="NVDA, TSLA, AAPL..."
+                    placeholder="Search by ticker or company name..."
                     className="w-full px-3 py-5 bg-transparent text-white text-xl font-bold placeholder-gray-600 focus:outline-none"
                   />
-                  {showDropdown && filteredStocks.length > 0 && (
-                    <div className="absolute top-full left-0 right-0 mt-2 bg-gray-900 border border-gray-700 rounded-xl shadow-2xl overflow-hidden z-50">
-                      {filteredStocks.map((stock) => (
+                  {showDropdown && searchResults.length > 0 && (
+                    <div className="absolute top-full left-0 right-0 mt-2 bg-gray-900 border border-gray-700 rounded-xl shadow-2xl overflow-hidden z-50 max-h-80 overflow-y-auto">
+                      {searchResults.map((stock) => (
                         <button
                           key={stock.ticker}
                           onClick={() => handleStockSelect(stock)}
-                          className="w-full px-4 py-3 flex items-center justify-between hover:bg-gray-800 transition-colors text-left"
+                          className={`w-full px-4 py-3 flex items-center justify-between transition-colors text-left ${
+                            stock.available ? 'hover:bg-gray-800' : 'hover:bg-gray-800/50'
+                          }`}
                         >
                           <div className="flex items-center gap-3">
-                            <span className="text-white font-bold">{stock.ticker}</span>
+                            <span className={`font-bold ${stock.available ? 'text-white' : 'text-gray-400'}`}>
+                              {stock.ticker}
+                            </span>
                             <span className="text-gray-500">{stock.name}</span>
                           </div>
-                          {stock.hot && (
-                            <span className="px-2 py-0.5 bg-orange-500/20 text-orange-400 text-xs rounded-full">HOT</span>
-                          )}
+                          <div className="flex items-center gap-2">
+                            {stock.hot && stock.available && (
+                              <span className="px-2 py-0.5 bg-orange-500/20 text-orange-400 text-xs rounded-full">HOT</span>
+                            )}
+                            {stock.available ? (
+                              <span className="px-2 py-0.5 bg-green-500/20 text-green-400 text-xs rounded-full">Available</span>
+                            ) : (
+                              <span className="px-2 py-0.5 bg-gray-500/20 text-gray-400 text-xs rounded-full">Not Yet</span>
+                            )}
+                          </div>
                         </button>
                       ))}
                     </div>
@@ -157,6 +350,13 @@ export default function StartPage() {
                   <div className="pr-4">
                     <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm font-medium">
                       ✓ Available
+                    </span>
+                  </div>
+                )}
+                {unavailableStock && (
+                  <div className="pr-4">
+                    <span className="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-medium">
+                      Not Available Yet
                     </span>
                   </div>
                 )}
@@ -205,6 +405,42 @@ export default function StartPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </a>
+            </div>
+          )}
+
+          {/* Unavailable Stock Flow */}
+          {showUnavailableFlow && (
+            <div className="mt-12 animate-fade-in">
+              <div className="max-w-2xl mx-auto bg-gradient-to-br from-yellow-500/10 to-orange-500/10 border border-yellow-500/30 rounded-2xl p-6 text-center">
+                <div className="text-4xl mb-4">🚧</div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {unavailableStock.ticker} isn&apos;t available as a perpetual yet
+                </h3>
+                <p className="text-gray-400 mb-6">
+                  But don&apos;t worry — you can trade <strong className="text-white">50+ other stocks</strong> including these popular ones:
+                </p>
+                <div className="flex flex-wrap justify-center gap-2 mb-6">
+                  {availableStocks.filter(s => s.hot).slice(0, 6).map((stock) => (
+                    <button
+                      key={stock.ticker}
+                      onClick={() => selectAlternativeStock(stock)}
+                      className="px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-600 hover:border-cyan-500 rounded-xl text-white font-medium transition-all"
+                    >
+                      {stock.ticker}
+                      <span className="text-gray-500 ml-1 text-sm">{stock.name}</span>
+                    </button>
+                  ))}
+                </div>
+                <p className="text-gray-500 text-sm">
+                  Click any stock above to continue, or{' '}
+                  <button
+                    onClick={() => { setStockInput(''); setUnavailableStock(null); }}
+                    className="text-cyan-400 hover:text-cyan-300 underline"
+                  >
+                    search for another
+                  </button>
+                </p>
+              </div>
             </div>
           )}
         </div>
