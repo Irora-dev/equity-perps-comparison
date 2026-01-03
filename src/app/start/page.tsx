@@ -1,0 +1,561 @@
+'use client';
+
+import { useState, useMemo } from 'react';
+import Link from 'next/link';
+import { platforms } from '@/data/platforms';
+
+const availableStocks = [
+  { ticker: 'NVDA', name: 'Nvidia', hot: true },
+  { ticker: 'TSLA', name: 'Tesla', hot: true },
+  { ticker: 'AAPL', name: 'Apple', hot: false },
+  { ticker: 'MSFT', name: 'Microsoft', hot: false },
+  { ticker: 'META', name: 'Meta', hot: true },
+  { ticker: 'AMZN', name: 'Amazon', hot: false },
+  { ticker: 'GOOGL', name: 'Google', hot: false },
+  { ticker: 'AMD', name: 'AMD', hot: false },
+  { ticker: 'COIN', name: 'Coinbase', hot: true },
+  { ticker: 'PLTR', name: 'Palantir', hot: true },
+  { ticker: 'NFLX', name: 'Netflix', hot: false },
+  { ticker: 'MSTR', name: 'MicroStrategy', hot: true },
+  { ticker: 'HOOD', name: 'Robinhood', hot: false },
+  { ticker: 'BA', name: 'Boeing', hot: false },
+  { ticker: 'DIS', name: 'Disney', hot: false },
+  { ticker: 'JPM', name: 'JPMorgan', hot: false },
+  { ticker: 'V', name: 'Visa', hot: false },
+  { ticker: 'WMT', name: 'Walmart', hot: false },
+  { ticker: 'KO', name: 'Coca-Cola', hot: false },
+  { ticker: 'PFE', name: 'Pfizer', hot: false },
+];
+
+type Preference = 'broker' | '24/7' | 'weekends' | 'outside-us' | null;
+
+const preferenceData = {
+  'broker': {
+    title: 'without a broker',
+    shortTitle: 'No Broker',
+    description: 'No brokerage account needed. No KYC. No waiting for approval. Just connect a wallet and trade.',
+    benefit: 'Skip the broker entirely',
+    icon: '🏦',
+  },
+  '24/7': {
+    title: '24 hours a day, 7 days a week',
+    shortTitle: '24/7 Trading',
+    description: 'Trade at 2am, on holidays, whenever you want. The market never closes.',
+    benefit: 'Trade anytime, day or night',
+    icon: '🌙',
+  },
+  'weekends': {
+    title: 'on the weekends',
+    shortTitle: 'Weekend Trading',
+    description: 'Saturday morning. Sunday night. Trade stocks while traditional markets are closed.',
+    benefit: 'Trade Saturday & Sunday',
+    icon: '📅',
+  },
+  'outside-us': {
+    title: 'from outside the United States',
+    shortTitle: 'Global Access',
+    description: 'No US residency required. No SSN needed. Trade US stocks from anywhere in the world.',
+    benefit: 'Trade from any country',
+    icon: '🌍',
+  },
+};
+
+export default function StartPage() {
+  const [stockInput, setStockInput] = useState('');
+  const [selectedStock, setSelectedStock] = useState<typeof availableStocks[0] | null>(null);
+  const [preference, setPreference] = useState<Preference>(null);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [hasWallet, setHasWallet] = useState<boolean | null>(null);
+  const [walletExpanded, setWalletExpanded] = useState(false);
+  const [fundingExpanded, setFundingExpanded] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const hyperliquid = platforms.find(p => p.id === 'hyperliquid');
+
+  const filteredStocks = useMemo(() => {
+    if (!stockInput) return availableStocks.slice(0, 8);
+    const search = stockInput.toUpperCase();
+    return availableStocks.filter(
+      s => s.ticker.includes(search) || s.name.toUpperCase().includes(search)
+    ).slice(0, 8);
+  }, [stockInput]);
+
+  const handleStockSelect = (stock: typeof availableStocks[0]) => {
+    setSelectedStock(stock);
+    setStockInput(stock.ticker);
+    setShowDropdown(false);
+  };
+
+  const handleInputChange = (value: string) => {
+    setStockInput(value.toUpperCase());
+    setShowDropdown(true);
+    // Check if exact match
+    const match = availableStocks.find(s => s.ticker === value.toUpperCase());
+    if (match) {
+      setSelectedStock(match);
+    } else {
+      setSelectedStock(null);
+    }
+  };
+
+  const isReady = selectedStock && preference;
+
+  return (
+    <main className="min-h-screen">
+      {/* HERO SECTION */}
+      <section className="relative overflow-hidden min-h-[80vh] flex items-center">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-500/10 via-transparent to-transparent" />
+        <div className="absolute top-20 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+
+        <div className="relative max-w-5xl mx-auto px-4 py-20 w-full">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+              I want to trade
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400"> stocks</span>
+            </h1>
+          </div>
+
+          {/* Stock Search */}
+          <div className="max-w-2xl mx-auto mb-8">
+            <div className="relative">
+              <div className="flex items-center bg-gray-900/80 border-2 border-gray-700 rounded-2xl overflow-hidden focus-within:border-cyan-500 transition-colors">
+                <span className="text-gray-500 pl-6 text-lg">I want to trade</span>
+                <div className="relative flex-grow">
+                  <input
+                    type="text"
+                    value={stockInput}
+                    onChange={(e) => handleInputChange(e.target.value)}
+                    onFocus={() => setShowDropdown(true)}
+                    placeholder="NVDA, TSLA, AAPL..."
+                    className="w-full px-3 py-5 bg-transparent text-white text-xl font-bold placeholder-gray-600 focus:outline-none"
+                  />
+                  {showDropdown && filteredStocks.length > 0 && (
+                    <div className="absolute top-full left-0 right-0 mt-2 bg-gray-900 border border-gray-700 rounded-xl shadow-2xl overflow-hidden z-50">
+                      {filteredStocks.map((stock) => (
+                        <button
+                          key={stock.ticker}
+                          onClick={() => handleStockSelect(stock)}
+                          className="w-full px-4 py-3 flex items-center justify-between hover:bg-gray-800 transition-colors text-left"
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className="text-white font-bold">{stock.ticker}</span>
+                            <span className="text-gray-500">{stock.name}</span>
+                          </div>
+                          {stock.hot && (
+                            <span className="px-2 py-0.5 bg-orange-500/20 text-orange-400 text-xs rounded-full">HOT</span>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                {selectedStock && (
+                  <div className="pr-4">
+                    <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm font-medium">
+                      ✓ Available
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Preference Selection */}
+          <div className="max-w-3xl mx-auto">
+            <p className="text-center text-gray-400 mb-4">and I want to do it...</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {(Object.keys(preferenceData) as Preference[]).map((key) => {
+                if (!key) return null;
+                const data = preferenceData[key];
+                const isSelected = preference === key;
+                return (
+                  <button
+                    key={key}
+                    onClick={() => setPreference(key)}
+                    className={`p-4 rounded-2xl border-2 transition-all text-left ${
+                      isSelected
+                        ? 'bg-cyan-500/20 border-cyan-500 scale-105'
+                        : 'bg-gray-900/50 border-gray-700 hover:border-gray-600'
+                    }`}
+                  >
+                    <div className="text-2xl mb-2">{data.icon}</div>
+                    <div className={`font-semibold ${isSelected ? 'text-cyan-400' : 'text-white'}`}>
+                      {data.shortTitle}
+                    </div>
+                    <div className="text-gray-500 text-xs mt-1">{data.benefit}</div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Ready State */}
+          {isReady && (
+            <div className="mt-12 text-center animate-fade-in">
+              <a
+                href="#guide"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-500 text-gray-900 rounded-2xl font-bold text-lg hover:from-cyan-400 hover:to-purple-400 transition-all shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:scale-105"
+              >
+                Show Me How
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </a>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* PERSONALIZED GUIDE SECTION */}
+      {isReady && (
+        <section id="guide" className="py-20 px-4 bg-gray-950 border-t border-gray-800">
+          <div className="max-w-4xl mx-auto">
+            {/* Dynamic Header */}
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full mb-6">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span className="text-green-400 font-medium">Your Personalized Guide</span>
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-black text-white mb-4">
+                Let&apos;s show you how to trade
+              </h2>
+              <div className="flex items-center justify-center gap-3 flex-wrap">
+                <span className="px-4 py-2 bg-cyan-500/20 border border-cyan-500/30 rounded-xl text-cyan-400 font-bold text-2xl">
+                  {selectedStock.ticker}
+                </span>
+                <span className="text-gray-500 text-2xl">→</span>
+                <span className="px-4 py-2 bg-purple-500/20 border border-purple-500/30 rounded-xl text-purple-400 font-semibold">
+                  {preferenceData[preference].title}
+                </span>
+              </div>
+            </div>
+
+            {/* Why This Works */}
+            <div className="bg-gradient-to-br from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-3xl p-8 mb-12">
+              <div className="flex items-start gap-4">
+                <div className="text-4xl">{preferenceData[preference].icon}</div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Why you can do this</h3>
+                  <p className="text-gray-300 mb-4">{preferenceData[preference].description}</p>
+                  <p className="text-gray-400">
+                    <strong className="text-white">{selectedStock.ticker}</strong> ({selectedStock.name}) is available
+                    as an <strong className="text-cyan-400">equity perpetual</strong> — a contract that tracks the stock price
+                    and trades on decentralized exchanges that operate 24/7, globally, with no broker required.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Do You Have a Wallet? */}
+            <div className="mb-12">
+              <h3 className="text-xl font-bold text-white mb-4 text-center">First, do you have a wallet?</h3>
+              <div className="flex justify-center gap-4">
+                <button
+                  onClick={() => { setHasWallet(true); setCurrentStep(2); }}
+                  className={`px-8 py-4 rounded-2xl border-2 font-semibold transition-all ${
+                    hasWallet === true
+                      ? 'bg-green-500/20 border-green-500 text-green-400'
+                      : 'bg-gray-900/50 border-gray-700 text-white hover:border-gray-600'
+                  }`}
+                >
+                  <span className="text-2xl mr-2">✓</span>
+                  Yes, I have a wallet
+                </button>
+                <button
+                  onClick={() => { setHasWallet(false); setCurrentStep(1); }}
+                  className={`px-8 py-4 rounded-2xl border-2 font-semibold transition-all ${
+                    hasWallet === false
+                      ? 'bg-cyan-500/20 border-cyan-500 text-cyan-400'
+                      : 'bg-gray-900/50 border-gray-700 text-white hover:border-gray-600'
+                  }`}
+                >
+                  <span className="text-2xl mr-2">?</span>
+                  No, I need help
+                </button>
+              </div>
+            </div>
+
+            {/* Steps */}
+            {hasWallet !== null && (
+              <div className="space-y-6">
+                {/* Step 1: Wallet (only if they don't have one) */}
+                {hasWallet === false && (
+                  <div
+                    className={`bg-gray-900 border-2 rounded-2xl overflow-hidden transition-all ${
+                      currentStep >= 1 ? 'border-cyan-500/50' : 'border-gray-800'
+                    }`}
+                  >
+                    <div
+                      className="p-6 flex items-center gap-6 cursor-pointer"
+                      onClick={() => setWalletExpanded(!walletExpanded)}
+                    >
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center font-black text-xl flex-shrink-0 ${
+                        currentStep > 1 ? 'bg-green-500 text-gray-900' : 'bg-gradient-to-br from-cyan-500 to-cyan-600 text-gray-900'
+                      }`}>
+                        {currentStep > 1 ? '✓' : '1'}
+                      </div>
+                      <div className="flex-grow">
+                        <h3 className="text-xl font-bold text-white mb-1">Create a Wallet</h3>
+                        <p className="text-gray-400">Download Rabby Wallet — takes 2 minutes, free</p>
+                      </div>
+                      <svg
+                        className={`w-6 h-6 text-cyan-400 transition-transform ${walletExpanded ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+
+                    {walletExpanded && (
+                      <div className="px-6 pb-6 border-t border-gray-800 pt-6">
+                        <div className="grid md:grid-cols-2 gap-6">
+                          <div>
+                            <h4 className="text-white font-semibold mb-4">Quick Steps:</h4>
+                            <ol className="space-y-3 text-gray-300">
+                              <li className="flex gap-3">
+                                <span className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm font-bold flex-shrink-0">1</span>
+                                <span>Go to <a href="https://rabby.io" target="_blank" rel="noopener" className="text-cyan-400 hover:text-cyan-300">rabby.io</a></span>
+                              </li>
+                              <li className="flex gap-3">
+                                <span className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm font-bold flex-shrink-0">2</span>
+                                <span>Download the browser extension</span>
+                              </li>
+                              <li className="flex gap-3">
+                                <span className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm font-bold flex-shrink-0">3</span>
+                                <span>Click &quot;Create New Wallet&quot;</span>
+                              </li>
+                              <li className="flex gap-3">
+                                <span className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-sm font-bold flex-shrink-0">4</span>
+                                <span><strong className="text-white">Save your 12-word seed phrase!</strong></span>
+                              </li>
+                            </ol>
+                            <button
+                              onClick={() => { setCurrentStep(2); setWalletExpanded(false); }}
+                              className="mt-6 px-4 py-2 bg-green-500 text-gray-900 rounded-lg font-semibold text-sm hover:bg-green-400 transition-colors"
+                            >
+                              Done! Next Step →
+                            </button>
+                          </div>
+                          <div className="bg-gray-800/50 rounded-xl p-5">
+                            <h4 className="text-white font-semibold mb-3">Watch: 2-Minute Setup</h4>
+                            <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+                              <iframe
+                                src="https://www.youtube.com/embed/_ouAzSQJiM0"
+                                title="Wallet Setup Guide"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className="absolute inset-0 w-full h-full"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Step 2: Fund */}
+                {currentStep >= 2 && (
+                  <div
+                    className={`bg-gray-900 border-2 rounded-2xl overflow-hidden transition-all ${
+                      currentStep >= 2 ? 'border-green-500/50' : 'border-gray-800'
+                    }`}
+                  >
+                    <div
+                      className="p-6 flex items-center gap-6 cursor-pointer"
+                      onClick={() => setFundingExpanded(!fundingExpanded)}
+                    >
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center font-black text-xl flex-shrink-0 ${
+                        currentStep > 2 ? 'bg-green-500 text-gray-900' : 'bg-gradient-to-br from-green-500 to-green-600 text-gray-900'
+                      }`}>
+                        {currentStep > 2 ? '✓' : hasWallet ? '1' : '2'}
+                      </div>
+                      <div className="flex-grow">
+                        <h3 className="text-xl font-bold text-white mb-1">Fund Your Wallet with USDC</h3>
+                        <p className="text-gray-400">Transfer from Coinbase, Kraken, or Binance</p>
+                      </div>
+                      <svg
+                        className={`w-6 h-6 text-green-400 transition-transform ${fundingExpanded ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+
+                    {fundingExpanded && (
+                      <div className="px-6 pb-6 border-t border-gray-800 pt-6">
+                        <div className="grid md:grid-cols-3 gap-4 mb-6">
+                          <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4">
+                            <h4 className="text-blue-400 font-semibold mb-2">Coinbase</h4>
+                            <ol className="text-sm text-gray-300 space-y-1">
+                              <li>1. Send/Receive → USDC</li>
+                              <li>2. Paste wallet address</li>
+                              <li>3. Select <strong className="text-white">Arbitrum</strong></li>
+                              <li>4. Confirm</li>
+                            </ol>
+                          </div>
+                          <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4">
+                            <h4 className="text-purple-400 font-semibold mb-2">Kraken</h4>
+                            <ol className="text-sm text-gray-300 space-y-1">
+                              <li>1. Funding → Withdraw</li>
+                              <li>2. Select USDC</li>
+                              <li>3. Network: <strong className="text-white">Arbitrum</strong></li>
+                              <li>4. Enter address</li>
+                            </ol>
+                          </div>
+                          <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4">
+                            <h4 className="text-yellow-400 font-semibold mb-2">Binance</h4>
+                            <ol className="text-sm text-gray-300 space-y-1">
+                              <li>1. Wallet → Withdraw</li>
+                              <li>2. USDC → Address</li>
+                              <li>3. Network: <strong className="text-white">Arbitrum</strong></li>
+                              <li>4. Confirm</li>
+                            </ol>
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <p className="text-gray-500 text-sm">Start with $50-100. Fees on Arbitrum are ~$0.10</p>
+                          <button
+                            onClick={() => { setCurrentStep(3); setFundingExpanded(false); }}
+                            className="px-4 py-2 bg-green-500 text-gray-900 rounded-lg font-semibold text-sm hover:bg-green-400 transition-colors"
+                          >
+                            Done! Final Step →
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Step 3: Trade */}
+                {currentStep >= 3 && (
+                  <div className="bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border-2 border-purple-500/30 rounded-2xl p-8">
+                    <div className="flex items-center gap-6 mb-6">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center text-white font-black text-xl flex-shrink-0">
+                        {hasWallet ? '2' : '3'}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-white mb-1">
+                          Trade {selectedStock.ticker} on Hyperliquid
+                        </h3>
+                        <p className="text-gray-400">Connect your wallet and start trading</p>
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="space-y-4">
+                        <div className="flex items-start gap-3 text-gray-300">
+                          <span className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 text-sm font-bold flex-shrink-0">1</span>
+                          <span>Go to Hyperliquid and click &quot;Connect&quot;</span>
+                        </div>
+                        <div className="flex items-start gap-3 text-gray-300">
+                          <span className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 text-sm font-bold flex-shrink-0">2</span>
+                          <span>Select Rabby Wallet</span>
+                        </div>
+                        <div className="flex items-start gap-3 text-gray-300">
+                          <span className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 text-sm font-bold flex-shrink-0">3</span>
+                          <span>Deposit your USDC</span>
+                        </div>
+                        <div className="flex items-start gap-3 text-gray-300">
+                          <span className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 text-sm font-bold flex-shrink-0">4</span>
+                          <span>Search for <strong className="text-white">{selectedStock.ticker}-PERP</strong></span>
+                        </div>
+                        <div className="flex items-start gap-3 text-gray-300">
+                          <span className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400 text-sm font-bold flex-shrink-0">5</span>
+                          <span>Click Buy (long) or Sell (short) and trade!</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-center">
+                        <a
+                          href={hyperliquid?.referralUrl}
+                          target="_blank"
+                          rel="noopener sponsored"
+                          className="inline-flex flex-col items-center gap-4 p-8 bg-gradient-to-br from-[#3EEFC1]/20 to-purple-500/10 border-2 border-[#3EEFC1]/50 rounded-2xl hover:border-[#3EEFC1] transition-all group"
+                        >
+                          <div className="text-5xl">🚀</div>
+                          <span className="text-xl font-bold text-white group-hover:text-[#3EEFC1] transition-colors">
+                            Trade {selectedStock.ticker} Now
+                          </span>
+                          <span className="text-gray-400 text-sm">on Hyperliquid</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Success State */}
+            {currentStep >= 3 && (
+              <div className="mt-12 text-center">
+                <div className="inline-flex items-center gap-2 px-6 py-3 bg-green-500/10 border border-green-500/30 rounded-full">
+                  <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-green-400 font-semibold">
+                    You&apos;re ready to trade {selectedStock.ticker} {preferenceData[preference].title}!
+                  </span>
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Bottom CTA for those who haven't started */}
+      {!isReady && (
+        <section className="py-20 px-4 bg-gray-950 border-t border-gray-800">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl font-bold text-white mb-4">
+              Not sure where to start?
+            </h2>
+            <p className="text-gray-400 mb-8">
+              Check out our beginner guides to learn how equity perpetuals work
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                href="/blog/what-are-equity-perpetuals"
+                className="px-6 py-3 bg-gray-800 border border-gray-700 text-white rounded-xl font-medium hover:bg-gray-700 transition-colors"
+              >
+                What Are Equity Perps?
+              </Link>
+              <Link
+                href="/blog/trade-stocks-without-broker"
+                className="px-6 py-3 bg-gray-800 border border-gray-700 text-white rounded-xl font-medium hover:bg-gray-700 transition-colors"
+              >
+                Trade Without a Broker
+              </Link>
+              <Link
+                href="/"
+                className="px-6 py-3 bg-cyan-500 text-gray-900 rounded-xl font-bold hover:bg-cyan-400 transition-colors"
+              >
+                Compare Platforms
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Footer Link */}
+      <div className="py-12 text-center border-t border-gray-800">
+        <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-white">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to comparison
+        </Link>
+      </div>
+    </main>
+  );
+}
