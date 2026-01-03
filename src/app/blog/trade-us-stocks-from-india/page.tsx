@@ -389,7 +389,7 @@ export default function TradeUSStocksFromIndia() {
               rel="noopener sponsored"
               className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 text-gray-900 rounded-xl font-bold hover:bg-green-400 transition-colors"
             >
-              Open Hyperliquid
+              Open Hyperliquid (4% Off Fees)
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
@@ -543,11 +543,25 @@ export default function TradeUSStocksFromIndia() {
               rel="noopener sponsored"
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-bold text-lg hover:from-orange-400 hover:to-orange-500 transition-all shadow-lg shadow-orange-500/25"
             >
-              Get Started Now
+              Get Started Now (4% Off Fees)
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Free Site + Referral Notice */}
+      <section className="py-8 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 text-center">
+            <p className="text-gray-400 text-sm leading-relaxed">
+              This site is <span className="text-white font-medium">100% free</span> to use for comparing the best platforms to trade stocks 24/7.
+              When you sign up through our links to platforms like <span className="text-cyan-400">Hyperliquid</span> and <span className="text-cyan-400">Lighter</span>,
+              you get a <span className="text-green-400 font-semibold">4% discount on trading fees</span> with our referral code.
+              This helps support the site while saving you money on every trade.
+            </p>
           </div>
         </div>
       </section>

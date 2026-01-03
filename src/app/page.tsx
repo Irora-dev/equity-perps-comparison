@@ -255,7 +255,7 @@ export default function Home() {
                   rel="noopener sponsored"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500 text-gray-900 rounded-lg font-semibold text-sm hover:bg-cyan-400 transition-colors"
                 >
-                  Open Hyperliquid
+                  Open Hyperliquid (4% Off Fees)
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
@@ -492,7 +492,7 @@ export default function Home() {
               rel="noopener sponsored"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-500 text-gray-900 rounded-xl font-bold text-lg hover:bg-cyan-400 transition-colors"
             >
-              Start on Hyperliquid
+              Start on Hyperliquid (4% Off Fees)
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
@@ -507,6 +507,18 @@ export default function Home() {
               </svg>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Free Site + Referral Notice */}
+      <section className="py-12 px-4 border-t border-gray-800">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-gray-400 text-sm leading-relaxed">
+            This site is <span className="text-white font-medium">100% free</span> to use for comparing the best platforms to trade stocks 24/7.
+            When you sign up through our links to platforms like <span className="text-cyan-400">Hyperliquid</span> and <span className="text-cyan-400">Lighter</span>,
+            you get a <span className="text-green-400 font-semibold">4% discount on trading fees</span> with our referral code.
+            This helps support the site while saving you money on every trade.
+          </p>
         </div>
       </section>
     </main>
