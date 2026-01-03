@@ -295,9 +295,10 @@ export default function StartPage() {
 
         <div className="relative max-w-5xl mx-auto px-4 py-20 w-full">
           <div className="text-center mb-12">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-[1.1]">
               Unlock A World Of
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400"> 24/7 Stock Trading</span>
+              <br />
+              <span className="text-cyan-400">24/7 Stock Trading</span>
             </h1>
           </div>
 
