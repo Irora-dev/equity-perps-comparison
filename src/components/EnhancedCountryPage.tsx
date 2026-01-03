@@ -2,36 +2,159 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { LanguageToggle } from '@/components/LanguageToggle';
-import { translations, digitalPayments, banksList, nativeLang, nativeName, popularStocks } from '@/data/translations/poland';
 import { platforms } from '@/data/platforms';
 
-export default function Page() {
-  const [lang, setLang] = useState<'en' | 'pl'>('en');
-  const t = translations[lang];
+interface Benefit {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+interface WhyPerpsReason {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+interface Step1Feature {
+  icon: string;
+  text: string;
+}
+
+interface FundingMethod {
+  name: string;
+  description: string;
+  steps: string[];
+  tip: string;
+}
+
+interface RiskWarning {
+  title: string;
+  desc: string;
+}
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface TranslationContent {
+  badge: string;
+  heroTitle1: string;
+  heroTitle2: string;
+  heroDesc: string;
+  comparePlatforms: string;
+  howItWorks: string;
+  whatArePerpsTitle: string;
+  whatArePerpsSubtitle: string;
+  whatArePerpsContent: string;
+  whatArePerpsHow: string;
+  whatArePerpsSteps: string[];
+  whatArePerpsCta: string;
+  whyPerpsTitle: string;
+  whyPerpsSubtitle: string;
+  whyPerpsReasons: WhyPerpsReason[];
+  benefits: Benefit[];
+  getStartedTitle: string;
+  getStartedSubtitle: string;
+  step1Title: string;
+  step1Subtitle: string;
+  step1WhatIsWallet: string;
+  step1WhatIsWalletDesc: string;
+  step1Features: Step1Feature[];
+  step1Instructions: string[];
+  step1VideoTitle: string;
+  step2Title: string;
+  step2Subtitle: string;
+  step2Methods: FundingMethod[];
+  step2MinAmount: string;
+  step3Title: string;
+  step3Subtitle: string;
+  step3Instructions: string[];
+  step3Tip: string;
+  step3Cta: string;
+  riskTitle: string;
+  riskWarnings: RiskWarning[];
+  paymentTitle: string;
+  digitalPayments: string;
+  banks: string;
+  faqTitle: string;
+  faqs: FAQ[];
+  ctaTitle: string;
+  ctaDesc: string;
+  freeNotice: string;
+  freeNotice2: string;
+  freeNotice3: string;
+  freeNotice4: string;
+  freeNotice5: string;
+}
+
+interface EnhancedCountryPageProps {
+  translations: Record<string, TranslationContent>;
+  digitalPayments: string[];
+  banksList: string[];
+  nativeLang: string;
+  nativeName: string;
+  popularStocks?: string[];
+  countryFlag: string;
+  accentColor: string; // e.g., 'red', 'blue', 'green', 'orange'
+  isRTL?: boolean;
+}
+
+export function EnhancedCountryPage({
+  translations,
+  digitalPayments,
+  banksList,
+  nativeLang,
+  nativeName,
+  popularStocks = ['NVDA', 'TSLA', 'AAPL', 'META', 'MSFT', 'AMZN'],
+  countryFlag,
+  accentColor,
+  isRTL = false,
+}: EnhancedCountryPageProps) {
+  const [lang, setLang] = useState<string>('en');
+  const t = translations[lang] || translations.en;
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [walletExpanded, setWalletExpanded] = useState(false);
   const [fundingExpanded, setFundingExpanded] = useState(false);
 
   const hyperliquid = platforms.find(p => p.id === 'hyperliquid');
 
+  // Color classes based on accent color
+  const colorClasses: Record<string, { bg: string; border: string; text: string; gradient: string }> = {
+    red: { bg: 'bg-red-500/10', border: 'border-red-500/20', text: 'text-red-400', gradient: 'from-red-500 to-red-600' },
+    blue: { bg: 'bg-blue-500/10', border: 'border-blue-500/20', text: 'text-blue-400', gradient: 'from-blue-500 to-blue-600' },
+    green: { bg: 'bg-green-500/10', border: 'border-green-500/20', text: 'text-green-400', gradient: 'from-green-500 to-green-600' },
+    orange: { bg: 'bg-orange-500/10', border: 'border-orange-500/20', text: 'text-orange-400', gradient: 'from-orange-500 to-orange-600' },
+    yellow: { bg: 'bg-yellow-500/10', border: 'border-yellow-500/20', text: 'text-yellow-400', gradient: 'from-yellow-500 to-yellow-600' },
+    cyan: { bg: 'bg-cyan-500/10', border: 'border-cyan-500/20', text: 'text-cyan-400', gradient: 'from-cyan-500 to-cyan-600' },
+    purple: { bg: 'bg-purple-500/10', border: 'border-purple-500/20', text: 'text-purple-400', gradient: 'from-purple-500 to-purple-600' },
+  };
+
+  const colors = colorClasses[accentColor] || colorClasses.cyan;
+
   return (
-    <div className="min-h-screen bg-[#0a0a0f]">
+    <div className="min-h-screen bg-[#0a0a0f]" dir={lang === nativeLang && isRTL ? 'rtl' : 'ltr'}>
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-900/30 via-white/5 to-[#0a0a0f]" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-red-500/10 rounded-full blur-3xl" />
+        <div className={`absolute inset-0 bg-gradient-to-br ${colors.bg.replace('bg-', 'from-').replace('/10', '/30')} via-white/5 to-[#0a0a0f]`} />
+        <div className={`absolute top-20 left-10 w-72 h-72 ${colors.bg} rounded-full blur-3xl`} />
         <div className="absolute top-4 right-4 z-10">
-          <LanguageToggle currentLang={lang} nativeLang={nativeLang} nativeName={nativeName} onToggle={(l) => setLang(l as 'en' | 'pl')} />
+          <LanguageToggle currentLang={lang} nativeLang={nativeLang} nativeName={nativeName} onToggle={(l) => setLang(l)} />
         </div>
         <div className="relative max-w-4xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/20 rounded-full text-red-400 text-sm mb-6">🇵🇱 {t.badge}</div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6"><span className="text-white">{t.heroTitle1}</span><br /><span className="bg-gradient-to-r from-red-400 to-white bg-clip-text text-transparent">{t.heroTitle2}</span></h1>
+          <div className={`inline-flex items-center gap-2 px-4 py-2 ${colors.bg} border ${colors.border} rounded-full ${colors.text} text-sm mb-6`}>
+            {countryFlag} {t.badge}
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <span className="text-white">{t.heroTitle1}</span><br />
+            <span className={`bg-gradient-to-r ${colors.gradient.replace('from-', 'from-').replace(' to-', ' to-')} bg-clip-text text-transparent`}>{t.heroTitle2}</span>
+          </h1>
           <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">{t.heroDesc}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/" className="px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transition-all">{t.comparePlatforms}</Link>
+            <Link href="/" className={`px-8 py-4 bg-gradient-to-r ${colors.gradient} text-white rounded-xl font-bold text-lg hover:shadow-lg transition-all`}>{t.comparePlatforms}</Link>
             <a href="#get-started" className="px-8 py-4 bg-gray-800 text-white rounded-xl font-bold text-lg hover:bg-gray-700 border border-gray-700">{t.howItWorks}</a>
           </div>
-          {/* Popular stocks */}
           <div className="mt-8 flex flex-wrap justify-center gap-2">
             {popularStocks.map(stock => (
               <span key={stock} className="px-3 py-1 bg-gray-800/50 border border-gray-700 rounded-lg text-gray-400 text-sm">{stock}</span>
@@ -43,8 +166,12 @@ export default function Page() {
       {/* Quick Benefits */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-6">
-          {t.benefits.map((b,i)=>(
-            <div key={i} className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6 text-center"><div className="text-4xl mb-4">{b.icon}</div><h3 className="text-xl font-bold text-white mb-2">{b.title}</h3><p className="text-gray-400">{b.desc}</p></div>
+          {t.benefits.map((b, i) => (
+            <div key={i} className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6 text-center">
+              <div className="text-4xl mb-4">{b.icon}</div>
+              <h3 className="text-xl font-bold text-white mb-2">{b.title}</h3>
+              <p className="text-gray-400">{b.desc}</p>
+            </div>
           ))}
         </div>
       </section>
@@ -64,14 +191,14 @@ export default function Page() {
             <ul className="space-y-3 mb-6">
               {t.whatArePerpsSteps.map((step, i) => (
                 <li key={i} className="flex items-start gap-3 text-gray-300">
-                  <span className="text-red-400 text-xl">{i + 1}.</span>
+                  <span className={`${colors.text} text-xl`}>{i + 1}.</span>
                   <span>{step}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
-              <p className="text-red-400 font-medium">{t.whatArePerpsCta}</p>
+            <div className={`${colors.bg} border ${colors.border} rounded-xl p-4`}>
+              <p className={`${colors.text} font-medium`}>{t.whatArePerpsCta}</p>
             </div>
           </div>
         </div>
@@ -87,7 +214,7 @@ export default function Page() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {t.whyPerpsReasons.map((reason, i) => (
-              <div key={i} className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6 hover:border-red-500/30 transition-all">
+              <div key={i} className={`bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6 hover:${colors.border} transition-all`}>
                 <div className="text-4xl mb-4">{reason.icon}</div>
                 <h3 className="text-xl font-bold text-white mb-2">{reason.title}</h3>
                 <p className="text-gray-400">{reason.desc}</p>
@@ -98,7 +225,7 @@ export default function Page() {
       </section>
 
       {/* Enhanced Getting Started Section */}
-      <section id="get-started" className="py-16 px-4 bg-gradient-to-b from-transparent via-red-900/5 to-transparent">
+      <section id="get-started" className={`py-16 px-4 bg-gradient-to-b from-transparent via-${accentColor}-900/5 to-transparent`}>
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full mb-6">
@@ -214,9 +341,9 @@ export default function Page() {
             </div>
 
             {/* Step 3: Trade */}
-            <div className="bg-gradient-to-br from-purple-500/10 to-red-500/10 border-2 border-purple-500/30 rounded-2xl p-6">
+            <div className={`bg-gradient-to-br from-purple-500/10 to-${accentColor}-500/10 border-2 border-purple-500/30 rounded-2xl p-6`}>
               <div className="flex items-center gap-6 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-red-500 flex items-center justify-center text-white font-black text-xl flex-shrink-0">3</div>
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-${accentColor}-500 flex items-center justify-center text-white font-black text-xl flex-shrink-0`}>3</div>
                 <div>
                   <h3 className="text-xl font-bold text-white mb-1">{t.step3Title}</h3>
                   <p className="text-gray-400">{t.step3Subtitle}</p>
@@ -278,11 +405,11 @@ export default function Page() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6">
               <h3 className="text-xl font-bold text-white mb-4">📱 {t.digitalPayments}</h3>
-              <ul className="space-y-3">{digitalPayments.map(p=><li key={p} className="flex items-center gap-3 text-gray-300"><span className="w-2 h-2 bg-red-400 rounded-full"></span>{p}</li>)}</ul>
+              <ul className="space-y-3">{digitalPayments.map(p => <li key={p} className="flex items-center gap-3 text-gray-300"><span className={`w-2 h-2 ${colors.bg.replace('/10', '')} rounded-full`}></span>{p}</li>)}</ul>
             </div>
             <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6">
               <h3 className="text-xl font-bold text-white mb-4">🏦 {t.banks}</h3>
-              <ul className="space-y-3">{banksList.map(p=><li key={p} className="flex items-center gap-3 text-gray-300"><span className="w-2 h-2 bg-white/50 rounded-full"></span>{p}</li>)}</ul>
+              <ul className="space-y-3">{banksList.map(p => <li key={p} className="flex items-center gap-3 text-gray-300"><span className="w-2 h-2 bg-white/50 rounded-full"></span>{p}</li>)}</ul>
             </div>
           </div>
         </div>
@@ -293,13 +420,13 @@ export default function Page() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-white mb-8 text-center">{t.faqTitle}</h2>
           <div className="space-y-4">
-            {t.faqs.map((f,i)=>(
+            {t.faqs.map((f, i) => (
               <div key={i} className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-xl overflow-hidden">
-                <button onClick={()=>setExpandedFaq(expandedFaq===i?null:i)} className="w-full px-6 py-4 flex items-center justify-between text-left">
+                <button onClick={() => setExpandedFaq(expandedFaq === i ? null : i)} className="w-full px-6 py-4 flex items-center justify-between text-left">
                   <span className="font-semibold text-white">{f.question}</span>
-                  <span className="text-gray-400">{expandedFaq===i?'−':'+'}</span>
+                  <span className="text-gray-400">{expandedFaq === i ? '−' : '+'}</span>
                 </button>
-                {expandedFaq===i&&<div className="px-6 pb-4 text-gray-400">{f.answer}</div>}
+                {expandedFaq === i && <div className="px-6 pb-4 text-gray-400">{f.answer}</div>}
               </div>
             ))}
           </div>
@@ -309,11 +436,11 @@ export default function Page() {
       {/* CTA Section */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-r from-red-900/30 to-white/5 border border-red-500/20 rounded-3xl p-8 text-center">
+          <div className={`bg-gradient-to-r ${colors.bg.replace('bg-', 'from-').replace('/10', '/30')} to-white/5 border ${colors.border} rounded-3xl p-8 text-center`}>
             <h2 className="text-3xl font-bold text-white mb-4">{t.ctaTitle}</h2>
             <p className="text-xl text-gray-400 mb-8">{t.ctaDesc}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={hyperliquid?.referralUrl} target="_blank" rel="noopener sponsored" className="px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transition-all">{t.step3Cta}</a>
+              <a href={hyperliquid?.referralUrl} target="_blank" rel="noopener sponsored" className={`px-8 py-4 bg-gradient-to-r ${colors.gradient} text-white rounded-xl font-bold text-lg hover:shadow-lg transition-all`}>{t.step3Cta}</a>
               <Link href="/" className="px-8 py-4 bg-gray-800 text-white rounded-xl font-bold text-lg hover:bg-gray-700 border border-gray-700">{t.comparePlatforms}</Link>
             </div>
           </div>
