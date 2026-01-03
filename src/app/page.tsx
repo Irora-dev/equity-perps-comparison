@@ -55,58 +55,187 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="py-16 sm:py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-white">Trade </span>
-            <span className="text-cyan-400">NVDA, TSLA, AAPL</span>
-            <br />
-            <span className="text-white">24/7, No Broker Required</span>
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          {/* Gradient base */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />
+
+          {/* Animated gradient orbs */}
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[120px] animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-500/15 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[150px]" />
+
+          {/* Grid overlay */}
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+              backgroundSize: '50px 50px'
+            }}
+          />
+        </div>
+
+        {/* Floating Stock Tickers - Top */}
+        <div className="absolute top-8 left-0 right-0 overflow-hidden">
+          <div className="flex animate-scroll-left whitespace-nowrap">
+            {[...Array(2)].map((_, setIndex) => (
+              <div key={setIndex} className="flex gap-6 px-3">
+                {[
+                  { symbol: 'NVDA', change: '+2.4%', positive: true },
+                  { symbol: 'TSLA', change: '+1.8%', positive: true },
+                  { symbol: 'AAPL', change: '-0.3%', positive: false },
+                  { symbol: 'META', change: '+3.1%', positive: true },
+                  { symbol: 'MSFT', change: '+0.9%', positive: true },
+                  { symbol: 'AMZN', change: '+1.2%', positive: true },
+                  { symbol: 'GOOGL', change: '-0.5%', positive: false },
+                  { symbol: 'AMD', change: '+4.2%', positive: true },
+                ].map((stock, i) => (
+                  <div
+                    key={`${setIndex}-${i}`}
+                    className="flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full"
+                  >
+                    <span className="text-white font-mono font-medium text-sm">{stock.symbol}</span>
+                    <span className={`font-mono text-sm ${stock.positive ? 'text-emerald-400' : 'text-red-400'}`}>
+                      {stock.change}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Main Hero Content */}
+        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/20 rounded-full">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="text-sm text-gray-300">Markets open 24/7</span>
+          </div>
+
+          {/* Main Headline */}
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+            <span className="block text-white">Trade</span>
+            <span className="block mt-2">
+              <span className="relative inline-block">
+                <span className="bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+                  NVDA · TSLA · AAPL
+                </span>
+              </span>
+            </span>
+            <span className="block mt-2 text-4xl sm:text-5xl lg:text-6xl text-gray-400 font-medium">
+              No Broker. No KYC. No Limits.
+            </span>
           </h1>
-          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-            Equity perpetuals let you trade stocks around the clock with up to 200x leverage.
-            Self-custody. Zero KYC. No market hours.
+
+          {/* Subheadline */}
+          <p className="text-xl sm:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Equity perpetuals let you trade <span className="text-white">50+ US stocks</span> around the clock
+            with up to <span className="text-cyan-400">200x leverage</span>. Your keys, your funds.
           </p>
 
-          {/* Social Proof Bar */}
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-10 mb-10 text-sm">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-gray-400">$319B+ monthly volume</span>
+          {/* Stats Row */}
+          <div className="flex flex-wrap justify-center gap-8 sm:gap-12 mb-12">
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-white font-mono">$319B+</div>
+              <div className="text-sm text-gray-500 mt-1">Monthly Volume</div>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-cyan-400" />
-              <span className="text-gray-400">50+ stocks available</span>
+            <div className="hidden sm:block w-px h-12 bg-gray-800" />
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-white font-mono">50+</div>
+              <div className="text-sm text-gray-500 mt-1">US Stocks</div>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-purple-400" />
-              <span className="text-gray-400">7 platforms compared</span>
+            <div className="hidden sm:block w-px h-12 bg-gray-800" />
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-white font-mono">24/7</div>
+              <div className="text-sm text-gray-500 mt-1">Trading</div>
+            </div>
+            <div className="hidden sm:block w-px h-12 bg-gray-800" />
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-emerald-400 font-mono">0</div>
+              <div className="text-sm text-gray-500 mt-1">KYC Required</div>
             </div>
           </div>
 
-          {/* Primary CTAs */}
+          {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#live-rates"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-500 text-gray-900 rounded-xl font-bold text-lg hover:bg-cyan-400 transition-colors"
+              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 overflow-hidden rounded-xl font-bold text-lg transition-all"
             >
-              See Today&apos;s Best Rates
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-emerald-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <span className="relative text-gray-900">See Today&apos;s Best Rates</span>
+              <svg className="relative w-5 h-5 text-gray-900 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </a>
             <Link
               href="/blog/what-are-equity-perpetuals"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-800 border border-gray-700 text-white rounded-xl font-semibold text-lg hover:bg-gray-700 hover:border-gray-600 transition-colors"
+              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-xl font-semibold text-lg hover:bg-white/10 hover:border-white/20 transition-all"
             >
               Learn How It Works
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
           </div>
+
+          {/* Trust badges */}
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500">
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              <span>Self-Custody</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <span>Instant Settlement</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Trade Globally</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+          <div className="flex flex-col items-center gap-2 text-gray-500">
+            <span className="text-xs uppercase tracking-wider">Scroll to explore</span>
+            <div className="w-6 h-10 border-2 border-gray-700 rounded-full flex justify-center">
+              <div className="w-1.5 h-3 bg-gray-500 rounded-full mt-2 animate-bounce" />
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* Add CSS for animations */}
+      <style jsx>{`
+        @keyframes scroll-left {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-scroll-left {
+          animation: scroll-left 30s linear infinite;
+        }
+        @keyframes gradient {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        .animate-gradient {
+          animation: gradient 3s ease infinite;
+        }
+      `}</style>
 
       {/* Problem/Solution Section */}
       <section className="py-16 px-4 bg-gray-900/50">
