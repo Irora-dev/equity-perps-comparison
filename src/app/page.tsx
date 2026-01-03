@@ -55,8 +55,42 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="py-16 sm:py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative min-h-screen flex flex-col justify-center px-4 overflow-hidden">
+        {/* Glowing Gradient Background */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-cyan-500/15 rounded-full blur-[120px]" />
+          <div className="absolute top-1/2 left-1/4 w-[300px] h-[300px] bg-purple-500/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] bg-emerald-500/8 rounded-full blur-[80px]" />
+        </div>
+
+        {/* Stock Ticker Bar */}
+        <div className="absolute top-6 left-0 right-0 overflow-hidden">
+          <div className="ticker-track flex whitespace-nowrap">
+            {[...Array(2)].map((_, setIdx) => (
+              <div key={setIdx} className="flex gap-4 px-2 animate-ticker">
+                {[
+                  { symbol: 'NVDA', price: '138.45', change: '+2.4%', up: true },
+                  { symbol: 'TSLA', price: '421.12', change: '+1.8%', up: true },
+                  { symbol: 'AAPL', price: '193.67', change: '-0.3%', up: false },
+                  { symbol: 'META', price: '612.89', change: '+3.1%', up: true },
+                  { symbol: 'AMZN', price: '227.45', change: '+0.9%', up: true },
+                  { symbol: 'GOOGL', price: '195.23', change: '-0.5%', up: false },
+                  { symbol: 'MSFT', price: '448.92', change: '+1.2%', up: true },
+                  { symbol: 'AMD', price: '124.78', change: '+4.2%', up: true },
+                ].map((stock, i) => (
+                  <div key={`${setIdx}-${i}`} className="flex items-center gap-2 text-xs text-gray-500">
+                    <span className="font-medium text-gray-400">{stock.symbol}</span>
+                    <span className="text-gray-600">{stock.price}</span>
+                    <span className={stock.up ? 'text-emerald-500' : 'text-red-400'}>{stock.change}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative max-w-4xl mx-auto text-center pt-16">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             <span className="text-white">Trade </span>
             <span className="text-cyan-400">NVDA, TSLA, AAPL</span>
@@ -106,6 +140,17 @@ export default function Home() {
             </Link>
           </div>
         </div>
+
+        {/* Ticker Animation Styles */}
+        <style jsx>{`
+          @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-ticker {
+            animation: ticker 40s linear infinite;
+          }
+        `}</style>
       </section>
 
       {/* Problem/Solution Section */}
