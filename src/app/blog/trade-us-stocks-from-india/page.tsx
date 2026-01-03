@@ -74,12 +74,12 @@ export default function TradeUSStocksFromIndia() {
             >
               Start Trading Now
             </a>
-            <Link
-              href="#how-it-works"
+            <a
+              href="#get-started"
               className="px-8 py-4 bg-gray-800 text-white rounded-xl font-bold text-lg hover:bg-gray-700 transition-all border border-gray-700"
             >
               How It Works
-            </Link>
+            </a>
           </div>
 
           {/* Quick Stats */}
@@ -146,89 +146,6 @@ export default function TradeUSStocksFromIndia() {
                 Most US brokers need $500+ minimum. Here, start with just ₹4,000-5,000
                 and use leverage to control larger positions.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section id="how-it-works" className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-4 text-center">
-            How It Works
-          </h2>
-          <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-            You'll convert INR to USDC (a dollar stablecoin), send it to your wallet,
-            and connect to a trading platform. Here's the simple version:
-          </p>
-
-          <div className="relative">
-            {/* Connection Line */}
-            <div className="absolute left-8 top-8 bottom-8 w-0.5 bg-gradient-to-b from-orange-500 via-cyan-500 to-green-500 hidden md:block" />
-
-            <div className="space-y-8">
-              {/* Step 1 */}
-              <div className="flex gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-orange-500 flex items-center justify-center text-white font-black text-xl flex-shrink-0 relative z-10">
-                  1
-                </div>
-                <div className="flex-grow bg-gray-900 border border-gray-800 rounded-xl p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">Convert INR to USDC</h3>
-                  <p className="text-gray-400 mb-4">
-                    Use an Indian exchange like WazirX, CoinDCX, or Binance P2P to buy USDC with INR.
-                  </p>
-                  <Link href="/blog/convert-inr-to-usdc" className="text-orange-400 hover:text-orange-300 text-sm font-medium inline-flex items-center gap-1">
-                    See detailed INR → USDC guide <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                  </Link>
-                </div>
-              </div>
-
-              {/* Step 2 */}
-              <div className="flex gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-cyan-500 flex items-center justify-center text-gray-900 font-black text-xl flex-shrink-0 relative z-10">
-                  2
-                </div>
-                <div className="flex-grow bg-gray-900 border border-gray-800 rounded-xl p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">Set Up Your Wallet</h3>
-                  <p className="text-gray-400 mb-2">
-                    A wallet is like a <strong className="text-white">digital bank account you control</strong>.
-                    Download Rabby Wallet (free, 2 minutes).
-                  </p>
-                  <div className="flex flex-wrap gap-3 text-xs text-gray-500 mb-3">
-                    <span>🔐 You control it</span>
-                    <span>🆓 Free</span>
-                    <span>⚡ 2 min setup</span>
-                  </div>
-                  <Link href="/blog/wallet-setup-guide" className="text-cyan-400 hover:text-cyan-300 text-sm font-medium inline-flex items-center gap-1">
-                    Wallet setup guide with video <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                  </Link>
-                </div>
-              </div>
-
-              {/* Step 3 */}
-              <div className="flex gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-green-500 flex items-center justify-center text-gray-900 font-black text-xl flex-shrink-0 relative z-10">
-                  3
-                </div>
-                <div className="flex-grow bg-gray-900 border border-gray-800 rounded-xl p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">Connect & Trade</h3>
-                  <p className="text-gray-400 mb-4">
-                    Go to Hyperliquid, connect your wallet, deposit USDC, and start trading
-                    NVDA, TSLA, AAPL and 50+ other US stocks.
-                  </p>
-                  <a
-                    href={hyperliquid?.referralUrl}
-                    target="_blank"
-                    rel="noopener sponsored"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-gray-900 rounded-lg font-semibold text-sm hover:bg-green-400 transition-colors"
-                  >
-                    Open Hyperliquid
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -555,6 +472,56 @@ export default function TradeUSStocksFromIndia() {
                 )}
               </div>
             ))}
+          </div>
+
+          {/* India Guides Section */}
+          <div className="mt-12 bg-gradient-to-r from-orange-500/10 to-green-500/10 border border-orange-500/20 rounded-2xl p-6">
+            <h3 className="text-xl font-bold text-white mb-4">📚 More India Guides</h3>
+            <p className="text-gray-400 mb-6">
+              We&apos;ve created detailed guides specifically for Indian traders. Check them out:
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <Link
+                href="/blog/convert-inr-to-usdc"
+                className="flex items-center gap-3 bg-gray-900/80 border border-gray-800 rounded-xl p-4 hover:border-orange-500/50 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center text-orange-400 flex-shrink-0">₹</div>
+                <div>
+                  <h4 className="text-white font-medium">Convert INR to USDC</h4>
+                  <p className="text-gray-500 text-sm">Step-by-step with WazirX, Binance P2P</p>
+                </div>
+              </Link>
+              <Link
+                href="/blog/trade-stocks-with-5000-rupees"
+                className="flex items-center gap-3 bg-gray-900/80 border border-gray-800 rounded-xl p-4 hover:border-green-500/50 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400 flex-shrink-0">💰</div>
+                <div>
+                  <h4 className="text-white font-medium">Trade with ₹5,000</h4>
+                  <p className="text-gray-500 text-sm">Small account strategy guide</p>
+                </div>
+              </Link>
+              <Link
+                href="/blog/equity-perps-legal-india"
+                className="flex items-center gap-3 bg-gray-900/80 border border-gray-800 rounded-xl p-4 hover:border-yellow-500/50 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-lg bg-yellow-500/20 flex items-center justify-center text-yellow-400 flex-shrink-0">⚖️</div>
+                <div>
+                  <h4 className="text-white font-medium">Is It Legal in India?</h4>
+                  <p className="text-gray-500 text-sm">Regulations, taxes, and compliance</p>
+                </div>
+              </Link>
+              <Link
+                href="/blog/p2p-usdc-guide"
+                className="flex items-center gap-3 bg-gray-900/80 border border-gray-800 rounded-xl p-4 hover:border-cyan-500/50 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400 flex-shrink-0">🤝</div>
+                <div>
+                  <h4 className="text-white font-medium">P2P Trading Guide</h4>
+                  <p className="text-gray-500 text-sm">Global P2P methods and safety tips</p>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
