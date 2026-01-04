@@ -37,10 +37,10 @@ export default function TradeUSStocksFromEgypt() {
   return (
     <div className="min-h-screen bg-gray-950" dir={lang === 'ar' && isRTL ? 'rtl' : 'ltr'}>
       {/* Hero */}
-      <section className="relative py-20 px-4 overflow-hidden">
+      <section className="relative pt-16 sm:pt-20 pb-12 sm:pb-16 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 via-gray-950 to-gray-900/20" />
-        <div className="absolute top-20 left-10 w-72 h-72 bg-red-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-red-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-48 sm:w-72 h-48 sm:h-72 bg-white/5 rounded-full blur-3xl" />
 
         <div className="absolute top-4 right-4 z-10">
           <LanguageToggle currentLang={lang} nativeLang={nativeLang} nativeName={nativeName} onToggle={(l) => setLang(l as 'en' | 'ar')} />
@@ -60,26 +60,26 @@ export default function TradeUSStocksFromEgypt() {
             <span className="px-3 py-1 bg-green-500/20 text-green-400 text-sm font-medium rounded-full">{t.noBrokerBadge}</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-6xl font-black text-white mb-6 leading-tight">
             {t.heroTitle1}
             <br />
             <span className="text-red-400">{t.heroTitle2}</span>
           </h1>
 
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl">
+          <p className="text-sm sm:text-base lg:text-xl text-gray-300 mb-8 max-w-2xl">
             {t.heroDesc} <strong className="text-white">{t.heroDescHighlight}</strong>.
           </p>
 
-          <div className="flex flex-wrap gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <a
               href="#get-started"
-              className="px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-xl font-bold text-lg hover:from-red-400 hover:to-red-500 transition-all shadow-lg shadow-red-500/25"
+              className="w-full sm:w-auto text-center px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-xl font-bold text-lg hover:from-red-400 hover:to-red-500 transition-all shadow-lg shadow-red-500/25"
             >
               {t.startTrading}
             </a>
             <a
               href="#get-started"
-              className="px-8 py-4 bg-gray-800 text-white rounded-xl font-bold text-lg hover:bg-gray-700 transition-all border border-gray-700"
+              className="w-full sm:w-auto text-center px-8 py-4 bg-gray-800 text-white rounded-xl font-bold text-lg hover:bg-gray-700 transition-all border border-gray-700"
             >
               {t.howItWorks}
             </a>
@@ -108,18 +108,18 @@ export default function TradeUSStocksFromEgypt() {
       </section>
 
       {/* Why This Works for Egyptians */}
-      <section className="py-16 px-4 bg-gray-900/50">
+      <section className="py-12 sm:py-16 px-4 bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
             {t.whyTitle}
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {t.whyCards.map((card, i) => (
               <div key={i} className="bg-gray-900 border border-gray-800 rounded-xl p-6">
-                <div className="text-3xl mb-4">{card.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-2">{card.title}</h3>
-                <p className="text-gray-400">{card.desc}</p>
+                <div className="text-2xl sm:text-3xl mb-4">{card.icon}</div>
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{card.title}</h3>
+                <p className="text-sm sm:text-base text-gray-400">{card.desc}</p>
               </div>
             ))}
           </div>
@@ -127,16 +127,16 @@ export default function TradeUSStocksFromEgypt() {
       </section>
 
       {/* Detailed Get Started Section */}
-      <section id="get-started" className="py-16 px-4 bg-gray-900/50">
+      <section id="get-started" className="py-12 sm:py-16 px-4 bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/30 rounded-full mb-4">
               <span className="text-red-400 font-medium">{t.stepByStep}</span>
             </span>
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
               {t.getStartedTitle}
             </h2>
-            <p className="text-gray-400 max-w-xl mx-auto">
+            <p className="text-sm sm:text-base text-gray-400 max-w-xl mx-auto">
               {t.getStartedDesc}
             </p>
           </div>
@@ -147,13 +147,13 @@ export default function TradeUSStocksFromEgypt() {
               className="bg-gray-900 border-2 border-cyan-500/30 rounded-2xl overflow-hidden cursor-pointer hover:border-cyan-500/50 transition-colors"
               onClick={() => setWalletExpanded(!walletExpanded)}
             >
-              <div className="p-6 flex items-center gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center text-gray-900 font-black text-2xl flex-shrink-0">
+              <div className="p-6 flex items-center gap-4 sm:gap-6">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center text-gray-900 font-black text-xl sm:text-2xl flex-shrink-0">
                   1
                 </div>
                 <div className="flex-grow">
-                  <h3 className="text-xl font-bold text-white mb-1">{t.step1Title}</h3>
-                  <p className="text-gray-400">{t.step1Desc}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{t.step1Title}</h3>
+                  <p className="text-sm sm:text-base text-gray-400">{t.step1Desc}</p>
                 </div>
                 <svg
                   className={`w-6 h-6 text-cyan-400 transition-transform ${walletExpanded ? 'rotate-180' : ''}`}
@@ -182,7 +182,7 @@ export default function TradeUSStocksFromEgypt() {
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <h4 className="text-white font-semibold mb-4">{t.walletSetupTitle}</h4>
                       <ol className="space-y-3 text-gray-300">
@@ -231,13 +231,13 @@ export default function TradeUSStocksFromEgypt() {
               className="bg-gray-900 border-2 border-red-500/30 rounded-2xl overflow-hidden cursor-pointer hover:border-red-500/50 transition-colors"
               onClick={() => setFundingExpanded(!fundingExpanded)}
             >
-              <div className="p-6 flex items-center gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white font-black text-2xl flex-shrink-0">
+              <div className="p-6 flex items-center gap-4 sm:gap-6">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center text-white font-black text-xl sm:text-2xl flex-shrink-0">
                   2
                 </div>
                 <div className="flex-grow">
-                  <h3 className="text-xl font-bold text-white mb-1">{t.step2Title}</h3>
-                  <p className="text-gray-400">{t.step2Desc}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{t.step2Title}</h3>
+                  <p className="text-sm sm:text-base text-gray-400">{t.step2Desc}</p>
                 </div>
                 <svg
                   className={`w-6 h-6 text-red-400 transition-transform ${fundingExpanded ? 'rotate-180' : ''}`}
@@ -253,7 +253,7 @@ export default function TradeUSStocksFromEgypt() {
                 <div className="px-6 pb-6 border-t border-gray-800 pt-6">
                   <p className="text-gray-300 mb-6">{t.fundingIntro}</p>
 
-                  <div className="grid md:grid-cols-3 gap-4 mb-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                     {/* Binance P2P */}
                     <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4">
                       <h4 className="text-yellow-400 font-semibold mb-2">{t.binanceP2P.title}</h4>
@@ -310,13 +310,13 @@ export default function TradeUSStocksFromEgypt() {
 
           {/* Step 3: Trade */}
           <div className="bg-gray-900 border-2 border-green-500/30 rounded-2xl p-6">
-            <div className="flex items-center gap-6 mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-gray-900 font-black text-2xl flex-shrink-0">
+            <div className="flex items-center gap-4 sm:gap-6 mb-6">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center text-gray-900 font-black text-xl sm:text-2xl flex-shrink-0">
                 3
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white mb-1">{t.step3Title}</h3>
-                <p className="text-gray-400">{t.step3Desc}</p>
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{t.step3Title}</h3>
+                <p className="text-sm sm:text-base text-gray-400">{t.step3Desc}</p>
               </div>
             </div>
 
@@ -353,9 +353,9 @@ export default function TradeUSStocksFromEgypt() {
       </section>
 
       {/* Popular Stocks */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
             {t.popularStocksTitle}
           </h2>
 
@@ -384,9 +384,9 @@ export default function TradeUSStocksFromEgypt() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 px-4 bg-gray-900/50">
+      <section className="py-12 sm:py-16 px-4 bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-white mb-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-8 text-center">
             {t.faqTitle}
           </h2>
 
@@ -398,9 +398,9 @@ export default function TradeUSStocksFromEgypt() {
               >
                 <button
                   onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
-                  className="w-full p-5 text-left flex items-center justify-between"
+                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between"
                 >
-                  <span className="text-white font-medium pr-4">{faq.question}</span>
+                  <span className="text-sm sm:text-base text-white font-medium pr-4">{faq.question}</span>
                   <svg
                     className={`w-5 h-5 text-red-400 flex-shrink-0 transition-transform ${expandedFaq === index ? 'rotate-180' : ''}`}
                     fill="none"
@@ -411,7 +411,7 @@ export default function TradeUSStocksFromEgypt() {
                   </svg>
                 </button>
                 {expandedFaq === index && (
-                  <div className="px-5 pb-5 text-gray-400">
+                  <div className="px-4 sm:px-5 pb-4 sm:pb-5 text-sm sm:text-base text-gray-400">
                     {faq.answer}
                   </div>
                 )}
@@ -421,9 +421,9 @@ export default function TradeUSStocksFromEgypt() {
 
           {/* Egypt Guides Section */}
           <div className="mt-12 bg-gradient-to-r from-red-500/10 to-gray-900/10 border border-red-500/20 rounded-2xl p-6">
-            <h3 className="text-xl font-bold text-white mb-4">📚 {t.moreGuidesTitle}</h3>
-            <p className="text-gray-400 mb-6">{t.moreGuidesDesc}</p>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-4">{t.moreGuidesTitle}</h3>
+            <p className="text-sm sm:text-base text-gray-400 mb-6">{t.moreGuidesDesc}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {t.guides.map((guide, i) => (
                 <Link
                   key={i}
@@ -437,8 +437,8 @@ export default function TradeUSStocksFromEgypt() {
                     'bg-cyan-500/20 text-cyan-400'
                   }`}>{guide.icon}</div>
                   <div>
-                    <h4 className="text-white font-medium">{guide.title}</h4>
-                    <p className="text-gray-500 text-sm">{guide.desc}</p>
+                    <h4 className="text-sm sm:text-base text-white font-medium">{guide.title}</h4>
+                    <p className="text-gray-500 text-xs sm:text-sm">{guide.desc}</p>
                   </div>
                 </Link>
               ))}
@@ -448,18 +448,18 @@ export default function TradeUSStocksFromEgypt() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-red-500/20 to-gray-900/20 border border-red-500/30 rounded-2xl p-8 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
+          <div className="bg-gradient-to-br from-red-500/20 to-gray-900/20 border border-red-500/30 rounded-2xl p-6 sm:p-8 text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
               {t.ctaTitle}
             </h2>
-            <p className="text-gray-300 mb-6 max-w-xl mx-auto">
+            <p className="text-sm sm:text-base text-gray-300 mb-6 max-w-xl mx-auto">
               {t.ctaDesc}
             </p>
             <button
               onClick={() => hyperliquid?.referralUrl && trackHyperliquidClick(hyperliquid.referralUrl)}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-xl font-bold text-lg hover:from-red-400 hover:to-red-500 transition-all shadow-lg shadow-red-500/25 cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-xl font-bold text-lg hover:from-red-400 hover:to-red-500 transition-all shadow-lg shadow-red-500/25 cursor-pointer"
             >
               {t.getStartedCta}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -471,10 +471,10 @@ export default function TradeUSStocksFromEgypt() {
       </section>
 
       {/* Free Site + Referral Notice */}
-      <section className="py-8 px-4">
+      <section className="py-6 sm:py-8 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 text-center">
-            <p className="text-gray-400 text-sm leading-relaxed">
+          <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 sm:p-6 text-center">
+            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
               {t.freeNotice} <span className="text-white font-medium">{t.freeNotice2}</span>{t.freeNotice3} <span className="text-cyan-400">{t.freeNotice4}</span> {t.freeNotice5} <span className="text-cyan-400">{t.freeNotice6}</span>{t.freeNotice7} <span className="text-green-400 font-semibold">{t.freeNotice8}</span>{t.freeNotice9}
             </p>
           </div>
@@ -482,17 +482,17 @@ export default function TradeUSStocksFromEgypt() {
       </section>
 
       {/* Related Guides */}
-      <section className="py-16 px-4 bg-gray-900/50">
+      <section className="py-12 sm:py-16 px-4 bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl font-bold text-white mb-6">{t.relatedTitle}</h2>
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {t.relatedGuides.map((guide, i) => (
               <Link key={i} href={guide.href} className="bg-gray-900 border border-gray-800 rounded-xl p-4 hover:border-red-500/50 transition-colors">
                 <span className={`text-xs font-medium ${
                   i === 0 ? 'text-red-400' : i === 1 ? 'text-green-400' : 'text-yellow-400'
                 }`}>{guide.tag}</span>
-                <h3 className="text-white font-medium mt-1">{guide.title}</h3>
-                <p className="text-gray-500 text-sm mt-1">{guide.desc}</p>
+                <h3 className="text-sm sm:text-base text-white font-medium mt-1">{guide.title}</h3>
+                <p className="text-gray-500 text-xs sm:text-sm mt-1">{guide.desc}</p>
               </Link>
             ))}
           </div>
