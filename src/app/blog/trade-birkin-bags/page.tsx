@@ -103,33 +103,6 @@ export default function TradeBirkinBags() {
     },
   ];
 
-  const steps = [
-    {
-      number: 1,
-      title: 'Get a Crypto Wallet',
-      description: 'Install Rabby Wallet or MetaMask. Create a new wallet and securely save your seed phrase.',
-      color: 'amber',
-    },
-    {
-      number: 2,
-      title: 'Get USDC',
-      description: 'Purchase USDC on Coinbase, Binance, or any exchange. Withdraw to your wallet on Arbitrum network.',
-      color: 'amber',
-    },
-    {
-      number: 3,
-      title: 'Connect to Trove Markets',
-      description: 'Go to Trove Markets and connect your wallet. Deposit USDC to your trading account.',
-      color: 'amber',
-    },
-    {
-      number: 4,
-      title: 'Trade Birkin Perps',
-      description: 'Select the Birkin index, choose your leverage (up to 5x), and open a long or short position.',
-      color: 'amber',
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-gray-950">
       {/* Hero Section */}
@@ -310,47 +283,341 @@ export default function TradeBirkinBags() {
       {/* Step by Step Guide */}
       <section id="how-it-works" className="py-12 sm:py-16 px-4 bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
+          {/* Header with No Crypto Experience Badge */}
           <div className="text-center mb-8 sm:mb-12">
-            <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-amber-500/10 border border-amber-500/30 rounded-full mb-3 sm:mb-4">
-              <span className="text-amber-400 font-medium text-sm sm:text-base">Get Started in 10 Minutes</span>
-            </span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-500/20 to-rose-500/20 border border-amber-500/40 rounded-full mb-4">
+              <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span className="text-amber-400 font-semibold text-sm sm:text-base">No Crypto Experience Needed</span>
+            </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
               How to Trade Birkin Perpetuals
             </h2>
-            <p className="text-sm sm:text-base text-gray-400 max-w-xl mx-auto">
-              From zero to trading luxury asset perps in four simple steps.
+            <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto">
+              New to crypto? No problem. We will walk you through everything step by step. Most people complete setup in under 10 minutes.
             </p>
           </div>
 
-          <div className="space-y-4 sm:space-y-6">
-            {steps.map((step) => (
-              <div
-                key={step.number}
-                className="bg-gray-900 border border-amber-500/20 rounded-2xl p-4 sm:p-6 flex items-start gap-4 sm:gap-6"
-              >
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-gray-900 font-black text-xl sm:text-2xl flex-shrink-0">
-                  {step.number}
+          {/* Benefits Banner */}
+          <div className="bg-gradient-to-r from-amber-900/30 via-gray-900 to-rose-900/30 border border-amber-500/30 rounded-2xl p-4 sm:p-6 mb-8 sm:mb-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center mb-2">
+                  <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
                 </div>
-                <div>
-                  <h3 className="text-base sm:text-xl font-bold text-white mb-1 sm:mb-2">{step.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-400">{step.description}</p>
-                </div>
+                <span className="text-white font-medium text-sm">No Applications</span>
+                <span className="text-gray-500 text-xs">Skip the paperwork</span>
               </div>
-            ))}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center mb-2">
+                  <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <span className="text-white font-medium text-sm">Works Globally</span>
+                <span className="text-gray-500 text-xs">Any country</span>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center mb-2">
+                  <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <span className="text-white font-medium text-sm">Trade in Minutes</span>
+                <span className="text-gray-500 text-xs">Quick setup</span>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center mb-2">
+                  <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <span className="text-white font-medium text-sm">You Control Funds</span>
+                <span className="text-gray-500 text-xs">Self-custody</span>
+              </div>
+            </div>
           </div>
 
-          <div className="mt-6 sm:mt-8 text-center">
+          {/* Step 1: Wallet Setup with Video */}
+          <div className="bg-gray-900 border border-amber-500/30 rounded-2xl p-5 sm:p-8 mb-6">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-gray-900 font-black text-xl sm:text-2xl flex-shrink-0">
+                1
+              </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Set Up Your Wallet</h3>
+                <p className="text-gray-400 text-sm sm:text-base">Your gateway to luxury asset trading - takes 2 minutes</p>
+              </div>
+            </div>
+
+            {/* Video Embed */}
+            <div className="aspect-video rounded-xl overflow-hidden mb-6 border border-gray-800">
+              <iframe
+                src="https://www.youtube.com/embed/_ouAzSQJiM0"
+                title="Rabby Wallet Setup Guide"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
+
+            {/* What is a Wallet Explainer */}
+            <div className="bg-gray-800/50 rounded-xl p-4 sm:p-5">
+              <h4 className="text-amber-400 font-semibold mb-3 flex items-center gap-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                What is a Crypto Wallet?
+              </h4>
+              <p className="text-gray-300 text-sm sm:text-base mb-4">
+                Think of a crypto wallet like a digital bank account that <strong className="text-white">you fully control</strong>. Unlike traditional brokers, no company holds your funds - you have direct ownership through your wallet.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="flex items-start gap-2">
+                  <svg className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-400 text-sm">No account applications or approvals</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <svg className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-400 text-sm">Works instantly from any country</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <svg className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-400 text-sm">Your funds, your control - always</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <svg className="w-4 h-4 text-green-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-gray-400 text-sm">Free browser extension</span>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-gray-700">
+                <p className="text-amber-400/80 text-xs sm:text-sm">
+                  <strong>We recommend Rabby Wallet</strong> - it is beginner-friendly and works great with Trove Markets. Watch the video above for a complete walkthrough.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 2: Get USDC */}
+          <div className="bg-gray-900 border border-amber-500/30 rounded-2xl p-5 sm:p-8 mb-6">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-gray-900 font-black text-xl sm:text-2xl flex-shrink-0">
+                2
+              </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Get USDC</h3>
+                <p className="text-gray-400 text-sm sm:text-base">USDC is a digital dollar - your trading currency</p>
+              </div>
+            </div>
+
+            <p className="text-gray-300 text-sm sm:text-base mb-5">
+              USDC is a stablecoin pegged 1:1 to the US dollar. You will use it as collateral for your Birkin trades. Choose any option below:
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5">
+              <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700 hover:border-amber-500/50 transition-colors">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">CB</span>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold">Coinbase</h4>
+                    <span className="text-gray-500 text-xs">Best for US users</span>
+                  </div>
+                </div>
+                <p className="text-gray-400 text-xs">Buy USDC directly with bank transfer or card. Easiest for beginners.</p>
+              </div>
+
+              <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700 hover:border-amber-500/50 transition-colors">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center">
+                    <span className="text-gray-900 font-bold text-sm">BN</span>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold">Binance</h4>
+                    <span className="text-gray-500 text-xs">Best for international</span>
+                  </div>
+                </div>
+                <p className="text-gray-400 text-xs">World largest exchange. Wide range of payment methods globally.</p>
+              </div>
+
+              <div className="bg-gray-800/50 rounded-xl p-4 border border-gray-700 hover:border-amber-500/50 transition-colors">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">MP</span>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-semibold">MoonPay</h4>
+                    <span className="text-gray-500 text-xs">Buy directly in wallet</span>
+                  </div>
+                </div>
+                <p className="text-gray-400 text-xs">Buy with card directly in Rabby. Slightly higher fees but very convenient.</p>
+              </div>
+            </div>
+
+            <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-4">
+              <p className="text-amber-400 text-sm">
+                <strong>Tip:</strong> Withdraw your USDC to your wallet on the <strong>Arbitrum</strong> network for the lowest fees. Most exchanges support Arbitrum withdrawals.
+              </p>
+            </div>
+          </div>
+
+          {/* Step 3: Connect to Trove */}
+          <div className="bg-gray-900 border border-amber-500/30 rounded-2xl p-5 sm:p-8 mb-6">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-gray-900 font-black text-xl sm:text-2xl flex-shrink-0">
+                3
+              </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Connect to Trove Markets</h3>
+                <p className="text-gray-400 text-sm sm:text-base">One click to start - no signup required</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <p className="text-gray-300 text-sm sm:text-base mb-4">
+                  Trove Markets is a decentralized exchange - that means <strong className="text-white">no account creation, no identity verification, no waiting periods</strong>.
+                </p>
+                <ol className="space-y-3 text-sm sm:text-base text-gray-400">
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs font-bold flex-shrink-0">1</span>
+                    <span>Visit Trove Markets (link below)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs font-bold flex-shrink-0">2</span>
+                    <span>Click &quot;Connect Wallet&quot; and select Rabby</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs font-bold flex-shrink-0">3</span>
+                    <span>Deposit USDC to your trading account</span>
+                  </li>
+                </ol>
+              </div>
+              <div className="bg-gradient-to-br from-amber-500/10 to-rose-500/10 rounded-xl p-5 border border-amber-500/20">
+                <h4 className="text-white font-semibold mb-3">Why Decentralized?</h4>
+                <ul className="space-y-2 text-sm text-gray-400">
+                  <li className="flex items-start gap-2">
+                    <svg className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>No company can freeze your account</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Trade 24/7 - no market hours</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Withdraw anytime - instant settlement</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Full transparency - all trades on-chain</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 4: Trade Birkin */}
+          <div className="bg-gray-900 border border-amber-500/30 rounded-2xl p-5 sm:p-8 mb-8">
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-gray-900 font-black text-xl sm:text-2xl flex-shrink-0">
+                4
+              </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Trade Birkin Perpetuals</h3>
+                <p className="text-gray-400 text-sm sm:text-base">Go long or short on luxury handbag prices</p>
+              </div>
+            </div>
+
+            <p className="text-gray-300 text-sm sm:text-base mb-5">
+              With perpetual contracts, you can profit whether Birkin prices go <strong className="text-green-400">up</strong> or <strong className="text-red-400">down</strong>. Choose your direction:
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+              <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </div>
+                  <h4 className="text-green-400 font-bold text-lg">Go Long</h4>
+                </div>
+                <p className="text-gray-300 text-sm mb-3">
+                  Profit when Birkin prices <strong className="text-green-400">increase</strong>
+                </p>
+                <p className="text-gray-500 text-xs">
+                  Best when: Luxury market is strong, wealth growing, Hermes demand increasing
+                </p>
+              </div>
+
+              <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0v-8m0 8l-8-8-4 4-6-6" />
+                    </svg>
+                  </div>
+                  <h4 className="text-red-400 font-bold text-lg">Go Short</h4>
+                </div>
+                <p className="text-gray-300 text-sm mb-3">
+                  Profit when Birkin prices <strong className="text-red-400">decrease</strong>
+                </p>
+                <p className="text-gray-500 text-xs">
+                  Best when: Economic downturn, recession fears, luxury market cooling
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gray-800/50 rounded-xl p-4">
+              <div className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div>
+                  <p className="text-white font-medium text-sm mb-1">About Leverage</p>
+                  <p className="text-gray-400 text-xs sm:text-sm">
+                    Trove offers up to 5x leverage. This means $1,000 can control a $5,000 position. Start with 1-2x while learning - leverage amplifies both gains <em>and</em> losses.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="text-center">
             <a
               href={TROVE_REFERRAL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-gray-900 rounded-xl font-bold text-base sm:text-lg hover:from-amber-400 hover:to-amber-500 transition-all shadow-lg shadow-amber-500/25"
+              className="inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-amber-500 to-amber-600 text-gray-900 rounded-xl font-bold text-lg sm:text-xl hover:from-amber-400 hover:to-amber-500 transition-all shadow-lg shadow-amber-500/25"
             >
-              Open Trove Markets
-              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              Start Trading on Trove Markets
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </a>
+            <p className="text-gray-500 text-sm mt-4">No signup required - connect wallet and trade</p>
           </div>
         </div>
       </section>

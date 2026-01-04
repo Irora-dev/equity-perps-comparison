@@ -229,101 +229,234 @@ export default function TradeCharizardCards() {
         </div>
       </section>
 
-      {/* Step by Step Guide */}
-      <section className="py-12 sm:py-16 px-4 bg-gray-900/50">
+      {/* Step-by-Step Guide */}
+      <section id="get-started" className="py-12 sm:py-16 px-4 bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
-            <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-red-500/10 border border-red-500/30 rounded-full mb-3 sm:mb-4">
-              <span className="text-red-400 font-medium text-sm sm:text-base">Get Started in Minutes</span>
+            <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-orange-500/10 border border-orange-500/30 rounded-full mb-3 sm:mb-4">
+              <span className="text-orange-400 font-medium text-sm sm:text-base">No Crypto Experience Needed</span>
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
-              How to Trade ZARD on Trove Markets
+              Get Started in 15 Minutes
             </h2>
-            <p className="text-sm sm:text-base text-gray-400 max-w-xl mx-auto">
-              No account signup, no KYC. Just connect your wallet and trade.
+            <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto">
+              Never used crypto before? No problem. We will walk you through everything step-by-step.
+              You do not need any prior experience with wallets, exchanges, or blockchain technology.
             </p>
           </div>
 
-          {/* Step 1 */}
-          <div className="mb-4 sm:mb-6">
+          {/* Benefits Banner */}
+          <div className="bg-gradient-to-r from-orange-500/10 to-red-500/10 border border-orange-500/20 rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8">
+            <h3 className="text-white font-bold mb-3 text-center text-sm sm:text-base">Why This Setup Is Worth It</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+              <div className="text-center">
+                <div className="text-xl sm:text-2xl mb-1">&#128275;</div>
+                <div className="text-xs sm:text-sm text-gray-300">No account applications</div>
+              </div>
+              <div className="text-center">
+                <div className="text-xl sm:text-2xl mb-1">&#127757;</div>
+                <div className="text-xs sm:text-sm text-gray-300">Works from any country</div>
+              </div>
+              <div className="text-center">
+                <div className="text-xl sm:text-2xl mb-1">&#9889;</div>
+                <div className="text-xs sm:text-sm text-gray-300">Trade in minutes, not days</div>
+              </div>
+              <div className="text-center">
+                <div className="text-xl sm:text-2xl mb-1">&#128274;</div>
+                <div className="text-xs sm:text-sm text-gray-300">You control your funds</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-4 sm:space-y-6">
+            {/* Step 1: Wallet */}
+            <div className="bg-gray-900 border-2 border-orange-500/30 rounded-2xl overflow-hidden">
+              <div className="p-4 sm:p-6">
+                <div className="flex items-start gap-3 sm:gap-6">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-black text-xl sm:text-2xl flex-shrink-0">1</div>
+                  <div className="flex-grow">
+                    <h3 className="text-base sm:text-xl font-bold text-white mb-1 sm:mb-2">Set Up Your Wallet (5 minutes)</h3>
+                    <p className="text-sm sm:text-base text-gray-400 mb-4">
+                      A wallet is like a digital bank account that only you control. Think of it as your personal vault for trading -
+                      no bank, no broker, just you. We recommend <strong className="text-orange-400">Rabby Wallet</strong> because it is free, secure, and beginner-friendly.
+                    </p>
+
+                    {/* What is a wallet explainer */}
+                    <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl p-3 sm:p-4 mb-4">
+                      <h4 className="text-orange-400 font-semibold mb-2 text-sm sm:text-base">What exactly is a crypto wallet?</h4>
+                      <p className="text-gray-300 text-xs sm:text-sm mb-3">
+                        A wallet stores your digital money (USDC) and lets you connect to trading platforms. Unlike a brokerage account,
+                        <strong className="text-white"> you have complete control</strong> - no one can freeze your funds or block your access.
+                      </p>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 text-xs">
+                        <div className="bg-gray-800/50 rounded-lg p-2 text-center">
+                          <div className="text-base sm:text-lg mb-1">&#128274;</div>
+                          <span className="text-gray-400">Only you have access</span>
+                        </div>
+                        <div className="bg-gray-800/50 rounded-lg p-2 text-center">
+                          <div className="text-base sm:text-lg mb-1">&#127381;</div>
+                          <span className="text-gray-400">Completely free</span>
+                        </div>
+                        <div className="bg-gray-800/50 rounded-lg p-2 text-center">
+                          <div className="text-base sm:text-lg mb-1">&#9889;</div>
+                          <span className="text-gray-400">Works instantly</span>
+                        </div>
+                        <div className="bg-gray-800/50 rounded-lg p-2 text-center">
+                          <div className="text-base sm:text-lg mb-1">&#127757;</div>
+                          <span className="text-gray-400">No country restrictions</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                      <div>
+                        <h4 className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Quick Setup Steps:</h4>
+                        <ol className="space-y-2 sm:space-y-3 text-gray-300 text-sm">
+                          <li className="flex gap-2 sm:gap-3">
+                            <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400 text-xs sm:text-sm font-bold flex-shrink-0">1</span>
+                            <span className="text-xs sm:text-sm">Go to <a href="https://rabby.io" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 underline">rabby.io</a> and download the browser extension</span>
+                          </li>
+                          <li className="flex gap-2 sm:gap-3">
+                            <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400 text-xs sm:text-sm font-bold flex-shrink-0">2</span>
+                            <span className="text-xs sm:text-sm">Click &quot;Create New Wallet&quot; and set a password</span>
+                          </li>
+                          <li className="flex gap-2 sm:gap-3">
+                            <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400 text-xs sm:text-sm font-bold flex-shrink-0">3</span>
+                            <span className="text-xs sm:text-sm">Write down your 12-word seed phrase on paper</span>
+                          </li>
+                          <li className="flex gap-2 sm:gap-3">
+                            <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-400 text-xs sm:text-sm font-bold flex-shrink-0">4</span>
+                            <div>
+                              <strong className="text-white text-xs sm:text-sm">Store seed phrase safely offline</strong>
+                              <p className="text-gray-500 text-[10px] sm:text-xs mt-1">This is your backup - never share it with anyone!</p>
+                            </div>
+                          </li>
+                        </ol>
+                      </div>
+                      <div className="bg-gray-800/50 rounded-xl p-3 sm:p-5">
+                        <h4 className="text-white font-semibold mb-2 sm:mb-3 text-sm sm:text-base">Watch: Wallet Setup (2 min)</h4>
+                        <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+                          <iframe
+                            src="https://www.youtube.com/embed/_ouAzSQJiM0"
+                            title="Wallet Setup Guide"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="absolute inset-0 w-full h-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 2: Get USDC */}
             <div className="bg-gray-900 border-2 border-orange-500/30 rounded-2xl p-4 sm:p-6">
-              <div className="flex items-center gap-3 sm:gap-6">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-black text-xl sm:text-2xl flex-shrink-0">
-                  1
-                </div>
-                <div>
-                  <h3 className="text-base sm:text-xl font-bold text-white mb-1">Get a Web3 Wallet</h3>
-                  <p className="text-sm sm:text-base text-gray-400">
-                    Download <a href="https://rabby.io" target="_blank" rel="noopener" className="text-orange-400 hover:text-orange-300 underline">Rabby</a> or <a href="https://metamask.io" target="_blank" rel="noopener" className="text-orange-400 hover:text-orange-300 underline">MetaMask</a> browser extension. Create a new wallet and securely store your seed phrase.
+              <div className="flex items-start gap-3 sm:gap-6">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-black text-xl sm:text-2xl flex-shrink-0">2</div>
+                <div className="flex-grow">
+                  <h3 className="text-base sm:text-xl font-bold text-white mb-1 sm:mb-2">Get USDC (5-10 minutes)</h3>
+                  <p className="text-sm sm:text-base text-gray-400 mb-4">
+                    USDC is a digital dollar - 1 USDC always equals $1. It is the currency you will use to trade on Trove Markets.
+                    You can buy it with your credit card, bank transfer, or even Apple Pay.
                   </p>
+
+                  <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-3 sm:p-4 mb-4">
+                    <h4 className="text-red-400 font-semibold mb-2 text-sm sm:text-base">Easiest ways to get USDC:</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                      <div className="bg-gray-800/50 rounded-lg p-3">
+                        <h5 className="text-white font-medium text-xs sm:text-sm mb-1">Coinbase</h5>
+                        <p className="text-gray-400 text-xs">Best for US/EU. Bank transfer or card. Beginner-friendly.</p>
+                      </div>
+                      <div className="bg-gray-800/50 rounded-lg p-3">
+                        <h5 className="text-white font-medium text-xs sm:text-sm mb-1">Binance</h5>
+                        <p className="text-gray-400 text-xs">Global coverage. P2P option for local currency. Low fees.</p>
+                      </div>
+                      <div className="bg-gray-800/50 rounded-lg p-3">
+                        <h5 className="text-white font-medium text-xs sm:text-sm mb-1">MoonPay/Transak</h5>
+                        <p className="text-gray-400 text-xs">Buy directly with card. No exchange account needed.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gray-800/50 rounded-lg p-3">
+                    <p className="text-xs sm:text-sm text-gray-300">
+                      <strong className="text-white">&#128161; Pro tip:</strong> Start with $50-100 to learn. You can always add more later.
+                      Make sure to withdraw your USDC to your Rabby wallet on the <strong className="text-orange-400">Arbitrum</strong> network.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Step 2 */}
-          <div className="mb-4 sm:mb-6">
-            <div className="bg-gray-900 border-2 border-red-500/30 rounded-2xl p-4 sm:p-6">
-              <div className="flex items-center gap-3 sm:gap-6">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-white font-black text-xl sm:text-2xl flex-shrink-0">
-                  2
-                </div>
-                <div>
-                  <h3 className="text-base sm:text-xl font-bold text-white mb-1">Get USDC</h3>
-                  <p className="text-sm sm:text-base text-gray-400">
-                    Buy USDC on an exchange like Coinbase or Binance, then send it to your wallet on Arbitrum network. USDC is the trading currency on Trove Markets.
+            {/* Step 3: Connect to Trove */}
+            <div className="bg-gray-900 border-2 border-orange-500/30 rounded-2xl p-4 sm:p-6">
+              <div className="flex items-start gap-3 sm:gap-6">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-black text-xl sm:text-2xl flex-shrink-0">3</div>
+                <div className="flex-grow">
+                  <h3 className="text-base sm:text-xl font-bold text-white mb-1 sm:mb-2">Connect to Trove Markets (1 minute)</h3>
+                  <p className="text-sm sm:text-base text-gray-400 mb-4">
+                    This is the easy part! Just visit Trove Markets and click &quot;Connect Wallet&quot;.
+                    Your Rabby wallet will pop up asking you to approve - click confirm and you are connected.
                   </p>
+
+                  <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-3 sm:p-4 mb-4">
+                    <h4 className="text-green-400 font-semibold mb-2 text-sm sm:text-base">No signup required - here is why that is great:</h4>
+                    <ul className="text-xs sm:text-sm text-gray-300 space-y-1">
+                      <li>&#10003; No email verification or waiting for approval</li>
+                      <li>&#10003; No identity documents or selfies</li>
+                      <li>&#10003; No withdrawal limits or restrictions</li>
+                      <li>&#10003; Start trading immediately after connecting</li>
+                    </ul>
+                  </div>
+
+                  <a
+                    href={TROVE_REFERRAL_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-3 bg-orange-500 text-white rounded-xl font-bold text-sm sm:text-base hover:bg-orange-400 transition-colors"
+                  >
+                    Open Trove Markets
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Step 3 */}
-          <div className="mb-4 sm:mb-6">
-            <div className="bg-gray-900 border-2 border-yellow-500/30 rounded-2xl p-4 sm:p-6">
-              <div className="flex items-center gap-3 sm:gap-6">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center text-gray-900 font-black text-xl sm:text-2xl flex-shrink-0">
-                  3
-                </div>
-                <div>
-                  <h3 className="text-base sm:text-xl font-bold text-white mb-1">Connect to Trove Markets</h3>
-                  <p className="text-sm sm:text-base text-gray-400">
-                    Go to <a href={TROVE_REFERRAL_URL} target="_blank" rel="noopener" className="text-yellow-400 hover:text-yellow-300 underline">Trove Markets</a> and click "Connect Wallet". Approve the connection and deposit your USDC.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Step 4 */}
-          <div className="mb-6 sm:mb-8">
+            {/* Step 4: Trade */}
             <div className="bg-gray-900 border-2 border-green-500/30 rounded-2xl p-4 sm:p-6">
-              <div className="flex items-center gap-3 sm:gap-6">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-gray-900 font-black text-xl sm:text-2xl flex-shrink-0">
-                  4
-                </div>
-                <div>
-                  <h3 className="text-base sm:text-xl font-bold text-white mb-1">Trade ZARD</h3>
-                  <p className="text-sm sm:text-base text-gray-400">
-                    Search for ZARD, set your position size and leverage (up to 5x), then go long or short. Monitor your position and set stop losses to manage risk.
+              <div className="flex items-start gap-3 sm:gap-6">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-gray-900 font-black text-xl sm:text-2xl flex-shrink-0">4</div>
+                <div className="flex-grow">
+                  <h3 className="text-base sm:text-xl font-bold text-white mb-1 sm:mb-2">Start Trading ZARD!</h3>
+                  <p className="text-sm sm:text-base text-gray-400 mb-4">
+                    You are ready! Deposit your USDC, find the ZARD market, and open your first position on Charizard cards.
+                    Start with 1-2x leverage while you learn - you can increase it as you get comfortable.
                   </p>
+
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4">
+                    <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-3 sm:p-4">
+                      <div className="text-green-400 font-bold text-base sm:text-lg mb-1">Go Long</div>
+                      <p className="text-xs sm:text-sm text-gray-400">Think Charizard cards will go up? Buy long and profit when prices rise.</p>
+                    </div>
+                    <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-3 sm:p-4">
+                      <div className="text-red-400 font-bold text-base sm:text-lg mb-1">Go Short</div>
+                      <p className="text-xs sm:text-sm text-gray-400">Think the market is overheated? Go short and profit when prices fall.</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-gray-800/50 rounded-lg p-3">
+                    <p className="text-xs sm:text-sm text-gray-300">
+                      <strong className="text-white">&#127919; Beginner tip:</strong> Start with a small position (like $20-50) to understand how it works.
+                      You can always scale up once you are comfortable with the platform.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="text-center">
-            <a
-              href={TROVE_REFERRAL_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-orange-500 via-red-500 to-orange-600 text-white rounded-xl font-bold text-base sm:text-lg hover:from-orange-400 hover:via-red-400 hover:to-orange-500 transition-all shadow-lg shadow-orange-500/25"
-            >
-              Open Trove Markets
-              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
           </div>
         </div>
       </section>

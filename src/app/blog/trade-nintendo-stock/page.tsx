@@ -235,66 +235,329 @@ export default function TradeNintendoStock() {
         </div>
       </section>
 
-      {/* How to Trade Section */}
+      {/* How to Trade Section - No Crypto Experience Needed */}
       <section className="py-16 px-4 bg-gray-900/30">
         <div className="max-w-4xl mx-auto">
+          {/* No Crypto Experience Needed Badge */}
+          <div className="flex justify-center mb-6">
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-500/20 border border-red-500/30 rounded-full text-red-400 text-sm font-semibold">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              No Crypto Experience Needed
+            </span>
+          </div>
+
           <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-4">
             How to Trade Nintendo on Trove
           </h2>
-          <p className="text-gray-400 text-center max-w-2xl mx-auto mb-12">
-            Get started in minutes. No brokerage account, no KYC, no waiting.
+          <p className="text-gray-400 text-center max-w-2xl mx-auto mb-8">
+            New to crypto? No problem. We will walk you through every step. Most people are set up and trading in under 10 minutes.
           </p>
 
-          <div className="space-y-6">
-            {/* Step 1 */}
-            <div className="flex gap-4 sm:gap-6">
-              <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-red-600 rounded-xl flex items-center justify-center text-white font-bold text-lg">
-                1
+          {/* Benefits Banner */}
+          <div className="bg-gradient-to-r from-red-900/30 via-red-800/20 to-red-900/30 border border-red-500/20 rounded-2xl p-6 mb-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <div className="text-sm font-medium text-white">No Account Applications</div>
+                <div className="text-xs text-gray-400 mt-1">Skip the paperwork</div>
               </div>
-              <div className="flex-1 bg-gray-900/50 border border-gray-800 rounded-xl p-4 sm:p-6">
-                <h3 className="text-lg font-semibold text-white mb-2">Get a Crypto Wallet</h3>
-                <p className="text-gray-400 text-sm sm:text-base">
-                  Download MetaMask, Rabby, or any EVM-compatible wallet. This is your self-custody account - you control your funds, not a broker.
-                </p>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="text-sm font-medium text-white">Works From Any Country</div>
+                <div className="text-xs text-gray-400 mt-1">Global access</div>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="text-sm font-medium text-white">Trade in Minutes</div>
+                <div className="text-xs text-gray-400 mt-1">Quick setup</div>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                </div>
+                <div className="text-sm font-medium text-white">You Control Your Funds</div>
+                <div className="text-xs text-gray-400 mt-1">Self-custody</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            {/* Step 1 - Wallet Setup with Video */}
+            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden">
+              <div className="p-6 sm:p-8">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="flex-shrink-0 w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                    1
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">Set Up Your Wallet (2 minutes)</h3>
+                    <p className="text-gray-400">
+                      A crypto wallet is like a digital bank account that only you control. No company can freeze it or lock you out. We recommend Rabby - it is free, secure, and beginner-friendly.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Video Embed */}
+                <div className="aspect-video rounded-xl overflow-hidden bg-gray-800 mb-6">
+                  <iframe
+                    src="https://www.youtube.com/embed/_ouAzSQJiM0"
+                    title="How to Set Up Rabby Wallet"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                </div>
+
+                {/* What is a Wallet Explainer */}
+                <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-5">
+                  <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
+                    <svg className="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    What is a Crypto Wallet?
+                  </h4>
+                  <p className="text-gray-400 text-sm mb-3">
+                    Think of it as your personal vault on the internet. Unlike a bank account:
+                  </p>
+                  <ul className="space-y-2 text-sm text-gray-400">
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span><strong className="text-white">You own it</strong> - No company can freeze or seize your funds</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span><strong className="text-white">No approval needed</strong> - Start using it instantly, no applications</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <svg className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span><strong className="text-white">Works everywhere</strong> - Access from any country, 24/7</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
 
-            {/* Step 2 */}
-            <div className="flex gap-4 sm:gap-6">
-              <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-red-600 rounded-xl flex items-center justify-center text-white font-bold text-lg">
-                2
-              </div>
-              <div className="flex-1 bg-gray-900/50 border border-gray-800 rounded-xl p-4 sm:p-6">
-                <h3 className="text-lg font-semibold text-white mb-2">Get USDC</h3>
-                <p className="text-gray-400 text-sm sm:text-base">
-                  Buy USDC on any exchange (Coinbase, Kraken, etc.) and transfer to your wallet. USDC is your trading collateral on Trove Markets.
-                </p>
+            {/* Step 2 - Get USDC */}
+            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden">
+              <div className="p-6 sm:p-8">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="flex-shrink-0 w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                    2
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">Get USDC (Your Trading Currency)</h3>
+                    <p className="text-gray-400">
+                      USDC is a digital dollar - 1 USDC always equals $1 USD. This is what you will use to trade on Trove. Choose the option that works best for you:
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-3 gap-4">
+                  {/* Coinbase Option */}
+                  <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-5 hover:border-red-500/50 transition-colors">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                        <span className="text-blue-400 font-bold text-sm">CB</span>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-white">Coinbase</div>
+                        <div className="text-xs text-gray-400">Best for US users</div>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-400">
+                      Buy USDC directly with bank transfer or debit card. Send to your Rabby wallet address on Arbitrum network.
+                    </p>
+                  </div>
+
+                  {/* Binance Option */}
+                  <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-5 hover:border-red-500/50 transition-colors">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 bg-yellow-500/20 rounded-lg flex items-center justify-center">
+                        <span className="text-yellow-400 font-bold text-sm">BN</span>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-white">Binance</div>
+                        <div className="text-xs text-gray-400">Global availability</div>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-400">
+                      Largest crypto exchange worldwide. Buy USDC and withdraw to your wallet on Arbitrum.
+                    </p>
+                  </div>
+
+                  {/* MoonPay Option */}
+                  <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-5 hover:border-red-500/50 transition-colors">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                        <span className="text-purple-400 font-bold text-sm">MP</span>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-white">MoonPay</div>
+                        <div className="text-xs text-gray-400">Credit card friendly</div>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-400">
+                      Buy USDC instantly with credit/debit card. Supports Apple Pay and Google Pay.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-4 p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
+                  <p className="text-sm text-gray-300">
+                    <strong className="text-red-400">Pro tip:</strong> When sending USDC, make sure to select the <strong>Arbitrum</strong> network. This ensures fast, low-cost transfers to Trove Markets.
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* Step 3 */}
-            <div className="flex gap-4 sm:gap-6">
-              <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-red-600 rounded-xl flex items-center justify-center text-white font-bold text-lg">
-                3
-              </div>
-              <div className="flex-1 bg-gray-900/50 border border-gray-800 rounded-xl p-4 sm:p-6">
-                <h3 className="text-lg font-semibold text-white mb-2">Connect to Trove Markets</h3>
-                <p className="text-gray-400 text-sm sm:text-base">
-                  Go to Trove Markets, connect your wallet, and deposit USDC. Built on Hyperliquid (HIP-3), Trove offers on-chain transparency and real-time liquidity.
-                </p>
+            {/* Step 3 - Connect to Trove */}
+            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden">
+              <div className="p-6 sm:p-8">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="flex-shrink-0 w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                    3
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">Connect to Trove Markets</h3>
+                    <p className="text-gray-400">
+                      Visit Trove Markets and click "Connect Wallet". Select Rabby (or your wallet) and approve the connection. That is it - no signup forms, no email verification, no waiting.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4 mb-6">
+                  <div className="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl">
+                    <svg className="w-6 h-6 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-300">No account creation required</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl">
+                    <svg className="w-6 h-6 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-300">No identity verification (KYC)</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl">
+                    <svg className="w-6 h-6 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-300">No waiting period - trade immediately</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-4 bg-gray-800/50 rounded-xl">
+                    <svg className="w-6 h-6 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-300">Your funds stay in your wallet</span>
+                  </div>
+                </div>
+
+                <a
+                  href={TROVE_REFERRAL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-red-500/20 border border-red-500/40 hover:bg-red-500/30 rounded-xl text-red-400 font-medium transition-colors"
+                >
+                  Open Trove Markets
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
               </div>
             </div>
 
-            {/* Step 4 */}
-            <div className="flex gap-4 sm:gap-6">
-              <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-red-600 rounded-xl flex items-center justify-center text-white font-bold text-lg">
-                4
-              </div>
-              <div className="flex-1 bg-gray-900/50 border border-gray-800 rounded-xl p-4 sm:p-6">
-                <h3 className="text-lg font-semibold text-white mb-2">Trade Nintendo (NTDOY)</h3>
-                <p className="text-gray-400 text-sm sm:text-base">
-                  Select Nintendo from the markets, choose your leverage (up to 5x), and open a long or short position. Set stop-losses to manage risk.
-                </p>
+            {/* Step 4 - Trade Nintendo */}
+            <div className="bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden">
+              <div className="p-6 sm:p-8">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="flex-shrink-0 w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                    4
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">Trade Nintendo Stock</h3>
+                    <p className="text-gray-400">
+                      Find Nintendo (NTDOY) in the markets list. Now you can trade in either direction based on your market outlook:
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4 mb-6">
+                  {/* Long Position */}
+                  <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-5">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                        <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-green-400">Go Long</div>
+                        <div className="text-xs text-gray-400">Bullish on Nintendo</div>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-400">
+                      Profit when Nintendo stock price goes <strong className="text-green-400">up</strong>. Great for new game releases, console announcements, or positive earnings expectations.
+                    </p>
+                  </div>
+
+                  {/* Short Position */}
+                  <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-5">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center">
+                        <svg className="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0v-8m0 8l-8-8-4 4-6-6" />
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-red-400">Go Short</div>
+                        <div className="text-xs text-gray-400">Bearish on Nintendo</div>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-400">
+                      Profit when Nintendo stock price goes <strong className="text-red-400">down</strong>. Useful for hedging or if you expect disappointing sales or market downturns.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-gray-800/50 border border-gray-700 rounded-xl p-5">
+                  <h4 className="text-white font-semibold mb-3">Quick Trading Tips</h4>
+                  <ul className="space-y-2 text-sm text-gray-400">
+                    <li className="flex items-start gap-2">
+                      <span className="text-red-400 font-bold">1.</span>
+                      <span><strong className="text-white">Start small</strong> - Begin with 2x or 3x leverage until you understand how Nintendo moves</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-red-400 font-bold">2.</span>
+                      <span><strong className="text-white">Use stop-losses</strong> - Always set a stop-loss to limit potential downside</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-red-400 font-bold">3.</span>
+                      <span><strong className="text-white">Watch catalysts</strong> - Nintendo Directs, earnings, and game releases create volatility</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -306,7 +569,7 @@ export default function TradeNintendoStock() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-red-600 hover:bg-red-500 rounded-xl text-white font-semibold text-lg shadow-lg shadow-red-600/30 transition-all hover:shadow-red-500/40"
             >
-              Start Trading on Trove
+              Start Trading Nintendo on Trove
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
