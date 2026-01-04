@@ -151,21 +151,21 @@ export default function Home() {
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#live-rates"
+              href="#what-are-perps"
               className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 overflow-hidden rounded-xl font-bold text-lg transition-all"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-emerald-500" />
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span className="relative text-gray-900">See Today&apos;s Best Rates</span>
+              <span className="relative text-gray-900">Learn More</span>
               <svg className="relative w-5 h-5 text-gray-900 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </a>
             <Link
-              href="/blog/what-are-equity-perpetuals"
+              href="/stocks"
               className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-xl font-semibold text-lg hover:bg-white/10 hover:border-white/20 transition-all"
             >
-              Learn How It Works
+              View the Stock Hub
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -194,7 +194,7 @@ export default function Home() {
       `}</style>
 
       {/* What Are Equity Perps Section */}
-      <section className="py-16 px-4 bg-gray-900/50">
+      <section id="what-are-perps" className="py-16 px-4 bg-gray-900/50">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 text-center">
             What Are Equity Perpetuals?
