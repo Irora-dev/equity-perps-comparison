@@ -99,7 +99,7 @@ const faqs = [
   },
   {
     question: 'What leverage is available for watch perpetuals?',
-    answer: 'Trove offers up to 5x leverage on the Watch Index. This is lower than traditional crypto or equity perps due to the unique volatility characteristics of the luxury goods market.',
+    answer: 'Trove offers up to 5x leverage on the Watch Index. This is lower than traditional equity perps due to the unique volatility characteristics of the luxury goods market.',
   },
   {
     question: 'Can I short the watch market?',
@@ -281,13 +281,13 @@ export default function TradeLuxuryWatches() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              No Crypto Experience Needed
+              Simple 4-Step Setup
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
               Getting Started with Watch Trading
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              New to crypto? No problem. Follow these simple steps and you will be trading the luxury watch market in minutes. We will walk you through everything.
+              Skip the brokerage applications and identity verification. Just set up a wallet, fund it, and start trading watch prices immediately.
             </p>
           </div>
 
@@ -367,10 +367,10 @@ export default function TradeLuxuryWatches() {
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        What is a Wallet?
+                        Why use a wallet instead of a brokerage?
                       </h4>
                       <p className="text-slate-300 text-sm">
-                        A crypto wallet is like a digital bank account that only you control. Unlike traditional brokers, your funds stay in your wallet - not on an exchange. This means no withdrawal limits, no account freezes, and no waiting for approvals.
+                        A wallet lets you trade directly without middlemen. Your funds stay under your control at all times - no withdrawal limits, no account freezes, and no waiting for approvals. Connect to any platform instantly from anywhere in the world.
                       </p>
                     </div>
                     <div className="bg-slate-700/30 rounded-xl p-4">
@@ -480,7 +480,7 @@ export default function TradeLuxuryWatches() {
                       <span className="text-slate-400 text-xs">Buy with card</span>
                     </div>
                   </div>
-                  <p className="text-slate-300 text-sm mb-3">Buy crypto directly with credit/debit card. Instant delivery to your wallet.</p>
+                  <p className="text-slate-300 text-sm mb-3">Buy USDC directly with credit/debit card. Instant delivery to your wallet.</p>
                   <a href="https://www.moonpay.com" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300 text-sm font-medium">
                     Visit MoonPay
                   </a>

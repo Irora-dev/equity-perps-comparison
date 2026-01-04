@@ -236,14 +236,13 @@ export default function TradePokemonCards() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
             <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-amber-500/10 border border-amber-500/30 rounded-full mb-3 sm:mb-4">
-              <span className="text-amber-400 font-medium text-sm sm:text-base">No Crypto Experience Needed</span>
+              <span className="text-amber-400 font-medium text-sm sm:text-base">Simple 4-Step Setup</span>
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
               Get Started in 15 Minutes
             </h2>
             <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto">
-              Never used crypto before? No problem. We will walk you through everything step-by-step.
-              You do not need any prior experience with wallets, exchanges, or blockchain technology.
+              Skip the brokerage applications and identity verification. Just set up a wallet, fund it, and start trading Pokemon cards immediately.
             </p>
           </div>
 
@@ -287,9 +286,9 @@ export default function TradePokemonCards() {
 
                     {/* What is a wallet explainer */}
                     <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-3 sm:p-4 mb-4">
-                      <h4 className="text-yellow-400 font-semibold mb-2 text-sm sm:text-base">What exactly is a crypto wallet?</h4>
+                      <h4 className="text-yellow-400 font-semibold mb-2 text-sm sm:text-base">Why use a wallet instead of a brokerage?</h4>
                       <p className="text-gray-300 text-xs sm:text-sm mb-3">
-                        A wallet stores your digital money (USDC) and lets you connect to trading platforms. Unlike a brokerage account,
+                        A wallet lets you trade directly without middlemen. Unlike a brokerage account,
                         <strong className="text-white"> you have complete control</strong> - no one can freeze your funds or block your access.
                       </p>
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 text-xs">

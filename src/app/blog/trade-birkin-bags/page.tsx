@@ -289,13 +289,13 @@ export default function TradeBirkinBags() {
               <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span className="text-amber-400 font-semibold text-sm sm:text-base">No Crypto Experience Needed</span>
+              <span className="text-amber-400 font-semibold text-sm sm:text-base">Simple 4-Step Setup</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
               How to Trade Birkin Perpetuals
             </h2>
             <p className="text-sm sm:text-base text-gray-400 max-w-2xl mx-auto">
-              New to crypto? No problem. We will walk you through everything step by step. Most people complete setup in under 10 minutes.
+              Skip the brokerage applications and identity verification. Just set up a wallet, fund it, and start trading Birkin bag prices immediately.
             </p>
           </div>
 
@@ -370,10 +370,10 @@ export default function TradeBirkinBags() {
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                What is a Crypto Wallet?
+                Why use a wallet instead of a brokerage?
               </h4>
               <p className="text-gray-300 text-sm sm:text-base mb-4">
-                Think of a crypto wallet like a digital bank account that <strong className="text-white">you fully control</strong>. Unlike traditional brokers, no company holds your funds - you have direct ownership through your wallet.
+                A wallet lets you trade directly without middlemen. <strong className="text-white">You maintain full control of your funds</strong> - no company holds your money, no account freezes, no withdrawal delays. Connect and trade instantly from anywhere in the world.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="flex items-start gap-2">

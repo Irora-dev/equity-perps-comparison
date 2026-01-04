@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: "Do I need a Japanese brokerage account?",
-    answer: "No. Trove Markets allows you to trade Nintendo perpetuals with just a crypto wallet. No Japanese brokerage account, no international wire transfers, no KYC verification required."
+    answer: "No. Trove Markets allows you to trade Nintendo perpetuals with just a wallet - no Japanese brokerage account, no international wire transfers, no KYC verification required. Set up in minutes and start trading immediately."
   },
   {
     question: "What is Trove Markets?",
@@ -235,16 +235,16 @@ export default function TradeNintendoStock() {
         </div>
       </section>
 
-      {/* How to Trade Section - No Crypto Experience Needed */}
+      {/* How to Trade Section - Simple 4-Step Setup */}
       <section className="py-16 px-4 bg-gray-900/30">
         <div className="max-w-4xl mx-auto">
-          {/* No Crypto Experience Needed Badge */}
+          {/* Simple 4-Step Setup Badge */}
           <div className="flex justify-center mb-6">
             <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-500/20 border border-red-500/30 rounded-full text-red-400 text-sm font-semibold">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              No Crypto Experience Needed
+              Simple 4-Step Setup
             </span>
           </div>
 
@@ -252,7 +252,7 @@ export default function TradeNintendoStock() {
             How to Trade Nintendo on Trove
           </h2>
           <p className="text-gray-400 text-center max-w-2xl mx-auto mb-8">
-            New to crypto? No problem. We will walk you through every step. Most people are set up and trading in under 10 minutes.
+            Skip the brokerage applications and identity verification. Just set up a wallet, fund it, and start trading Nintendo stock immediately.
           </p>
 
           {/* Benefits Banner */}
@@ -308,7 +308,7 @@ export default function TradeNintendoStock() {
                   <div>
                     <h3 className="text-xl font-bold text-white mb-2">Set Up Your Wallet (2 minutes)</h3>
                     <p className="text-gray-400">
-                      A crypto wallet is like a digital bank account that only you control. No company can freeze it or lock you out. We recommend Rabby - it is free, secure, and beginner-friendly.
+                      A wallet gives you direct control of your funds - no account applications, no waiting for approval, and no company can freeze or restrict your access. We recommend Rabby - it is free, secure, and beginner-friendly.
                     </p>
                   </div>
                 </div>
@@ -330,10 +330,10 @@ export default function TradeNintendoStock() {
                     <svg className="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    What is a Crypto Wallet?
+                    Why use a wallet instead of a brokerage?
                   </h4>
                   <p className="text-gray-400 text-sm mb-3">
-                    Think of it as your personal vault on the internet. Unlike a bank account:
+                    A wallet lets you trade directly without middlemen. Unlike a traditional brokerage:
                   </p>
                   <ul className="space-y-2 text-sm text-gray-400">
                     <li className="flex items-start gap-2">
@@ -403,7 +403,7 @@ export default function TradeNintendoStock() {
                       </div>
                     </div>
                     <p className="text-sm text-gray-400">
-                      Largest crypto exchange worldwide. Buy USDC and withdraw to your wallet on Arbitrum.
+                      Largest global exchange. Buy USDC and withdraw to your wallet on Arbitrum.
                     </p>
                   </div>
 
