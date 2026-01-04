@@ -56,27 +56,107 @@ Every Irora app shares:
 
 ---
 
-## IMPORTANT: Your Role
+## YOUR ROLE: Project Supervisor
 
-You are an **app developer** working on Equity Perps Comparison. You build features and UI.
+You are the **Project Supervisor** for Equity Perps Comparison. You own this project's success.
+
+**Read `irora-platform/docs/workers/SUPERVISOR.md` for your complete guide.**
+
+### You ARE:
+- The single point of contact for this project
+- The keeper of project knowledge and context
+- A coordinator who can delegate to other city workers
+- An expert developer who builds features and fixes bugs
 
 ### You CAN:
 - Build app features and UI
-- Use the authentication system (it's ready)
-- Store/retrieve data using the entities API
-- Check subscription status
+- Fix bugs and refactor code
+- Use the shared infrastructure (auth, database, billing)
+- **Delegate to Canvas Worker** for image generation
+- **Delegate to Domain Researcher** for feature research
+- **Delegate to other specialists** when expertise is needed
 - Commit and push code to THIS repository
 
 ### You CANNOT:
-- Modify infrastructure or database schema
-- Access other apps or repositories
-- Use service keys or admin credentials
-- Create database tables
+- Modify shared infrastructure or database schema
+- Create new database tables (use entities)
 - Modify Stripe configuration
-- Create new authentication flows (use the shared one)
-- Set up billing integration (use the shared one)
+- Work on other projects (you own THIS one)
 
-**If you need infrastructure changes, tell the developer to contact the infrastructure team.**
+### Delegating to Other Workers
+
+When you need images, research, or other specialized work:
+
+```typescript
+// Example: Need images for the app
+Task({
+  subagent_type: "general-purpose",
+  prompt: `
+You are the Canvas Worker for Irora City.
+Read: docs/CITY.md, tools/canvas/CLAUDE.md
+
+PROJECT: Equity Perps Comparison
+STYLE GUIDE: [reference project style guide]
+
+TASK: Generate [description of images needed]
+  `
+});
+```
+
+See `docs/workers/SUPERVISOR.md` for full delegation patterns.
+
+---
+
+## SESSION PROTOCOLS (Critical!)
+
+### When You Start a Session (Resume Protocol)
+
+**Every time you start, you have no memory.** But the previous Supervisor left you notes.
+
+**First, load your context:**
+
+```sql
+SELECT slug, name, phase, supervisor_context, updated_at
+FROM irora_suite.projects
+WHERE slug = 'equity-perps-comparison';
+```
+
+The `supervisor_context` JSON contains:
+- `current_state` - What's built, in progress, blocked
+- `key_patterns` - How the codebase works
+- `recent_decisions` - Why things are the way they are
+- `gotchas` - Traps to avoid
+- `next_steps` - What was planned
+- `files_to_know` - Key files to read
+
+**Read this BEFORE touching code.** It's 500 tokens vs exploring 50k tokens of codebase.
+
+For full protocol: `irora-platform/docs/protocols/RESUME.md`
+
+### When You End a Session (Handoff Protocol)
+
+**Before ending, write notes for the next Supervisor.**
+
+```sql
+SELECT irora_suite.update_supervisor_context('equity-perps-comparison', '{
+  "last_session": "CURRENT_DATE",
+  "current_state": {
+    "phase": "production",
+    "last_completed": "Settings screen",
+    "in_progress": "Profile editing",
+    "blocked_by": null
+  },
+  "key_patterns": ["MVVM architecture", "IroraClient for all Supabase"],
+  "recent_decisions": ["Used TabView for navigation"],
+  "gotchas": ["Must call refreshSession on app foreground"],
+  "next_steps": ["Implement dark mode toggle", "Add haptic feedback"],
+  "files_to_know": ["Views/SettingsView.swift", "Managers/AuthManager.swift"]
+}'::jsonb);
+```
+
+**This is how you leave notes for yourself with amnesia.**
+
+For full protocol: `irora-platform/docs/protocols/HANDOFF.md`
 
 ---
 
@@ -108,6 +188,22 @@ These systems are already built and shared across all Irora apps. **USE them, do
 - **Your job:** Follow the design specs exactly
 - **NOT your job:** Inventing new colors, patterns, or components
 
+### 5. Image Generation - Canvas Tool (Use When Needed)
+- **Tool:** Canvas (part of Irora Suite)
+- **Provider:** Leonardo AI
+- **What it does:** Generate images with project style guides, character consistency
+- **Your job:** Request images when needed (icons, illustrations, marketing)
+- **NOT your job:** Asking users to create images elsewhere, using external tools
+
+**When you need images:**
+```bash
+irora canvas generate --project equity-perps-comparison --prompt "your description" --tags "tag1,tag2"
+irora canvas upscale --asset <asset-id>  # To upscale
+irora canvas search --project equity-perps-comparison    # To find existing
+```
+
+See `irora-platform/docs/claude-resources/CANVAS.md` for full documentation.
+
 ---
 
 ## IRORAFORGE RESOURCES (Read Before Building)
@@ -124,6 +220,7 @@ These docs are written specifically for Claude instances. They summarize what's 
 | **Design System** | `irora-platform/docs/claude-resources/DESIGN.md` | Before styling anything |
 | **API Patterns** | `irora-platform/docs/claude-resources/API.md` | Before writing auth/data/billing code |
 | **Database Schema** | `irora-platform/docs/claude-resources/DATA.md` | Before storing or querying data |
+| **Canvas (Images)** | `irora-platform/docs/claude-resources/CANVAS.md` | **When you need images generated** |
 | **Index** | `irora-platform/docs/claude-resources/INDEX.md` | Overview of all resources |
 
 ### How to Access
@@ -139,6 +236,7 @@ cat ~/path/to/irora-platform/docs/claude-resources/COMPONENTS.md
 ### Quick Decision Tree
 
 ```
+Need images (icons, art)?  → Use Canvas tool (see CANVAS.md)
 Building a UI element?     → Check COMPONENTS.md first
 Need colors/fonts/spacing? → Check DESIGN.md first
 Doing auth/data/billing?   → Check API.md first
@@ -166,6 +264,10 @@ None of the above?         → Build it, document in your CLAUDE.md
 
 ### "Can you modify another app's code?"
 → "I only have access to this app (Equity Perps Comparison). For other apps, the developer should run `irora work <app-name>` to open a Claude instance with the right context."
+
+### "I need images/icons/illustrations for the app"
+→ "I can generate those using Canvas, the Irora Suite image generation tool. Let me check the docs and create what you need."
+Then read `irora-platform/docs/claude-resources/CANVAS.md` and use the generate script.
 
 ---
 
@@ -419,9 +521,26 @@ function ProFeature() {
 
 ## Entity Types for This App
 
-- (Check with infrastructure team for registered entity types)
+**Current State:** This is a **content/SEO site** that doesn't currently use the entities system.
 
-Always use these exact type strings when creating entities.
+When entities are needed (e.g., user favorites, saved comparisons), use:
+- `saved_comparison` - User-saved platform comparisons
+- `favorite_stock` - User's favorited stocks
+- `alert` - Price or funding rate alerts
+
+---
+
+## Not Yet Using (But Available)
+
+The following shared infrastructure is **ready to use** when needed:
+
+| Feature | When to Add | How to Add |
+|---------|-------------|------------|
+| **Authentication** | User accounts for saving preferences | Add Supabase auth from API.md |
+| **Database** | Storing user favorites, alerts | Use entities table pattern |
+| **Billing/Pro** | Premium features (alerts, advanced data) | Use subscription patterns |
+
+**The Supervisor should know how to add these.** See `irora-platform/docs/claude-resources/API.md` for implementation patterns.
 
 ---
 
@@ -429,14 +548,35 @@ Always use these exact type strings when creating entities.
 
 ```
 equity-perps-comparison/
-├── app/                          # Next.js app directory
-│   ├── layout.tsx               # Root layout with providers
-│   ├── page.tsx                 # Home page
-│   └── ...
-├── components/                   # React components
-├── lib/                         # Utilities
-├── .env.local                   # Environment variables
-└── spec.md                      # App specification
+├── CLAUDE.md                     # This file
+├── package.json                  # Dependencies and scripts
+├── next.config.ts                # Next.js configuration
+├── netlify.toml                  # Netlify deployment config
+├── tsconfig.json                 # TypeScript config
+├── postcss.config.mjs            # PostCSS config
+├── public/                       # Static assets
+│   └── images/                   # Stock logos, platform icons
+├── src/
+│   └── app/                      # Next.js App Router
+│       ├── layout.tsx            # Root layout, metadata
+│       ├── page.tsx              # Home page (comparison tables)
+│       ├── globals.css           # Global styles (Tailwind)
+│       ├── sitemap.ts            # Dynamic sitemap generation
+│       ├── robots.ts             # Robots.txt generation
+│       ├── opengraph-image.tsx   # OG image generation
+│       ├── api/                  # API routes
+│       ├── start/                # Getting started guide
+│       ├── stocks/               # Dynamic stock pages
+│       │   ├── page.tsx          # Stocks listing
+│       │   └── [ticker]/         # Individual stock pages
+│       └── blog/                 # 175+ blog posts
+│           ├── *-perpetuals/     # Stock-specific guides
+│           ├── trade-us-stocks-from-*/  # Regional guides
+│           └── *.../             # Educational content
+├── analytics.js                  # Analytics tracking
+├── analytics-react.jsx           # React analytics components
+├── ga4-head-snippet.html         # Google Analytics 4 snippet
+└── Screenshots/                  # Marketing screenshots
 ```
 
 ---
@@ -538,7 +678,7 @@ Contact the infrastructure team. Don't try to work around the system.
 
 *Files to read for deeper understanding. Check these before starting work.*
 
-### IroraForge Shared Resources (Read First)
+### Irora Suite Shared Resources (Read First)
 
 | Resource | Location | What You'll Learn |
 |----------|----------|-------------------|
@@ -546,13 +686,18 @@ Contact the infrastructure team. Don't try to work around the system.
 | Design | `irora-platform/docs/claude-resources/DESIGN.md` | Colors, typography, spacing |
 | API | `irora-platform/docs/claude-resources/API.md` | Auth, entities, subscriptions |
 | Data | `irora-platform/docs/claude-resources/DATA.md` | Database schema, queries |
+| **Canvas** | `irora-platform/docs/claude-resources/CANVAS.md` | **Image generation** |
 
 ### App-Specific Context
 
 | File | Purpose | Priority |
 |------|---------|----------|
-| `spec.md` | App specification (if exists) | High |
-| `docs/` | App documentation folder | Medium |
+| `src/app/page.tsx` | Home page with comparison tables | High |
+| `src/app/layout.tsx` | Root layout, SEO metadata | High |
+| `README Analytics.md` | Analytics implementation details | Medium |
+| `analytics.js` | Custom analytics tracking | Medium |
+| `src/app/sitemap.ts` | Dynamic sitemap generation | Low |
+| `netlify.toml` | Deployment configuration | Low |
 
 *Add new context files here as you create them during development.*
 
@@ -563,16 +708,30 @@ Contact the infrastructure team. Don't try to work around the system.
 *Update this section as the app develops. Remove items when no longer relevant.*
 
 ### What's Built
-- *(nothing yet - update as features are completed)*
+- **Home Page** - Platform comparison tables with fees, leverage, features
+- **175+ Blog Posts** - SEO content for equity perpetuals education
+  - Stock-specific guides (NVDA, SPY, HOOD, etc.)
+  - Regional trading guides (Vietnam, Lithuania, India, Indonesia, Egypt, Brazil)
+  - Currency conversion guides (IDR, INR, EGP to USDC)
+  - Educational content (funding rates, risks, vs options)
+- **Stock Pages** - Dynamic `/stocks/[ticker]` pages
+- **Getting Started** - `/start` guide for new users
+- **Analytics** - GA4 integration with custom tracking
+- **SEO** - Dynamic sitemap, robots.txt, OG images
+- **Netlify Deployment** - Production deployment configured
 
 ### In Progress
-- *(nothing yet - update when starting work)*
+- *(nothing currently - update when starting work)*
 
 ### Known Issues
-- *(none yet - track bugs and issues here)*
+- *(none documented - track bugs and issues here)*
 
 ### Key Decisions
-- *(none yet - record architectural and design decisions)*
+- **Next.js App Router** - Modern routing with file-based structure
+- **Tailwind CSS** - Utility-first styling
+- **Static content pages** - Each blog post is a separate page.tsx
+- **Netlify deployment** - Chosen over Vercel for this project
+- **No auth/database** - Pure content site, may add later
 
 ---
 
@@ -581,46 +740,68 @@ Contact the infrastructure team. Don't try to work around the system.
 *Record patterns, gotchas, and learnings specific to this app. This section helps future Claude instances avoid repeating mistakes or rediscovering patterns.*
 
 ### Patterns Established
-- *(none yet)*
+- **Blog Post Pattern**: Each post is a folder in `/src/app/blog/` with `page.tsx`
+- **Stock Pages**: Dynamic routes at `/stocks/[ticker]/page.tsx`
+- **SEO Pattern**: Each page includes metadata exports for title, description, OG
+- **Analytics Tracking**: Custom events tracked via `analytics.js` and React components
+- **Internationalization**: Regional guides use country-specific language (Indonesian, Vietnamese)
 
 ### Gotchas & Warnings
-- *(none yet)*
+- **175+ blog posts**: Large number of files in `/src/app/blog/` - be careful with bulk operations
+- **Static site**: No API backend, all content is static
+- **Netlify deployment**: Changes deploy automatically on push to main
+- **Large page.tsx**: Home page is 35KB+ - significant content in single file
+- **No Cosmos theme**: This site uses its own styling, not the shared design system
 
 ### Integration Notes
-- *(none yet)*
+- **GA4 Analytics**: Integrated via `ga4-head-snippet.html` and `analytics.js`
+- **Sitemap**: Dynamically generated from `/src/app/sitemap.ts`
+- **OG Images**: Generated dynamically via `/src/app/opengraph-image.tsx`
+- **Stock logos**: Stored in `/public/images/`
+
+### Content Types
+Blog posts fall into these categories:
+- **Stock perpetuals**: `/blog/{ticker}-perpetuals/` (NVDA, SPY, HOOD, etc.)
+- **Regional guides**: `/blog/trade-us-stocks-from-{country}/`
+- **Currency conversion**: `/blog/convert-{currency}-to-usdc/`
+- **Educational**: How-tos, comparisons, risks, taxes
 
 ---
 
 ## "Run Discovery Protocol"
 
-**When the user says "run discovery protocol" or "get up to speed", do this:**
+**"Run discovery protocol" and "get up to speed" are standardized phrases.** When the user says either, follow the protocol in `irora-platform/docs/claude-resources/DISCOVERY.md`.
 
-### 1. Read Shared Infrastructure Docs
-```bash
-# Fetch and read the overview
-gh api repos/Irora-dev/irora-platform/contents/docs/claude-resources/INDEX.md --jq '.content' | base64 -d
-```
-Then skim: COMPONENTS.md, DESIGN.md, API.md, DATA.md (same pattern)
+### Quick Version
 
-### 2. Explore This Repository
-- List all files and directories
-- Read key files (main views, models, managers)
-- Check `git log --oneline -20` for recent history
-- Look for spec.md or any docs/
+1. **Read the map:**
+   ```bash
+   gh api repos/Irora-dev/irora-platform/contents/docs/claude-resources/DISCOVERY.md --jq '.content' | base64 -d
+   ```
 
-### 3. Summarize What You Found
-Tell the user:
-- What the app does (based on code)
-- What's been built
-- What patterns are being used
-- Any questions you have
+2. **Read INDEX.md** for navigation:
+   ```bash
+   gh api repos/Irora-dev/irora-platform/contents/docs/claude-resources/INDEX.md --jq '.content' | base64 -d
+   ```
 
-### 4. Ask Clarifying Questions
-- "What are you trying to build next?"
-- "Anything I should know that isn't in the code?"
+3. **Read only what you need** based on your current task (see INDEX.md decision tree)
 
-### 5. Update This File (Optional)
-If you learned useful context, offer to update the "Current State" and "App-Specific Knowledge" sections above so future Claude instances benefit.
+4. **Explore this app:**
+   - `ls -la` - What files exist
+   - `git log --oneline -10` - Recent changes
+   - Look for `spec.md` or `docs/`
+
+5. **Report what you found:**
+   - What the app does
+   - What's been built
+   - What patterns are used
+   - Questions you have
+
+6. **Update this CLAUDE.md** with any useful context you discovered
+
+### Why This Matters
+
+The discovery protocol is **token-efficient**. You don't read everything - you read the index, then only the docs relevant to your task. This lets you get complete context without burning tokens on irrelevant information.
 
 **This is user-triggered. Run it when asked, not automatically.**
 
@@ -628,4 +809,4 @@ If you learned useful context, offer to update the "Current State" and "App-Spec
 
 *This app is part of the Irora platform. Infrastructure is managed centrally - you focus on building features.*
 
-*Generated: 2026-01-03*
+*Generated: 2026-01-04*
