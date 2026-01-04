@@ -194,17 +194,17 @@ export default function Home() {
       `}</style>
 
       {/* What Are Equity Perps Section */}
-      <section id="what-are-perps" className="py-16 px-4 bg-gray-900/50">
+      <section id="what-are-perps" className="py-12 sm:py-16 px-4 bg-gray-900/50">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 text-center">
             What Are Equity Perpetuals?
           </h2>
-          <p className="text-gray-400 text-center mb-12 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base text-gray-400 text-center mb-8 sm:mb-12 max-w-3xl mx-auto">
             Equity perpetuals (perps) are derivative contracts that track stock prices without an expiry date.
             Trade NVDA, TSLA, AAPL and 50+ other US stocks 24/7 with leverage up to 200x.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
             {/* Key Feature 1 */}
             <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 text-center">
               <div className="w-14 h-14 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-4">
@@ -260,13 +260,13 @@ export default function Home() {
       </section>
 
       {/* Why Traders Are Switching */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-6 sm:mb-10 text-center">
             Why Traders Are Switching to Equity Perps
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
             {/* Traditional Trading Problems */}
             <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-6">
@@ -329,16 +329,16 @@ export default function Home() {
       </section>
 
       {/* How to Get Started */}
-      <section className="py-16 px-4 bg-gray-900/50">
+      <section className="py-12 sm:py-16 px-4 bg-gray-900/50">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 text-center">
             Start Trading in 10 Minutes
           </h2>
-          <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-gray-400 text-center mb-8 sm:mb-12 max-w-2xl mx-auto">
             No brokerage application. No waiting for approval. Just three simple steps.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {/* Step 1 */}
             <div className="relative">
               <div className="bg-gray-900/50 border border-gray-800 rounded-2xl p-6 h-full">
@@ -418,12 +418,12 @@ export default function Home() {
       <LiveStockRates />
 
       {/* Platform Comparison */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 text-center">
             Compare Platforms
           </h2>
-          <p className="text-gray-400 text-center mb-8">
+          <p className="text-sm sm:text-base text-gray-400 text-center mb-6 sm:mb-8">
             Find the right platform for your trading style
           </p>
 
@@ -440,7 +440,7 @@ export default function Home() {
           <ComparisonTable filteredPlatforms={searchResults} />
 
           {/* Quick Platform CTAs */}
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="mt-6 sm:mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
             {[
               { id: 'hyperliquid', label: 'Largest Volume', sublabel: '#1 Platform' },
               { id: 'lighter', label: 'Zero Fees', sublabel: 'ZK-Powered' },
@@ -476,15 +476,15 @@ export default function Home() {
       </section>
 
       {/* Platform Screenshots */}
-      <section className="py-16 px-4 bg-gray-900/30">
+      <section className="py-12 sm:py-16 px-4 bg-gray-900/30">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-white mb-2 text-center">
+          <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 text-center">
             See the Platforms
           </h2>
-          <p className="text-gray-400 text-center mb-10">
+          <p className="text-sm sm:text-base text-gray-400 text-center mb-6 sm:mb-10">
             Clean interfaces designed for fast execution
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {[
               { id: 'hyperliquid', img: '/images/platforms/hyperliquid.jpg', desc: 'The largest on-chain perpetuals exchange' },
               { id: 'lighter', img: '/images/platforms/lighter.jpg', desc: 'ZK-powered with zero fees for retail' },
@@ -539,10 +539,10 @@ export default function Home() {
       </section>
 
       {/* Trust/Backing Section */}
-      <section className="py-12 px-4">
+      <section className="py-8 sm:py-12 px-4">
         <div className="max-w-4xl mx-auto">
-          <p className="text-center text-gray-500 text-sm mb-6">Platforms backed by</p>
-          <div className="flex flex-wrap justify-center gap-x-10 gap-y-4 text-gray-400">
+          <p className="text-center text-gray-500 text-xs sm:text-sm mb-4 sm:mb-6">Platforms backed by</p>
+          <div className="flex flex-wrap justify-center gap-x-4 sm:gap-x-10 gap-y-2 sm:gap-y-4 text-xs sm:text-base text-gray-400">
             <span>Pantera Capital</span>
             <span>Coinbase Ventures</span>
             <span>Founders Fund</span>
@@ -554,9 +554,9 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 px-4 bg-gray-900/30">
+      <section className="py-12 sm:py-16 px-4 bg-gray-900/30">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-10 text-center">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-6 sm:mb-10 text-center">
             Frequently Asked Questions
           </h2>
 
@@ -613,7 +613,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-10 text-center">
+          <div className="mt-6 sm:mt-10 text-center">
             <Link
               href="/blog/glossary"
               className="text-cyan-400 hover:text-cyan-300 font-medium inline-flex items-center gap-2"
@@ -628,32 +628,32 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
             Ready to Trade Stocks 24/7?
           </h2>
-          <p className="text-xl text-gray-400 mb-8">
+          <p className="text-base sm:text-xl text-gray-400 mb-6 sm:mb-8">
             Join thousands of traders worldwide using equity perps. Start with as little as $50 (₹4,000).
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a
               href="https://app.hyperliquid.xyz/join/COMPAREPERPS"
               target="_blank"
               rel="noopener sponsored"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-500 text-gray-900 rounded-xl font-bold text-lg hover:bg-cyan-400 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-cyan-500 text-gray-900 rounded-xl font-bold text-base sm:text-lg hover:bg-cyan-400 transition-colors"
             >
-              Start on Hyperliquid (4% Off Fees)
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              Start on Hyperliquid (4% Off)
+              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </a>
             <Link
               href="/stocks"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gray-800 border border-gray-700 text-white rounded-xl font-semibold text-lg hover:bg-gray-700 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gray-800 border border-gray-700 text-white rounded-xl font-semibold text-base sm:text-lg hover:bg-gray-700 transition-colors"
             >
               Browse All Stocks
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
@@ -662,9 +662,9 @@ export default function Home() {
       </section>
 
       {/* Free Site + Referral Notice */}
-      <section className="py-12 px-4 border-t border-gray-800">
+      <section className="py-8 sm:py-12 px-4 border-t border-gray-800">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-gray-400 text-sm leading-relaxed">
+          <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
             This site is <span className="text-white font-medium">100% free</span> to use for comparing the best platforms to trade stocks 24/7.
             When you sign up through our links to platforms like <span className="text-cyan-400">Hyperliquid</span> and <span className="text-cyan-400">Lighter</span>,
             you get a <span className="text-green-400 font-semibold">4% discount on trading fees</span> with our referral code.
