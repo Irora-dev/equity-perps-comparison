@@ -55,16 +55,16 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[80vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden pt-16 sm:pt-0">
         {/* Animated Background */}
         <div className="absolute inset-0">
           {/* Gradient base */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />
 
-          {/* Animated gradient orbs */}
-          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[120px] animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-500/15 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[150px]" />
+          {/* Animated gradient orbs - smaller on mobile */}
+          <div className="absolute top-1/4 left-1/4 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-cyan-500/20 rounded-full blur-[80px] sm:blur-[120px] animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-purple-500/15 rounded-full blur-[60px] sm:blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-emerald-500/10 rounded-full blur-[100px] sm:blur-[150px]" />
 
           {/* Grid overlay */}
           <div
@@ -77,10 +77,10 @@ export default function Home() {
         </div>
 
         {/* Floating Stock Tickers - Top */}
-        <div className="absolute top-8 left-0 right-0 overflow-hidden">
+        <div className="absolute top-4 sm:top-8 left-0 right-0 overflow-hidden">
           <div className="flex animate-scroll-left whitespace-nowrap">
             {[...Array(2)].map((_, setIndex) => (
-              <div key={setIndex} className="flex gap-6 px-3">
+              <div key={setIndex} className="flex gap-3 sm:gap-6 px-2 sm:px-3">
                 {[
                   { symbol: 'NVDA', change: '+2.4%', positive: true },
                   { symbol: 'TSLA', change: '+1.8%', positive: true },
@@ -93,10 +93,10 @@ export default function Home() {
                 ].map((stock, i) => (
                   <div
                     key={`${setIndex}-${i}`}
-                    className="flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full"
+                    className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full"
                   >
-                    <span className="text-white font-mono font-medium text-sm">{stock.symbol}</span>
-                    <span className={`font-mono text-sm ${stock.positive ? 'text-emerald-400' : 'text-red-400'}`}>
+                    <span className="text-white font-mono font-medium text-xs sm:text-sm">{stock.symbol}</span>
+                    <span className={`font-mono text-xs sm:text-sm ${stock.positive ? 'text-emerald-400' : 'text-red-400'}`}>
                       {stock.change}
                     </span>
                   </div>
@@ -109,64 +109,64 @@ export default function Home() {
         {/* Main Hero Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
           {/* Main Headline */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tight">
             <span className="text-white">Trade </span>
             <span className="bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
               NVDA · TSLA · AAPL
             </span>
-            <span className="block mt-2 text-gray-400 font-medium">
+            <span className="block mt-1 sm:mt-2 text-lg sm:text-3xl md:text-4xl lg:text-5xl text-gray-400 font-medium">
               No Broker. No KYC. No Limits.
             </span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-base sm:text-lg text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-lg text-gray-400 mb-6 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-2">
             Equity perpetuals let you trade <span className="text-white">50+ US stocks</span> around the clock
             with up to <span className="text-cyan-400">200x leverage</span>. Your keys, your funds.
           </p>
 
-          {/* Stats Row */}
-          <div className="flex flex-wrap justify-center gap-8 sm:gap-12 mb-12">
+          {/* Stats Row - 2x2 grid on mobile, row on desktop */}
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-4 sm:gap-8 md:gap-12 mb-8 sm:mb-12">
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white font-mono">$319B+</div>
-              <div className="text-sm text-gray-500 mt-1">Monthly Volume</div>
+              <div className="text-xl sm:text-4xl font-bold text-white font-mono">$319B+</div>
+              <div className="text-xs sm:text-sm text-gray-500 mt-1">Monthly Volume</div>
             </div>
             <div className="hidden sm:block w-px h-12 bg-gray-800" />
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white font-mono">50+</div>
-              <div className="text-sm text-gray-500 mt-1">US Stocks</div>
+              <div className="text-xl sm:text-4xl font-bold text-white font-mono">50+</div>
+              <div className="text-xs sm:text-sm text-gray-500 mt-1">US Stocks</div>
             </div>
             <div className="hidden sm:block w-px h-12 bg-gray-800" />
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white font-mono">24/7</div>
-              <div className="text-sm text-gray-500 mt-1">Trading</div>
+              <div className="text-xl sm:text-4xl font-bold text-white font-mono">24/7</div>
+              <div className="text-xs sm:text-sm text-gray-500 mt-1">Trading</div>
             </div>
             <div className="hidden sm:block w-px h-12 bg-gray-800" />
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-emerald-400 font-mono">0</div>
-              <div className="text-sm text-gray-500 mt-1">KYC Required</div>
+              <div className="text-xl sm:text-4xl font-bold text-emerald-400 font-mono">0</div>
+              <div className="text-xs sm:text-sm text-gray-500 mt-1">KYC Required</div>
             </div>
           </div>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0">
             <a
               href="#what-are-perps"
-              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 overflow-hidden rounded-xl font-bold text-lg transition-all"
+              className="group relative inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 overflow-hidden rounded-xl font-bold text-base sm:text-lg transition-all"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-emerald-500" />
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
               <span className="relative text-gray-900">Learn More</span>
-              <svg className="relative w-5 h-5 text-gray-900 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="relative w-4 h-4 sm:w-5 sm:h-5 text-gray-900 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </a>
             <Link
               href="/stocks"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-xl font-semibold text-lg hover:bg-white/10 hover:border-white/20 transition-all"
+              className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-xl font-semibold text-base sm:text-lg hover:bg-white/10 hover:border-white/20 transition-all"
             >
               View the Stock Hub
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
