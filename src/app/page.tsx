@@ -55,16 +55,16 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden pt-16 sm:pt-0">
+      <section className="relative min-h-[100svh] sm:min-h-[90vh] flex flex-col justify-center overflow-hidden py-20 sm:py-0">
         {/* Animated Background */}
         <div className="absolute inset-0">
           {/* Gradient base */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-[#0d1117] to-[#0a0a0f]" />
 
           {/* Animated gradient orbs - smaller on mobile */}
-          <div className="absolute top-1/4 left-1/4 w-[250px] sm:w-[500px] h-[250px] sm:h-[500px] bg-cyan-500/20 rounded-full blur-[80px] sm:blur-[120px] animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-purple-500/15 rounded-full blur-[60px] sm:blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-emerald-500/10 rounded-full blur-[100px] sm:blur-[150px]" />
+          <div className="absolute top-1/4 left-1/4 w-[200px] sm:w-[500px] h-[200px] sm:h-[500px] bg-cyan-500/20 rounded-full blur-[60px] sm:blur-[120px] animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-[150px] sm:w-[400px] h-[150px] sm:h-[400px] bg-purple-500/15 rounded-full blur-[50px] sm:blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[600px] h-[250px] sm:h-[600px] bg-emerald-500/10 rounded-full blur-[80px] sm:blur-[150px]" />
 
           {/* Grid overlay */}
           <div
@@ -76,11 +76,11 @@ export default function Home() {
           />
         </div>
 
-        {/* Floating Stock Tickers - Top */}
-        <div className="absolute top-4 sm:top-8 left-0 right-0 overflow-hidden">
+        {/* Floating Stock Tickers - Top - hidden on small mobile to prevent overlap */}
+        <div className="absolute top-2 sm:top-8 left-0 right-0 overflow-hidden hidden sm:block">
           <div className="flex animate-scroll-left whitespace-nowrap">
             {[...Array(2)].map((_, setIndex) => (
-              <div key={setIndex} className="flex gap-3 sm:gap-6 px-2 sm:px-3">
+              <div key={setIndex} className="flex gap-2 sm:gap-6 px-2 sm:px-3">
                 {[
                   { symbol: 'NVDA', change: '+2.4%', positive: true },
                   { symbol: 'TSLA', change: '+1.8%', positive: true },
@@ -93,10 +93,10 @@ export default function Home() {
                 ].map((stock, i) => (
                   <div
                     key={`${setIndex}-${i}`}
-                    className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-1.5 sm:py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full"
+                    className="flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1 sm:py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full"
                   >
-                    <span className="text-white font-mono font-medium text-xs sm:text-sm">{stock.symbol}</span>
-                    <span className={`font-mono text-xs sm:text-sm ${stock.positive ? 'text-emerald-400' : 'text-red-400'}`}>
+                    <span className="text-white font-mono font-medium text-[10px] sm:text-sm">{stock.symbol}</span>
+                    <span className={`font-mono text-[10px] sm:text-sm ${stock.positive ? 'text-emerald-400' : 'text-red-400'}`}>
                       {stock.change}
                     </span>
                   </div>
@@ -107,14 +107,14 @@ export default function Home() {
         </div>
 
         {/* Main Hero Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tight">
+          <h1 className="text-[1.625rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tight">
             <span className="text-white">Trade </span>
-            <span className="bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
+            <span className="bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient whitespace-nowrap">
               NVDA · TSLA · AAPL
             </span>
-            <span className="block mt-1 sm:mt-2 text-lg sm:text-3xl md:text-4xl lg:text-5xl text-gray-400 font-medium">
+            <span className="block mt-2 sm:mt-2 text-base sm:text-3xl md:text-4xl lg:text-5xl text-gray-400 font-medium">
               No Broker. No KYC. No Limits.
             </span>
           </h1>
